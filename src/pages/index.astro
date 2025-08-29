@@ -7,72 +7,136 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 
 const seo = {
-  title: "Penelope's Venue - Elegant Wedding & Event Venue",
-  description: "Premier wedding and event venue featuring outdoor gardens, historic charm, and full-service planning. Create unforgettable moments. Book today.",
-  keywords: "wedding venue, event venue, outdoor wedding, garden venue, event space rental",
+  title: "Penelope's Cafe & Venue - Premier Wedding & Event Space in Westminster, CO",
+  description: "Host unforgettable weddings and events at Penelope's Cafe & Venue in Westminster. Full-service catering, premium bar, and boutique space for 50-100 guests since 2004.",
+  keywords: "Westminster wedding venue, event venue Westminster CO, wedding venue Denver metro, full service event venue, boutique wedding venue, catering venue Westminster, Penelope's Cafe",
 };
 
 const services = [
   {
-    title: "Garden Ceremony Space",
-    description: "Exchange vows surrounded by blooming gardens and historic architecture",
-    icon: "🌸"
+    title: "Authentic Catering",
+    description: "Latin inspired cuisine crafted with passion - Bronze, Silver, and Gold packages available",
+    icon: "Chef's Hat"
   },
   {
-    title: "Covered Reception Area", 
-    description: "Weather-protected pavilion with rustic elegance for dining and dancing",
-    icon: "🏛️"
+    title: "Premium Bar Service",
+    description: "Curated cocktails, beer, and wine selection with professional bartending and full bar setup",
+    icon: "Bar Glass"
   },
   {
-    title: "Full-Service Planning",
-    description: "Our experienced team handles every detail from setup to cleanup",
-    icon: "✨"
+    title: "Complete Venue Buyout",
+    description: "Exclusive use of our charming cafe space for your private celebration with dedicated event management",
+    icon: "Event Space"
   },
   {
-    title: "Flexible Packages",
-    description: "Customizable options to fit your vision and budget perfectly",
-    icon: "🎯"
+    title: "Professional Event Team",
+    description: "Experienced staff in professional attire handling every detail from setup to cleanup",
+    icon: "Team"
   }
 ];
 
+
+
 const testimonials = [
   {
-    quote: "Penelope's Venue exceeded every expectation. The gardens were breathtaking!",
-    author: "Sarah & John Thompson",
-    event: "Garden Wedding"
+    quote: "Penelope's made our wedding reception absolutely perfect. The food was incredible, service flawless, and our guests still talk about it!",
+    author: "Maria & Carlos Rodriguez",
+    event: "Wedding Reception - 85 guests"
   },
   {
-    quote: "The perfect blend of elegance and natural beauty. Absolutely magical.",
-    author: "Emily Chen",
-    event: "Corporate Retreat"
+    quote: "As a Denver event planner, I always recommend Penelope's for their authentic cuisine and professional team. They consistently deliver excellence.",
+    author: "Jennifer Walsh",
+    event: "Corporate Holiday Party - 60 guests"
   },
   {
-    quote: "Our guests are still raving about the venue. Worth every penny!",
-    author: "Michael & Lisa Rodriguez",
-    event: "Anniversary Celebration"
+    quote: "The venue buyout option gave us the privacy we needed for our milestone anniversary. Every detail was perfect!",
+    author: "David & Susan Chen",
+    event: "50th Anniversary Celebration - 75 guests"
   }
+];
+
+const venueStats = [
+  { label: "Guest Capacity", value: "50-100", icon: "Guests" },
+  { label: "In House Catering", value: "Yes", icon: "Delicious Food" },
+  { label: "Spanish Inspired", value: "Yes", icon: "Moody Atmosphere" },
+  { label: "Location", value: "Westminster, CO", icon: "Location" }
 ];
 ---
 
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
   <!-- Hero Section -->
-  <Hero 
-    subheadline="Artisan breads and pastries crafted with passion, tradition, and the finest ingredients"
+  <Hero
+    subheadline="Boutique Spanish inspired venue with full kitchen and bar, exclusively yours for events of 50-100 guests. Your premier destination for weddings and celebrations in Westminster."
+    ctaPrimary={{ text: "Book Your Event", href: "/contact" }}
+    ctaSecondary={{ text: "View Our Menu", href: "/venue#menu" }}
   />
-  
+
+  <!-- Venue Overview Stats -->
+  <section class="relative py-24 px-6 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/penelope-diningroom.webp');">
+      <!-- Gradient Overlay for Text Readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+      <!-- Subtle Pattern Overlay for Texture -->
+      <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+      <!-- Section Header -->
+      <div class="w-full">
+        <div class="mb-16">
+          <h2 class="text-5xl font-display text-white mb-4 leading-tight">
+            Your Perfect <span class="text-primary">Event Venue</span>
+          </h2>
+          <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+            Experience the warmth of our Spanish-inspired space, designed for intimate gatherings of 50-100 guests
+          </p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {venueStats.map(stat => (
+            <div class="group hover-lift transition-all duration-300">
+              <!-- Glassmorphism Card -->
+              <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300">
+                <div class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
+                  {stat.icon}
+                </div>
+                <div class="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div class="text-white/80 text-sm font-medium">{stat.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-16">
+          <Button asChild size="lg" className="hover-scale bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl px-8 py-4">
+            <a href="/contact" class="text-lg font-medium">
+              Plan Your Event
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Section -->
   <section class="py-20 px-6 bg-background">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-display text-foreground mb-4">Why Choose Penelope's Venue</h2>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Complete Event Experience</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Why Choose Penelope's Cafe & Venue</h2>
         <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Discover what makes our venue the perfect setting for your special celebration
+          From our authentic Latin inspired cuisine to professional event management, we provide everything you need for unforgettable celebrations
         </p>
       </div>
-      
+
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map(service => (
-          <ServiceCard 
+          <ServiceCard
             title={service.title}
             description={service.description}
             icon={service.icon}
@@ -81,56 +145,143 @@ const testimonials = [
       </div>
     </div>
   </section>
-  
+
+  <!-- Meet the Owner - Lisseth -->
+  <section class="py-20 px-6 bg-gradient-to-br from-primary/5 via-background to-card/20">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Meet Our Owner</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Hey There, Welcome to Penelope's!</h2>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Discover the heart and soul behind Westminster's most beloved café and venue
+        </p>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Owner Photo -->
+        <div class="relative order-2 lg:order-1">
+          <div class="relative group">
+            <!-- Decorative Background -->
+            <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+            
+            <!-- Photo Container -->
+            <div class="relative bg-card rounded-2xl p-2 shadow-2xl hover-lift transition-all duration-500">
+              <img 
+                src="/lisseth-penelopes.jpg" 
+                alt="Lisseth, Owner of Penelope's Café & Venue"
+                class="w-full aspect-[4/5] object-cover rounded-xl shadow-lg"
+              />
+              
+             
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Content -->
+        <div class="order-1 lg:order-2">
+          <div class="space-y-6">
+            <!-- Introduction -->
+            <div>
+              <h3 class="text-2xl font-display text-foreground mb-4">I'm Lisseth</h3>
+              <p class="text-lg text-foreground/80 leading-relaxed">
+                I'm excited to own and operate this place with my ex-husband and business partner Mike, 
+                along with our older daughter Celeste who manages the front of house and hires our talented staff, 
+                while our younger daughter serves up smiles alongside them.
+              </p>
+            </div>
+
+            <!-- Heritage Story -->
+            <div class="bg-card/50 rounded-xl p-6 border border-primary/10">
+              <h4 class="text-lg font-semibold text-primary mb-3">Our Peruvian Roots</h4>
+              <p class="text-foreground/80 leading-relaxed">
+                The name Penélope's comes from my middle name and our older daughter's—Penélope—a nod to our Peruvian roots. 
+                I came to the U.S. from Peru at five, and my love for vibrant flavors shapes our Latin fusion menu.
+              </p>
+            </div>
+
+            <!-- Menu Highlights -->
+            <div>
+              <h4 class="text-lg font-semibold text-foreground mb-3">What We Love to Serve</h4>
+              <p class="text-foreground/80 leading-relaxed mb-4">
+                Think fresh salads, smoothies, lattes, steak and eggs, and fluffy pancakes topped with fresh fruit—light, filling dishes. As someone who loves to design spaces, I bring that same creativity to our catering setups, ensuring every event is beautifully arranged and flavorful.
+              </p>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </section>
+
   <!-- About Preview -->
-  <section class="py-20 px-6 bg-gradient-card">
+  <section class="py-20 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Story</Badge>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Experienced Team</Badge>
         <h2 class="text-4xl font-display text-foreground mb-6">
-          A Venue with Heart & History
+          Westminster's Premier Event Destination
         </h2>
         <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
-          Nestled in acres of meticulously maintained gardens, Penelope's Venue combines 
-          the charm of historic architecture with modern amenities. Our passionate team 
-          is dedicated to making your event as unique and beautiful as your love story.
+          Located at 8050 Federal Blvd in the heart of Westminster, Penelope's Venue
+          has been crafting authentic Latin fusion cuisine and hosting exceptional events. Our passion for culinary excellence and commitment to service excellence
+          makes us the go-to choice for weddings, corporate events, and special celebrations.
         </p>
-        <p class="text-muted-foreground mb-8">
-          From intimate gatherings to grand celebrations, we provide the perfect backdrop 
-          for life's most precious moments.
-        </p>
-        <Button asChild class="hover-scale">
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div class="text-center p-4 bg-primary/5 rounded-lg">
+            <div class="text-2xl font-bold text-primary">$</div>
+            <div class="text-sm text-muted-foreground"> The Perfect Package</div>
+          </div>
+          <div class="text-center p-4 bg-primary/5 rounded-lg">
+            <div class="text-2xl font-bold text-primary">3PM-11PM</div>
+            <div class="text-sm text-muted-foreground">Event Hours</div>
+          </div>
+        </div>
+        <Button asChild size="lg" className="hover-scale">
           <a href="/about" class="bg-primary text-primary-foreground hover:bg-primary/90">
-            Learn Our Story
+            Discover Our Story
           </a>
         </Button>
       </div>
       <div class="relative">
-        <div class="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg shadow-xl w-full flex items-center justify-center hover-lift transition-all duration-300">
-          <div class="text-center text-primary">
-            <div class="text-6xl mb-2">🏛️</div>
-            <p class="text-sm text-muted-foreground">Historic Venue</p>
+        <div class="relative group hover-lift transition-all duration-300">
+          <img 
+            src="/penelope-exterior.webp" 
+            alt="Penelope's Café & Venue Exterior - Westminster, CO"
+            class="w-full aspect-video object-cover rounded-lg shadow-xl"
+          />
+          <!-- Image Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <!-- Location Badge -->
+          <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+            <p class="text-sm font-semibold text-primary">Westminster, CO</p>
+            <p class="text-xs text-primary/70">8050 N Federal Blvd</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  
+
   <!-- Testimonials -->
   <section class="py-20 px-6 bg-background">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-display text-foreground mb-4">What Our Couples Say</h2>
+        <h2 class="text-4xl font-display text-foreground mb-4">What Our Clients Say</h2>
         <p class="text-lg text-muted-foreground">
-          Real stories from real celebrations
+          Real experiences from real events hosted at Penelope's Venue
         </p>
       </div>
-      
+
       <div class="grid md:grid-cols-3 gap-8">
         {testimonials.map(testimonial => (
-          <Card class="bg-card border-primary/20 hover-lift">
-            <CardContent class="p-6">
-              <blockquote class="text-foreground/80 mb-4 italic">
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
+            <CardContent className="p-6">
+              <blockquote class="text-foreground/80 mb-4 italic leading-relaxed">
                 "{testimonial.quote}"
               </blockquote>
               <div class="text-sm">
@@ -141,34 +292,41 @@ const testimonials = [
           </Card>
         ))}
       </div>
-      
+
       <div class="text-center mt-12">
-        <Button asChild variant="outline" class="hover-scale">
+        <Button asChild variant="outline" size="lg" className="hover-scale">
           <a href="/testimonials" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Read More Stories
+            Read More Success Stories
           </a>
         </Button>
       </div>
     </div>
   </section>
-  
-  <!-- CTA Section -->
-  <section class="py-20 px-6 bg-gradient-card">
+
+  <!-- Location & Contact CTA -->
+  <section class="py-16 px-6 bg-gradient-card">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Begin Your Journey?</h2>
+      <div class="mb-8">
+        <h2 class="text-3xl font-display text-foreground mb-2">Visit Us in Westminster</h2>
+        <p class="text-lg text-primary font-medium mb-2">8050 Federal Blvd, Westminster, CO 80031</p>
+        <p class="text-muted-foreground">
+          (720) 639-2406
+        </p>
+      </div>
+
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Event?</h2>
       <p class="text-xl mb-8 text-foreground/90">
-        Schedule a private tour of our venue and discover why couples choose 
-        Penelope's Venue for their most important celebrations.
+        Join hundreds of satisfied clients who have chosen Penelope's Venue for their most important celebrations
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button asChild size="lg" class="hover-scale">
+        <Button asChild size="lg" className="hover-scale">
           <a href="/contact" class="bg-primary text-primary-foreground hover:bg-primary/90">
-            Schedule Your Tour
+            Book Your Event
           </a>
         </Button>
         <Button asChild variant="outline" size="lg">
-          <a href="/services" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            View Packages
+          <a href="/venue" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            View Venue Details
           </a>
         </Button>
       </div>
