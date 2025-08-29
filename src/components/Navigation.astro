@@ -29,9 +29,9 @@ const currentPath = Astro.url.pathname;
         {navItems.map(item => (
           <a 
             href={item.href}
-            class={`text-sm font-medium transition-all duration-300 relative ${
-              currentPath === item.href 
-                ? 'text-primary' 
+            class={`text-sm font-medium font-display transition-all duration-300 relative ${
+              currentPath === item.href
+                ? 'text-primary'
                 : 'text-foreground/90 hover:text-primary'
             }`}
           >
@@ -43,7 +43,7 @@ const currentPath = Astro.url.pathname;
         ))}
         <a 
           href="/contact"
-          class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-300 hover-scale"
+          class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium font-display transition-all duration-300 hover-scale"
         >
           Book Now
         </a>
@@ -68,9 +68,9 @@ const currentPath = Astro.url.pathname;
         {navItems.map(item => (
           <a 
             href={item.href}
-            class={`block px-4 py-3 rounded-md text-base font-medium transition-all duration-300 ${
-              currentPath === item.href 
-                ? 'bg-primary/20 text-primary' 
+            class={`block px-4 py-3 rounded-md text-base font-medium font-display transition-all duration-300 ${
+              currentPath === item.href
+                ? 'bg-primary/20 text-primary'
                 : 'text-foreground hover:bg-primary/10 hover:text-primary'
             }`}
           >
@@ -79,7 +79,7 @@ const currentPath = Astro.url.pathname;
         ))}
         <a 
           href="/contact"
-          class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-base font-medium transition-all duration-300 mt-4"
+          class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-base font-medium font-display transition-all duration-300 mt-4"
         >
           Book Now
         </a>
