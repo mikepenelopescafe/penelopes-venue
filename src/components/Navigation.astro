@@ -1,0 +1,117 @@
+---
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 glass border-b border-primary/20 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <img 
+          src="/logo.svg" 
+          alt="Penelope's Venue" 
+          class="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+        />
+        
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map(item => (
+          <a 
+            href={item.href}
+            class={`text-sm font-medium transition-all duration-300 relative ${
+              currentPath === item.href 
+                ? 'text-primary' 
+                : 'text-foreground/90 hover:text-primary'
+            }`}
+          >
+            {item.label}
+            {currentPath === item.href && (
+              <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+            )}
+          </a>
+        ))}
+        <a 
+          href="/contact"
+          class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium transition-all duration-300 hover-scale"
+        >
+          Book Now
+        </a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation Panel -->
+    <div id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-20 glass-mobile">
+      <div class="px-4 pt-4 pb-6 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
+        {navItems.map(item => (
+          <a 
+            href={item.href}
+            class={`block px-4 py-3 rounded-md text-base font-medium transition-all duration-300 ${
+              currentPath === item.href 
+                ? 'bg-primary/20 text-primary' 
+                : 'text-foreground hover:bg-primary/10 hover:text-primary'
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a 
+          href="/contact"
+          class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-base font-medium transition-all duration-300 mt-4"
+        >
+          Book Now
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuButton?.addEventListener('click', () => {
+    const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Close mobile menu when clicking a link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu?.contains(e.target as Node) && !mobileMenuButton?.contains(e.target as Node)) {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

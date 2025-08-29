@@ -1,0 +1,100 @@
+---
+//import ScrollHint from './ScrollHint.astro';
+
+export interface Props {
+  headline?: string;
+  subheadline?: string;
+  showLogo?: boolean;
+  ctaPrimary?: {
+    text: string;
+    href: string;
+  };
+  ctaSecondary?: {
+    text: string;
+    href: string;
+  };
+  showScrollHint?: boolean;
+}
+
+const { 
+  headline, 
+  subheadline, 
+  showLogo = true,
+  ctaPrimary = { text: "Explore Menu", href: "/menu" },
+  ctaSecondary = { text: "Our Story", href: "/about" },
+  showScrollHint = true
+} = Astro.props;
+---
+
+<section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+  <!-- Background with gradient and pattern -->
+  <div class="absolute inset-0 bg-gradient-dark"></div>
+  <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
+    {showLogo && (
+      <div class="mb-8 animate-float">
+        <img 
+          src="/logo.svg" 
+          alt="Penelope's Venue Logo" 
+          class="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto"
+        />
+      </div>
+    )}
+  
+    
+    {subheadline && (
+      <div class="mb-12">
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          {subheadline}
+        </p>
+      </div>
+    )}
+    
+    {(ctaPrimary || ctaSecondary) && (
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        {ctaPrimary && (
+          <a 
+            href={ctaPrimary.href} 
+            class="bg-primary hover:bg-tan-hover text-primary-foreground px-8 py-4 rounded-md text-base font-medium transition-all duration-300 hover-scale inline-block"
+          >
+            {ctaPrimary.text}
+          </a>
+        )}
+        {ctaSecondary && (
+          <a 
+            href={ctaSecondary.href} 
+            class="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-md text-base font-medium transition-all duration-300 inline-block"
+          >
+            {ctaSecondary.text}
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+  
+  <!-- Scroll hint 
+  {showScrollHint && (
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <ScrollHint />
+    </div>
+  )}-->
+</section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero > div {
+    animation: fadeInUp 1s ease-out;
+  }
+</style>

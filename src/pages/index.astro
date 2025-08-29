@@ -1,25 +1,177 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const seo = {
+  title: "Penelope's Venue - Elegant Wedding & Event Venue",
+  description: "Premier wedding and event venue featuring outdoor gardens, historic charm, and full-service planning. Create unforgettable moments. Book today.",
+  keywords: "wedding venue, event venue, outdoor wedding, garden venue, event space rental",
+};
+
+const services = [
+  {
+    title: "Garden Ceremony Space",
+    description: "Exchange vows surrounded by blooming gardens and historic architecture",
+    icon: "🌸"
+  },
+  {
+    title: "Covered Reception Area", 
+    description: "Weather-protected pavilion with rustic elegance for dining and dancing",
+    icon: "🏛️"
+  },
+  {
+    title: "Full-Service Planning",
+    description: "Our experienced team handles every detail from setup to cleanup",
+    icon: "✨"
+  },
+  {
+    title: "Flexible Packages",
+    description: "Customizable options to fit your vision and budget perfectly",
+    icon: "🎯"
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Penelope's Venue exceeded every expectation. The gardens were breathtaking!",
+    author: "Sarah & John Thompson",
+    event: "Garden Wedding"
+  },
+  {
+    quote: "The perfect blend of elegance and natural beauty. Absolutely magical.",
+    author: "Emily Chen",
+    event: "Corporate Retreat"
+  },
+  {
+    quote: "Our guests are still raving about the venue. Worth every penny!",
+    author: "Michael & Lisa Rodriguez",
+    event: "Anniversary Celebration"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
-
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
-</html>
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <Hero 
+    subheadline="Artisan breads and pastries crafted with passion, tradition, and the finest ingredients"
+  />
+  
+  <!-- Services Section -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-display text-foreground mb-4">Why Choose Penelope's Venue</h2>
+        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Discover what makes our venue the perfect setting for your special celebration
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map(service => (
+          <ServiceCard 
+            title={service.title}
+            description={service.description}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Preview -->
+  <section class="py-20 px-6 bg-gradient-card">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Story</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-6">
+          A Venue with Heart & History
+        </h2>
+        <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
+          Nestled in acres of meticulously maintained gardens, Penelope's Venue combines 
+          the charm of historic architecture with modern amenities. Our passionate team 
+          is dedicated to making your event as unique and beautiful as your love story.
+        </p>
+        <p class="text-muted-foreground mb-8">
+          From intimate gatherings to grand celebrations, we provide the perfect backdrop 
+          for life's most precious moments.
+        </p>
+        <Button asChild class="hover-scale">
+          <a href="/about" class="bg-primary text-primary-foreground hover:bg-primary/90">
+            Learn Our Story
+          </a>
+        </Button>
+      </div>
+      <div class="relative">
+        <div class="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg shadow-xl w-full flex items-center justify-center hover-lift transition-all duration-300">
+          <div class="text-center text-primary">
+            <div class="text-6xl mb-2">🏛️</div>
+            <p class="text-sm text-muted-foreground">Historic Venue</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-display text-foreground mb-4">What Our Couples Say</h2>
+        <p class="text-lg text-muted-foreground">
+          Real stories from real celebrations
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {testimonials.map(testimonial => (
+          <Card class="bg-card border-primary/20 hover-lift">
+            <CardContent class="p-6">
+              <blockquote class="text-foreground/80 mb-4 italic">
+                "{testimonial.quote}"
+              </blockquote>
+              <div class="text-sm">
+                <div class="font-medium text-foreground">{testimonial.author}</div>
+                <div class="text-primary">{testimonial.event}</div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
+        <Button asChild variant="outline" class="hover-scale">
+          <a href="/testimonials" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            Read More Stories
+          </a>
+        </Button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="py-20 px-6 bg-gradient-card">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Begin Your Journey?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Schedule a private tour of our venue and discover why couples choose 
+        Penelope's Venue for their most important celebrations.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button asChild size="lg" class="hover-scale">
+          <a href="/contact" class="bg-primary text-primary-foreground hover:bg-primary/90">
+            Schedule Your Tour
+          </a>
+        </Button>
+        <Button asChild variant="outline" size="lg">
+          <a href="/services" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            View Packages
+          </a>
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>

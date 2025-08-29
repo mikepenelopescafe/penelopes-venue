@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  
+  return pages.map(entry => ({
+    params: { slug: entry.slug === 'index' ? undefined : entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// SEO metadata
+const seo = {
+  title: entry.data.title,
+  description: entry.data.description,
+  keywords: entry.data.keywords?.join(', '),
+  canonical: entry.data.canonical || Astro.url.href,
+  ogImage: entry.data.ogImage,
+  noIndex: entry.data.noIndex || false,
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords} canonical={seo.canonical}>
+  <div class="min-h-screen">
+    {entry.data.hero && (
+      <section class="relative bg-gradient-to-b from-brand-cream to-white py-20 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+          <h1 class="text-5xl md:text-6xl font-serif text-brand-forest mb-6">
+            {entry.data.hero.headline}
+          </h1>
+          {entry.data.hero.subheadline && (
+            <p class="text-xl md:text-2xl text-brand-forest/80 mb-8">
+              {entry.data.hero.subheadline}
+            </p>
+          )}
+          <a 
+            href={entry.data.hero.ctaLink} 
+            class="inline-block bg-brand-gold hover:bg-brand-gold/90 text-white px-8 py-4 rounded-md text-lg font-medium transition-colors"
+          >
+            {entry.data.hero.ctaText}
+          </a>
+        </div>
+      </section>
+    )}
+    
+    <article class="prose prose-lg max-w-4xl mx-auto px-6 py-16">
+      <Content />
+    </article>
+
+    {entry.data.sections && (
+      <div class="space-y-16 pb-16">
+        {entry.data.sections.map((section) => (
+          <section class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-serif text-brand-forest mb-6">{section.title}</h2>
+            <div class="prose prose-lg max-w-none">
+              <p>{section.content}</p>
+            </div>
+          </section>
+        ))}
+      </div>
+    )}
+  </div>
+</Layout>
