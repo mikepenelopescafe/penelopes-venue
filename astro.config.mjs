@@ -35,7 +35,9 @@ export default defineConfig({
     }),
   ],
 
-  output: 'static',
+  output: 'server',
+
+  adapter: vercel(),
 
   image: {
     domains: ['penelopesvenue.com'],
