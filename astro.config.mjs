@@ -48,6 +48,5 @@ export default defineConfig({
 
   redirects: {
     '/events': '/services',
-    '/gallery': '/portfolio',
   },
 });

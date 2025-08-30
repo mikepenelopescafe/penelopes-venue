@@ -1,0 +1,64 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { title = "Let's Create Something Beautiful Together", subtitle = "Whether you're planning a wedding, corporate event, or special celebration, we're here to make your vision come to life." } = Astro.props;
+---
+
+<section class="relative py-24 px-6 overflow-hidden">
+  <!-- Background with venue styling -->
+  <div class="absolute inset-0 bg-gradient-dark"></div>
+  <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-4xl mx-auto">
+    <div class="mb-8">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-display text-white mb-6 leading-tight">
+        {title}
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Quick navigation to forms -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      <a href="#book" class="btn-primary-lg">
+        Book Your Event
+      </a>
+      <a href="#general" class="btn-outline-lg">
+        General Inquiry
+      </a>
+    </div>
+
+    <!-- Contact info -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="text-center">
+       
+        <h3 class="text-lg font-display text-white mb-2">Call Us</h3>
+        <p class="text-white/80">(720) 639-2406</p>
+      </div>
+      <div class="text-center">
+       
+        <h3 class="text-lg font-display text-white mb-2">Email</h3>
+        <p class="text-white/80">events@penelopes.cafe</p>
+      </div>
+      <div class="text-center">
+       
+        <h3 class="text-lg font-display text-white mb-2">Visit</h3>
+        <p class="text-white/80">8050 N Federal Blvd<br>Westminster, CO 80031</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div class="animate-bounce">
+      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </div>
+</section>

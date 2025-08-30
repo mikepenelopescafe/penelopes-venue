@@ -5,7 +5,7 @@ const navItems = [
   { label: 'Gallery', href: '/gallery' },
   { label: 'Blog', href: '/blog' },
   { label: 'Testimonials', href: '/testimonials' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/contact#general' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -41,8 +41,8 @@ const currentPath = Astro.url.pathname;
             )}
           </a>
         ))}
-        <a 
-          href="/contact"
+        <a
+          href="/contact#book"
           class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium font-display transition-all duration-300 hover-scale"
         >
           Book Now
@@ -77,8 +77,8 @@ const currentPath = Astro.url.pathname;
             {item.label}
           </a>
         ))}
-        <a 
-          href="/contact"
+        <a
+          href="/contact#book"
           class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-base font-medium font-display transition-all duration-300 mt-4"
         >
           Book Now
