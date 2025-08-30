@@ -2,7 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/Hero.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
@@ -15,7 +14,7 @@ const seo = {
 const services = [
   {
     title: "Authentic Catering",
-    description: "Latin inspired cuisine crafted with passion - Bronze, Silver, and Gold packages available",
+    description: "Latin fusion cuisine crafted with passion - Bronze, Silver, and Gold packages available",
     icon: "Chef's Hat"
   },
   {
@@ -39,19 +38,15 @@ const services = [
 
 const testimonials = [
   {
-    quote: "Penelope's made our wedding reception absolutely perfect. The food was incredible, service flawless, and our guests still talk about it!",
-    author: "Maria & Carlos Rodriguez",
-    event: "Wedding Reception - 85 guests"
+    quote: "Penelope's made my bridal shower absolutely perfect. The food was incredible, service flawless, and our guests still talk about it!",
+    author: "Maria Rodriguez",
+    event: "Bridal Shower - 50 guests"
   },
+  
   {
-    quote: "As a Denver event planner, I always recommend Penelope's for their authentic cuisine and professional team. They consistently deliver excellence.",
-    author: "Jennifer Walsh",
-    event: "Corporate Holiday Party - 60 guests"
-  },
-  {
-    quote: "The venue buyout option gave us the privacy we needed for our milestone anniversary. Every detail was perfect!",
-    author: "David & Susan Chen",
-    event: "50th Anniversary Celebration - 75 guests"
+    quote: "The venue buyout option gave us the privacy we needed for our milestone birthday celebration. Every detail was perfect!",
+    author: "David & Susan",
+    event: "Birthday Celebration - 75 guests"
   }
 ];
 
@@ -113,11 +108,9 @@ const venueStats = [
 
         <!-- Call to Action -->
         <div class="mt-16">
-          <Button asChild size="lg" className="hover-scale bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl px-8 py-4">
-            <a href="/contact" class="text-lg font-medium">
-              Plan Your Event
-            </a>
-          </Button>
+          <a href="/contact" class="btn-primary-lg">
+            Plan Your Event
+          </a>
         </div>
       </div>
     </div>
@@ -234,18 +227,15 @@ const venueStats = [
         <div class="grid grid-cols-2 gap-6 mb-8">
           <div class="text-center p-4 bg-primary/5 rounded-lg">
             <div class="text-2xl font-bold text-primary">$</div>
-            <div class="text-sm text-muted-foreground"> The Perfect Package</div>
+            <div class="text-sm text-muted-foreground"> Perfect Package</div>
           </div>
           <div class="text-center p-4 bg-primary/5 rounded-lg">
-            <div class="text-2xl font-bold text-primary">3PM-11PM</div>
+            <div class="text-2xl font-bold text-primary">9AM-11PM</div>
             <div class="text-sm text-muted-foreground">Event Hours</div>
           </div>
         </div>
-        <Button asChild size="lg" className="hover-scale">
-          <a href="/about" class="bg-primary text-primary-foreground hover:bg-primary/90">
-            Discover Our Story
-          </a>
-        </Button>
+
+
       </div>
       <div class="relative">
         <div class="relative group hover-lift transition-all duration-300">
@@ -277,7 +267,7 @@ const venueStats = [
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 gap-8">
         {testimonials.map(testimonial => (
           <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
             <CardContent className="p-6">
@@ -292,15 +282,13 @@ const venueStats = [
           </Card>
         ))}
       </div>
-
+<!-- 
       <div class="text-center mt-12">
-        <Button asChild variant="outline" size="lg" className="hover-scale">
-          <a href="/testimonials" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Read More Success Stories
-          </a>
-        </Button>
+        <a href="/testimonials" class="btn-outline">
+          Read More Success Stories
+        </a>
       </div>
-    </div>
+    </div>-->
   </section>
 
   <!-- Location & Contact CTA -->
@@ -319,16 +307,12 @@ const venueStats = [
         Join hundreds of satisfied clients who have chosen Penelope's Venue for their most important celebrations
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button asChild size="lg" className="hover-scale">
-          <a href="/contact" class="bg-primary text-primary-foreground hover:bg-primary/90">
-            Book Your Event
-          </a>
-        </Button>
-        <Button asChild variant="outline" size="lg">
-          <a href="/venue" class="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            View Venue Details
-          </a>
-        </Button>
+        <a href="/contact" class="btn-primary">
+          Book Your Event
+        </a>
+        <a href="/venue" class="btn-outline">
+          View Venue Details
+        </a>
       </div>
     </div>
   </section>

@@ -11,8 +11,8 @@ const { title, description, icon, href } = Astro.props;
 const Component = href ? 'a' : 'div';
 ---
 
-<Component 
-  class="service-card bg-gradient-card border border-primary/20 rounded-lg p-6 transition-all duration-300 hover-lift hover:border-primary/40 block"
+<Component
+  class="service-card bg-gradient-card border border-primary/20 rounded-lg p-6 block"
   href={href}
 >
   {icon && (
@@ -35,38 +35,8 @@ const Component = href ? 'a' : 'div';
     position: relative;
     overflow: hidden;
   }
-  
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      oklch(0.75 0.06 80), 
-      transparent
-    );
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
-  }
-  
-  .service-card:hover::before {
-    transform: translateX(100%);
-  }
-  
+
   .icon-container {
     display: inline-block;
-    animation: float-subtle 3s ease-in-out infinite;
-  }
-  
-  @keyframes float-subtle {
-    0%, 100% { 
-      transform: translateY(0); 
-    }
-    50% { 
-      transform: translateY(-5px); 
-    }
   }
 </style>

@@ -9,9 +9,12 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://penelopesvenue.com', // Update with your actual domain
-  
+
   vite: {
     plugins: [tailwindcss()],
+    css: {
+      postcss: {},
+    },
   },
 
   integrations: [

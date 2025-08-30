@@ -328,4 +328,25 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Button Utility Classes */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg text-base font-medium transition-all duration-300 hover:scale-105 inline-block;
+  }
+
+  .btn-primary-lg {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:scale-105 inline-block shadow-xl;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-lg text-base font-medium transition-all duration-300 hover:scale-105 inline-block;
+  }
+
+  .btn-outline-lg {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 hover:scale-105 inline-block;
+  }
+
+  .btn-secondary {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 inline-block;
+  }
 }
