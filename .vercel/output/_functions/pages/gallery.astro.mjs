@@ -1,6 +1,6 @@
 import { b as createAstro, c as createComponent, m as maybeRenderHead, r as renderComponent, e as renderScript, d as addAttribute, a as renderTemplate } from '../chunks/astro/server_CwXNHDtl.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_BU3SEtpR.mjs';
+import { $ as $$Layout } from '../chunks/Layout_C-LHEuIl.mjs';
 import { B as Badge } from '../chunks/badge_CutUV_Ed.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';

@@ -1,6 +1,6 @@
 import { b as createAstro, c as createComponent, m as maybeRenderHead, a as renderTemplate, r as renderComponent, F as Fragment$1 } from '../chunks/astro/server_CwXNHDtl.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_BU3SEtpR.mjs';
+import { $ as $$Layout } from '../chunks/Layout_C-LHEuIl.mjs';
 import 'clsx';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import * as React from 'react';

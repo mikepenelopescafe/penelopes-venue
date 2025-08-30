@@ -103,8 +103,8 @@ Please respond within 4 hours during business hours.
     }
 
     // Send email via Plunk (you'll need to configure this)
-    const plunkApiKey = import.meta.env.PLUNK_API_KEY;
-    const contactEmail = import.meta.env.CONTACT_EMAIL || 'events@penelopes.cafe';
+    const plunkApiKey = process.env.PLUNK_API_KEY || import.meta.env.PLUNK_API_KEY;
+    const contactEmail = process.env.CONTACT_EMAIL || import.meta.env.CONTACT_EMAIL || 'events@penelopes.cafe';
 
     if (plunkApiKey) {
       try {
@@ -174,6 +174,7 @@ Please respond within 4 hours during business hours.
     // Send confirmation email to user (always enabled for better customer experience)
     if (plunkApiKey) {
       const confirmationTemplate = createConfirmationEmailTemplate(formData);
+      const fromEmail = process.env.FROM_EMAIL || import.meta.env.FROM_EMAIL || contactEmail;
 
       try {
         await fetch('https://api.useplunk.com/v1/send', {
