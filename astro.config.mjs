@@ -37,7 +37,9 @@ export default defineConfig({
 
   output: 'server',
 
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
 
   image: {
     domains: ['penelopesvenue.com'],
