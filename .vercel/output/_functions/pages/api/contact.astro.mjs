@@ -513,8 +513,8 @@ Please respond within 4 hours during business hours.
       `.trim();
       htmlContent = generalTemplate.html;
     }
-    const plunkApiKey = "sk_8eda9e2134212e55657515dea62e4e83da2cc449567d4f9d";
-    const contactEmail = "events@penelopes.cafe";
+    const plunkApiKey = process.env.PLUNK_API_KEY || "sk_8eda9e2134212e55657515dea62e4e83da2cc449567d4f9d";
+    const contactEmail = process.env.CONTACT_EMAIL || "events@penelopes.cafe";
     if (plunkApiKey) {
       try {
         console.log("📧 Sending email with subject:", emailSubject);
@@ -573,6 +573,7 @@ Please respond within 4 hours during business hours.
     }
     if (plunkApiKey) {
       const confirmationTemplate = createConfirmationEmailTemplate(formData);
+      const fromEmail = process.env.FROM_EMAIL || "events@penelopes.cafe";
       try {
         await fetch("https://api.useplunk.com/v1/send", {
           method: "POST",

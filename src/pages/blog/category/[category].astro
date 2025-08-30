@@ -2,20 +2,23 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 
-export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog');
-  const categories = [...new Set(blogPosts.map(post => post.data.category))];
-  
-  return categories.map(category => ({
-    params: { category },
-    props: { 
-      posts: blogPosts.filter(post => post.data.category === category),
-      category 
-    },
-  }));
-}
+// Handle dynamic routing in server mode
+const { category } = Astro.params;
 
-const { posts, category } = Astro.props;
+// Get posts dynamically based on the category
+let posts;
+try {
+  const blogPosts = await getCollection('blog');
+  posts = blogPosts.filter(post => post.data.category === category);
+  
+  // If no posts found for this category, return 404
+  if (posts.length === 0) {
+    return Astro.redirect('/404');
+  }
+} catch (error) {
+  console.error('Error loading blog category:', error);
+  return Astro.redirect('/404');
+}
 
 // Sort posts by date
 const sortedPosts = posts.sort((a, b) => {

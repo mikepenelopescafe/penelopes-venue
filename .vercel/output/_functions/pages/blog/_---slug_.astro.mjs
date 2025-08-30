@@ -5,17 +5,22 @@ import { $ as $$Layout } from '../../chunks/Layout_C-LHEuIl.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("https://penelopesvenue.com");
-async function getStaticPaths() {
-  const blogPosts = await getCollection("blog");
-  return blogPosts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post }
-  }));
-}
 const $$ = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$;
-  const { post } = Astro2.props;
+  const { slug } = Astro2.params;
+  let post;
+  try {
+    const blogPosts = await getCollection("blog");
+    const targetSlug = Array.isArray(slug) ? slug.join("/") : slug;
+    post = blogPosts.find((p) => p.slug === targetSlug);
+    if (!post) {
+      return Astro2.redirect("/404");
+    }
+  } catch (error) {
+    console.error("Error loading blog post:", error);
+    return Astro2.redirect("/404");
+  }
   const { Content } = await post.render();
   const formattedDate = post.data.publishDate?.toLocaleDateString("en-US", {
     year: "numeric",
@@ -50,7 +55,6 @@ const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$,
   file: $$file,
-  getStaticPaths,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 

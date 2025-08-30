@@ -5,17 +5,26 @@ import { $ as $$Layout } from '../chunks/Layout_C-LHEuIl.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://penelopesvenue.com");
-async function getStaticPaths() {
-  const pages = await getCollection("pages");
-  return pages.map((entry) => ({
-    params: { slug: entry.slug === "index" ? void 0 : entry.slug },
-    props: { entry }
-  }));
-}
 const $$ = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$;
-  const { entry } = Astro2.props;
+  const { slug } = Astro2.params;
+  let entry;
+  try {
+    const pages = await getCollection("pages");
+    if (!slug || slug.length === 0) {
+      entry = pages.find((p) => p.slug === "index");
+    } else {
+      const targetSlug = Array.isArray(slug) ? slug.join("/") : slug;
+      entry = pages.find((p) => p.slug === targetSlug);
+    }
+    if (!entry) {
+      return Astro2.redirect("/404");
+    }
+  } catch (error) {
+    console.error("Error loading page:", error);
+    return Astro2.redirect("/404");
+  }
   const { Content } = await entry.render();
   const seo = {
     title: entry.data.title,
@@ -35,7 +44,6 @@ const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$,
   file: $$file,
-  getStaticPaths,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 

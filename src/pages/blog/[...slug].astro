@@ -2,16 +2,25 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 
-export async function getStaticPaths() {
+// Handle dynamic routing in server mode
+const { slug } = Astro.params;
+
+// Get the blog post dynamically based on the slug
+let post;
+try {
   const blogPosts = await getCollection('blog');
+  const targetSlug = Array.isArray(slug) ? slug.join('/') : slug;
+  post = blogPosts.find(p => p.slug === targetSlug);
   
-  return blogPosts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  // If no post found, return 404
+  if (!post) {
+    return Astro.redirect('/404');
+  }
+} catch (error) {
+  console.error('Error loading blog post:', error);
+  return Astro.redirect('/404');
 }
 
-const { post } = Astro.props;
 const { Content } = await post.render();
 
 const formattedDate = post.data.publishDate?.toLocaleDateString('en-US', {

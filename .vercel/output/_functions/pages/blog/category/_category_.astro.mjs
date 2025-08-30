@@ -5,21 +5,21 @@ import { $ as $$Layout } from '../../../chunks/Layout_C-LHEuIl.mjs';
 export { renderers } from '../../../renderers.mjs';
 
 const $$Astro = createAstro("https://penelopesvenue.com");
-async function getStaticPaths() {
-  const blogPosts = await getCollection("blog");
-  const categories = [...new Set(blogPosts.map((post) => post.data.category))];
-  return categories.map((category) => ({
-    params: { category },
-    props: {
-      posts: blogPosts.filter((post) => post.data.category === category),
-      category
-    }
-  }));
-}
 const $$category = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$category;
-  const { posts, category } = Astro2.props;
+  const { category } = Astro2.params;
+  let posts;
+  try {
+    const blogPosts = await getCollection("blog");
+    posts = blogPosts.filter((post) => post.data.category === category);
+    if (posts.length === 0) {
+      return Astro2.redirect("/404");
+    }
+  } catch (error) {
+    console.error("Error loading blog category:", error);
+    return Astro2.redirect("/404");
+  }
   const sortedPosts = posts.sort((a, b) => {
     const dateA = a.data.publishDate?.valueOf() || 0;
     const dateB = b.data.publishDate?.valueOf() || 0;
@@ -58,7 +58,6 @@ const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$category,
   file: $$file,
-  getStaticPaths,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 

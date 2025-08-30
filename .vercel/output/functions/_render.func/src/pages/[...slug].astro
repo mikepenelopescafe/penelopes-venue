@@ -2,16 +2,32 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 
-export async function getStaticPaths() {
+// Handle dynamic routing in server mode
+const { slug } = Astro.params;
+
+// Get the entry dynamically based on the slug
+let entry;
+try {
   const pages = await getCollection('pages');
   
-  return pages.map(entry => ({
-    params: { slug: entry.slug === 'index' ? undefined : entry.slug },
-    props: { entry },
-  }));
+  // Handle root path (/) - should map to index.md
+  if (!slug || slug.length === 0) {
+    entry = pages.find(p => p.slug === 'index');
+  } else {
+    // Handle other slugs
+    const targetSlug = Array.isArray(slug) ? slug.join('/') : slug;
+    entry = pages.find(p => p.slug === targetSlug);
+  }
+  
+  // If no entry found, return 404
+  if (!entry) {
+    return Astro.redirect('/404');
+  }
+} catch (error) {
+  console.error('Error loading page:', error);
+  return Astro.redirect('/404');
 }
 
-const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // SEO metadata
