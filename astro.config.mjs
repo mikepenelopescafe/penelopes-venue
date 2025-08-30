@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,12 +35,9 @@ export default defineConfig({
     }),
   ],
 
-  output: 'static',
-  
-  build: {
-    format: 'directory',
-    assets: '_assets',
-  },
+  output: 'server',
+
+  adapter: vercel(),
 
   image: {
     domains: ['penelopesvenue.com'],
