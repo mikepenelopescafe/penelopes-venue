@@ -5,13 +5,7 @@
   "installCommand": "npm install",
   "functions": {
     "src/pages/api/**/*.ts": {
-      "runtime": "@astrojs/vercel/edge"
+      "runtime": "nodejs22.x"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  }
 }
