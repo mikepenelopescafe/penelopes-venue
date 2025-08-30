@@ -35,12 +35,7 @@ export default defineConfig({
     }),
   ],
 
-  output: 'hybrid',
-
-  adapter: vercel({
-    webAnalytics: { enabled: true },
-    speedInsights: { enabled: true }
-  }),
+  output: 'static',
 
   image: {
     domains: ['penelopesvenue.com'],
