@@ -5,19 +5,19 @@ import { $ as $$Layout } from '../chunks/Layout_C-LHEuIl.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://penelopesvenue.com");
+const prerender = false;
 const $$ = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$;
   const { slug } = Astro2.params;
+  if (!slug || slug.length === 0) {
+    return Astro2.redirect("/");
+  }
   let entry;
   try {
     const pages = await getCollection("pages");
-    if (!slug || slug.length === 0) {
-      entry = pages.find((p) => p.slug === "index");
-    } else {
-      const targetSlug = Array.isArray(slug) ? slug.join("/") : slug;
-      entry = pages.find((p) => p.slug === targetSlug);
-    }
+    const targetSlug = Array.isArray(slug) ? slug.join("/") : slug;
+    entry = pages.find((p) => p.slug === targetSlug);
     if (!entry) {
       return Astro2.redirect("/404");
     }
@@ -44,6 +44,7 @@ const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$,
   file: $$file,
+  prerender,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 

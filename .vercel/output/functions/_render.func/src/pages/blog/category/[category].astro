@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 
+export const prerender = false;
+
 // Handle dynamic routing in server mode
 const { category } = Astro.params;
 
