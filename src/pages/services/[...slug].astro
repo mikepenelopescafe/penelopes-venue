@@ -2,26 +2,18 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 
-export const prerender = false;
+export const prerender = true;
 
-// Handle dynamic routing in server mode
-const { slug } = Astro.params;
-
-// Get the service dynamically based on the slug
-let service;
-try {
+export async function getStaticPaths() {
   const services = await getCollection('services');
-  const targetSlug = Array.isArray(slug) ? slug.join('/') : slug;
-  service = services.find(s => s.slug === targetSlug);
-  
-  // If no service found, return 404
-  if (!service) {
-    return Astro.redirect('/404');
-  }
-} catch (error) {
-  console.error('Error loading service:', error);
-  return Astro.redirect('/404');
+  return services.map(service => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
 }
+
+// Handle dynamic routing
+const { service } = Astro.props;
 
 const { Content } = await service.render();
 
