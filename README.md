@@ -63,18 +63,40 @@ npm run preview
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── ui/             # shadcn/ui components
-│   ├── Hero.astro      # Main hero section
-│   ├── Navigation.astro # Site navigation
-│   └── Footer.astro    # Site footer
-├── content/            # MDX content files
-│   ├── blog/          # Blog posts
-│   ├── services/      # Service pages
-│   └── testimonials/  # Client testimonials
+│   ├── ui/             # shadcn/ui components (button, card, input, etc.)
+│   ├── Hero.astro      # Main hero section with logo and CTA
+│   ├── Navigation.astro # Responsive navigation header
+│   ├── Footer.astro    # Site footer with links and contact info
+│   ├── ContactForm.tsx # Interactive contact form (React)
+│   ├── ContactHero.astro # Contact page hero section
+│   ├── ContactSection.astro # Contact form sections
+│   ├── Gallery.tsx     # Interactive photo gallery with lightbox
+│   └── ServiceCard.astro # Service feature cards
+├── content/            # MDX content files with type-safe schemas
+│   ├── blog/          # Wedding planning blog posts
+│   ├── services/      # Service packages and details
+│   ├── testimonials/  # Client testimonials and reviews
+│   ├── pages/         # Custom landing pages
+│   └── config.ts      # Content collection schemas (Zod validation)
 ├── layouts/           # Page layouts
-├── lib/               # Utility functions
-├── pages/             # Route pages
-└── styles/            # Global styles and Tailwind config
+│   ├── Layout.astro   # Main layout with navigation/footer
+│   └── main.astro     # Minimal layout for special pages
+├── lib/               # Utility functions and business logic
+│   ├── utils.ts       # cn() utility and helper functions
+│   └── email-templates.ts # Professional email template generators
+├── pages/             # Route pages and API endpoints
+│   ├── index.astro    # Homepage with hero and services
+│   ├── contact.astro  # Contact page with booking/general forms
+│   ├── gallery/       # Photo gallery page
+│   │   └── index.astro
+│   ├── pricing.astro  # Pricing information page
+│   ├── [...slug].astro # Dynamic content pages (blog, services)
+│   ├── blog/          # Blog listing and detail pages
+│   ├── services/      # Service listing and detail pages
+│   └── api/           # Serverless API routes
+│       └── contact.ts # Contact form processing endpoint
+└── styles/            # Global styles and design system
+    └── global.css     # Tailwind config and custom theme
 ```
 
 ## 🎨 Design System
@@ -140,6 +162,106 @@ export default defineConfig({
   // ... other config
 });
 ```
+
+## 🏗️ Astro Design Principles
+
+This project implements modern Astro design patterns for optimal performance and developer experience:
+
+### Image Optimization
+- **Astro Image Component**: Automatic optimization, responsive images, and modern formats (WebP, AVIF)
+- **Lazy Loading**: Images load as needed to improve initial page load times
+- **Proper Sizing**: Width/height attributes prevent layout shift
+
+### View Transitions
+- **ClientRouter**: Seamless page transitions using Astro's View Transitions API
+- **Persistent Elements**: Hero sections maintain position during navigation
+- **Loading States**: Smooth user experience during route changes
+
+### Server-Side Rendering (SSR)
+- **Hybrid Rendering**: Static pages pre-rendered, dynamic content server-rendered
+- **API Routes**: Serverless functions for form processing and dynamic data
+- **SEO Benefits**: Server-rendered content improves search engine indexing
+
+### Pre-rendering Strategy
+- **Static Generation**: Marketing pages (home, services) pre-built for speed
+- **Dynamic Content**: Blog posts and testimonials generated at build time
+- **On-Demand Rendering**: API endpoints render when requested
+
+## 📧 Contact System
+
+### Dual Form Architecture
+The contact system supports two specialized form types:
+
+#### Event Booking Form
+- **Purpose**: Wedding and event inquiries requiring immediate attention
+- **Fields**: Name, Email, Phone, Event Type, Guest Count, Date, Budget, Requirements
+- **SLA**: 24-hour response time for booking inquiries
+- **Features**: Detailed event specifications and timeline planning
+
+#### General Inquiry Form
+- **Purpose**: General questions, vendor partnerships, media inquiries
+- **Fields**: Name, Email, Phone, Subject, Message
+- **SLA**: 4-hour response time during business hours
+- **Features**: Categorized subjects and flexible messaging
+
+### API Integration
+- **Serverless Endpoint**: `/api/contact` processes form submissions
+- **Email Templates**: Professional HTML templates matching brand design
+- **Plunk Integration**: Transactional email service for reliable delivery
+- **Auto-confirmation**: Customers receive immediate confirmation emails
+
+### Form Features
+- **Client-side Validation**: Real-time form validation with error messages
+- **TypeScript Safety**: Full type safety for form data and API responses
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Accessibility**: Proper labels, ARIA attributes, and keyboard navigation
+
+## 📝 Content Management (MDX)
+
+### Type-Safe Collections
+Content is managed through Astro's Content Collections with Zod validation:
+
+- **Blog Posts**: SEO-optimized articles with categories and metadata
+- **Services**: Package details with pricing, capacity, and amenities
+- **Testimonials**: Client reviews with ratings and event details
+- **Pages**: Custom landing pages with flexible content sections
+
+### Schema Validation
+```typescript
+// Example service schema
+const serviceSchema = z.object({
+  title: z.string().max(60),
+  description: z.string().min(120).max(160),
+  price: z.object({
+    starting: z.number(),
+    currency: z.string().default('USD')
+  }),
+  capacity: z.object({
+    min: z.number(),
+    max: z.number()
+  })
+});
+```
+
+## 🎯 Key Features
+
+### Performance Optimizations
+- **Image Optimization**: Automatic format conversion and responsive loading
+- **CSS Optimization**: Tailwind CSS v4 with efficient purging
+- **JavaScript Minimization**: Tree shaking and code splitting
+- **Font Loading**: Optimized web font loading with preconnect headers
+
+### SEO & Accessibility
+- **Meta Tags**: Comprehensive SEO meta tags and Open Graph data
+- **Structured Data**: Schema.org markup for venue information
+- **Sitemap Generation**: Automatic sitemap creation for search engines
+- **Accessibility**: WCAG compliant with proper ARIA labels
+
+### Development Experience
+- **TypeScript**: Full type safety with strict mode enabled
+- **Hot Reload**: Fast development with instant preview
+- **Component Library**: Consistent UI with shadcn/ui components
+- **Path Aliases**: Clean imports with `@/` prefix
 
 ## 🤝 Contributing
 
