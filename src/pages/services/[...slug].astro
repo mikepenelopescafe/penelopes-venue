@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 export const prerender = true;
 
@@ -85,9 +86,11 @@ const seo = {
             <div class="grid grid-cols-2 gap-4">
               {service.data.gallery.map(image => (
                 <div class="relative">
-                  <img 
-                    src={image.src} 
+                  <Image
+                    src={image.src}
                     alt={image.alt}
+                    width={300}
+                    height={200}
                     class="w-full rounded-lg shadow-md"
                   />
                   {image.caption && (

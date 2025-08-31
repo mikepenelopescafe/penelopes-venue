@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 export const prerender = true;
 
@@ -80,9 +81,11 @@ const seo = {
           return (
             <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden">
               {post.data.image && (
-                <img 
-                  src={post.data.image.src} 
+                <Image
+                  src={post.data.image.src}
                   alt={post.data.image.alt}
+                  width={400}
+                  height={192}
                   class="w-full h-48 object-cover"
                 />
               )}

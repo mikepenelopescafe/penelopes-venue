@@ -6,6 +6,7 @@ import Hero from '@/components/Hero.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Image } from 'astro:assets';
 
 const seo = {
   title: "Penelope's Cafe & Venue - Boutique Wedding & Event Space in Westminster, CO",
@@ -69,7 +70,7 @@ const venueStats = [
   />
 
   <!-- Venue Overview Stats -->
-  <section class="relative py-24 px-6 overflow-hidden">
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
          style="background-image: url('/penelope-diningroom.webp');">
@@ -119,7 +120,7 @@ const venueStats = [
   </section>
 
   <!-- Services Section -->
-  <section class="py-20 px-6 bg-background">
+  <section class="py-20 px-6 bg-background" transition:name="services">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Complete Event Experience</Badge>
@@ -143,7 +144,7 @@ const venueStats = [
 
 
   <!-- About Preview -->
-  <section class="py-20 px-6 bg-card/30">
+  <section class="py-20 px-6 bg-card/30" transition:name="about-preview">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
       <div>
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Experienced Team</Badge>
@@ -170,9 +171,11 @@ const venueStats = [
       </div>
       <div class="relative">
         <div class="relative group hover-lift transition-all duration-300">
-          <img 
-            src="/penelope-exterior.webp" 
+          <Image
+            src="/penelope-exterior.webp"
             alt="Penelope's Café & Venue Exterior - Westminster, CO"
+            width={800}
+            height={450}
             class="w-full aspect-video object-cover rounded-lg shadow-xl"
           />
           <!-- Image Overlay -->

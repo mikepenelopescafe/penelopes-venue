@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 export const prerender = true;
 
@@ -86,9 +87,11 @@ const seo = {
     
     {post.data.image && (
       <div class="max-w-4xl mx-auto px-6 py-8">
-        <img 
-          src={post.data.image.src} 
+        <Image
+          src={post.data.image.src}
           alt={post.data.image.alt}
+          width={800}
+          height={450}
           class="w-full rounded-lg shadow-lg"
         />
         {post.data.image.caption && (

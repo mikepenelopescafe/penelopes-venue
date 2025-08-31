@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
@@ -42,7 +44,7 @@ const contactInfo = {
       <!-- Brand & Contact Info -->
       <div class="lg:col-span-1">
         <div class="mb-4 flex items-center space-x-2">
-          <img src="/logo.svg" alt="Penelope's" class="h-8 w-auto" />
+          <Image src="/logo.svg" alt="Penelope's" width={128} height={32} class="h-8 w-auto" />
         </div>
         <p class="text-sm text-muted-foreground mb-4">
           Crafting beautiful experiences in our boutique venue.

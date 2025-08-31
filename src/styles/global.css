@@ -350,3 +350,94 @@
     @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 inline-block;
   }
 }
+
+/* ===== VIEW TRANSITIONS ===== */
+/* Custom transition animations matching your Spanish-inspired design */
+
+::view-transition-old(root) {
+  animation: fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-new(root) {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom slide transitions for forward/backward navigation */
+::view-transition-old(slide-out) {
+  animation: slideOutLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-new(slide-in) {
+  animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideOutLeft {
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+/* Hero section specific transitions */
+::view-transition-old(hero) {
+  animation: heroFadeOut 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-new(hero) {
+  animation: heroFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes heroFadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(slide-out),
+  ::view-transition-new(slide-in),
+  ::view-transition-old(hero),
+  ::view-transition-new(hero) {
+    animation: none;
+  }
+}

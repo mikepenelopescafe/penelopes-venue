@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import Layout from '@/layouts/Layout.astro';
-import Gallery from '@/components/Gallery.astro';
+import Gallery from '@/components/Gallery.tsx';
 
 const seo = {
   title: "Gallery - Penelope's Cafe & Venue | Event Space Photos",
@@ -212,7 +212,7 @@ const galleryImages = [
 
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
   <!-- Hero Section -->
-  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20">
+  <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20" transition:name="gallery-hero">
     <!-- Background with gradient -->
     <div class="absolute inset-0 bg-gradient-dark"></div>
     <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
