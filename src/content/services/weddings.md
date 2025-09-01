@@ -11,11 +11,7 @@ location:
   isGeneric: true
 packageName: "Wedding Venue Packages"
 shortDescription: "Beautiful wedding venues throughout the Denver metro with garden ceremonies, covered receptions, and professional coordination."
-price:
-  starting: 3500
-  currency: "USD"
-  unit: "per-event"
-  pricingNote: "Starting at - varies by location and package"
+pricingTierId: "wedding-garden"
 capacity:
   min: 20
   max: 150

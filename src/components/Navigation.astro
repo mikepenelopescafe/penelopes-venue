@@ -95,13 +95,21 @@ const currentPath = Astro.url.pathname;
 <script>
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
-  
+
   mobileMenuButton?.addEventListener('click', () => {
-    const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-    mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
-    mobileMenu?.classList.toggle('hidden');
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+
+    if (isExpanded) {
+      // Close the menu
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      mobileMenu?.classList.add('hidden');
+    } else {
+      // Open the menu
+      mobileMenuButton.setAttribute('aria-expanded', 'true');
+      mobileMenu?.classList.remove('hidden');
+    }
   });
-  
+
   // Close mobile menu when clicking a link
   const mobileLinks = mobileMenu?.querySelectorAll('a');
   mobileLinks?.forEach(link => {
@@ -110,7 +118,7 @@ const currentPath = Astro.url.pathname;
       mobileMenuButton?.setAttribute('aria-expanded', 'false');
     });
   });
-  
+
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!mobileMenu?.contains(e.target as Node) && !mobileMenuButton?.contains(e.target as Node)) {

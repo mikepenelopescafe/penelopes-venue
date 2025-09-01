@@ -9,9 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Micro Wedding Experience"
 shortDescription: "Intimate, all-inclusive wedding packages for up to 30 guests in our charming Westminster venue."
-price:
-  starting: 2500
-  pricingNote: "Starting at - see full pricing page for complete packages"
+pricingTierId: "wedding-micro"
 capacity:
   min: 10
   max: 30

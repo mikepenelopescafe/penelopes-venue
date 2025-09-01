@@ -9,9 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Bridal Shower Elegance"
 shortDescription: "Elegant bridal shower venue in Westminster with customizable packages for intimate celebrations and engagement parties."
-price:
-  starting: 1400
-  pricingNote: "Starting at - see full pricing page for complete packages"
+pricingTierId: "social-shower"
 capacity:
   min: 15
   max: 60

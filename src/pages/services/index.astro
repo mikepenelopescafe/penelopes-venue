@@ -3,6 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { getServicePricing } from '@/lib/pricing-utils';
 
 export const prerender = true;
 
@@ -13,7 +14,7 @@ const genericServices = services.filter(service => service.data.location?.isGene
 const locationServices = services.filter(service => !service.data.location?.isGeneric);
 
 // Group generic services by type for main display
-const servicesByType = genericServices.reduce((acc, service) => {
+const servicesByType = genericServices.reduce((acc: Record<string, any[]>, service) => {
   const type = service.data.serviceType;
   if (!acc[type]) {
     acc[type] = [];
@@ -23,7 +24,7 @@ const servicesByType = genericServices.reduce((acc, service) => {
 }, {});
 
 // Group location services by type (for "available in locations" section)
-const locationServicesByType = locationServices.reduce((acc, service) => {
+const locationServicesByType = locationServices.reduce((acc: Record<string, any[]>, service) => {
   const type = service.data.serviceType;
   if (!acc[type]) {
     acc[type] = [];
@@ -33,7 +34,7 @@ const locationServicesByType = locationServices.reduce((acc, service) => {
 }, {});
 
 // Service type labels for display
-const serviceTypeLabels = {
+const serviceTypeLabels: Record<string, string> = {
   'micro-wedding': 'Micro Weddings',
   'elopement': 'Elopements',
   'corporate-event': 'Corporate Events',
@@ -109,8 +110,9 @@ const seo = {
 
       <!-- Service Type Cards -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        {Object.entries(servicesByType).map(([type, typeServices]) => {
-          const featuredService = typeServices.find(s => s.data.featured) || typeServices[0];
+        {Object.entries(servicesByType).map(([type, typeServices]: [string, any[]]) => {
+          const featuredService = typeServices.find((s: any) => s.data.featured) || typeServices[0];
+          const featuredServicePricing = getServicePricing(featuredService);
           const availableLocations = featuredService.data.availableLocations || [];
           
           // Get location count from location-specific services of this type
@@ -145,7 +147,7 @@ const seo = {
                   <div class="flex justify-between items-center text-sm">
                     <span class="text-muted-foreground">Starting at:</span>
                     <span class="font-medium text-primary">
-                      ${featuredService.data.price.starting.toLocaleString()}
+                      ${featuredServicePricing.price.toLocaleString()}
                     </span>
                   </div>
                 </div>
@@ -188,29 +190,32 @@ const seo = {
       <div class="bg-card/50 rounded-xl p-8">
         <h3 class="text-2xl font-display text-foreground mb-6 text-center">All Available Services</h3>
         <div class="grid md:grid-cols-2 gap-6">
-          {services.map(service => (
-            <div class="flex items-center justify-between p-4 bg-primary/5 rounded-lg">
-              <div>
-                <h4 class="font-medium text-foreground mb-1">{service.data.packageName}</h4>
-                <p class="text-sm text-muted-foreground">{service.data.shortDescription}</p>
-                <div class="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
-                  <span>{service.data.capacity.min}-{service.data.capacity.max} guests</span>
-                  <span>{service.data.location.city}, {service.data.location.state}</span>
+          {services.map((service: any) => {
+            const servicePricing = getServicePricing(service);
+            return (
+              <div class="flex items-center justify-between p-4 bg-primary/5 rounded-lg">
+                <div>
+                  <h4 class="font-medium text-foreground mb-1">{service.data.packageName}</h4>
+                  <p class="text-sm text-muted-foreground">{service.data.shortDescription}</p>
+                  <div class="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
+                    <span>{service.data.capacity.min}-{service.data.capacity.max} guests</span>
+                    <span>{service.data.location.city}, {service.data.location.state}</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="text-lg font-bold text-primary mb-1">
+                    ${servicePricing.price.toLocaleString()}
+                  </div>
+                  <a
+                    href={`/services/${service.slug}`}
+                    class="text-xs text-primary hover:underline"
+                  >
+                    View Details →
+                  </a>
                 </div>
               </div>
-              <div class="text-right">
-                <div class="text-lg font-bold text-primary mb-1">
-                  ${service.data.price.starting.toLocaleString()}
-                </div>
-                <a
-                  href={`/services/${service.slug}`}
-                  class="text-xs text-primary hover:underline"
-                >
-                  View Details →
-                </a>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

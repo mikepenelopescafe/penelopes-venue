@@ -9,9 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Romantic Elopement Experience"
 shortDescription: "Private, romantic elopement packages for couples seeking an intimate ceremony in our Westminster venue."
-price:
-  starting: 1800
-  pricingNote: "Starting at - see full pricing page for complete packages"
+pricingTierId: "wedding-elopement"
 capacity:
   min: 2
   max: 15

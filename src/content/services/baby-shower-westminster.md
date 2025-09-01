@@ -9,9 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Baby Shower Celebration"
 shortDescription: "Joyful baby shower venue in Westminster with themed packages, games, and complete coordination for celebrating expectant parents."
-price:
-  starting: 1300
-  pricingNote: "Starting at - see full pricing page for complete packages"
+pricingTierId: "social-shower"
 capacity:
   min: 15
   max: 50

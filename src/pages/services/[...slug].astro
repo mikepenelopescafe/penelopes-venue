@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import { getServicePricing, getRecommendedAddOns } from '@/lib/pricing-utils';
 
 export const prerender = true;
 
@@ -18,23 +19,12 @@ const { service } = Astro.props;
 
 const { Content } = await service.render();
 
-// Format price
-const formatPrice = (price) => {
-  const formatted = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: price.currency,
-  }).format(price.starting);
+// Get pricing information using new utility
+const servicePricing = getServicePricing(service);
 
-  const unitText = {
-    'per-event': 'per event',
-    'per-hour': 'per hour',
-    'per-guest': 'per guest',
-  }[price.unit];
-
-  const pricingNote = price.pricingNote ? ` ${price.pricingNote}` : '';
-
-  return `Starting at ${formatted} ${unitText}${pricingNote}`;
-};
+// Get recommended add-ons if this service has a pricing tier
+const recommendedAddOns = service.data.pricingTierId ? 
+  getRecommendedAddOns(service.data.pricingTierId) : [];
 
 // SEO metadata
 const seo = {
@@ -79,7 +69,7 @@ const seo = {
           <div class="pricing-info-bg inline-block">
             <div class="flex flex-wrap gap-6 items-center text-white">
               <div class="text-2xl font-medium text-primary">
-                {formatPrice(service.data.price)}
+                {servicePricing.formatted}
               </div>
               <div class="text-lg text-white/90">
                 {service.data.capacity.min}-{service.data.capacity.max} guests
@@ -129,76 +119,134 @@ const seo = {
       
       <aside class="lg:sticky lg:top-8 h-fit">
         <div class="bg-white rounded-lg shadow-lg p-6 space-y-6">
-          <h3 class="text-xl font-serif text-brand-forest">Package Includes</h3>
-          
+          <h3 class="text-xl font-serif" style="color: #2a4035;">Package Includes</h3>
+
           <ul class="space-y-3">
             {service.data.amenities.map(amenity => (
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: #d6b67e;">
                   <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                 </svg>
-                <span class="text-brand-forest/80">{amenity}</span>
+                <span style="color: #2a4035;">{amenity}</span>
               </li>
             ))}
           </ul>
           
-          <div class="border-t pt-6">
+                    <div class="border-t pt-6">
             <div class="space-y-4">
               <div>
-                <p class="text-sm text-brand-forest/60 mb-1">Capacity</p>
-                <p class="font-medium text-brand-forest">
+                <p class="text-sm mb-1" style="color: #2a4035;">Capacity</p>
+                <p class="font-medium" style="color: #2a4035;">
                   {service.data.capacity.min} - {service.data.capacity.max} guests
                 </p>
               </div>
-              
+
               <div>
-                <p class="text-sm text-brand-forest/60 mb-1">Availability</p>
-                <p class="font-medium text-brand-forest capitalize">
+                <p class="text-sm mb-1" style="color: #2a4035;">Availability</p>
+                <p class="font-medium capitalize" style="color: #2a4035;">
                   {service.data.availability.replace('-', ' ')}
                 </p>
               </div>
-              
+
               <div>
-                <p class="text-sm text-brand-forest/60 mb-1">Starting Price</p>
-                <p class="text-xl font-medium text-brand-gold">
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: service.data.price.currency,
-                  }).format(service.data.price.starting)}
+                <p class="text-sm mb-1" style="color: #2a4035;">Starting Price</p>
+                <p class="text-xl font-medium" style="color: #d6b67e;">
+                  ${servicePricing.price.toLocaleString()}
                 </p>
+                {servicePricing.tier && (
+                  <p class="text-xs text-muted-foreground">
+                    {servicePricing.tier.duration} hours included
+                  </p>
+                )}
               </div>
             </div>
-          </div>
-          
           <div class="space-y-3">
             {service.data.bookingLink ? (
               <a
                 href={service.data.bookingLink}
-                class="block w-full bg-brand-gold hover:bg-brand-gold/90 text-white text-center px-6 py-3 rounded-md font-medium transition-colors"
+                class="block w-full text-white text-center px-6 py-3 rounded-md font-medium transition-colors"
+                style="background-color: #d6b67e;"
+                onmouseover="this.style.backgroundColor='#b8975e'"
+                onmouseout="this.style.backgroundColor='#d6b67e'"
               >
                 Book This Package
               </a>
             ) : (
               <a
                 href="/contact"
-                class="block w-full bg-brand-gold hover:bg-brand-gold/90 text-white text-center px-6 py-3 rounded-md font-medium transition-colors"
+                class="block w-full text-white text-center px-6 py-3 rounded-md font-medium transition-colors"
+                style="background-color: #d6b67e;"
+                onmouseover="this.style.backgroundColor='#b8975e'"
+                onmouseout="this.style.backgroundColor='#d6b67e'"
               >
                 Request Information
               </a>
             )}
             <a
               href={service.data.pricingPageLink || '/pricing'}
-              class="block w-full border border-brand-forest/20 hover:border-brand-forest/40 text-brand-forest text-center px-6 py-3 rounded-md font-medium transition-colors"
+              class="block w-full text-center px-6 py-3 rounded-md font-medium transition-colors"
+              style="border: 1px solid rgba(42, 64, 53, 0.2); color: #2a4035;"
+              onmouseover="this.style.borderColor='rgba(42, 64, 53, 0.4)'"
+              onmouseout="this.style.borderColor='rgba(42, 64, 53, 0.2)'"
             >
               View Full Pricing
             </a>
             <a
               href="/contact"
-              class="block w-full border border-brand-forest/20 hover:border-brand-forest/40 text-brand-forest text-center px-6 py-3 rounded-md font-medium transition-colors"
+              class="block w-full text-center px-6 py-3 rounded-md font-medium transition-colors"
+              style="border: 1px solid rgba(42, 64, 53, 0.2); color: #2a4035;"
+              onmouseover="this.style.borderColor='rgba(42, 64, 53, 0.4)'"
+              onmouseout="this.style.borderColor='rgba(42, 64, 53, 0.2)'"
             >
               Schedule a Tour
             </a>
           </div>
+
+          {/* Add-ons Section - only show if using new pricing system */}
+          {recommendedAddOns.length > 0 && (
+            <div class="border-t pt-6">
+              <h3 class="text-lg font-serif mb-4" style="color: #2a4035;">Popular Add-ons</h3>
+              <div class="space-y-3">
+                {recommendedAddOns.map(addOn => (
+                  <div class="p-3 bg-primary/5 rounded-lg">
+                    <div class="flex justify-between items-start mb-1">
+                      <span class="font-medium text-sm" style="color: #2a4035;">{addOn.name}</span>
+                      <span class="text-primary font-bold text-sm">{addOn.price}</span>
+                    </div>
+                    <p class="text-xs text-muted-foreground">{addOn.description}</p>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="/pricing#add-ons"
+                class="block w-full text-center px-4 py-2 rounded-md font-medium transition-colors text-sm mt-4"
+                style="border: 1px solid rgba(42, 64, 53, 0.2); color: #2a4035;"
+                onmouseover="this.style.borderColor='rgba(42, 64, 53, 0.4)'"
+                onmouseout="this.style.borderColor='rgba(42, 64, 53, 0.2)'"
+              >
+                View All Add-ons
+              </a>
+            </div>
+          )}
+
+          {/* Pricing tier info - show enhanced details if using new system */}
+          {servicePricing.tier && (
+            <div class="border-t pt-6">
+              <h3 class="text-lg font-serif mb-4" style="color: #2a4035;">Package Details</h3>
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span style="color: #2a4035;">Duration:</span>
+                  <span class="font-medium">{servicePricing.tier.duration} hours</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span style="color: #2a4035;">Guest Range:</span>
+                  <span class="font-medium">
+                    {servicePricing.tier.guestRange[0]}-{servicePricing.tier.guestRange[1]} guests
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </aside>
     </div>

@@ -9,9 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Private Celebration Package"
 shortDescription: "Flexible private party venue in Westminster for birthdays, anniversaries, and special celebrations with complete setup and coordination."
-price:
-  starting: 1500
-  pricingNote: "Starting at - see full pricing page for complete packages"
+pricingTierId: "social-birthday"
 capacity:
   min: 20
   max: 75

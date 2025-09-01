@@ -53,6 +53,11 @@ const config: Config = {
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
+        // Brand colors for Penelope's Venue
+        'brand-forest': 'var(--color-forest-green)',
+        'brand-gold': 'var(--color-tan)',
+        'brand-brown': 'var(--color-brown)',
+        'brand-blue-gray': 'var(--color-blue-gray)',
       },
     },
   },

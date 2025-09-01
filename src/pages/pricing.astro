@@ -4,84 +4,26 @@ export const prerender = true;
 import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { pricingTiers, addOnPricing, cateringPackages, barPackages, venuePricing } from '@/data/pricing';
+import { formatPrice, formatPriceRange, getServicesByCategory } from '@/lib/pricing-utils';
 
 const seo = {
-  title: "Venue Rental Pricing & Packages - Penelope's Boutique Venue",
-  description: "Transparent pricing for venue rental, catering, and bar services. Combined venue space (up to 135-145 guests) available 24/7. Flexible time blocks: 3-hour minimum (off-peak), 4-hour, or 8-hour blocks. All-American and Latin fusion catering options.",
-  keywords: "venue rental pricing, event venue packages, party venue cost, catering packages, bar service pricing, Spanish stucco venue, 24/7 venue rental, flexible time blocks",
+  title: "Event Venue Pricing & Packages - Penelope's Boutique Venue",
+  description: "Transparent pricing for weddings, corporate events, and social celebrations. Event packages starting at $750 with venue, catering, and bar service options in Westminster, CO.",
+  keywords: "event venue pricing, wedding venue packages, corporate event cost, party venue rates, Westminster Colorado venue pricing, transparent event pricing",
 };
 
-const venuePricing = {
-  combined: {
-    capacity: "Up to 135 guests",
-    squareFootage: "1,500 sq ft",
-    offPeak: {
-      days: "Sundays & Weekdays (Monday-Thursday)",
-      threeHour: { price: "$750", rate: "$250/hour" },
-      fourHour: { price: "$1,100", rate: "$275/hour" },
-      eightHour: { price: "$2,000", rate: "$250/hour" }
-    },
-    peak: {
-      days: "Fridays, Saturdays & Holiday Sundays",
-      fourHour: { price: "$1,800", rate: "$450/hour" },
-      eightHour: { price: "$3,200", rate: "$400/hour" }
-    },
-    premium: {
-      days: "New Year's Eve, Christmas, Thanksgiving, 4th of July, Halloween",
-      fourHour: { price: "$2,500", rate: "$625/hour" },
-      eightHour: { price: "$4,500", rate: "$562.50/hour" }
-    },
-    holidaySundays: {
-      days: "U.S. federal holidays observed on Sunday",
-      fourHour: { price: "$1,800", rate: "$450/hour" },
-      eightHour: { price: "$3,200", rate: "$400/hour" }
-    }
-  }
-};
+// Get services by category for display
+const servicesByCategory = getServicesByCategory();
 
-const addOns = [
-  { name: "Microphone", price: "$50", description: "Professional microphone for speeches or announcements" },
-  { name: "Projector", price: "$75", description: "HD projector with screen for presentations" },
-  { name: "Extended Hours", price: "$250/hour", description: "Beyond selected block, subject to availability" },
-  { name: "Bar Service", price: "$300", description: "Includes 1 bartender for 20+ guests; meets $150 drink minimum" }
-];
-
-const cateringPackages = {
-  american: {
-    name: "All-American",
-    description: "Hearty, crowd-pleasing dishes with fresh, local ingredients, perfect for bar events or casual gatherings",
-    priceRange: "$18-45/guest",
-    serviceStyles: {
-      plated: "Formal, seated service (+$1-3/guest)",
-      buffet: "Casual, self-serve (+$0/guest)",
-      passed: "Staff-circulated for mingling (+$1-2/guest)"
-    },
-    packages: [
-      { name: "Bar Bites Package", buffet: "$18/guest", passed: "$20/guest", description: "3 Small Plates + Side. Ideal for casual mixers." },
-      { name: "All-American Feast", plated: "$35-45/guest", buffet: "$32-42/guest", description: "Small Plate + Main + Dessert. Perfect for heartier events." }
-    ]
-  },
-  latinFusion: {
-    name: "Latin Fusion",
-    description: "Vibrant flavors from Mexico, Peru and beyond, aligning with the venue's rustic-modern aesthetic",
-    priceRange: "$18-48/guest",
-    serviceStyles: {
-      plated: "Formal, seated service (+$1-3/guest)",
-      buffet: "Casual, self-serve (+$0/guest)",
-      passed: "Staff-circulated for mingling (+$1-2/guest)"
-    },
-    packages: [
-      { name: "Tasting Plate", buffet: "$18/guest", passed: "$20/guest", description: "3 Small Plates + Dessert. Great for casual bar events." },
-      { name: "Full Latin Feast", plated: "$38-48/guest", buffet: "$35-45/guest", description: "Small Plate + Main + Dessert. Ideal for upscale gatherings." }
-    ]
-  }
-};
-
-
-
-const barPackages = [
-  { name: "Open Bar (2 hours)", beerWine: "$25/guest", fullBar: "$35/guest", description: "Pre-paid drinks for 2 hours - beer/wine or full bar with cocktails" },
-  { name: "Cash Bar", description: "Guests pay per drink, meets $150 minimum via sales" }
+// Add-ons for display
+const popularAddOns = [
+  addOnPricing.catering,
+  addOnPricing.bar,
+  addOnPricing.photography,
+  addOnPricing.flowers,
+  addOnPricing['extended-hours'],
+  addOnPricing['upgraded-linens']
 ];
 ---
 
@@ -103,531 +45,388 @@ const barPackages = [
         <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Transparent Pricing</Badge>
 
         <h1 class="text-5xl font-display text-white mb-6 leading-tight">
-          Venue Rental & <span class="text-primary">Package Pricing</span>
+          Simple, Clear <span class="text-primary">Event Pricing</span>
         </h1>
 
         <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
-          Welcome to Penélope's Boutique Venue, your Spanish inspiredvenue for anytime events! Rent our venue space
-          (up to 135 guests) with flexible time blocks: 3-hour minimum (off-peak only), 4-hour, or 8-hour blocks.
-          Includes basic bar setup, ambient lighting, basic linens, and a day-of contact for logistics. Perfect for gatherings
-          where you handle the programming, decorations, and additional equipment.
+          Choose your event type, see what's included, and get transparent pricing. No hidden fees, no surprises.
+          From intimate celebrations to grand weddings, we have packages designed for every occasion.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#venue-rental" class="btn-primary-lg">
-            View Venue Pricing
+          <a href="#wedding-packages" class="btn-primary-lg">
+            View Wedding Packages
           </a>
-          <a href="#catering" class="btn-outline-lg">
-            Explore Catering
+          <a href="#event-packages" class="btn-outline-lg">
+            Explore All Events
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Venue Rental Pricing Section -->
-  <section id="venue-rental" class="py-20 px-6 bg-background" transition:name="venue-pricing">
+  <!-- Wedding Packages Section -->
+  <section id="wedding-packages" class="py-20 px-6 bg-background" transition:name="wedding-pricing">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Venue Rental</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Venue Space</h2>
-        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
-          Rent the venue space (up to 135-145 guests) anytime, day or night.
-          Rentals are offered in flexible time blocks: 3-hour minimum (off-peak only), 4-hour, or 8-hour blocks,
-          including setup and cleanup. Includes basic bar setup (tables, chairs, mingling areas), ambient lighting, basic linens,
-          and a day-of contact for logistics. Renters handle event programming, decorations, and additional equipment
-          (e.g., sound system—add-ons available).
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Wedding Celebrations</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Wedding Packages</h2>
+        <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+          From intimate elopements to grand celebrations, our wedding packages include everything you need for your perfect day.
         </p>
       </div>
 
-      <!-- Pricing Cards -->
-      <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
-        <!-- Off-Peak Pricing (Sundays & Weekdays) -->
-        <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
-          <CardHeader className="text-center">
-            <CardTitle className="text-xl font-display text-foreground mb-2">Off-Peak</CardTitle>
-            <CardDescription className="text-base text-primary font-medium">{venuePricing.combined.offPeak.days}</CardDescription>
-            <div class="text-xs text-muted-foreground mt-2">More affordable rates</div>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div class="space-y-2 text-center">
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">3-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.offPeak.threeHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.offPeak.threeHour.rate}</div>
+      <!-- Wedding Package Cards -->
+      <div class="grid lg:grid-cols-4 gap-6 mb-12">
+        {Object.values(servicesByCategory.weddings).map(tier => (
+          <Card className={`bg-card border-primary/20 hover-lift transition-all duration-300 ${tier.popular ? 'ring-2 ring-primary/20' : ''}`}>
+            <CardHeader className="text-center relative">
+              {tier.popular && (
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
+                </div>
+              )}
+              <CardTitle className="text-xl font-display text-foreground mb-2">{tier.name}</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground mb-4">{tier.description}</CardDescription>
+              <div class="text-3xl font-bold text-primary mb-2">
+                ${tier.basePrice.toLocaleString()}
               </div>
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">4-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.offPeak.fourHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.offPeak.fourHour.rate}</div>
+              <div class="text-sm text-muted-foreground">
+                {tier.guestRange[0]}-{tier.guestRange[1]} guests • {tier.duration} hours
               </div>
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">8-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.offPeak.eightHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.offPeak.eightHour.rate}</div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h4 class="font-medium text-foreground mb-2">Included:</h4>
+                <ul class="space-y-1 text-sm text-muted-foreground">
+                  {tier.includes.slice(0, 4).map(item => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 mt-0.5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                  {tier.includes.length > 4 && (
+                    <li class="text-xs text-primary">+ {tier.includes.length - 4} more included</li>
+                  )}
+                </ul>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+              
+              <div class="pt-4 space-y-2">
+                <a
+                  href={`/contact?service=${tier.id}`}
+                  class="block w-full text-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium"
+                >
+                  Get This Package
+                </a>
+                <a
+                  href={`/services/${tier.id}`}
+                  class="block w-full text-center px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-primary/5 transition-colors text-sm"
+                >
+                  View Details
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
 
-        <!-- Peak Pricing (Fridays & Saturdays) -->
-        <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
-          <CardHeader className="text-center">
-            <CardTitle className="text-xl font-display text-foreground mb-2">Peak</CardTitle>
-            <CardDescription className="text-base text-primary font-medium">Fridays & Saturdays</CardDescription>
-            <div class="text-xs text-muted-foreground mt-2">Higher demand periods</div>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div class="space-y-2 text-center">
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">4-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.peak.fourHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.peak.fourHour.rate}</div>
-              </div>
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">8-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.peak.eightHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.peak.eightHour.rate}</div>
-              </div>
-            </div>
-            <div class="text-center p-2 bg-accent/10 rounded-lg">
-              <div class="text-xs text-muted-foreground">3-hour blocks not available</div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <!-- Holiday Sundays -->
-        <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
-          <CardHeader className="text-center">
-            <CardTitle className="text-xl font-display text-foreground mb-2">Holiday Sundays</CardTitle>
-            <CardDescription className="text-base text-primary font-medium">U.S. Federal Holidays</CardDescription>
-            <div class="text-xs text-muted-foreground mt-2">Memorial Day, Labor Day, etc.</div>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div class="space-y-2 text-center">
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">4-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.holidaySundays.fourHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.holidaySundays.fourHour.rate}</div>
-              </div>
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">8-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.holidaySundays.eightHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.holidaySundays.eightHour.rate}</div>
-              </div>
-            </div>
-            <div class="text-center p-2 bg-accent/10 rounded-lg">
-              <div class="text-xs text-muted-foreground">3-hour blocks not available</div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <!-- Premium Holiday Pricing -->
-        <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
-          <CardHeader className="text-center">
-            <CardTitle className="text-xl font-display text-foreground mb-2">Premium Holidays</CardTitle>
-            <CardDescription className="text-base text-primary font-medium">Special Dates</CardDescription>
-            <div class="text-xs text-muted-foreground mt-2">NYE, Christmas, Thanksgiving, 4th, Halloween</div>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div class="space-y-2 text-center">
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">4-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.premium.fourHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.premium.fourHour.rate}</div>
-              </div>
-              <div class="p-3 bg-primary/5 rounded-lg">
-                <div class="text-xs text-muted-foreground mb-1">8-Hour Block</div>
-                <div class="text-xl font-bold text-primary">{venuePricing.combined.premium.eightHour.price}</div>
-                <div class="text-xs text-muted-foreground">{venuePricing.combined.premium.eightHour.rate}</div>
-              </div>
-            </div>
-            <div class="text-center p-2 bg-accent/10 rounded-lg">
-              <div class="text-xs text-muted-foreground">3-hour blocks not available</div>
-            </div>
-          </CardContent>
-        </Card>
+  <!-- Social Events Section -->
+  <section id="event-packages" class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Social Celebrations</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Social Event Packages</h2>
+        <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Celebrate life's special moments with packages designed for birthdays, anniversaries, showers, and more.
+        </p>
       </div>
 
-      <!-- Venue Details -->
-      <div class="bg-card/50 rounded-xl p-8 mb-12">
-        <div class="text-center mb-8">
-          <h3 class="text-2xl font-display text-foreground mb-4">Venue Specifications</h3>
-          <div class="grid md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div class="text-3xl font-bold text-primary mb-2">{venuePricing.combined.capacity}</div>
-              <div class="text-muted-foreground">Maximum Capacity</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-primary mb-2">{venuePricing.combined.squareFootage}</div>
-              <div class="text-muted-foreground">Total Square Footage</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-primary mb-2">Day & Night</div>
-              <div class="text-muted-foreground">Availability</div>
-            </div>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-16">
+        {Object.values(servicesByCategory.social).map(tier => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
+            <CardHeader className="text-center">
+              <CardTitle className="text-lg font-display text-foreground mb-2">{tier.name}</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground mb-4">{tier.description}</CardDescription>
+              <div class="text-2xl font-bold text-primary mb-2">
+                ${tier.basePrice.toLocaleString()}
+              </div>
+              <div class="text-sm text-muted-foreground">
+                {tier.guestRange[0]}-{tier.guestRange[1]} guests • {tier.duration} hours
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h4 class="font-medium text-foreground mb-2">Included:</h4>
+                <ul class="space-y-1 text-sm text-muted-foreground">
+                  {tier.includes.slice(0, 3).map(item => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 mt-0.5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div class="pt-4 space-y-2">
+                <a
+                  href={`/contact?service=${tier.id}`}
+                  class="block w-full text-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium"
+                >
+                  Book This Event
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Events Section -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Corporate Events</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Corporate Packages</h2>
+        <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Professional event spaces for meetings, team celebrations, and corporate galas.
+        </p>
       </div>
 
-      <!-- What's Included -->
-      <div class="bg-card/50 rounded-xl p-8 mb-12">
-        <h3 class="text-xl font-display text-foreground mb-6 text-center">What's Included in Your Rental</h3>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="text-center">
-           
-            <h4 class="font-medium text-foreground mb-2">Tables & Chairs</h4>
-            <p class="text-sm text-muted-foreground">Complete setup for your event</p>
-          </div>
-          <div class="text-center">
-            
-            <h4 class="font-medium text-foreground mb-2">Ambient Lighting</h4>
-            <p class="text-sm text-muted-foreground">Warm, welcoming atmosphere</p>
-          </div>
-          <div class="text-center">
-            
-            <h4 class="font-medium text-foreground mb-2">Setup & Cleanup</h4>
-            <p class="text-sm text-muted-foreground">We handle everything</p>
-          </div>
-          <div class="text-center">
-            
-            <h4 class="font-medium text-foreground mb-2">Basic Linens</h4>
-            <p class="text-sm text-muted-foreground">White or neutral tablecloths & napkins</p>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-16">
+        {Object.values(servicesByCategory.corporate).map(tier => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
+            <CardHeader className="text-center">
+              <CardTitle className="text-lg font-display text-foreground mb-2">{tier.name}</CardTitle>
+              <CardDescription className="text-sm text-muted-foreground mb-4">{tier.description}</CardDescription>
+              <div class="text-2xl font-bold text-primary mb-2">
+                ${tier.basePrice.toLocaleString()}
+              </div>
+              <div class="text-sm text-muted-foreground">
+                {tier.guestRange[0]}-{tier.guestRange[1]} guests • {tier.duration} hours
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h4 class="font-medium text-foreground mb-2">Included:</h4>
+                <ul class="space-y-1 text-sm text-muted-foreground">
+                  {tier.includes.slice(0, 3).map(item => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 mt-0.5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div class="pt-4 space-y-2">
+                <a
+                  href={`/contact?service=${tier.id}`}
+                  class="block w-full text-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium"
+                >
+                  Book This Event
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Add-ons Section -->
   <section class="py-20 px-6 bg-card/30">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Enhance Your Event</Badge>
-        <h2 class="text-3xl font-display text-foreground mb-4">Optional Add-ons</h2>
-        <p class="text-lg text-muted-foreground">
-          Customize your experience with these additional services
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        {addOns.map(addon => (
-          <div class="p-4 bg-card rounded-lg border border-primary/10">
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-medium text-foreground">{addon.name}</span>
-              <span class="text-primary font-bold">{addon.price}</span>
-            </div>
-            <p class="text-sm text-muted-foreground">{addon.description}</p>
-          </div>
-        ))}
-      </div>
-
-      <div class="mt-8 text-center">
-        <p class="text-sm text-muted-foreground">
-          Extended hours available up to 2 additional hours • Subject to availability
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Catering Section -->
-  <section id="catering" class="py-20 px-6 bg-background">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Culinary Excellence</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Catering Options</h2>
-        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
-          Customize your event with catering from our full kitchen, a unique feature offering all-American or Latin fusion menus.
-          Pricing varies by service style: plated (formal, seated), buffet (self-serve, casual), or passed appetizers (circulated by staff for mingling).
-          Disclose allergies 7 days prior.
-        </p>
-      </div>
-
-      
-
-      <!-- All-American Catering Section -->
-      <div class="bg-card/50 rounded-xl p-8 mb-12">
-        <div class="text-center mb-8">
-          <h3 class="text-3xl font-display text-foreground mb-4">All-American Catering</h3>
-          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">{cateringPackages.american.description}</p>
-          
-        </div>
-
-        <!-- Packages -->
-        <div class="grid md:grid-cols-2 gap-6">
-          {cateringPackages.american.packages.map(pkg => (
-            <div class="bg-primary/5 rounded-lg p-6">
-              <div class="flex justify-between items-start mb-2">
-                <h4 class="font-medium text-foreground">{pkg.name}</h4>
-                <div class="text-right">
-                  {pkg.plated && <div class="text-primary font-bold">{pkg.plated}</div>}
-                  {pkg.buffet && <div class="text-sm text-primary font-bold">{pkg.buffet}</div>}
-                  {pkg.passed && <div class="text-sm text-primary font-bold">{pkg.passed}</div>}
-                </div>
-              </div>
-              <p class="text-sm text-muted-foreground">{pkg.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- Latin Fusion Catering Section -->
-      <div class="bg-card/50 rounded-xl p-8 mb-12">
-        <div class="text-center mb-8">
-          <h3 class="text-3xl font-display text-foreground mb-4">Latin Fusion Catering</h3>
-          <p class="text-lg text-muted-foreground max-w-2xl mx-auto">{cateringPackages.latinFusion.description}</p>
-          
-        </div>
-
-        <!-- Packages -->
-        <div class="grid md:grid-cols-2 gap-6">
-          {cateringPackages.latinFusion.packages.map(pkg => (
-            <div class="bg-primary/5 rounded-lg p-6">
-              <div class="flex justify-between items-start mb-2">
-                <h4 class="font-medium text-foreground">{pkg.name}</h4>
-                <div class="text-right">
-                  {pkg.plated && <div class="text-primary font-bold">{pkg.plated}</div>}
-                  {pkg.buffet && <div class="text-sm text-primary font-bold">{pkg.buffet}</div>}
-                  {pkg.passed && <div class="text-sm text-primary font-bold">{pkg.passed}</div>}
-                </div>
-              </div>
-              <p class="text-sm text-muted-foreground">{pkg.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-        <!-- Catering Notes -->
-        <div class="bg-primary/5 rounded-lg p-6">
-          <h4 class="text-lg font-display text-foreground mb-4">Catering Notes</h4>
-          <div class="space-y-3 text-sm">
-            <div class="flex items-start gap-3">
-              <div class="text-primary font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Plated:</strong>
-                <span class="text-muted-foreground ml-1">Formal, seated service, higher pricing due to staff labor ($1-3/guest more than buffet). Best for upscale events.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Buffet:</strong>
-                <span class="text-muted-foreground ml-1">Casual, self-serve setup, lower pricing, ideal for relaxed gatherings.</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Passed Appetizers:</strong>
-                <span class="text-muted-foreground ml-1">Staff circulate small plates for mingling events, priced higher ($1-2/guest more than buffet) due to service. Best for bar-style events.</span>
-              </div>
-            </div>
-            
-            
-          </div>
-        </div>
-      </div>
-
-      <!-- Dietary Information -->
-      <div class="bg-card/50 rounded-xl p-8">
-        <h3 class="text-xl font-display text-foreground mb-4 text-center">Dietary Accommodations</h3>
-        <div class="grid md:grid-cols-3 gap-6 text-center">
-          <div>
-            
-            <h4 class="font-medium text-foreground mb-2">Vegetarian & Vegan</h4>
-            <p class="text-sm text-muted-foreground">Multiple options available</p>
-          </div>
-          <div>
-            
-            <h4 class="font-medium text-foreground mb-2">Allergen Aware</h4>
-            <p class="text-sm text-muted-foreground">Gluten-free and nut-free options</p>
-          </div>
-          <div>
-          
-            <h4 class="font-medium text-foreground mb-2">Custom Requests</h4>
-            <p class="text-sm text-muted-foreground">Disclose allergies 7 days prior</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bar Service Section -->
-  <section class="py-20 px-6 bg-card/30">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Premium Beverages</Badge>
-        <h2 class="text-3xl font-display text-foreground mb-4">Bar Service & Packages</h2>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Customize Your Event</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Popular Add-ons</h2>
         <p class="text-lg text-muted-foreground">
-          Choose between All-American or Latin-Inspired bar menus to perfectly complement your catering choice
+          Enhance your celebration with these additional services
         </p>
       </div>
 
-      <!-- Bar Service Add-on -->
-      <div class="bg-card rounded-xl p-8 mb-8">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-          <div>
-            <h3 class="text-xl font-display text-foreground mb-2">Professional Bar Service</h3>
-            <p class="text-muted-foreground mb-4 md:mb-0">Includes 1 bartender for 20+ guests • No outside alcohol permitted • Meets $150 drink minimum</p>
-          </div>
-          <div class="text-right">
-            <div class="text-2xl font-bold text-primary">$300</div>
-            <div class="text-sm text-muted-foreground">Setup fee</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bar Packages -->
-      <div class="space-y-6">
-        {barPackages.map(pkg => (
-          <Card className="bg-card border-primary/20">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {popularAddOns.map(addon => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
             <CardContent className="p-6">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div class="flex items-start justify-between mb-3">
                 <div>
-                  <h4 class="font-medium text-foreground mb-1">{pkg.name}</h4>
-                  {pkg.description && <p class="text-sm text-muted-foreground">{pkg.description}</p>}
+                  <h3 class="font-medium text-foreground mb-1">{addon.name}</h3>
+                  <p class="text-sm text-muted-foreground">{addon.description}</p>
                 </div>
-                {pkg.beerWine && (
-                  <div class="text-right mt-4 md:mt-0">
-                    <div class="text-lg font-bold text-primary">{pkg.beerWine}</div>
-                    <div class="text-sm text-muted-foreground">Beer & Wine</div>
-                  </div>
-                )}
-                {pkg.fullBar && (
-                  <div class="text-right mt-4 md:mt-0 md:ml-6">
-                    <div class="text-lg font-bold text-primary">{pkg.fullBar}</div>
-                    <div class="text-sm text-muted-foreground">Full Bar</div>
-                  </div>
-                )}
+                <div class="text-right">
+                  {addon.pricing.perGuest && (
+                    <div class="text-lg font-bold text-primary">
+                      ${addon.pricing.perGuest}/guest
+                    </div>
+                  )}
+                  {addon.pricing.fixed && (
+                    <div class="text-lg font-bold text-primary">
+                      ${addon.pricing.fixed}
+                    </div>
+                  )}
+                  {addon.pricing.setup && (
+                    <div class="text-xs text-muted-foreground">
+                      +${addon.pricing.setup} setup
+                    </div>
+                  )}
+                </div>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Bar Menu Note -->
-      <div class="mt-8 text-center">
-        <p class="text-sm text-muted-foreground">
-          Two bar menus are available: All-American (tailored to all-American catering) or Latin-Inspired (aligning with Latin fusion catering).
-          Both menus offer the same pricing for open bar and cash bar packages.
+  <!-- Venue Details Section -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Venue Details</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">What's Always Included</h2>
+        <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+          Every package includes these venue amenities and services at no additional cost
         </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-foreground mb-2">Tables & Chairs</h3>
+          <p class="text-sm text-muted-foreground">Complete seating arrangements for your guest count</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.477.859h4z"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-foreground mb-2">Ambient Lighting</h3>
+          <p class="text-sm text-muted-foreground">Professional lighting to create the perfect atmosphere</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-foreground mb-2">Setup & Cleanup</h3>
+          <p class="text-sm text-muted-foreground">Professional setup before and complete cleanup after</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
+              <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"/>
+            </svg>
+          </div>
+          <h3 class="font-medium text-foreground mb-2">Event Coordination</h3>
+          <p class="text-sm text-muted-foreground">Day-of coordination to ensure everything runs smoothly</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Special Pricing & Policies -->
-  <section class="py-20 px-6 bg-background">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Important Information</Badge>
-        <h2 class="text-3xl font-display text-foreground mb-4">Pricing Policies & Availability</h2>
+  <!-- Detailed Pricing Section -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Additional Services</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Catering & Bar Service</h2>
+        <p class="text-lg text-muted-foreground">
+          Optional catering and bar services to complete your event experience
+        </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Special Pricing & Surcharges -->
-        <Card className="bg-card border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-lg font-display text-foreground">Special Pricing & Surcharges</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div class="space-y-2">
-              <div class="text-sm font-medium text-foreground">Premium Holidays:</div>
-              <div class="text-sm text-muted-foreground">New Year's Eve, Christmas, Thanksgiving, 4th of July, Halloween</div>
-              <div class="text-primary font-bold">$2,500 (4h) / $4,500 (8h)</div>
-            </div>
-            <div class="space-y-2">
-              <div class="text-sm font-medium text-foreground">Holiday Sundays:</div>
-              <div class="text-sm text-muted-foreground">U.S. federal holidays observed on Sunday (Memorial Day, Labor Day, etc.)</div>
-              <div class="text-primary font-bold">$1,800 (4h) / $3,200 (8h)</div>
-            </div>
-            <div class="space-y-2">
-              <div class="text-sm font-medium text-foreground">Local Events Surcharge:</div>
-              <div class="text-sm text-muted-foreground">+30% for local events or high-demand dates (e.g., near major festivals)</div>
-              <div class="text-primary font-bold">Confirmed at booking</div>
-            </div>
-          </CardContent>
-        </Card>
+      <!-- Catering Section -->
+      <div class="grid lg:grid-cols-2 gap-12 mb-16">
+        <!-- All-American Catering -->
+        <div class="bg-card rounded-xl p-8">
+          <h3 class="text-2xl font-display text-foreground mb-4">{cateringPackages.american.name}</h3>
+          <p class="text-muted-foreground mb-6">{cateringPackages.american.description}</p>
+          
+          <div class="space-y-4">
+            {cateringPackages.american.packages.map(pkg => (
+              <div class="p-4 bg-primary/5 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-medium text-foreground">{pkg.name}</h4>
+                  <div class="text-right">
+                    {pkg.buffet && <div class="text-primary font-bold">${pkg.buffet}/guest</div>}
+                    {pkg.plated && <div class="text-sm text-muted-foreground">${pkg.plated}/guest plated</div>}
+                  </div>
+                </div>
+                <p class="text-sm text-muted-foreground">{pkg.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
-        <!-- Availability & Requirements -->
-        <Card className="bg-card border-primary/20">
-          <CardHeader>
-            <CardTitle className="text-lg font-display text-foreground">Availability & Requirements</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div class="text-center p-4 bg-primary/5 rounded-lg">
-              <div class="text-2xl font-bold text-primary mb-1">24/7</div>
-              <div class="text-sm text-muted-foreground">Available anytime</div>
-            </div>
-            <div class="space-y-2">
-              <div class="text-sm font-medium text-foreground">Minimum Guests:</div>
-              <div class="text-primary font-bold">20-40 guests</div>
-              <div class="text-sm text-muted-foreground">Required for venue viability</div>
-            </div>
-            <div class="space-y-2">
-              <div class="text-sm font-medium text-foreground">Low Attendance:</div>
-              <div class="text-sm text-muted-foreground">May lead to cancellation if below minimum</div>
-            </div>
-          </CardContent>
-        </Card>
+        <!-- Latin Fusion Catering -->
+        <div class="bg-card rounded-xl p-8">
+          <h3 class="text-2xl font-display text-foreground mb-4">{cateringPackages.latinFusion.name}</h3>
+          <p class="text-muted-foreground mb-6">{cateringPackages.latinFusion.description}</p>
+          
+          <div class="space-y-4">
+            {cateringPackages.latinFusion.packages.map(pkg => (
+              <div class="p-4 bg-primary/5 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-medium text-foreground">{pkg.name}</h4>
+                  <div class="text-right">
+                    {pkg.buffet && <div class="text-primary font-bold">${pkg.buffet}/guest</div>}
+                    {pkg.plated && <div class="text-sm text-muted-foreground">${pkg.plated}/guest plated</div>}
+                  </div>
+                </div>
+                <p class="text-sm text-muted-foreground">{pkg.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <!-- Important Notes -->
-      <div class="mt-12 bg-primary/5 rounded-xl p-8">
-        <h3 class="text-xl font-display text-foreground mb-4 text-center">What You Need to Know</h3>
+      <!-- Bar Service -->
+      <div class="bg-card rounded-xl p-8">
+        <h3 class="text-2xl font-display text-foreground mb-4">Bar Service</h3>
+        <p class="text-muted-foreground mb-6">
+          Professional bartender included with all bar packages. $300 setup fee covers bartender service for events with 20+ guests.
+        </p>
+        
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Self-Service Events:</strong>
-                <span class="text-muted-foreground ml-1">Renters handle event programming, decorations, and additional equipment</span>
+          {barPackages.map(pkg => (
+            <div class="p-4 bg-primary/5 rounded-lg">
+              <div class="flex justify-between items-start mb-2">
+                <h4 class="font-medium text-foreground">{pkg.name}</h4>
+                {pkg.beerWine && (
+                  <div class="text-right">
+                    <div class="text-primary font-bold">${pkg.beerWine}/guest</div>
+                    <div class="text-sm text-muted-foreground">Beer & Wine</div>
+                  </div>
+                )}
+                {pkg.fullBar && (
+                  <div class="text-right">
+                    <div class="text-primary font-bold">${pkg.fullBar}/guest</div>
+                    <div class="text-sm text-muted-foreground">Full Bar</div>
+                  </div>
+                )}
               </div>
+              <p class="text-sm text-muted-foreground">{pkg.description}</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">No Outside Alcohol:</strong>
-                <span class="text-muted-foreground ml-1">Choose from our All-American or Latin-inspired bar menus</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Day-of Contact:</strong>
-                <span class="text-muted-foreground ml-1">Venue owner or staff provides basic support for logistics</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Basic Setup Included:</strong>
-                <span class="text-muted-foreground ml-1">Tables, chairs, mingling areas, ambient lighting, basic linens</span>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Flexible Time Blocks:</strong>
-                <span class="text-muted-foreground ml-1">3-hour minimum (off-peak), 4-hour, or 8-hour blocks including setup/cleanup</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Minimum Guest Requirements:</strong>
-                <span class="text-muted-foreground ml-1">20-40 guests required for venue viability</span>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="text-primary mt-1 font-bold">*</div>
-              <div>
-                <strong class="text-foreground">Direct Booking:</strong>
-                <span class="text-muted-foreground ml-1">Reserve your date directly with us, subject to availability</span>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
@@ -635,26 +434,20 @@ const barPackages = [
 
   <!-- Call to Action -->
   <section class="py-16 px-6 bg-gradient-card">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Book Your Event?</h2>
-      <p class="text-xl mb-8 text-foreground/90">
-        Why Rent Penélope's? Our Spanish stucco venue offers a mid-range, versatile space for anytime events,
-        with optional catering and bar menus to enhance your gathering. Flexible time blocks and fair pricing
-        accommodate any schedule. Setup, cleanup, and basic linens included, with a day-of contact for support.
-        Book directly to bring your vision to life!
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Event?</h2>
+      <p class="text-xl mb-8 text-foreground/90 max-w-3xl mx-auto">
+        Choose your package and let us handle the details. Our transparent pricing means no surprises, 
+        just a perfect event tailored to your vision and budget.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact#book" class="btn-primary">
-          Check Availability
+        <a href="/contact" class="btn-primary-lg">
+          Get Your Custom Quote
         </a>
-        <a href="/contact" class="btn-outline">
-          Request More Information
+        <a href="/contact#tour" class="btn-outline-lg">
+          Schedule a Venue Tour
         </a>
       </div>
-
-      
     </div>
   </section>
-
- 
 </Layout>

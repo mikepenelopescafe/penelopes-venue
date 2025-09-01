@@ -96,12 +96,8 @@ const services = defineCollection({
     }),
     packageName: z.string(),
     shortDescription: z.string().max(200, 'Short description should be under 200 characters'),
-    price: z.object({
-      starting: z.number(),
-      currency: z.string().default('USD'),
-      unit: z.enum(['per-event', 'per-hour', 'per-guest']).default('per-event'),
-      pricingNote: z.string().optional(), // e.g., "Starting at - see full pricing page"
-    }),
+    // Primary pricing reference system
+    pricingTierId: z.string(), // Reference to pricing tier ID (required)
     capacity: z.object({
       min: z.number(),
       max: z.number(),

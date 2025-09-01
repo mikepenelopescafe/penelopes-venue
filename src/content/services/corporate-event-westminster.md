@@ -9,9 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Corporate Event Experience"
 shortDescription: "Professional event space in Westminster for corporate meetings, trainings, and business gatherings with modern amenities."
-price:
-  starting: 1200
-  pricingNote: "Starting at - see full pricing page for complete packages"
+pricingTierId: "corporate-party"
 capacity:
   min: 15
   max: 80
