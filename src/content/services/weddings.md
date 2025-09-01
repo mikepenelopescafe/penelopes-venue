@@ -11,7 +11,7 @@ location:
   isGeneric: true
 packageName: "Wedding Venue Packages"
 shortDescription: "Beautiful wedding venues throughout the Denver metro with garden ceremonies, covered receptions, and professional coordination."
-pricingTierId: "wedding-garden"
+pricingTierId: "wedding-full"
 capacity:
   min: 20
   max: 150

@@ -93,37 +93,63 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
+  // Mobile menu functionality
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  mobileMenuButton?.addEventListener('click', () => {
-    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+  if (!mobileMenuButton || !mobileMenu) {
+    console.error('Mobile menu elements not found');
+  } else {
+    let isMenuOpen = false;
 
-    if (isExpanded) {
-      // Close the menu
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu?.classList.add('hidden');
-    } else {
-      // Open the menu
-      mobileMenuButton.setAttribute('aria-expanded', 'true');
-      mobileMenu?.classList.remove('hidden');
-    }
-  });
+    // Toggle menu function
+    const toggleMenu = () => {
+      isMenuOpen = !isMenuOpen;
 
-  // Close mobile menu when clicking a link
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
-      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      if (isMenuOpen) {
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.add('hidden');
+      }
+    };
+
+    // Close menu function
+    const closeMenu = () => {
+      if (isMenuOpen) {
+        isMenuOpen = false;
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.add('hidden');
+      }
+    };
+
+    // Hamburger button click handler
+    mobileMenuButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
     });
-  });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!mobileMenu?.contains(e.target as Node) && !mobileMenuButton?.contains(e.target as Node)) {
-      mobileMenu?.classList.add('hidden');
-      mobileMenuButton?.setAttribute('aria-expanded', 'false');
-    }
-  });
+    // Close menu when clicking a navigation link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      // Check if click is outside menu and button
+      if (!mobileMenu.contains(target) && !mobileMenuButton.contains(target)) {
+        closeMenu();
+      }
+    });
+
+    // Prevent menu clicks from bubbling to document
+    mobileMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
 </script>

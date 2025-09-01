@@ -2,6 +2,7 @@ import {
   pricingTiers, 
   addOnPricing, 
   getPricingTierById, 
+  getAllPricingTiers,
   calculateTotalPrice,
   type PricingTier 
 } from '@/data/pricing';
@@ -36,7 +37,7 @@ export function formatPriceRange(minPrice: number, maxPrice: number): string {
 }
 
 /**
- * Get pricing tier information
+ * Get pricing tier information with validation
  */
 export function getServicePricing(service: any): {
   price: number;
@@ -53,8 +54,12 @@ export function getServicePricing(service: any): {
         tier
       };
     } else {
-      console.warn(`Pricing tier not found: ${service.data.pricingTierId}`);
+      console.error(`❌ VALIDATION ERROR: Service "${service.slug}" has invalid pricingTierId: "${service.data.pricingTierId}"`);
+      console.error(`   Available pricing tier IDs:`, getAllPricingTiers().map(t => t.id));
+      console.error(`   Please check /src/content/services/${service.slug}.md and update pricingTierId`);
     }
+  } else {
+    console.warn(`⚠️  Service "${service.slug}" is missing pricingTierId. Add pricingTierId to frontmatter.`);
   }
 
   // Fallback to legacy price object (deprecated)
@@ -274,4 +279,71 @@ export function getSuggestedServices(guestCount: number): PricingTier[] {
     
     return aDiff - bDiff;
   });
+}
+
+/**
+ * Validate all services have valid pricing tier references
+ * Use this function in build scripts or development to catch issues
+ */
+export function validateServicePricingReferences(services: any[]): {
+  valid: boolean;
+  errors: string[];
+  warnings: string[];
+} {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const availableTierIds = getAllPricingTiers().map(t => t.id);
+
+  services.forEach(service => {
+    const slug = service.slug || 'unknown';
+    
+    if (!service.data.pricingTierId) {
+      warnings.push(`Service "${slug}" is missing pricingTierId in frontmatter`);
+    } else {
+      const tier = getPricingTierById(service.data.pricingTierId);
+      if (!tier) {
+        errors.push(
+          `Service "${slug}" has invalid pricingTierId: "${service.data.pricingTierId}". ` +
+          `Available IDs: ${availableTierIds.join(', ')}`
+        );
+      }
+    }
+
+    // Check for legacy price objects that should be removed
+    if (service.data.price) {
+      warnings.push(`Service "${slug}" still has legacy price object. Consider removing it since pricingTierId is now the primary source.`);
+    }
+  });
+
+  return {
+    valid: errors.length === 0,
+    errors,
+    warnings
+  };
+}
+
+/**
+ * Log validation results in a readable format
+ */
+export function logValidationResults(results: { valid: boolean; errors: string[]; warnings: string[] }): void {
+  if (results.valid && results.warnings.length === 0) {
+    console.log('✅ All service pricing references are valid!');
+    return;
+  }
+
+  if (results.errors.length > 0) {
+    console.error('\n❌ PRICING VALIDATION ERRORS:');
+    results.errors.forEach(error => console.error(`   ${error}`));
+  }
+
+  if (results.warnings.length > 0) {
+    console.warn('\n⚠️  PRICING VALIDATION WARNINGS:');
+    results.warnings.forEach(warning => console.warn(`   ${warning}`));
+  }
+
+  if (results.valid) {
+    console.log('\n✅ All critical pricing references are valid, but please review warnings above.');
+  } else {
+    console.error('\n❌ Please fix the pricing validation errors above before proceeding.');
+  }
 }
