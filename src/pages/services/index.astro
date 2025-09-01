@@ -1,0 +1,271 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+const services = await getCollection('services');
+
+// Separate generic services (for authority) from location-specific services  
+const genericServices = services.filter(service => service.data.location?.isGeneric);
+const locationServices = services.filter(service => !service.data.location?.isGeneric);
+
+// Group generic services by type for main display
+const servicesByType = genericServices.reduce((acc, service) => {
+  const type = service.data.serviceType;
+  if (!acc[type]) {
+    acc[type] = [];
+  }
+  acc[type].push(service);
+  return acc;
+}, {});
+
+// Group location services by type (for "available in locations" section)
+const locationServicesByType = locationServices.reduce((acc, service) => {
+  const type = service.data.serviceType;
+  if (!acc[type]) {
+    acc[type] = [];
+  }
+  acc[type].push(service);
+  return acc;
+}, {});
+
+// Service type labels for display
+const serviceTypeLabels = {
+  'micro-wedding': 'Micro Weddings',
+  'elopement': 'Elopements',
+  'corporate-event': 'Corporate Events',
+  'private-party': 'Private Parties',
+  'bridal-shower': 'Bridal Showers',
+  'baby-shower': 'Baby Showers',
+  'wedding': 'Full Weddings',
+  'reception': 'Receptions',
+  'anniversary': 'Anniversaries',
+  'birthday': 'Birthdays',
+  'graduation': 'Graduations',
+  'retirement': 'Retirement Parties'
+};
+
+const seo = {
+  title: "Event Services & Packages - Penelope's Venue Denver Metro",
+  description: "Explore our complete range of event services throughout the Denver metro including weddings, corporate events, private parties, and celebrations. Custom packages for every occasion.",
+  keywords: "event services Denver metro, wedding packages Colorado, corporate event planning Denver, private party venue Colorado, event planning Denver metro"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="services-hero">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/gallery/8050 N Federal Blvd - Web Quality - 011 - 31 Reception Area.jpg');">
+      <!-- Gradient Overlay for Text Readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+      <!-- Subtle Pattern Overlay for Texture -->
+      <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Our Services</Badge>
+
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Event Services & <span class="text-primary">Celebration Packages</span>
+        </h1>
+
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          From intimate micro weddings to grand corporate events, Penelope's Venue offers comprehensive
+          event services tailored to your unique celebration. Serving the Denver metro area with 
+          exceptional spaces and professional coordination for every occasion.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#service-types" class="btn-primary-lg">
+            Explore Services
+          </a>
+          <a href="/pricing" class="btn-outline-lg">
+            View Pricing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section id="service-types" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Categories</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Celebration Services</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Discover our range of specialized event services, each designed to create memorable experiences
+          for your unique celebration. From intimate gatherings to grand affairs, we have the perfect
+          package for your occasion.
+        </p>
+      </div>
+
+      <!-- Service Type Cards -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {Object.entries(servicesByType).map(([type, typeServices]) => {
+          const featuredService = typeServices.find(s => s.data.featured) || typeServices[0];
+          const availableLocations = featuredService.data.availableLocations || [];
+          
+          // Get location count from location-specific services of this type
+          const locationSpecificCount = locationServicesByType[type]?.length || 0;
+          const totalLocations = Math.max(availableLocations.length, locationSpecificCount);
+
+          return (
+            <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+              <CardHeader className="text-center">
+                <CardTitle className="text-xl font-display text-foreground mb-2">
+                  {serviceTypeLabels[type] || type}
+                </CardTitle>
+                <CardDescription className="text-base text-primary font-medium mb-2">
+                  Denver Metro Area
+                </CardDescription>
+                <div class="text-sm text-muted-foreground">
+                  Available in {totalLocations} location{totalLocations !== 1 ? 's' : ''}
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p class="text-sm text-muted-foreground text-center">
+                  {featuredService.data.shortDescription}
+                </p>
+
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-muted-foreground">Capacity:</span>
+                    <span class="font-medium text-foreground">
+                      {featuredService.data.capacity.min}-{featuredService.data.capacity.max} guests
+                    </span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-muted-foreground">Starting at:</span>
+                    <span class="font-medium text-primary">
+                      ${featuredService.data.price.starting.toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Available Locations */}
+                {availableLocations.length > 0 && (
+                  <div class="pt-2 border-t border-primary/10">
+                    <div class="text-xs text-muted-foreground mb-2">Available in:</div>
+                    <div class="flex flex-wrap gap-1">
+                      {availableLocations.map(location => (
+                        <span key={location} class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                          {location}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div class="pt-4 border-t border-primary/10 space-y-2">
+                  <a
+                    href={`/services/${featuredService.slug}`}
+                    class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                  >
+                    Learn About {serviceTypeLabels[type]}
+                  </a>
+                  <a
+                    href="/locations"
+                    class="block w-full text-center border border-primary/20 hover:border-primary/40 text-primary px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                  >
+                    View Locations
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+
+      <!-- All Services List -->
+      <div class="bg-card/50 rounded-xl p-8">
+        <h3 class="text-2xl font-display text-foreground mb-6 text-center">All Available Services</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          {services.map(service => (
+            <div class="flex items-center justify-between p-4 bg-primary/5 rounded-lg">
+              <div>
+                <h4 class="font-medium text-foreground mb-1">{service.data.packageName}</h4>
+                <p class="text-sm text-muted-foreground">{service.data.shortDescription}</p>
+                <div class="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
+                  <span>{service.data.capacity.min}-{service.data.capacity.max} guests</span>
+                  <span>{service.data.location.city}, {service.data.location.state}</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-lg font-bold text-primary mb-1">
+                  ${service.data.price.starting.toLocaleString()}
+                </div>
+                <a
+                  href={`/services/${service.slug}`}
+                  class="text-xs text-primary hover:underline"
+                >
+                  View Details →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Availability -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Location & Availability</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Westminster Venue Location</h2>
+        <p class="text-lg text-muted-foreground">
+          Conveniently located in Westminster, CO with easy access from Denver and surrounding areas.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-2xl font-bold text-primary mb-2">24/7</div>
+            <div class="text-sm text-muted-foreground">Available anytime</div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-2xl font-bold text-primary mb-2">Flexible</div>
+            <div class="text-sm text-muted-foreground">3-12 hour blocks</div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-2xl font-bold text-primary mb-2">Convenient</div>
+            <div class="text-sm text-muted-foreground">Easy Denver access</div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Event?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Contact us today to discuss your event vision. Our team will work with you to create
+        a memorable celebration that perfectly matches your style and budget.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">
+          Book Your Event
+        </a>
+        <a href="/pricing" class="btn-outline">
+          View Pricing Details
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

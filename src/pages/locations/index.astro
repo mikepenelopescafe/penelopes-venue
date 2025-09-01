@@ -1,0 +1,243 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+const locations = await getCollection('locations');
+
+// Sort by priority: primary first, then secondary, then tertiary
+const sortedLocations = locations.sort((a, b) => {
+  const priorityOrder = { primary: 0, secondary: 1, tertiary: 2 };
+  return priorityOrder[a.data.priority] - priorityOrder[b.data.priority];
+});
+
+const seo = {
+  title: "Event Venue Locations - Penelope's Venue Denver Metro Area",
+  description: "Discover Penelope's Venue locations throughout the Denver metro area. Premium event spaces in Westminster, Arvada, Lakewood and more Colorado cities.",
+  keywords: "event venues Denver metro, wedding venues Colorado, corporate event locations, Denver area venues, Colorado event spaces"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="locations-hero">
+    <!-- Background with Overlay -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/gallery/8050 N Federal Blvd - Web Quality - 009 - 30 Reception Area.jpg');">
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+      <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Our Locations</Badge>
+
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Event Venues Across the <span class="text-primary">Denver Metro Area</span>
+        </h1>
+
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          Need the perfect event venue near you? We serve couples and businesses throughout 
+          the Denver metro area with beautiful spaces for weddings, corporate events, and 
+          private celebrations.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#locations-grid" class="btn-primary-lg">
+            Find Your Location
+          </a>
+          <a href="/services" class="btn-outline-lg">
+            View Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations Grid -->
+  <section id="locations-grid" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Areas</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Where We Serve</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          From intimate Westminster gardens to corporate spaces across the Denver metro, 
+          find the perfect venue location for your special event.
+        </p>
+      </div>
+
+      {/* Primary Locations */}
+      {sortedLocations.filter(loc => loc.data.priority === 'primary').length > 0 && (
+        <div class="mb-16">
+          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Featured Locations</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedLocations.filter(loc => loc.data.priority === 'primary').map(location => {
+              const serviceCount = location.data.availableServices.length;
+              const featuredServices = location.data.availableServices.filter(s => s.featured).slice(0, 3);
+              
+              return (
+                <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl font-display text-foreground mb-2">
+                      {location.data.city}, {location.data.state}
+                    </CardTitle>
+                    <CardDescription className="text-base text-primary font-medium mb-2">
+                      {location.data.region}
+                    </CardDescription>
+                    <div class="text-sm text-muted-foreground">
+                      {serviceCount} service{serviceCount !== 1 ? 's' : ''} available
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {location.data.demographics?.description && (
+                      <p class="text-sm text-muted-foreground text-center">
+                        {location.data.demographics.description}
+                      </p>
+                    )}
+
+                    {featuredServices.length > 0 && (
+                      <div class="space-y-3">
+                        <h4 class="font-medium text-foreground text-sm">Popular Services:</h4>
+                        {featuredServices.map(service => (
+                          <div class="flex justify-between items-center text-sm bg-primary/5 rounded-lg p-3">
+                            <span class="text-foreground">{service.packageName}</span>
+                            <span class="text-primary font-medium">
+                              ${service.price.toLocaleString()}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {location.data.localInfo?.transportation && (
+                      <div class="space-y-2 text-xs text-muted-foreground">
+                        {location.data.localInfo.transportation.fromDenver && (
+                          <div>📍 From Denver: {location.data.localInfo.transportation.fromDenver}</div>
+                        )}
+                        {location.data.localInfo.transportation.parking && (
+                          <div>🅿️ {location.data.localInfo.transportation.parking}</div>
+                        )}
+                      </div>
+                    )}
+
+                    <div class="pt-4 border-t border-primary/10">
+                      <a
+                        href={`/locations/${location.data.citySlug}`}
+                        class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                      >
+                        Explore {location.data.city}
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Secondary Locations */}
+      {sortedLocations.filter(loc => loc.data.priority === 'secondary').length > 0 && (
+        <div class="mb-16">
+          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Additional Service Areas</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {sortedLocations.filter(loc => loc.data.priority === 'secondary').map(location => {
+              const serviceCount = location.data.availableServices.length;
+              const topService = location.data.availableServices.find(s => s.featured) || location.data.availableServices[0];
+              
+              return (
+                <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group text-center">
+                  <CardContent className="p-6">
+                    <h4 class="text-lg font-display text-foreground mb-2">
+                      {location.data.city}
+                    </h4>
+                    <div class="text-sm text-muted-foreground mb-3">
+                      {serviceCount} service{serviceCount !== 1 ? 's' : ''}
+                    </div>
+                    {topService && (
+                      <div class="text-xs text-primary mb-4">
+                        Starting at ${topService.price.toLocaleString()}
+                      </div>
+                    )}
+                    <a
+                      href={`/locations/${location.data.citySlug}`}
+                      class="text-sm text-primary hover:underline"
+                    >
+                      View Details →
+                    </a>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Service Coverage -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Coverage</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Complete Event Solutions</h2>
+        <p class="text-lg text-muted-foreground">
+          Every location offers our full range of event services with local expertise.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">💒</div>
+            <div class="text-xl font-display text-foreground mb-2">Weddings</div>
+            <div class="text-sm text-muted-foreground">
+              From intimate micro weddings to grand celebrations
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">🏢</div>
+            <div class="text-xl font-display text-foreground mb-2">Corporate</div>
+            <div class="text-sm text-muted-foreground">
+              Professional spaces for meetings and company events
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">🎉</div>
+            <div class="text-xl font-display text-foreground mb-2">Private Parties</div>
+            <div class="text-sm text-muted-foreground">
+              Birthday parties, showers, and family celebrations
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Find Your Perfect Venue?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Contact us today to discuss your event needs. We'll help you choose the best location 
+        and create an unforgettable experience for you and your guests.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">
+          Book Your Event
+        </a>
+        <a href="/services" class="btn-outline">
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
