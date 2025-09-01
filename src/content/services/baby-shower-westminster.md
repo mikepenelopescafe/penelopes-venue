@@ -94,7 +94,7 @@ Our location offers families and guests:
 
 ## Guest Capacity & Pricing
 
-Our baby shower packages accommodate 15-50 guests, perfect for intimate family gatherings or larger celebrations. Starting at $1,300, our comprehensive packages include themed setup, coordination, and all the joyful details.
+Our baby shower packages accommodate 15-50 guests, perfect for intimate family gatherings or larger celebrations. From $750-$1,650, our comprehensive packages include themed setup, coordination, and all the joyful details.
 
 [Explore our complete baby shower pricing](/pricing) including catering options, theme packages, and activity add-ons.
 

@@ -94,7 +94,7 @@ Our convenient location offers:
 
 ## Guest Capacity & Pricing
 
-Our private party packages accommodate 20-75 guests, making them perfect for intimate gatherings or larger celebrations. Starting at $1,500, our comprehensive packages include setup, coordination, and basic amenities.
+Our private party packages accommodate 20-75 guests, making them perfect for intimate gatherings or larger celebrations. From $1,000-$2,200, our comprehensive packages include setup, coordination, and basic amenities.
 
 [Explore our detailed pricing options](/pricing) including catering packages, entertainment add-ons, and extended hours.
 

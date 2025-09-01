@@ -4,7 +4,12 @@ export interface PricingTier {
   name: string;
   description: string;
   guestRange: [number, number];
-  basePrice: number;
+  basePrice?: number; // For fixed price tiers
+  pricing?: {
+    offPeak?: number;
+    peak?: number;
+    premium?: number;
+  };
   duration: number;
   includes: string[];
   addOns: string[];
@@ -32,9 +37,9 @@ export const venuePricing = {
     hourlyRate: 250,
     minimumHours: 3,
     blocks: {
-      threeHour: { price: 750, rate: 250 },
-      fourHour: { price: 1100, rate: 275 },
-      eightHour: { price: 2000, rate: 250 }
+      twoHour: { price: 750, rate: 250 },
+      fourHour: { price: 900, rate: 225 },
+      eightHour: { price: 2000, rate: 200 }
     }
   },
   peak: {
@@ -42,17 +47,17 @@ export const venuePricing = {
     hourlyRate: 400,
     minimumHours: 4,
     blocks: {
-      fourHour: { price: 1800, rate: 450 },
-      eightHour: { price: 3200, rate: 400 }
+      fourHour: { price: 1600, rate: 400 },
+      eightHour: { price: 2400, rate: 300 }
     }
   },
   premium: {
-    days: "New Year's Eve, Christmas, Thanksgiving, 4th of July, Halloween",
+    days: "New Year's Eve, Halloween",
     hourlyRate: 550,
     minimumHours: 4,
     blocks: {
-      fourHour: { price: 2500, rate: 625 },
-      eightHour: { price: 4500, rate: 562.50 }
+      fourHour: { price: 2200, rate: 550 },
+      eightHour: { price: 4000, rate: 500 }
     }
   }
 } as const;
@@ -64,88 +69,91 @@ export const pricingTiers = {
       id: 'wedding-micro',
       name: 'Micro Wedding',
       description: 'Intimate ceremony and reception for your closest family and friends',
-      guestRange: [10, 30] as [number, number],
-      basePrice: 2500,
+      guestRange: [20, 50] as [number, number],
+      basePrice: 2000,
       duration: 4,
       includes: [
         'Venue rental for 4 hours',
-        'Ceremony space with arch setup', 
+        'Ceremony and reception spaces',
         'Reception area with tables and chairs',
-        'Professional coordination',
-        'Sound system for ceremony',
+        'Venue Management',
+        'Sound system',
         'Ambient lighting',
-        'Bridal suite access'
+        'Cake Cutting Service',
+        'Champagene Pour Service',
+        'Non-Alcoholic Beverage Station',
+        "Setup and breakdown included"
       ],
-      addOns: ['catering', 'bar', 'flowers', 'photography', 'extended-hours'],
+      addOns: ['catering', 'bar', 'flowers', 'photo booth', 'upgraded-linens', 'dance-floor','extended-hours'],
       featured: true
     },
     full: {
       id: 'wedding-full',
       name: 'Full Wedding Celebration',
       description: 'Complete wedding experience with all amenities included',
-      guestRange: [75, 135] as [number, number],
-      basePrice: 8500,
+      guestRange: [50, 100] as [number, number],
+      basePrice: 4000,
       duration: 8,
       includes: [
         'Venue rental for 8 hours',
         'Ceremony and reception spaces',
-        'Premium coordination package',
-        'Complete furniture setup',
-        'Enhanced lighting and ambiance',
-        'Bridal suite with amenities',
-        'Groom preparation area',
-        'Parking for 75+ vehicles',
+        'Venue Management',
+        'Reception area with tables and chairs',
+        'Ambient Lighting',
+        'Bar Setup',
+        'Cake Cutting Service',
+        "Champagene Pour Service",
+        "Sound System",
+        "Ambient Lighting",
         'Setup and breakdown included'
       ],
-      addOns: ['catering', 'bar', 'flowers', 'photography', 'extended-hours', 'upgraded-linens', 'dance-floor']
+      addOns: ['catering', 'flowers', 'photo booth', 'extended-hours', 'upgraded-linens', 'dance-floor']
     },
-    elopement: {
-      id: 'wedding-elopement',
-      name: 'Elopement Package',
-      description: 'Simple, elegant ceremony for just the two of you',
-      guestRange: [2, 10] as [number, number],
-      basePrice: 1500,
-      duration: 2,
-      includes: [
-        'Venue rental for 2 hours',
-        'Ceremony space setup',
-        'Simple arch or backdrop',
-        'Coordination assistance',
-        'Bridal suite access'
-      ],
-      addOns: ['catering', 'photography', 'flowers']
-    }
   },
   social: {
     shower: {
       id: 'social-shower',
       name: 'Shower Celebration',
       description: 'Perfect space for bridal or baby showers',
-      guestRange: [15, 40] as [number, number],
-      basePrice: 750,
+      guestRange: [15, 100] as [number, number],
+      pricing: {
+        offPeak: 900, // 3 hours at $300/hour
+        peak: 1350, // 3 hours at $450/hour
+        premium: 1650 // 3 hours at $550/hour
+      },
       duration: 3,
       includes: [
         'Venue rental for 3 hours',
         'Tables and chair setup',
+        'Venue Management',
         'Basic linens and place settings',
+        'Non-Alcoholic Beverage Station',
+         "Sound System",
+        'Ambient Lighting',
         'Setup and cleanup',
-        'Basic decorative lighting'
       ],
-      addOns: ['catering', 'beverages', 'decorations']
+      addOns: ['catering', 'bar', 'flowers', 'extended-hours', 'upgraded-linens']
     },
     birthday: {
       id: 'social-birthday',
       name: 'Birthday Party',
       description: 'Celebrate milestone birthdays in style',
-      guestRange: [20, 75] as [number, number],
-      basePrice: 1100,
+      guestRange: [20, 100] as [number, number],
+      pricing: {
+        offPeak: 1200, // 4 hours at $300/hour
+        peak: 1800, // 4 hours at $450/hour
+        premium: 2000 // 4 hours at $550/hour
+      },
       duration: 4,
       includes: [
-        'Venue rental for 4 hours',
-        'Complete table and chair setup',
-        'Sound system for music',
-        'Ambient lighting',
-        'Setup and cleanup included'
+        'Venue rental for 3 hours',
+        'Tables and chair setup',
+        'Venue Management',
+        'Basic linens and place settings',
+        'Non-Alcoholic Beverage Station',
+         "Sound System",
+        'Ambient Lighting',
+        'Setup and cleanup',
       ],
       addOns: ['catering', 'bar', 'decorations', 'dance-floor']
     },
@@ -154,7 +162,11 @@ export const pricingTiers = {
       name: 'Anniversary Celebration',
       description: 'Honor your years together with family and friends',
       guestRange: [25, 100] as [number, number],
-      basePrice: 1800,
+      pricing: {
+        offPeak: 1500, // 5 hours at $300/hour
+        peak: 2250, // 5 hours at $450/hour
+        premium: 2750 // 5 hours at $550/hour
+      },
       duration: 5,
       includes: [
         'Venue rental for 5 hours',
@@ -266,7 +278,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
     name: 'Extended Hours',
     description: 'Add extra time to your event',
     pricing: {
-      fixed: 250 // Per hour
+      fixed: 500 // Per hour
     }
   },
   'upgraded-linens': {
@@ -394,16 +406,59 @@ export function getPricingTierById(id: string): PricingTier | undefined {
   return getAllPricingTiers().find(tier => tier.id === id);
 }
 
-// Helper function to calculate total price with add-ons
-export function calculateTotalPrice(
-  tierId: string, 
-  guestCount: number, 
-  selectedAddOns: string[] = []
+// Helper function to get base price for a tier and pricing type
+export function getTierBasePrice(
+  tierId: string,
+  pricingType: 'offPeak' | 'peak' | 'premium' = 'offPeak'
 ): number {
   const tier = getPricingTierById(tierId);
   if (!tier) return 0;
 
-  let total = tier.basePrice;
+  if (tier.pricing) {
+    return tier.pricing[pricingType] || tier.pricing.offPeak || 0;
+  } else if (tier.basePrice) {
+    return tier.basePrice;
+  }
+
+  return 0;
+}
+
+// Helper function to get pricing range for a tier (min-max across pricing types)
+export function getTierPriceRange(tierId: string): { min: number; max: number } {
+  const tier = getPricingTierById(tierId);
+  if (!tier) return { min: 0, max: 0 };
+
+  if (tier.pricing) {
+    const prices = Object.values(tier.pricing).filter(price => price !== undefined) as number[];
+    return {
+      min: Math.min(...prices),
+      max: Math.max(...prices)
+    };
+  } else if (tier.basePrice) {
+    return { min: tier.basePrice, max: tier.basePrice };
+  }
+
+  return { min: 0, max: 0 };
+}
+
+// Helper function to calculate total price with add-ons
+export function calculateTotalPrice(
+  tierId: string,
+  guestCount: number,
+  selectedAddOns: string[] = [],
+  pricingType: 'offPeak' | 'peak' | 'premium' = 'offPeak'
+): number {
+  const tier = getPricingTierById(tierId);
+  if (!tier) return 0;
+
+  let total = 0;
+
+  // Get base price from either new pricing structure or legacy basePrice
+  if (tier.pricing) {
+    total = tier.pricing[pricingType] || tier.pricing.offPeak || 0;
+  } else if (tier.basePrice) {
+    total = tier.basePrice;
+  }
 
   selectedAddOns.forEach(addOnId => {
     const addOn = addOnPricing[addOnId];
@@ -413,7 +468,7 @@ export function calculateTotalPrice(
       const minGuests = addOn.pricing.minimum || guestCount;
       total += addOn.pricing.perGuest * Math.max(guestCount, minGuests);
     }
-    
+
     if (addOn.pricing.fixed) {
       total += addOn.pricing.fixed;
     }

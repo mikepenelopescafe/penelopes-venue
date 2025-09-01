@@ -5,7 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { pricingTiers, addOnPricing, cateringPackages, barPackages, venuePricing } from '@/data/pricing';
-import { formatPrice, formatPriceRange, getServicesByCategory } from '@/lib/pricing-utils';
+import { formatPrice, formatPriceRange, getServicesByCategory, getServiceSlugForTierId } from '@/lib/pricing-utils';
 
 const seo = {
   title: "Event Venue Pricing & Packages - Penelope's Boutique Venue",
@@ -73,7 +73,7 @@ const popularAddOns = [
       </div>
 
       <!-- Wedding Package Cards -->
-      <div class="grid lg:grid-cols-4 gap-6 mb-12">
+      <div class="grid lg:grid-cols-3 gap-6 mb-12">
         {Object.values(servicesByCategory.weddings).map(tier => (
           <Card className={`bg-card border-primary/20 hover-lift transition-all duration-300 ${tier.popular ? 'ring-2 ring-primary/20' : ''}`}>
             <CardHeader className="text-center relative">
@@ -85,7 +85,7 @@ const popularAddOns = [
               <CardTitle className="text-xl font-display text-foreground mb-2">{tier.name}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground mb-4">{tier.description}</CardDescription>
               <div class="text-3xl font-bold text-primary mb-2">
-                ${tier.basePrice.toLocaleString()}
+                ${tier.pricing ? Object.values(tier.pricing).filter(p => p !== undefined)[0]?.toLocaleString() : tier.basePrice?.toLocaleString() || 'Contact for pricing'}
               </div>
               <div class="text-sm text-muted-foreground">
                 {tier.guestRange[0]}-{tier.guestRange[1]} guests • {tier.duration} hours
@@ -117,7 +117,7 @@ const popularAddOns = [
                   Get This Package
                 </a>
                 <a
-                  href={`/services/${tier.id}`}
+                  href={`/services/${getServiceSlugForTierId(tier.id)}`}
                   class="block w-full text-center px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-primary/5 transition-colors text-sm"
                 >
                   View Details
@@ -148,7 +148,7 @@ const popularAddOns = [
               <CardTitle className="text-lg font-display text-foreground mb-2">{tier.name}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground mb-4">{tier.description}</CardDescription>
               <div class="text-2xl font-bold text-primary mb-2">
-                ${tier.basePrice.toLocaleString()}
+                ${tier.pricing ? Object.values(tier.pricing).filter(p => p !== undefined)[0]?.toLocaleString() : tier.basePrice?.toLocaleString() || 'Contact for pricing'}
               </div>
               <div class="text-sm text-muted-foreground">
                 {tier.guestRange[0]}-{tier.guestRange[1]} guests • {tier.duration} hours
@@ -176,6 +176,12 @@ const popularAddOns = [
                 >
                   Book This Event
                 </a>
+                <a
+                  href={`/services/${getServiceSlugForTierId(tier.id)}`}
+                  class="block w-full text-center px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-primary/5 transition-colors text-sm"
+                >
+                  View Details
+                </a>
               </div>
             </CardContent>
           </Card>
@@ -202,7 +208,7 @@ const popularAddOns = [
               <CardTitle className="text-lg font-display text-foreground mb-2">{tier.name}</CardTitle>
               <CardDescription className="text-sm text-muted-foreground mb-4">{tier.description}</CardDescription>
               <div class="text-2xl font-bold text-primary mb-2">
-                ${tier.basePrice.toLocaleString()}
+                ${tier.pricing ? Object.values(tier.pricing).filter(p => p !== undefined)[0]?.toLocaleString() : tier.basePrice?.toLocaleString() || 'Contact for pricing'}
               </div>
               <div class="text-sm text-muted-foreground">
                 {tier.guestRange[0]}-{tier.guestRange[1]} guests • {tier.duration} hours
@@ -229,6 +235,12 @@ const popularAddOns = [
                   class="block w-full text-center px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-sm font-medium"
                 >
                   Book This Event
+                </a>
+                <a
+                  href={`/services/${getServiceSlugForTierId(tier.id)}`}
+                  class="block w-full text-center px-4 py-2 border border-primary/20 text-foreground rounded-md hover:bg-primary/5 transition-colors text-sm"
+                >
+                  View Details
                 </a>
               </div>
             </CardContent>

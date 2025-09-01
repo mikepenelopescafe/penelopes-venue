@@ -9,7 +9,7 @@ location:
   region: "Denver Metro"
 packageName: "Romantic Elopement Experience"
 shortDescription: "Private, romantic elopement packages for couples seeking an intimate ceremony in our Westminster venue."
-pricingTierId: "wedding-elopement"
+pricingTierId: "wedding-micro"
 capacity:
   min: 2
   max: 15

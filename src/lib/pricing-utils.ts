@@ -48,9 +48,18 @@ export function getServicePricing(service: any): {
   if (service.data.pricingTierId) {
     const tier = getPricingTierById(service.data.pricingTierId);
     if (tier) {
+      // Handle both new pricing structure and legacy basePrice
+      let price = 0;
+      if (tier.pricing) {
+        // Use the lowest price from the pricing object (offPeak)
+        price = tier.pricing.offPeak || tier.pricing.peak || tier.pricing.premium || 0;
+      } else if (tier.basePrice) {
+        price = tier.basePrice;
+      }
+
       return {
-        price: tier.basePrice,
-        formatted: formatPrice(tier.basePrice),
+        price,
+        formatted: formatPrice(price),
         tier
       };
     } else {
@@ -117,7 +126,15 @@ export function calculateServiceTotal(
     };
   }
 
-  const basePrice = tier.basePrice;
+  // Handle both new pricing structure and legacy basePrice
+  let basePrice = 0;
+  if (tier.pricing) {
+    // Use the lowest price from the pricing object (offPeak)
+    basePrice = tier.pricing.offPeak || tier.pricing.peak || tier.pricing.premium || 0;
+  } else if (tier.basePrice) {
+    basePrice = tier.basePrice;
+  }
+
   const breakdown: Array<{name: string, price: number}> = [
     { name: tier.name, price: basePrice }
   ];
@@ -346,4 +363,29 @@ export function logValidationResults(results: { valid: boolean; errors: string[]
   } else {
     console.error('\n❌ Please fix the pricing validation errors above before proceeding.');
   }
+}
+
+/**
+ * Get service page slug for a pricing tier ID
+ * Maps pricing tier IDs to their corresponding service page slugs
+ */
+export function getServiceSlugForTierId(tierId: string): string {
+  const tierToSlugMapping: Record<string, string> = {
+    // Wedding tiers
+    'wedding-micro': 'micro-wedding-westminster',
+    'wedding-full': 'full-wedding-westminster',
+    'wedding-elopement': 'elopement-westminster',
+    
+    // Social event tiers
+    'social-shower': 'bridal-shower-westminster', // Could also be baby-shower-westminster
+    'social-birthday': 'birthday-party-westminster',
+    'social-anniversary': 'anniversary-celebration-westminster',
+    
+    // Corporate tiers
+    'corporate-meeting': 'corporate-meeting-westminster',
+    'corporate-party': 'corporate-event-westminster', // Generic corporate event page
+    'corporate-gala': 'corporate-gala-westminster'
+  };
+
+  return tierToSlugMapping[tierId] || tierId; // Fallback to tier ID if no mapping found
 }

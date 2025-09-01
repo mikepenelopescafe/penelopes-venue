@@ -91,7 +91,7 @@ Our location offers brides and their guests:
 
 ## Guest Capacity & Pricing
 
-Our bridal shower packages accommodate 15-60 guests, making them perfect for intimate gatherings or larger celebrations. Starting at $1,400, our comprehensive packages include elegant setup, coordination, and all the details.
+Our bridal shower packages accommodate 15-60 guests, making them perfect for intimate gatherings or larger celebrations. From $750-$1,650, our comprehensive packages include elegant setup, coordination, and all the details.
 
 [View our complete bridal shower pricing](/pricing) including catering options, decor packages, and entertainment add-ons.
 

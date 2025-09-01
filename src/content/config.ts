@@ -23,7 +23,7 @@ const pages = defineCollection({
     hero: z.object({
       headline: z.string(),
       subheadline: z.string().optional(),
-      ctaText: z.string().default('Book Your Event'),
+      ctaText: z.string().default('Schedule a Tour'),
       ctaLink: z.string().default('/contact'),
     }).optional(),
     sections: z.array(z.object({
