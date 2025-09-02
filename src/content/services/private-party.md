@@ -1,41 +1,42 @@
 ---
-title: "Private Party Venue Westminster, CO"
-description: "Versatile private party venue in Westminster, CO for birthdays, anniversaries, and celebrations. Flexible packages with catering and coordination."
-keywords: ["private party venue Westminster CO", "celebration space", "birthday party venue", "anniversary party location", "private event space", "Colorado party venue"]
+title: "Private Party Venues Denver Metro - Celebration Spaces"
+description: "Versatile private party venues throughout Denver metro for 20-100 guests celebrating birthdays, anniversaries, and special occasions. Starting at $1,200."
+keywords: ["private party venue Denver metro", "celebration space Colorado", "birthday party venue", "anniversary party location", "private event space", "Colorado party venue"]
 serviceType: "private-party"
 location:
-  city: "Westminster"
+  city: "Multiple Locations"
   state: "CO"
   region: "Denver Metro"
+  isGeneric: true
 packageName: "Private Celebration Package"
-shortDescription: "Flexible private party venue in Westminster for birthdays, anniversaries, and special celebrations with complete setup and coordination."
+shortDescription: "Flexible private party venues throughout Denver metro for 20-100 guests celebrating birthdays, anniversaries, and special celebrations with complete setup and coordination."
 pricingTierId: "social-birthday"
 capacity:
   min: 20
-  max: 75
-  ideal: 40
+  max: 100
+  ideal: 50
 amenities:
-  - "Flexible celebration space setup"
-  - "Complete party coordination"
-  - "Entertainment area and dance floor"
-  - "Sound system for music and announcements"
-  - "Decor and theming assistance"
-  - "Catering setup and service areas"
-  - "Cake and dessert service area"
-  - "Photography and memory areas"
+  - "Venue rental for 4 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Venue Management"
+  - "Sound System"
+  - "Ambient Lighting"
+  - "Non-Alcoholic Beverage Station"
 availability: "year-round"
 duration:
   min: 4
-  max: 8
-  recommended: 6
+  max: 4
+  recommended: 4
 targetAudience: ["families", "friend groups", "organizations"]
 pricingPageLink: "/pricing"
 featured: true
 ---
 
-# Private Party Venue in Westminster, CO
+# Private Party Venues Throughout Denver Metro
 
-Create unforgettable memories at Penelope's Venue, the perfect private party venue in Westminster for birthdays, anniversaries, graduations, and special celebrations. Our flexible space adapts to your vision, whether you're planning an elegant anniversary dinner or a fun birthday celebration.
+Create unforgettable memories at Penelope's Venue, with perfect private party venues throughout the Denver metro area for birthdays, anniversaries, graduations, and special celebrations. Our flexible spaces adapt to your vision, whether you're planning an elegant anniversary dinner or a fun birthday celebration.
 
 ## Your Celebration Destination
 
@@ -43,29 +44,29 @@ Located in the heart of Westminster, our venue offers the ideal setting for priv
 
 ## Private Party Package Features
 
-### Flexible Celebration Space
-- Customizable room layout and setup
-- Entertainment area with dance floor options
-- Designated areas for food service and cake
-- Comfortable seating for all your guests
+### Venue & Setup
+- **4-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
 
-### Complete Event Coordination
-- Dedicated party coordinator
-- Timeline planning and day-of management
+### Coordination & Management
+- Professional venue management and coordination
+- Timeline planning and day-of support
 - Vendor coordination assistance
-- Setup and cleanup included
 
-### Entertainment & Ambiance
-- Professional sound system for music
-- Ambient lighting and decor options
-- Theming assistance and decor setup
-- Photo booth and memory areas
+### Equipment & Amenities
+- Professional sound system
+- Ambient lighting setup
+- Non-Alcoholic Beverage Station
 
-### Catering & Service
-- Flexible catering options available
-- Bar service and beverage setup
-- Cake and dessert service areas
-- Professional serving staff coordination
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- Dance floor ($500)
+- Photo booth ($400 for 4-hour package)
+- Premium linens ($200)
+- Extended hours ($250/hour)
 
 ## Perfect for All Types of Celebrations
 
@@ -94,7 +95,7 @@ Our convenient location offers:
 
 ## Guest Capacity & Pricing
 
-Our private party packages accommodate 20-75 guests, making them perfect for intimate gatherings or larger celebrations. From $1,000-$2,200, our comprehensive packages include setup, coordination, and basic amenities.
+Our private party packages accommodate 20-100 guests, making them perfect for intimate gatherings or larger celebrations. Starting at $1,200, our comprehensive packages include venue rental, setup, coordination, and all the essentials for your special celebration.
 
 [Explore our detailed pricing options](/pricing) including catering packages, entertainment add-ons, and extended hours.
 

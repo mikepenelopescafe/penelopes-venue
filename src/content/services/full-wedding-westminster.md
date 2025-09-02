@@ -16,20 +16,20 @@ capacity:
   max: 100
   ideal: 75
 amenities:
+  - "Venue rental for 8 hours"
   - "Ceremony and reception spaces"
-  - "8 hours of venue access"
-  - "Premium coordination package"
-  - "Complete furniture and table setup"
-  - "Enhanced lighting and ambiance"
-  - "Bridal preparation area with mirrors"
-  - "Parking for 75+ vehicles"
-  - "Professional setup and breakdown"
-  - "Sound system for ceremony and reception"
-  - "Dance floor area"
+  - "Setup and breakdown included"
+  - "Reception area with tables and chairs"
+  - "Venue Management"
+  - "Sound System"
+  - "Ambient Lighting"
+  - "Bar Setup"
+  - "Cake Cutting Service"
+  - "Champagne Pour Service"
 availability: "year-round"
 duration:
-  min: 6
-  max: 10
+  min: 8
+  max: 8
   recommended: 8
 targetAudience: ["couples", "families"]
 featured: true
@@ -67,13 +67,30 @@ Your bridal party gets a dedicated preparation area with mirrors and seating. Yo
 
 ## Your Complete Wedding Package Includes
 
-- **Ceremony Space**: Beautiful setup with arch, aisle, and guest seating
-- **Reception Area**: Elegant dining space with dance floor
-- **8-Hour Access**: Plenty of time for photos, ceremony, cocktails, dinner, and dancing
-- **Bridal Suite**: Private area for getting ready with mirrors and seating
-- **Professional Coordination**: Timeline management and vendor coordination
-- **Complete Setup**: Tables, chairs, linens, lighting, and sound system
-- **Breakdown Service**: We clean up after so you can enjoy your evening
+### Venue & Setup
+- **8-hour venue rental** with ceremony and reception spaces
+- Complete setup and breakdown included
+- Reception area with tables and chairs for your guests
+
+### Coordination & Management
+- Professional venue management and coordination
+- Timeline planning and day-of support
+- Vendor coordination assistance
+
+### Equipment & Amenities
+- Professional sound system
+- Ambient lighting setup
+- Bar setup
+- Cake cutting service
+- Champagne pour service
+
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Floral arrangements ($500 starting price)
+- Photo booth ($400 for 4-hour package)
+- Extended hours ($250/hour)
+- Premium linens ($200)
+- Dance floor ($500)
 
 ## Perfect for These Westminster Couples
 

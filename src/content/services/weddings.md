@@ -14,22 +14,24 @@ shortDescription: "Beautiful wedding venues throughout the Denver metro with gar
 pricingTierId: "wedding-full"
 capacity:
   min: 20
-  max: 150
-  ideal: 75
+  max: 100
+  ideal: 60
 amenities:
-  - "Beautiful garden ceremony spaces"
-  - "Covered reception pavilions"
-  - "Bridal suite for getting ready"
-  - "Professional event coordination"
-  - "Tables, chairs, and linens included"
-  - "On-site parking for guests"
-  - "Flexible setup options"
-  - "Vendor coordination services"
+  - "Venue rental for 4-8 hours"
+  - "Ceremony and reception spaces"
+  - "Setup and breakdown included"
+  - "Reception area with tables and chairs"
+  - "Venue Management"
+  - "Sound system"
+  - "Ambient lighting"
+  - "Non-Alcoholic Beverage Station"
+  - "Cake Cutting Service"
+  - "Champagne Pour Service"
 availability: "year-round"
 duration:
-  min: 8
-  max: 12
-  recommended: 10
+  min: 4
+  max: 8
+  recommended: 6
 targetAudience: ["engaged couples", "families planning weddings", "wedding planners"]
 availableLocations: ["Westminster", "Arvada", "Lakewood", "Thornton"]
 relatedServices: ["micro-wedding", "elopement", "reception"]
@@ -81,29 +83,24 @@ Planning a wedding means coordinating photographers, caterers, florists, and mus
 
 ## Wedding Package Options
 
-### Intimate Garden Weddings (20-50 guests)
-Perfect for couples who want a personal, meaningful celebration. Includes garden ceremony space, cocktail reception area, and 6-hour venue rental.
+### Micro Wedding Experience (20-50 guests)
+Perfect for couples who want an intimate, meaningful celebration. Includes ceremony and reception spaces, 4-hour venue rental, and complete coordination.
 
-**Starting at $3,500**
+**Starting at $2,000**
 
-### Classic Wedding Package (50-100 guests)
-Our most popular choice. Garden ceremony plus covered reception pavilion. Includes tables, chairs, linens, and full coordination.
+### Full Wedding Celebration (50-100 guests)
+Our comprehensive package for larger celebrations. Includes 8-hour venue rental, full setup, professional coordination, and all amenities for your special day.
 
-**Starting at $6,500**
+**Starting at $4,000**
 
-### Grand Celebration (100-150 guests)
-For couples who want to celebrate big. Premium ceremony and reception spaces, extended venue access, and enhanced amenities.
-
-**Starting at $8,500**
-
-*All packages include professional coordination, setup, and cleanup. Pricing varies by location and season.*
+*All packages include professional coordination, setup, and cleanup. Add-on options available for catering, bar service, flowers, and more.*
 
 ## Available Throughout the Denver Metro
 
 ### Westminster Location
-- **Perfect for**: Intimate garden weddings
-- **Capacity**: 20-120 guests  
-- **Special features**: Butterfly garden, mountain views
+- **Perfect for**: Intimate to full wedding celebrations
+- **Capacity**: 20-100 guests
+- **Special features**: Beautiful spaces, professional coordination
 - **Distance from Denver**: 20 minutes north
 
 ### Arvada Location *(Coming Soon)*
@@ -135,7 +132,7 @@ For couples who want to celebrate big. Premium ceremony and reception spaces, ex
 ## Frequently Asked Questions
 
 **What's included in your wedding packages?**
-Every package includes venue rental, professional coordination, tables, chairs, linens, setup, and cleanup. We also provide a bridal suite and on-site parking.
+Every package includes venue rental, ceremony and reception spaces, setup and breakdown, tables and chairs, venue management, sound system, ambient lighting, non-alcoholic beverage station, cake cutting service, and champagne pour service.
 
 **Do you allow outside vendors?**
 Absolutely! We work with your chosen vendors or can recommend trusted local professionals. Our coordinator handles all vendor communication.

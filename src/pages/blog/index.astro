@@ -1,0 +1,179 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+const posts = await getCollection('blog');
+
+// Sort posts by publish date (newest first)
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.publishDate ? new Date(a.data.publishDate) : new Date(0);
+  const dateB = b.data.publishDate ? new Date(b.data.publishDate) : new Date(0);
+  return dateB.getTime() - dateA.getTime();
+});
+
+// Group posts by category for category navigation
+const postsByCategory = sortedPosts.reduce((acc: Record<string, any[]>, post) => {
+  const category = post.data.category;
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(post);
+  return acc;
+}, {});
+
+// Get all categories
+const categories = Object.keys(postsByCategory);
+
+const seo = {
+  title: "Wedding & Event Planning Blog - Penelope's Venue",
+  description: "Expert tips and advice for planning your perfect wedding or event. From venue selection to day-of coordination, get insider knowledge from our experienced team.",
+  keywords: "wedding planning blog, event planning tips, venue advice, wedding tips, event coordination"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="blog-hero">
+    <!-- Dark Black Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <!-- Subtle Pattern Overlay for Texture -->
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Blog</Badge>
+
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Wedding & Event <span class="text-primary">Planning Tips</span>
+        </h1>
+
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          Expert advice from our team of wedding and event professionals. From venue selection
+          to day-of coordination, get the insider knowledge you need to plan your perfect celebration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  {categories.length > 0 && (
+    <section class="py-8 px-6 bg-card/30">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a
+            href="/blog"
+            class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              Astro.url.pathname === '/blog'
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-primary/10 text-primary hover:bg-primary/20'
+            }`}
+          >
+            All Posts
+          </a>
+          {categories.map(category => (
+            <a
+              href={`/blog/category/${category}`}
+              class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                Astro.url.pathname === `/blog/category/${category}`
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-primary/10 text-primary hover:bg-primary/20'
+              }`}
+            >
+              {category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Blog Posts Grid -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedPosts.map(post => {
+          const formattedDate = post.data.publishDate?.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+          const readingTime = post.data.readingTime || Math.ceil(post.body.split(' ').length / 200);
+
+          return (
+            <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+              <CardHeader className="pb-4">
+                <div class="flex items-center gap-2 mb-3">
+                  <Badge className="bg-primary/10 text-primary border-primary/20 text-xs">
+                    {post.data.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                  </Badge>
+                  {formattedDate && (
+                    <span class="text-xs text-muted-foreground">{formattedDate}</span>
+                  )}
+                </div>
+                <CardTitle className="text-xl font-display text-foreground mb-2 line-clamp-2">
+                  {post.data.title}
+                </CardTitle>
+                <CardDescription className="text-sm text-muted-foreground line-clamp-3">
+                  {post.data.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                  <span>By {post.data.author}</span>
+                  <span>{readingTime} min read</span>
+                </div>
+
+                {post.data.tags && (
+                  <div class="flex flex-wrap gap-1 mb-4">
+                    {post.data.tags.slice(0, 3).map(tag => (
+                      <span class="text-xs bg-primary/5 text-primary px-2 py-1 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  Read Article →
+                </a>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+
+      {sortedPosts.length === 0 && (
+        <div class="text-center py-12">
+          <p class="text-lg text-muted-foreground">No blog posts available yet. Check back soon!</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Event?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Get personalized advice for your wedding or event. Our team is here to help you
+        create unforgettable memories.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">
+          Schedule a Tour
+        </a>
+        <a href="/services" class="btn-outline">
+          Explore Services
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

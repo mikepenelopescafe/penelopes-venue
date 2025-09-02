@@ -3,10 +3,14 @@ import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { getServicePricing } from '@/lib/pricing-utils';
 
 export const prerender = true;
 
 const locations = await getCollection('locations');
+const genericServices = await getCollection('services', ({ data }) => 
+  data.location.isGeneric === true
+);
 
 // Sort by priority: primary first, then secondary, then tertiary
 const sortedLocations = locations.sort((a, b) => {
@@ -14,10 +18,17 @@ const sortedLocations = locations.sort((a, b) => {
   return priorityOrder[a.data.priority] - priorityOrder[b.data.priority];
 });
 
+// Sort services by featured, then by name
+const sortedServices = genericServices.sort((a, b) => {
+  if (a.data.featured && !b.data.featured) return -1;
+  if (!a.data.featured && b.data.featured) return 1;
+  return a.data.packageName.localeCompare(b.data.packageName);
+});
+
 const seo = {
-  title: "Event Venue Locations - Penelope's Venue Denver Metro Area",
-  description: "Discover Penelope's Venue locations throughout the Denver metro area. Premium event spaces in Westminster, Arvada, Lakewood and more Colorado cities.",
-  keywords: "event venues Denver metro, wedding venues Colorado, corporate event locations, Denver area venues, Colorado event spaces"
+  title: "Service Areas - Westminster Venue Serving Denver Metro",
+  description: "Penelope's Westminster venue serves the Denver metro area including Arvada, Lakewood, Thornton and surrounding cities. Professional event services wherever you are.",
+  keywords: "Westminster venue, Denver metro event services, venue serving Arvada, venue serving Lakewood, event planning Westminster"
 };
 ---
 
@@ -32,21 +43,21 @@ const seo = {
     <!-- Content -->
     <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
       <div class="w-full">
-        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Our Locations</Badge>
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Service Areas</Badge>
 
         <h1 class="text-5xl font-display text-white mb-6 leading-tight">
-          Event Venues Across the <span class="text-primary">Denver Metro Area</span>
+          Westminster Venue Serving the <span class="text-primary">Denver Metro Area</span>
         </h1>
 
         <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
-          Need the perfect event venue near you? We serve couples and businesses throughout 
-          the Denver metro area with beautiful spaces for weddings, corporate events, and 
-          private celebrations.
+          Looking for a venue near you? Our beautiful Westminster location serves couples and businesses 
+          throughout the Denver metro area. One stunning venue, convenient for guests from 
+          Arvada, Lakewood, Thornton, and surrounding cities.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#locations-grid" class="btn-primary-lg">
-            Find Your Location
+          <a href="#service-areas-grid" class="btn-primary-lg">
+            Find Your Service Area
           </a>
           <a href="/services" class="btn-outline-lg">
             View Services
@@ -56,27 +67,72 @@ const seo = {
     </div>
   </section>
 
-  <!-- Locations Grid -->
-  <section id="locations-grid" class="py-20 px-6 bg-background">
+  <!-- Services Section - Available at All Locations -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Services</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Available for All Service Areas</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Our Westminster venue offers complete event services for clients throughout the Denver metro area. 
+          Same exceptional quality and professional coordination, wherever you're located.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedServices.map(service => {
+          const pricing = getServicePricing(service);
+          return (
+            <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+              <CardHeader className="text-center">
+                <CardTitle className="text-xl font-display text-foreground mb-2">
+                  {service.data.packageName}
+                </CardTitle>
+                <div class="text-2xl font-medium text-primary mb-2">
+                  {pricing.formatted}
+                </div>
+                <CardDescription className="text-sm text-muted-foreground">
+                  {service.data.capacity.min}-{service.data.capacity.max} guests
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p class="text-sm text-muted-foreground text-center">
+                  {service.data.shortDescription}
+                </p>
+                <div class="pt-4 border-t border-primary/10">
+                  <a
+                    href={`/services/${service.slug}`}
+                    class="block w-full text-center bg-primary/10 hover:bg-primary hover:text-primary-foreground text-primary px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas Grid -->
+  <section id="service-areas-grid" class="py-20 px-6 bg-background">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Areas</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Where We Serve</h2>
+        <h2 class="text-4xl font-display text-foreground mb-4">Areas We Serve</h2>
         <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
-          From intimate Westminster gardens to corporate spaces across the Denver metro, 
-          find the perfect venue location for your special event.
+          Our Westminster venue is perfectly located to serve the entire Denver metro area. 
+          See how convenient we are for guests in your area.
         </p>
       </div>
 
       {/* Primary Locations */}
       {sortedLocations.filter(loc => loc.data.priority === 'primary').length > 0 && (
         <div class="mb-16">
-          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Featured Locations</h3>
+          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Our Westminster Venue Serves Your Area</h3>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedLocations.filter(loc => loc.data.priority === 'primary').map(location => {
-              const serviceCount = location.data.availableServices.length;
-              const featuredServices = location.data.availableServices.filter(s => s.featured).slice(0, 3);
-              
               return (
                 <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
                   <CardHeader className="text-center">
@@ -87,7 +143,7 @@ const seo = {
                       {location.data.region}
                     </CardDescription>
                     <div class="text-sm text-muted-foreground">
-                      {serviceCount} service{serviceCount !== 1 ? 's' : ''} available
+                      Served by Westminster venue
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-6">
@@ -97,37 +153,38 @@ const seo = {
                       </p>
                     )}
 
-                    {featuredServices.length > 0 && (
-                      <div class="space-y-3">
-                        <h4 class="font-medium text-foreground text-sm">Popular Services:</h4>
-                        {featuredServices.map(service => (
-                          <div class="flex justify-between items-center text-sm bg-primary/5 rounded-lg p-3">
-                            <span class="text-foreground">{service.packageName}</span>
-                            <span class="text-primary font-medium">
-                              ${service.price.toLocaleString()}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
                     {location.data.localInfo?.transportation && (
-                      <div class="space-y-2 text-xs text-muted-foreground">
-                        {location.data.localInfo.transportation.fromDenver && (
-                          <div>📍 From Denver: {location.data.localInfo.transportation.fromDenver}</div>
-                        )}
-                        {location.data.localInfo.transportation.parking && (
-                          <div>🅿️ {location.data.localInfo.transportation.parking}</div>
-                        )}
+                      <div class="space-y-3">
+                        <h4 class="font-medium text-foreground text-sm">Location Benefits:</h4>
+                        <div class="space-y-2 text-sm text-muted-foreground">
+                          {location.data.localInfo.transportation.fromDenver && (
+                            <div class="flex items-center gap-2">
+                              <span class="text-primary">📍</span>
+                              From Denver: {location.data.localInfo.transportation.fromDenver}
+                            </div>
+                          )}
+                          {location.data.localInfo.transportation.parking && (
+                            <div class="flex items-center gap-2">
+                              <span class="text-primary">🅿️</span>
+                              {location.data.localInfo.transportation.parking}
+                            </div>
+                          )}
+                          {location.data.localInfo.landmarks && location.data.localInfo.landmarks.length > 0 && (
+                            <div class="flex items-center gap-2">
+                              <span class="text-primary">🏛️</span>
+                              Near {location.data.localInfo.landmarks[0]}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     )}
 
                     <div class="pt-4 border-t border-primary/10">
                       <a
-                        href={`/locations/${location.data.citySlug}`}
+                        href={`/service-areas/${location.data.citySlug}`}
                         class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
                       >
-                        Explore {location.data.city}
+                        Service for {location.data.city} Area
                       </a>
                     </div>
                   </CardContent>
@@ -144,9 +201,6 @@ const seo = {
           <h3 class="text-2xl font-display text-foreground mb-8 text-center">Additional Service Areas</h3>
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {sortedLocations.filter(loc => loc.data.priority === 'secondary').map(location => {
-              const serviceCount = location.data.availableServices.length;
-              const topService = location.data.availableServices.find(s => s.featured) || location.data.availableServices[0];
-              
               return (
                 <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group text-center">
                   <CardContent className="p-6">
@@ -154,18 +208,18 @@ const seo = {
                       {location.data.city}
                     </h4>
                     <div class="text-sm text-muted-foreground mb-3">
-                      {serviceCount} service{serviceCount !== 1 ? 's' : ''}
+                      Served by Westminster venue
                     </div>
-                    {topService && (
-                      <div class="text-xs text-primary mb-4">
-                        Starting at ${topService.price.toLocaleString()}
+                    {location.data.localInfo?.transportation?.fromDenver && (
+                      <div class="text-xs text-muted-foreground mb-4">
+                        {location.data.localInfo.transportation.fromDenver}
                       </div>
                     )}
                     <a
-                      href={`/locations/${location.data.citySlug}`}
+                      href={`/service-areas/${location.data.citySlug}`}
                       class="text-sm text-primary hover:underline"
                     >
-                      View Details →
+                      Service Details →
                     </a>
                   </CardContent>
                 </Card>
@@ -223,10 +277,10 @@ const seo = {
   <!-- Call to Action -->
   <section class="py-16 px-6 bg-gradient-card">
     <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Find Your Perfect Venue?</h2>
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Perfect Event?</h2>
       <p class="text-xl mb-8 text-foreground/90">
-        Contact us today to discuss your event needs. We'll help you choose the best location 
-        and create an unforgettable experience for you and your guests.
+        Contact us today to discuss your event needs. Our Westminster venue is perfectly located 
+        to serve you and your guests, wherever you're located in the Denver metro area.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact#book" class="btn-primary">

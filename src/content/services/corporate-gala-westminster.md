@@ -1,6 +1,6 @@
 ---
 title: "Corporate Gala Venue Westminster, CO - Formal Events"
-description: "Elegant corporate gala venue in Westminster, CO for 75-135 guests. Formal business event packages starting at $3,500 with 6 hours and stage area."
+description: "Elegant corporate gala venue in Westminster, CO for 30-100 guests. Formal business event packages starting at $2,000 with 5 hours and complete coordination."
 keywords: ["corporate gala venue Westminster CO", "business gala venue", "corporate fundraiser venue", "formal business event", "company awards ceremony", "corporate event space"]
 serviceType: "corporate-event"
 location:
@@ -10,27 +10,27 @@ location:
   isGeneric: false
 packageName: "Corporate Gala Package"
 shortDescription: "Sophisticated corporate gala packages for formal business events, fundraisers, and award ceremonies."
-pricingTierId: "corporate-gala"
+pricingTierId: "corporate-party"
 capacity:
-  min: 75
-  max: 135
-  ideal: 100
+  min: 30
+  max: 100
+  ideal: 60
 amenities:
-  - "6 hours of premium venue access"
-  - "Formal dining setup with elegant linens"
-  - "Stage area for presentations and speakers"
-  - "Premium lighting package for ambiance"
-  - "Professional sound system with microphones"
-  - "VIP area setup for special guests"
-  - "Coat check area for formal attire"
-  - "Bar area for cocktail reception"
-  - "Professional coordination team"
-  - "Complete setup and breakdown service"
+  - "Venue rental for 5 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Reception-style setup"
+  - "Professional Coordination"
+  - "Sound system for presentations"
+  - "Enhanced lighting"
+  - "Wi-Fi access"
+  - "Bar area setup"
 availability: "year-round"
 duration:
   min: 5
-  max: 8
-  recommended: 6
+  max: 5
+  recommended: 5
 targetAudience: ["corporations", "organizations", "nonprofits"]
 featured: false
 ---
@@ -67,15 +67,32 @@ We handle the complex logistics while you focus on your program content and gues
 
 ## Your Gala Package Includes
 
-- **6-Hour Premium Access**: Perfect for cocktails, dinner, program, and networking
-- **Formal Dining Setup**: Elegant table arrangements with premium linens and place settings
-- **Stage Area**: Professional presentation space with backdrop for speakers and awards
-- **Premium Lighting Package**: Sophisticated ambiance that photographs beautifully
-- **Sound System**: Professional audio with wireless microphones for presentations
-- **VIP Area Setup**: Special seating or reception area for honored guests
-- **Coat Check Area**: Attendants can check formal attire and personal items
-- **Bar Area**: Designated cocktail reception space with professional setup
-- **Professional Coordination**: Timeline management and vendor liaison services
+### Venue & Setup
+- **5-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
+- Reception-style setup
+
+### Coordination & Management
+- Professional coordination and support
+- Timeline planning and day-of management
+
+### Equipment & Amenities
+- Sound system for presentations
+- Enhanced lighting
+- Wi-Fi access
+- Bar area setup
+
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- AV equipment upgrade ($200)
+- Extended hours ($250/hour)
+- Flowers ($500 starting price)
+- Premium linens ($200)
+- Dance floor ($500)
+- Photo booth ($400 for 4-hour package)
 
 ## Perfect for These Corporate Events
 

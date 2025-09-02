@@ -16,20 +16,18 @@ capacity:
   max: 30
   ideal: 20
 amenities:
-  - "4 hours of professional venue access"
-  - "Conference-style seating arrangement"
+  - "Venue rental for 4 hours"
+  - "Setup and cleanup"
+  - "Conference-style seating"
+  - "Professional coordination"
   - "Presentation screen and projector"
-  - "Professional sound system"
-  - "High-speed Wi-Fi access"
-  - "Refreshment area and coffee station"
-  - "Climate controlled environment"
-  - "Professional lighting"
-  - "Dedicated parking spaces"
-  - "Setup and breakdown included"
+  - "Sound system for presentations"
+  - "Wi-Fi access"
+  - "Basic refreshment area"
 availability: "year-round"
 duration:
-  min: 2
-  max: 8
+  min: 4
+  max: 4
   recommended: 4
 targetAudience: ["businesses", "teams", "organizations"]
 featured: false
@@ -67,14 +65,25 @@ We provide a refreshment area with coffee service. Your team stays energized and
 
 ## Your Meeting Package Includes
 
-- **4-Hour Venue Access**: Perfect for half-day meetings, training sessions, or planning retreats
-- **Conference Seating**: Professional setup for 10-30 attendees around tables or in rows
-- **AV Equipment**: Large presentation screen, projector, and sound system
-- **High-Speed Wi-Fi**: Reliable internet for presentations and online collaboration
-- **Refreshment Area**: Coffee station and space for catered meals or snacks  
-- **Professional Setup**: Tables, chairs, and equipment arranged before you arrive
-- **Climate Control**: Comfortable temperature year-round
-- **Cleanup Service**: We handle breakdown so you can leave when finished
+### Venue & Setup
+- **4-hour venue rental** with professional conference space
+- Complete setup and cleanup included
+- Conference-style seating for your group
+
+### Coordination & Management
+- Professional coordination and support
+- Timeline planning assistance
+
+### Equipment & Amenities
+- Presentation screen and projector
+- Sound system for presentations
+- Wi-Fi access
+- Basic refreshment area
+
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- AV equipment upgrade ($200)
+- Extended hours ($250/hour)
 
 ## Perfect for These Business Meetings
 

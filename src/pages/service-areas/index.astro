@@ -1,0 +1,6 @@
+---
+// Redirect service-areas to the updated locations page (which is now our service areas hub)
+export const prerender = true;
+
+return Astro.redirect("/locations", 301);
+---

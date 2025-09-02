@@ -75,14 +75,14 @@ export const pricingTiers = {
       includes: [
         'Venue rental for 4 hours',
         'Ceremony and reception spaces',
+        'Setup and breakdown included',
         'Reception area with tables and chairs',
         'Venue Management',
         'Sound system',
         'Ambient lighting',
-        'Cake Cutting Service',
-        'Champagene Pour Service',
         'Non-Alcoholic Beverage Station',
-        "Setup and breakdown included"
+        'Cake Cutting Service',
+        'Champagne Pour Service'
       ],
       addOns: ['catering', 'bar', 'flowers', 'photo booth', 'upgraded-linens', 'dance-floor','extended-hours'],
       featured: true
@@ -97,15 +97,14 @@ export const pricingTiers = {
       includes: [
         'Venue rental for 8 hours',
         'Ceremony and reception spaces',
-        'Venue Management',
+        'Setup and breakdown included',
         'Reception area with tables and chairs',
+        'Venue Management',
+        'Sound System',
         'Ambient Lighting',
         'Bar Setup',
         'Cake Cutting Service',
-        "Champagene Pour Service",
-        "Sound System",
-        "Ambient Lighting",
-        'Setup and breakdown included'
+        'Champagne Pour Service'
       ],
       addOns: ['catering', 'flowers', 'photo booth', 'extended-hours', 'upgraded-linens', 'dance-floor']
     },
@@ -124,13 +123,13 @@ export const pricingTiers = {
       duration: 3,
       includes: [
         'Venue rental for 3 hours',
-        'Tables and chair setup',
-        'Venue Management',
-        'Basic linens and place settings',
-        'Non-Alcoholic Beverage Station',
-         "Sound System",
-        'Ambient Lighting',
         'Setup and cleanup',
+        'Tables and chair setup',
+        'Basic linens and place settings',
+        'Venue Management',
+        'Sound System',
+        'Ambient Lighting',
+        'Non-Alcoholic Beverage Station'
       ],
       addOns: ['catering', 'bar', 'flowers', 'extended-hours', 'upgraded-linens']
     },
@@ -146,16 +145,16 @@ export const pricingTiers = {
       },
       duration: 4,
       includes: [
-        'Venue rental for 3 hours',
-        'Tables and chair setup',
-        'Venue Management',
-        'Basic linens and place settings',
-        'Non-Alcoholic Beverage Station',
-         "Sound System",
-        'Ambient Lighting',
+        'Venue rental for 4 hours',
         'Setup and cleanup',
+        'Tables and chair setup',
+        'Basic linens and place settings',
+        'Venue Management',
+        'Sound System',
+        'Ambient Lighting',
+        'Non-Alcoholic Beverage Station'
       ],
-      addOns: ['catering', 'bar', 'decorations', 'dance-floor']
+      addOns: ['catering', 'bar', 'dance-floor', 'upgraded-linens','photo booth','extended-hours']
     },
     anniversary: {
       id: 'social-anniversary',
@@ -170,13 +169,15 @@ export const pricingTiers = {
       duration: 5,
       includes: [
         'Venue rental for 5 hours',
-        'Elegant table settings',
-        'Enhanced lighting package',
-        'Sound system',
-        'Professional setup',
-        'Coordination assistance'
+        'Setup and cleanup',
+        'Tables and chair setup',
+        'Basic linens and place settings',
+        'Venue Management',
+        'Sound System',
+        'Ambient Lighting',
+        'Non-Alcoholic Beverage Station'
       ],
-      addOns: ['catering', 'bar', 'flowers', 'photography', 'upgraded-linens']
+      addOns: ['catering', 'bar', 'flowers', 'photo booth', 'upgraded-linens', 'extended-hours','dance-floor']
     }
   },
   corporate: {
@@ -189,9 +190,11 @@ export const pricingTiers = {
       duration: 4,
       includes: [
         'Venue rental for 4 hours',
+        'Setup and cleanup',
         'Conference-style seating',
+        'Professional coordination',
         'Presentation screen and projector',
-        'Sound system',
+        'Sound system for presentations',
         'Wi-Fi access',
         'Basic refreshment area'
       ],
@@ -201,37 +204,25 @@ export const pricingTiers = {
       id: 'corporate-party',
       name: 'Company Celebration',
       description: 'Celebrate achievements with your team',
-      guestRange: [30, 75] as [number, number],
+      guestRange: [30, 100] as [number, number],
       basePrice: 2000,
       duration: 5,
       includes: [
         'Venue rental for 5 hours',
+        'Setup and cleanup',
+        'Tables and chair setup',
+        'Basic linens and place settings',
         'Reception-style setup',
+        'Professional Coordination',
         'Sound system for presentations',
         'Enhanced lighting',
-        'Professional coordination',
+        'Wi-Fi access',
         'Bar area setup'
       ],
-      addOns: ['catering', 'bar', 'av-upgrade', 'extended-hours']
+      addOns: ['catering', 'bar', 'av-upgrade', 'extended-hours','flowers','upgraded-linens','dance-floor','photo booth']
     },
-    gala: {
-      id: 'corporate-gala',
-      name: 'Corporate Gala',
-      description: 'Formal corporate events and fundraisers',
-      guestRange: [75, 135] as [number, number],
-      basePrice: 3500,
-      duration: 6,
-      includes: [
-        'Venue rental for 6 hours',
-        'Formal dining setup',
-        'Stage area for presentations',
-        'Premium lighting package',
-        'Professional coordination',
-        'VIP area setup',
-        'Coat check area'
-      ],
-      addOns: ['catering', 'bar', 'av-upgrade', 'flowers', 'extended-hours', 'upgraded-linens']
-    }
+    
+    
   }
 } as const;
 
@@ -242,8 +233,8 @@ export const addOnPricing: Record<string, AddOnPricing> = {
     name: 'Catering Service',
     description: 'Professional catering with American or Latin fusion menus',
     pricing: {
-      perGuest: 25, // Starting price, varies by menu and style
-      minimum: 20
+      perGuest: 30, // Starting price, varies by menu and style
+      minimum: 18
     }
   },
   bar: {
@@ -251,24 +242,24 @@ export const addOnPricing: Record<string, AddOnPricing> = {
     name: 'Bar Service',
     description: 'Professional bartender with beer, wine, and cocktails',
     pricing: {
-      perGuest: 30, // 2-hour package
+      perGuest: 18, // 2-hour package
       setup: 300,
       minimum: 20,
       duration: 2
     }
   },
-  photography: {
-    id: 'photography',
-    name: 'Event Photography',
-    description: 'Professional photographer for your special day',
+  photoBooth: {
+    id: 'photoBooth',
+    name: 'Photo Booth',
+    description: 'Professional photo booth for your special day',
     pricing: {
-      fixed: 800 // 4-hour package
+      fixed: 400 // 4-hour package
     }
   },
   flowers: {
     id: 'flowers',
     name: 'Floral Arrangements',
-    description: 'Beautiful centerpieces and ceremony flowers',
+    description: 'Beautiful centerpieces and ceremony flowers (Starting price)',
     pricing: {
       fixed: 500 // Basic package
     }
@@ -276,15 +267,15 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   'extended-hours': {
     id: 'extended-hours',
     name: 'Extended Hours',
-    description: 'Add extra time to your event',
+    description: 'Add extra time to your event.',
     pricing: {
-      fixed: 500 // Per hour
+      fixed: 250 // Per hour
     }
   },
   'upgraded-linens': {
     id: 'upgraded-linens',
     name: 'Premium Linens',
-    description: 'Upgraded table linens and napkins',
+    description: 'Upgraded table linens and napkins. (Starting price)',
     pricing: {
       fixed: 200
     }
@@ -294,24 +285,15 @@ export const addOnPricing: Record<string, AddOnPricing> = {
     name: 'Dance Floor',
     description: 'Professional dance floor setup',
     pricing: {
-      fixed: 400
+      fixed: 500
     }
   },
   decorations: {
     id: 'decorations',
     name: 'Event Decorations',
-    description: 'Custom decorations for your theme',
+    description: 'Custom decorations for your theme. (Starting price)',
     pricing: {
       fixed: 300
-    }
-  },
-  beverages: {
-    id: 'beverages',
-    name: 'Beverages Package',
-    description: 'Non-alcoholic beverages and coffee service',
-    pricing: {
-      perGuest: 8,
-      minimum: 15
     }
   },
   'av-upgrade': {
@@ -329,7 +311,7 @@ export const cateringPackages = {
   american: {
     name: "All-American",
     description: "Hearty, crowd-pleasing dishes with fresh, local ingredients",
-    priceRange: "$18-45/guest",
+    priceRange: "$18-33/guest",
     serviceStyles: {
       plated: "Formal, seated service (+$1-3/guest)",
       buffet: "Casual, self-serve (+$0/guest)",
@@ -344,8 +326,8 @@ export const cateringPackages = {
       },
       { 
         name: "All-American Feast", 
-        plated: 40, 
-        buffet: 37, 
+        plated: 33, 
+        buffet: 30, 
         description: "Small Plate + Main + Dessert. Perfect for heartier events." 
       }
     ]
@@ -353,7 +335,7 @@ export const cateringPackages = {
   latinFusion: {
     name: "Latin Fusion",
     description: "Vibrant flavors from Mexico, Peru and beyond",
-    priceRange: "$18-48/guest",
+    priceRange: "$18-33/guest",
     serviceStyles: {
       plated: "Formal, seated service (+$1-3/guest)",
       buffet: "Casual, self-serve (+$0/guest)",
@@ -368,8 +350,8 @@ export const cateringPackages = {
       },
       { 
         name: "Full Latin Feast", 
-        plated: 43, 
-        buffet: 40, 
+        plated: 33, 
+        buffet: 30, 
         description: "Small Plate + Main + Dessert. Ideal for upscale gatherings." 
       }
     ]
@@ -380,13 +362,13 @@ export const cateringPackages = {
 export const barPackages = [
   { 
     name: "Open Bar (2 hours)", 
-    beerWine: 25, 
-    fullBar: 35, 
-    description: "Pre-paid drinks for 2 hours - beer/wine or full bar with cocktails" 
+    beerWine: 18, 
+    fullBar: 28, 
+    description: "Pre-paid drinks for 2 hours - beer/wine or full bar with cocktails, meets $300 minimum via sales" 
   },
   { 
     name: "Cash Bar", 
-    description: "Guests pay per drink, meets $150 minimum via sales" 
+    description: "Guests pay per drink, meets $300 minimum via sales" 
   }
 ] as const;
 

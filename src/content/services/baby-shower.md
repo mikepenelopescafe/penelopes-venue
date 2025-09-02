@@ -1,33 +1,34 @@
 ---
-title: "Baby Shower Venue Westminster, CO"
-description: "Delightful baby shower venue in Westminster, CO for celebrating new beginnings. Charming packages with themes, games, catering, and complete event coordination."
-keywords: ["baby shower venue Westminster CO", "celebration space for baby shower", "maternity shower location", "Colorado baby shower venue", "new baby celebration", "expectant parents party"]
+title: "Baby Shower Venues Denver Metro - Celebrating New Beginnings"
+description: "Delightful baby shower venues throughout Denver metro for 15-100 guests celebrating new beginnings. Charming packages starting at $900."
+keywords: ["baby shower venue Denver metro", "celebration space for baby shower", "maternity shower location", "Colorado baby shower venue", "new baby celebration", "expectant parents party"]
 serviceType: "baby-shower"
 location:
-  city: "Westminster"
+  city: "Multiple Locations"
   state: "CO"
   region: "Denver Metro"
+  isGeneric: true
 packageName: "Baby Shower Celebration"
-shortDescription: "Joyful baby shower venue in Westminster with themed packages, games, and complete coordination for celebrating expectant parents."
+shortDescription: "Joyful baby shower venues throughout Denver metro with packages for 15-100 guests and complete coordination for celebrating expectant parents."
 pricingTierId: "social-shower"
 capacity:
   min: 15
-  max: 50
-  ideal: 25
+  max: 100
+  ideal: 40
 amenities:
-  - "Charming celebration space with theme options"
-  - "Customizable baby shower decor"
-  - "Professional coordination service"
-  - "Game and activity setup areas"
-  - "Catering and food service stations"
-  - "Cake and dessert presentation area"
-  - "Gift and registry display tables"
-  - "Photography and memory areas"
+  - "Venue rental for 3 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Venue Management"
+  - "Sound System"
+  - "Ambient Lighting"
+  - "Non-Alcoholic Beverage Station"
 availability: "year-round"
 duration:
   min: 3
-  max: 5
-  recommended: 4
+  max: 3
+  recommended: 3
 targetAudience: ["expectant parents", "families", "friend groups"]
 pricingPageLink: "/pricing"
 featured: true
@@ -43,29 +44,28 @@ Located in the heart of Westminster, our venue creates a nurturing atmosphere pe
 
 ## Baby Shower Package Features
 
-### Charming Celebration Space
-- Warm, inviting room setup with baby-themed decor
-- Flexible seating for mingling and activities
-- Designated areas for food service and cake
-- Gift and registry display tables
+### Venue & Setup
+- **3-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
 
-### Themed Experience
-- Customizable themes ( woodland creatures, little prince/princess, modern minimalist, etc.)
-- Coordinated decor and color schemes
-- Themed games and activity stations
-- Photo backdrop and memory areas
-
-### Complete Coordination
-- Dedicated baby shower coordinator
-- Timeline planning and day-of management
+### Coordination & Management
+- Professional venue management and coordination
+- Timeline planning and day-of support
 - Vendor coordination assistance
-- Setup and cleanup included
 
-### Special Touches
-- Cake and dessert presentation area
-- Mocktail and beverage service options
-- Guest book and memory table
-- Welcome and registration area
+### Equipment & Amenities
+- Professional sound system
+- Ambient lighting setup
+- Non-Alcoholic Beverage Station
+
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- Floral arrangements ($500 starting price)
+- Extended hours ($250/hour)
+- Premium linens ($200)
 
 ## Perfect for Various Celebration Styles
 
@@ -94,7 +94,7 @@ Our location offers families and guests:
 
 ## Guest Capacity & Pricing
 
-Our baby shower packages accommodate 15-50 guests, perfect for intimate family gatherings or larger celebrations. From $750-$1,650, our comprehensive packages include themed setup, coordination, and all the joyful details.
+Our baby shower packages accommodate 15-100 guests, perfect for intimate family gatherings or larger celebrations. Starting at $900, our comprehensive packages include venue rental, setup, coordination, and all the essentials for your joyful celebration.
 
 [Explore our complete baby shower pricing](/pricing) including catering options, theme packages, and activity add-ons.
 

@@ -1,0 +1,172 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+// Get budget-focused pages
+const pages = await getCollection('pages');
+const budgetPages = pages.filter(page =>
+  page.slug.startsWith('budget-focused/')
+);
+
+const seo = {
+  title: "Budget-Friendly Wedding Venues - Affordable Event Spaces Denver",
+  description: "Find affordable wedding and event venues in Denver metro area. Beautiful spaces that won't break your budget. Compare pricing and packages.",
+  keywords: "affordable wedding venues Denver, budget wedding venues Colorado, cheap wedding venues Denver, affordable event spaces"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="budget-hero">
+    <!-- Dark Black Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <!-- Subtle Pattern Overlay for Texture -->
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Budget Friendly</Badge>
+
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Beautiful Venues That <span class="text-primary">Won't Break Your Budget</span>
+        </h1>
+
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          You don't have to sacrifice beauty or quality to stay within your budget. Discover
+          affordable venues and packages that give you exceptional value without the high price tag.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#budget-options" class="btn-primary-lg">
+            View Budget Options
+          </a>
+          <a href="/pricing" class="btn-outline-lg">
+            Compare Pricing
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget Options -->
+  <section id="budget-options" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Smart Choices</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Budget-Friendly Options</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Quality venues and services don't have to be expensive. Explore our budget-conscious
+          options that deliver beautiful results at reasonable prices.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {budgetPages.map(page => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-display text-foreground mb-2">
+                {page.data.title.split(' - ')[0]}
+              </CardTitle>
+              <CardDescription className="text-base text-primary font-medium mb-2">
+                Budget-Friendly Option
+              </CardDescription>
+              <div class="text-sm text-muted-foreground">
+                {page.data.description.split('.')[0]}.
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p class="text-sm text-muted-foreground text-center">
+                Affordable quality for couples who want beautiful celebrations without overspending.
+              </p>
+
+              <div class="pt-4 border-t border-primary/10">
+                <a
+                  href={`/${page.slug}`}
+                  class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  Learn More →
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+
+        {budgetPages.length === 0 && (
+          <div class="col-span-full text-center py-12">
+            <p class="text-lg text-muted-foreground">More budget options coming soon!</p>
+            <p class="text-sm text-muted-foreground mt-2">
+              Contact us for current affordable packages.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Budget Tips -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Save Smart</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Budget Planning Tips</h2>
+        <p class="text-lg text-muted-foreground">
+          Make the most of your budget with these expert tips for affordable celebrations.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">📅</div>
+            <div class="text-xl font-display text-foreground mb-2">Book Early</div>
+            <div class="text-sm text-muted-foreground">
+              Reserve your date 12-18 months in advance for the best rates
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">📊</div>
+            <div class="text-xl font-display text-foreground mb-2">Know Your Priorities</div>
+            <div class="text-sm text-muted-foreground">
+              Focus spending on what matters most to you and your partner
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">🤝</div>
+            <div class="text-xl font-display text-foreground mb-2">Work with Vendors</div>
+            <div class="text-sm text-muted-foreground">
+              Many vendors offer package deals and budget-friendly options
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Budget-Friendly Event?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Let's discuss your budget and vision. We'll help you create a beautiful celebration
+        that fits your financial goals without compromising on quality.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">
+          Get Budget Quote
+        </a>
+        <a href="/pricing" class="btn-outline">
+          View All Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 title: "Birthday Party Venue Westminster, CO - Milestone Events"
-description: "Perfect birthday party venue in Westminster, CO for milestone celebrations. Party packages for 20-75 guests from $1,000-$2,200 with setup and sound system."
+description: "Perfect birthday party venue in Westminster, CO for milestone celebrations. Party packages for 20-100 guests starting at $1,200 with setup and sound system."
 keywords: ["birthday party venue Westminster CO", "milestone birthday venue", "adult birthday party", "birthday celebration venue", "Westminster party venue", "birthday party package"]
 serviceType: "birthday"
 location:
@@ -9,26 +9,25 @@ location:
   region: "Denver Metro"
   isGeneric: false
 packageName: "Birthday Party Celebration"
-shortDescription: "Milestone birthday party packages for adults celebrating in style with friends and family."
+shortDescription: "Milestone birthday party packages for 20-100 guests celebrating in style with friends and family."
 pricingTierId: "social-birthday"
 capacity:
   min: 20
-  max: 75
-  ideal: 40
+  max: 100
+  ideal: 50
 amenities:
-  - "Complete table and chair setup"
-  - "4 hours of venue access"
-  - "Sound system for music and announcements"
-  - "Ambient party lighting"
-  - "Professional setup and cleanup"
-  - "Decorating time before event"
-  - "Kitchen access for cake service"
-  - "Ample parking for guests"
-  - "Climate controlled indoor space"
+  - "Venue rental for 4 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Venue Management"
+  - "Sound System"
+  - "Ambient Lighting"
+  - "Non-Alcoholic Beverage Station"
 availability: "year-round"
 duration:
-  min: 3
-  max: 6
+  min: 4
+  max: 4
   recommended: 4
 targetAudience: ["adults", "families"]
 featured: false
@@ -66,13 +65,29 @@ Your guests get plenty of free parking. The space is climate controlled year-rou
 
 ## Your Birthday Package Includes
 
-- **4-Hour Venue Access**: Perfect timeframe for cocktails, dinner, cake, and celebrating
-- **Complete Setup**: Round tables for mingling or long tables for dining
-- **Sound System**: Music, microphone for toasts and announcements
-- **Party Lighting**: Warm, festive ambiance that photographs beautifully  
-- **Setup & Cleanup**: We handle the work so you enjoy your party
-- **Decorating Time**: Extra hour before your event to set up decorations
-- **Kitchen Access**: Refrigerator, serving counter, and cake service area
+### Venue & Setup
+- **4-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
+
+### Coordination & Management
+- Professional venue management and coordination
+- Timeline planning and day-of support
+- Vendor coordination assistance
+
+### Equipment & Amenities
+- Professional sound system
+- Ambient lighting setup
+- Non-Alcoholic Beverage Station
+
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- Dance floor ($500)
+- Photo booth ($400 for 4-hour package)
+- Premium linens ($200)
+- Extended hours ($250/hour)
 
 ## Perfect for These Birthday Celebrations
 

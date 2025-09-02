@@ -1,41 +1,44 @@
 ---
-title: "Corporate Event Space Westminster, CO"
-description: "Modern corporate event venue in Westminster, CO for meetings, trainings, and business gatherings. Professional space with AV equipment and configurations."
-keywords: ["corporate event space Westminster CO", "business meeting venue", "professional event space", "corporate training facility", "Westminster conference room", "Colorado corporate venue"]
+title: "Corporate Event Venues Denver Metro - Professional Spaces"
+description: "Modern corporate event venues throughout Denver metro for 30-100 guests. Professional spaces starting at $2,000 with AV equipment and complete coordination."
+keywords: ["corporate event space Denver metro", "business meeting venue Colorado", "professional event space", "corporate training facility", "Denver conference room", "Colorado corporate venue"]
 serviceType: "corporate-event"
 location:
-  city: "Westminster"
+  city: "Multiple Locations"
   state: "CO"
   region: "Denver Metro"
+  isGeneric: true
 packageName: "Corporate Event Experience"
-shortDescription: "Professional event space in Westminster for corporate meetings, trainings, and business gatherings with modern amenities."
+shortDescription: "Professional event spaces throughout Denver metro for 30-100 guests with complete coordination and modern amenities."
 pricingTierId: "corporate-party"
 capacity:
-  min: 15
-  max: 80
-  ideal: 40
+  min: 30
+  max: 100
+  ideal: 60
 amenities:
-  - "Professional meeting space with flexible layout"
-  - "High-speed WiFi and AV equipment"
-  - "Projector and screen for presentations"
-  - "Sound system and microphones"
-  - "Whiteboard and flipchart setup"
-  - "Business catering options available"
-  - "Registration and welcome area"
-  - "On-site coordination support"
+  - "Venue rental for 5 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Reception-style setup"
+  - "Professional Coordination"
+  - "Sound system for presentations"
+  - "Enhanced lighting"
+  - "Wi-Fi access"
+  - "Bar area setup"
 availability: "year-round"
 duration:
-  min: 3
-  max: 8
-  recommended: 4
+  min: 5
+  max: 5
+  recommended: 5
 targetAudience: ["business professionals", "corporate groups", "training organizations"]
 pricingPageLink: "/pricing"
 featured: true
 ---
 
-# Professional Corporate Event Space in Westminster, CO
+# Professional Corporate Event Venues Throughout Denver Metro
 
-Elevate your business gatherings at Penelope's Venue, a modern corporate event space in Westminster designed for professional meetings, trainings, and corporate events. Our flexible venue combines functionality with style, creating the perfect environment for productive business gatherings.
+Elevate your business gatherings at Penelope's Venue, with modern corporate event spaces throughout the Denver metro area designed for professional meetings, trainings, and corporate events. Our flexible venues combine functionality with style, creating the perfect environment for productive business gatherings.
 
 ## Premier Business Venue Location
 
@@ -43,29 +46,32 @@ Strategically located in Westminster with excellent access to Denver's business 
 
 ## Corporate Event Capabilities
 
-### Flexible Meeting Spaces
-- Configurable room layouts (theater, classroom, boardroom, reception)
-- Professional presentation equipment
-- High-speed internet throughout the venue
-- Sound system with wireless microphones
+### Venue & Setup
+- **5-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
+- Reception-style setup
 
-### Business Amenities
-- Welcome and registration area
-- Business catering and coffee service
-- Whiteboard and presentation tools
-- Breakout spaces for smaller discussions
+### Coordination & Management
+- Professional coordination and support
+- Timeline planning and day-of management
 
-### Technology & AV Support
-- Projector and large screen display
-- Wireless presentation capabilities
-- Sound reinforcement system
-- Video conferencing equipment available
+### Equipment & Amenities
+- Sound system for presentations
+- Enhanced lighting
+- Wi-Fi access
+- Bar area setup
 
-### Professional Coordination
-- Dedicated event coordinator
-- Setup and technical support
-- Catering coordination
-- On-site management during your event
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- AV equipment upgrade ($200)
+- Extended hours ($250/hour)
+- Flowers ($500 starting price)
+- Premium linens ($200)
+- Dance floor ($500)
+- Photo booth ($400 for 4-hour package)
 
 ## Ideal for Various Corporate Events
 
@@ -91,9 +97,9 @@ Our venue's location in Westminster offers:
 
 ## Scalable Capacity & Pricing
 
-From intimate board meetings for 15 people to large corporate gatherings of 80, our space adapts to your needs. Starting at $1,200 for our corporate packages, we offer transparent pricing with flexible time blocks.
+From corporate meetings for 30 people to large company celebrations of 100, our space adapts to your needs. Starting at $2,000 for our corporate packages, we offer transparent pricing with complete coordination.
 
-[View our complete corporate pricing](/pricing) including AV equipment, catering options, and extended hours.
+[View our complete corporate pricing](/pricing) including catering options, AV upgrades, and extended hours.
 
 ## Why Businesses Choose Our Venue
 

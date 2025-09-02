@@ -8,8 +8,8 @@ import { getServicePricing } from '@/lib/pricing-utils';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const locations = await getCollection('locations');
-  return locations.map(location => ({
+  const serviceAreas = await getCollection('service-areas');
+  return serviceAreas.map(location => ({
     params: { city: location.data.citySlug },
     props: { location }
   }));
@@ -98,13 +98,13 @@ const businessSchema = {
         </Badge>
 
         <h1 class="text-5xl font-display text-white mb-6 leading-tight">
-          Event Venue in <span class="text-primary">{location.data.city}, {location.data.state}</span>
+          Westminster Venue Serving <span class="text-primary">{location.data.city}, {location.data.state}</span>
         </h1>
 
         <p class="text-xl text-white/90 max-w-4xl leading-relaxed mb-8">
-          Looking for the perfect event venue in {location.data.city}? Our beautiful space offers 
-          everything you need for weddings, corporate events, and private celebrations with 
-          professional coordination and flexible packages.
+          Looking for event services in {location.data.city}? Our Westminster venue is perfectly 
+          located to serve your area. We provide everything you need for weddings, corporate events, 
+          and private celebrations with the same professional coordination and flexible packages.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
@@ -128,7 +128,7 @@ const businessSchema = {
           <!-- About This Location -->
           <div class="mb-12">
             <h2 class="text-3xl font-display text-foreground mb-6">
-              Your {location.data.city} Event Venue
+              Serving {location.data.city} from Our Westminster Venue
             </h2>
             <div class="prose prose-lg max-w-none">
               <Content />
@@ -139,7 +139,8 @@ const businessSchema = {
           <div class="mb-12">
             <h2 class="text-3xl font-display text-foreground mb-8">Available Services</h2>
             <p class="text-lg text-muted-foreground mb-8">
-              All of our services are available at the {location.data.city} location with the same quality and professional coordination you expect.
+              All of our services are available for {location.data.city} area clients. Our Westminster venue 
+              is convenient for your guests and provides the same quality and professional coordination you expect.
             </p>
             <div class="grid md:grid-cols-2 gap-6">
               {sortedServices.map(service => {
@@ -180,7 +181,7 @@ const businessSchema = {
           {testimonials.length > 0 && (
             <div class="mb-12">
               <h2 class="text-3xl font-display text-foreground mb-8">
-                {location.data.city} Success Stories
+                Success Stories from {location.data.city} Area
               </h2>
               <div class="space-y-6">
                 {testimonials.map(testimonial => (
@@ -218,7 +219,7 @@ const businessSchema = {
           <Card className="bg-card border-primary/20">
             <CardHeader>
               <CardTitle className="text-xl font-display text-foreground">
-                Location Information
+                Service Area Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -235,9 +236,9 @@ const businessSchema = {
               </div>
 
               <div>
-                <div class="text-sm text-muted-foreground mb-1">Available Services</div>
+                <div class="text-sm text-muted-foreground mb-1">Service Approach</div>
                 <div class="font-medium text-foreground">
-                  All services available
+                  Served by Westminster venue
                 </div>
               </div>
 
@@ -346,14 +347,14 @@ const businessSchema = {
   <section class="py-16 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-display text-foreground mb-6">
-        Explore Other Locations
+        Other Service Areas
       </h2>
       <p class="text-lg text-muted-foreground mb-8">
-        We also serve other cities throughout the Denver metro area.
+        Our Westminster venue also serves other cities throughout the Denver metro area.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/locations" class="btn-primary">
-          View All Locations
+          View All Service Areas
         </a>
         <a href="/services" class="btn-outline">
           Browse Services

@@ -1,5 +1,5 @@
 ---
-title: "Event Venue Westminster CO - Penelope's Premier Event Space"
+title: "Event Venue Westminster CO - Penelope's Premier Events"
 description: "Looking for the perfect event venue in Westminster, CO? Penelope's Venue offers beautiful spaces for weddings, corporate events, and parties."
 keywords: ["event venue Westminster CO", "wedding venue Westminster Colorado", "corporate event space Westminster", "private party venue Westminster", "Westminster event planning"]
 customerProblem: "Need a beautiful, affordable event venue in Westminster that handles all the details?"

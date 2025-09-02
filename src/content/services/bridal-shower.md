@@ -1,33 +1,34 @@
 ---
-title: "Bridal Shower Venue Westminster, CO"
-description: "Beautiful bridal shower venue in Westminster, CO for intimate engagement parties. Elegant packages with decor, catering, and complete event coordination."
-keywords: ["bridal shower venue Westminster CO", "engagement party space", "bridal celebration venue", "wedding shower location", "Colorado bridal shower", "elegant party venue"]
+title: "Bridal Shower Venues Denver Metro - Elegant Celebrations"
+description: "Beautiful bridal shower venues throughout Denver metro for 15-100 guests. Elegant packages starting at $900 with complete event coordination."
+keywords: ["bridal shower venue Denver metro", "engagement party space Colorado", "bridal celebration venue", "wedding shower location", "Colorado bridal shower", "elegant party venue"]
 serviceType: "bridal-shower"
 location:
-  city: "Westminster"
+  city: "Multiple Locations"
   state: "CO"
   region: "Denver Metro"
+  isGeneric: true
 packageName: "Bridal Shower Elegance"
-shortDescription: "Elegant bridal shower venue in Westminster with customizable packages for intimate celebrations and engagement parties."
+shortDescription: "Elegant bridal shower venues throughout Denver metro with customizable packages for 15-100 guests and engagement parties."
 pricingTierId: "social-shower"
 capacity:
   min: 15
-  max: 60
-  ideal: 30
+  max: 100
+  ideal: 40
 amenities:
-  - "Elegant celebration space setup"
-  - "Customizable bridal shower decor"
-  - "Professional coordination service"
-  - "Catering and food service areas"
-  - "Cake and dessert presentation area"
-  - "Gift and card table setup"
-  - "Entertainment and game areas"
-  - "Photography backdrop options"
+  - "Venue rental for 3 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Venue Management"
+  - "Sound System"
+  - "Ambient Lighting"
+  - "Non-Alcoholic Beverage Station"
 availability: "year-round"
 duration:
   min: 3
-  max: 6
-  recommended: 4
+  max: 3
+  recommended: 3
 targetAudience: ["brides-to-be", "bridal parties", "families"]
 pricingPageLink: "/pricing"
 featured: true
@@ -43,29 +44,28 @@ Nestled in the heart of Westminster, our venue offers an elegant yet approachabl
 
 ## Bridal Shower Package Features
 
-### Elegant Celebration Space
-- Charming room setup with elegant decor
-- Flexible seating arrangements for mingling
-- Designated areas for food service and cake
-- Gift and card presentation tables
+### Venue & Setup
+- **3-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
 
-### Customized Experience
-- Personalized decor and color scheme options
-- Custom playlist and entertainment setup
-- Themed activities and game coordination
-- Professional photography areas
+### Coordination & Management
+- Professional venue management and coordination
+- Timeline planning and day-of support
+- Vendor coordination assistance
 
-### Complete Coordination
-- Dedicated bridal shower coordinator
-- Timeline planning and day-of management
-- Vendor coordination for florists, caterers, etc.
-- Setup and cleanup included
+### Equipment & Amenities
+- Professional sound system
+- Ambient lighting setup
+- Non-Alcoholic Beverage Station
 
-### Special Touches
-- Cake and dessert service presentation
-- Champagne toast setup options
-- Memory table for guest photos and mementos
-- Welcome and registration area
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- Floral arrangements ($500 starting price)
+- Extended hours ($250/hour)
+- Premium linens ($200)
 
 ## Perfect for Various Celebration Styles
 
@@ -91,7 +91,7 @@ Our location offers brides and their guests:
 
 ## Guest Capacity & Pricing
 
-Our bridal shower packages accommodate 15-60 guests, making them perfect for intimate gatherings or larger celebrations. From $750-$1,650, our comprehensive packages include elegant setup, coordination, and all the details.
+Our bridal shower packages accommodate 15-100 guests, making them perfect for intimate gatherings or larger celebrations. Starting at $900, our comprehensive packages include venue rental, setup, coordination, and all the essentials for your special celebration.
 
 [View our complete bridal shower pricing](/pricing) including catering options, decor packages, and entertainment add-ons.
 

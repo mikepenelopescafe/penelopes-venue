@@ -1,6 +1,6 @@
 ---
 title: "Anniversary Venue Westminster, CO - Celebrate Together"
-description: "Beautiful anniversary celebration venue in Westminster, CO for 25-100 guests. Elegant packages from $1,250-$2,750 with enhanced lighting."
+description: "Beautiful anniversary celebration venue in Westminster, CO for 25-100 guests. Elegant packages starting at $1,500 with enhanced lighting."
 keywords: ["anniversary party venue Westminster CO", "anniversary celebration venue", "wedding anniversary party", "milestone anniversary venue", "Westminster anniversary venue", "anniversary reception"]
 serviceType: "anniversary"
 location:
@@ -16,20 +16,18 @@ capacity:
   max: 100
   ideal: 60
 amenities:
-  - "5 hours of elegant venue access"
-  - "Enhanced lighting package for ambiance"
-  - "Elegant table settings and linens"
-  - "Sound system for music and speeches"
-  - "Professional setup and coordination"
-  - "Photo display areas for memories"
-  - "Bar area setup for toasts"
-  - "Climate controlled comfort"
-  - "Ample parking for all guests"
-  - "Cleanup service included"
+  - "Venue rental for 5 hours"
+  - "Setup and cleanup"
+  - "Tables and chair setup"
+  - "Basic linens and place settings"
+  - "Venue Management"
+  - "Sound System"
+  - "Ambient Lighting"
+  - "Non-Alcoholic Beverage Station"
 availability: "year-round"
 duration:
-  min: 4
-  max: 7
+  min: 5
+  max: 5
   recommended: 5
 targetAudience: ["couples", "families"]
 featured: false
@@ -67,14 +65,30 @@ The enhanced lighting package creates romantic ambiance that photographs beautif
 
 ## Your Anniversary Package Includes
 
-- **5-Hour Venue Access**: Perfect timing for cocktails, dinner, toasts, and celebrating
-- **Elegant Table Settings**: Beautiful linens and place settings worthy of your milestone
-- **Enhanced Lighting Package**: Romantic ambiance that makes everything look beautiful
-- **Sound System**: Music and microphone for toasts and anniversary speeches
-- **Professional Setup**: Tables arranged for both dining and socializing
-- **Memory Display Areas**: Perfect spots for wedding photos and family pictures
-- **Bar Area Setup**: Dedicated space for champagne toasts and beverages
-- **Coordination Assistance**: Help planning timeline and managing your celebration
+### Venue & Setup
+- **5-hour venue rental** with flexible space configuration
+- Complete setup and cleanup included
+- Tables and chair setup for your guest count
+- Basic linens and place settings
+
+### Coordination & Management
+- Professional venue management and coordination
+- Timeline planning and day-of support
+- Vendor coordination assistance
+
+### Equipment & Amenities
+- Professional sound system
+- Ambient lighting setup
+- Non-Alcoholic Beverage Station
+
+### Add-On Options Available
+- Catering services ($30/guest starting price)
+- Full bar service ($18/guest for beer/wine)
+- Floral arrangements ($500 starting price)
+- Photo booth ($400 for 4-hour package)
+- Premium linens ($200)
+- Extended hours ($250/hour)
+- Dance floor ($500)
 
 ## Perfect for These Anniversary Celebrations
 
