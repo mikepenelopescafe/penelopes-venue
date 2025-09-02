@@ -16,23 +16,23 @@ const seo = {
 
 const services = [
   {
-    title: "Authentic Catering",
-    description: "Latin fusion cuisine crafted with passion - Bronze, Silver, and Gold packages available",
+    title: "Great Food Service",
+    description: "Tasty Latin-style dishes made with love - Bronze, Silver, and Gold options to choose from",
     icon: "Chef's Hat"
   },
   {
-    title: "Premium Bar Service",
-    description: "Curated cocktails, beer, and wine selection with professional bartending and full bar setup",
+    title: "Bar Service",
+    description: "Cool drinks, beer, and wine choices with skilled bartenders and full bar setup",
     icon: "Bar Glass"
   },
   {
-    title: "Complete Venue Buyout",
-    description: "Exclusive use of our charming cafe space for your private celebration with dedicated event management",
+    title: "Full Venue Rental",
+    description: "Have the whole cafe to yourself for your private party with our event helpers taking care of everything",
     icon: "Event Space"
   },
   {
-    title: "Professional Event Team",
-    description: "Experienced staff in professional attire handling every detail from setup to cleanup",
+    title: "Friendly Event Team",
+    description: "Experienced professional staff handling all the details from start to finish",
     icon: "Team"
   }
 ];
@@ -64,9 +64,9 @@ const venueStats = [
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
   <!-- Hero Section -->
   <Hero
-    subheadline="Boutique Spanish inspired venue with access to our commercial kitchen and bar, for events of 50-100 guests. Your destination for boutique weddings and celebrations in Westminster."
-    ctaPrimary={{ text: "Schedule a Tour", href: "/contact#book" }}
-    ctaSecondary={{ text: "View Our Packages", href: "/pricing" }}
+    subheadline="Moody Spanish-style venue with our own kitchen and bar, perfect for events with 50-100 guests. Great spot for weddings and parties in Westminster."
+    ctaPrimary={{ text: "Book a Tour", href: "/contact#book" }}
+    ctaSecondary={{ text: "See Our Packages", href: "/pricing" }}
   />
 
   <!-- Venue Overview Stats -->
@@ -89,7 +89,7 @@ const venueStats = [
             Your Perfect <span class="text-primary">Event Venue</span>
           </h2>
           <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Experience the warmth of our Spanish-inspired space, designed for intimate gatherings of 50-100 guests
+            Enjoy our moody Spanish-style space, made for fun gatherings of 50-100 people
           </p>
         </div>
 
@@ -112,7 +112,7 @@ const venueStats = [
         <!-- Call to Action -->
         <div class="mt-16">
           <a href="/contact#book" class="btn-primary-lg">
-            Plan Your Event
+            Let's Plan Your Event
           </a>
         </div>
       </div>
@@ -123,10 +123,10 @@ const venueStats = [
   <section class="py-20 px-6 bg-background" transition:name="services">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Complete Event Experience</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Why Choose Penelope's Cafe & Venue</h2>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Full Party Package</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Why Pick Penelope's Cafe & Venue</h2>
         <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-          From our authentic Latin inspired cuisine to professional event management, we provide everything you need for unforgettable celebrations
+          From our tasty Latin-style food to our helpful event team, we give you everything for amazing parties
         </p>
       </div>
 
@@ -147,14 +147,14 @@ const venueStats = [
   <section class="py-20 px-6 bg-card/30" transition:name="about-preview">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Experienced Team</Badge>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Team</Badge>
         <h2 class="text-4xl font-display text-foreground mb-6">
-          Westminster's Boutique Event Destination
+          Westminster's Favorite Party Spot
         </h2>
         <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
-          Located at 8050 Federal Blvd in the heart of Westminster, Penelope's Venue
-          has been crafting authentic Latin fusion cuisine and hosting exceptional events. Our passion for culinary excellence and commitment to service excellence
-          makes us the go-to choice for weddings, corporate events, and special celebrations.
+          Located at 8050 Federal Blvd in the middle of Westminster, Penelope's Venue
+          has been making great Latin-style food and throwing great parties. Our love for good food and great service
+          makes us the top choice for weddings, business events, and special parties.
         </p>
         <div class="grid grid-cols-2 gap-6 mb-8">
           <div class="text-center p-4 bg-primary/5 rounded-lg">
@@ -195,9 +195,9 @@ const venueStats = [
   <section class="py-20 px-6 bg-background">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-display text-foreground mb-4">What Our Clients Say</h2>
+        <h2 class="text-4xl font-display text-foreground mb-4">What Our Guests Say</h2>
         <p class="text-lg text-muted-foreground">
-          Real experiences from real events hosted at Penelope's Venue
+          Real stories from real parties at Penelope's Venue
         </p>
       </div>
 
@@ -236,16 +236,16 @@ const venueStats = [
         </p>
       </div>
 
-      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Event?</h2>
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Party?</h2>
       <p class="text-xl mb-8 text-foreground/90">
-        Join hundreds of satisfied clients who have chosen Penelope's Venue for their most important celebrations
+        Join hundreds of happy guests who have picked Penelope's Venue for their best celebrations
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="btn-primary">
-          Schedule a Tour
+          Book a Tour
         </a>
-        <a href="/venue" class="btn-outline">
-          View Venue Details
+        <a href="/services" class="btn-outline">
+          See Our Packages
         </a>
       </div>
     </div>
