@@ -123,10 +123,9 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     <!-- Immediate theme application to prevent FOUC -->
     <script is:inline>
       (function() {
-        // Get saved theme or system preference
+        // Get saved theme or default to light mode
         const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        const initialTheme = savedTheme || 'light';
         
         // Apply theme immediately
         document.documentElement.setAttribute('data-theme', initialTheme);
@@ -262,8 +261,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
       // Function to restore theme and re-attach event listeners
       function restoreTheme() {
         const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        const theme = savedTheme || 'light';
         
         document.documentElement.setAttribute('data-theme', theme);
         
