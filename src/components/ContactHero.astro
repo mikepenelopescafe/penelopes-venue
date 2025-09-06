@@ -8,12 +8,14 @@ const { title = "Let's Create Something Beautiful Together", subtitle = "Whether
 ---
 
 <section class="relative py-24 px-6 overflow-hidden" transition:name="contact-hero">
-  <!-- Background with venue styling -->
-  <div class="absolute inset-0 bg-gradient-dark"></div>
+  <!-- Dark Black Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+  <!-- Subtle Pattern Overlay for Texture -->
   <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 text-center max-w-5xl mx-auto">
+  <!-- Content Container -->
+  <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+    <div class="w-full">
     <div class="mb-8">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-display text-white mb-6 leading-tight">
         {title}
@@ -50,6 +52,7 @@ const { title = "Let's Create Something Beautiful Together", subtitle = "Whether
         <h3 class="text-lg font-display text-white mb-2">Visit</h3>
         <p class="text-white/80">8050 N Federal Blvd<br>Westminster, CO 80031</p>
       </div>
+    </div>
     </div>
   </div>
 
