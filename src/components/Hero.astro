@@ -36,12 +36,23 @@ const {
   <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
     {showLogo && (
       <div class="mb-8 animate-float">
+        <!-- Logo for dark theme (logo.svg) -->
         <Image
+          id="hero-logo-dark"
           src="/logo.svg"
           alt="Penelope's Venue Logo"
           width={400}
           height={400}
           class="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto"
+        />
+        <!-- Logo for light theme (logo-lite.svg) -->
+        <Image
+          id="hero-logo-light"
+          src="/logo-lite.svg"
+          alt="Penelope's Venue Logo"
+          width={400}
+          height={400}
+          class="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto hidden"
         />
       </div>
     )}

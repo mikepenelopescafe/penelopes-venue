@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import ThemeToggle from './ThemeToggle.astro';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -17,14 +18,24 @@ const currentPath = Astro.url.pathname;
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-3 group">
+        <!-- Logo for dark theme (logo.svg) -->
         <Image
+          id="logo-dark"
           src="/logo.svg"
           alt="Penelope's Venue"
           width={192}
           height={48}
           class="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
         />
-        
+        <!-- Logo for light theme (logo-lite.svg) -->
+        <Image
+          id="logo-light"
+          src="/logo-lite.svg"
+          alt="Penelope's Venue"
+          width={192}
+          height={48}
+          class="h-12 w-auto transition-transform duration-300 group-hover:scale-105 hidden"
+        />
       </a>
       
       <!-- Desktop Navigation -->
@@ -44,6 +55,7 @@ const currentPath = Astro.url.pathname;
             )}
           </a>
         ))}
+        <ThemeToggle />
         <a
           href="/contact#book"
           class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium font-display transition-all duration-300 hover-scale"
@@ -52,17 +64,20 @@ const currentPath = Astro.url.pathname;
         </a>
       </div>
       
-      <!-- Mobile menu button -->
-      <button 
-        id="mobile-menu-button"
-        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+      <!-- Mobile controls -->
+      <div class="md:hidden flex items-center space-x-2">
+        <ThemeToggle />
+        <button 
+          id="mobile-menu-button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
     
     <!-- Mobile Navigation Panel -->
@@ -92,13 +107,13 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  // Mobile menu functionality
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  // Mobile menu functionality only (theme/logo handled centrally in Layout)
+  function initMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  if (!mobileMenuButton || !mobileMenu) {
-    console.error('Mobile menu elements not found');
-  } else {
+    if (!mobileMenuButton || !mobileMenu) return;
+    
     let isMenuOpen = false;
 
     // Toggle menu function
@@ -139,7 +154,7 @@ const currentPath = Astro.url.pathname;
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      const target = e.target as Node;
+      const target = e.target;
       // Check if click is outside menu and button
       if (!mobileMenu.contains(target) && !mobileMenuButton.contains(target)) {
         closeMenu();
@@ -150,5 +165,12 @@ const currentPath = Astro.url.pathname;
     mobileMenu.addEventListener('click', (e) => {
       e.stopPropagation();
     });
+  }
+  
+  // Initialize mobile menu
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
   }
 </script>

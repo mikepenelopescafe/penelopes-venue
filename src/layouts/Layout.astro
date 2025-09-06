@@ -120,6 +120,132 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     
+    <!-- Immediate theme application to prevent FOUC -->
+    <script is:inline>
+      (function() {
+        // Get saved theme or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        // Apply theme immediately
+        document.documentElement.setAttribute('data-theme', initialTheme);
+        localStorage.setItem('theme', initialTheme);
+        
+        // Create global theme manager
+        window.themeManager = {
+          currentTheme: initialTheme,
+          
+          updateUI: function(theme) {
+            // Update toggle button icons
+            const toggleButtons = document.querySelectorAll('.theme-toggle-btn');
+            toggleButtons.forEach(function(button) {
+              const lightIconId = button.getAttribute('data-light-icon');
+              const darkIconId = button.getAttribute('data-dark-icon');
+              const lightIcon = document.getElementById(lightIconId);
+              const darkIcon = document.getElementById(darkIconId);
+              
+              if (lightIcon && darkIcon) {
+                if (theme === 'light') {
+                  lightIcon.classList.add('hidden');
+                  darkIcon.classList.remove('hidden');
+                } else {
+                  lightIcon.classList.remove('hidden');
+                  darkIcon.classList.add('hidden');
+                }
+              }
+            });
+            
+            // Update logos
+            const logoDark = document.getElementById('logo-dark');
+            const logoLight = document.getElementById('logo-light');
+            const footerLogoDark = document.getElementById('footer-logo-dark');
+            const footerLogoLight = document.getElementById('footer-logo-light');
+            const heroLogoDark = document.getElementById('hero-logo-dark');
+            const heroLogoLight = document.getElementById('hero-logo-light');
+            
+            if (logoDark && logoLight) {
+              if (theme === 'light') {
+                logoDark.classList.add('hidden');
+                logoLight.classList.remove('hidden');
+              } else {
+                logoDark.classList.remove('hidden');
+                logoLight.classList.add('hidden');
+              }
+            }
+            
+            if (footerLogoDark && footerLogoLight) {
+              if (theme === 'light') {
+                footerLogoDark.classList.add('hidden');
+                footerLogoLight.classList.remove('hidden');
+              } else {
+                footerLogoDark.classList.remove('hidden');
+                footerLogoLight.classList.add('hidden');
+              }
+            }
+            
+            if (heroLogoDark && heroLogoLight) {
+              if (theme === 'light') {
+                heroLogoDark.classList.add('hidden');
+                heroLogoLight.classList.remove('hidden');
+              } else {
+                heroLogoDark.classList.remove('hidden');
+                heroLogoLight.classList.add('hidden');
+              }
+            }
+          },
+          
+          setTheme: function(theme) {
+            this.currentTheme = theme;
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            this.updateUI(theme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: theme } }));
+          },
+          
+          toggleTheme: function() {
+            const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+            this.setTheme(newTheme);
+          },
+          
+          attachEventListeners: function() {
+            // Find all theme toggle buttons and attach direct listeners
+            const buttons = document.querySelectorAll('.theme-toggle-btn');
+            buttons.forEach(function(button) {
+              // Remove any existing listener first
+              button.removeEventListener('click', window.themeManager.buttonClickHandler);
+              
+              // Add new listener
+              button.addEventListener('click', window.themeManager.buttonClickHandler);
+            });
+          },
+          
+          buttonClickHandler: function(e) {
+            e.preventDefault();
+            window.themeManager.toggleTheme();
+          },
+          
+          init: function() {
+            // Update UI immediately on initialization
+            this.updateUI(this.currentTheme);
+            
+            // Attach event listeners
+            this.attachEventListeners();
+          }
+        };
+        
+        // Initialize only when DOM is ready to ensure elements are available
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            window.themeManager.init();
+          });
+        } else {
+          // DOM is already loaded
+          window.themeManager.init();
+        }
+      })();
+    </script>
+    
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col">
@@ -129,5 +255,37 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     </main>
     <Footer />
     <ClientRouter />
+    
+    <!-- Theme persistence script that runs on every navigation -->
+    <script>
+      // Function to restore theme and re-attach event listeners
+      function restoreTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Update theme manager and re-attach event listeners
+        if (window.themeManager) {
+          window.themeManager.currentTheme = theme;
+          // Small delay to ensure DOM is ready after navigation
+          setTimeout(function() {
+            window.themeManager.updateUI(theme);
+            window.themeManager.attachEventListeners();
+          }, 10);
+        }
+      }
+      
+      // Listen for Astro view transition events
+      document.addEventListener('astro:after-swap', restoreTheme);
+      document.addEventListener('astro:page-load', restoreTheme);
+      
+      // Also restore on regular navigation
+      window.addEventListener('pageshow', restoreTheme);
+      
+      // Initial restoration
+      restoreTheme();
+    </script>
   </body>
 </html>

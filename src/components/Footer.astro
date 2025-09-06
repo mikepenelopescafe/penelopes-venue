@@ -52,7 +52,10 @@ const contactInfo = {
       <!-- Brand & Contact Info -->
       <div class="lg:col-span-1">
         <div class="mb-4 flex items-center space-x-2">
-          <Image src="/logo.svg" alt="Penelope's" width={128} height={32} class="h-8 w-auto" />
+          <!-- Logo for dark theme (logo.svg) -->
+          <Image id="footer-logo-dark" src="/logo.svg" alt="Penelope's" width={128} height={32} class="h-8 w-auto" />
+          <!-- Logo for light theme (logo-lite.svg) -->
+          <Image id="footer-logo-light" src="/logo-lite.svg" alt="Penelope's" width={128} height={32} class="h-8 w-auto hidden" />
         </div>
         <p class="text-sm text-muted-foreground mb-4">
           Crafting beautiful experiences in our boutique venue.
@@ -164,3 +167,5 @@ const contactInfo = {
     </div>
   </div>
 </footer>
+
+<!-- Logo switching is now handled centrally in Layout.astro -->

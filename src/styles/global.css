@@ -59,7 +59,7 @@
 :root {
   --radius: 0.5rem;
   
-  /* Darker Forest Green Background with Complementary Accents */
+  /* Darker Forest Green Background with Complementary Accents - Dark Mode */
   --background: oklch(0.25 0.07 170); /* Darker forest green background */
   --foreground: oklch(0.94 0.01 85); /* Warm white for primary text */
   --card: oklch(0.28 0.07 170); /* Slightly lighter than background for cards */
@@ -94,6 +94,46 @@
   --sidebar-accent-foreground: oklch(0.94 0.01 85);
   --sidebar-border: oklch(0.30 0.08 170 / 20%);
   --sidebar-ring: oklch(0.30 0.08 170);
+}
+
+/* Light Mode Variables */
+[data-theme="light"] {
+  /* Soft white background with forest green accents - Light Mode */
+  --background: oklch(0.98 0.005 85); /* Soft warm white background */
+  --foreground: oklch(0.30 0.08 170); /* Deep forest green for text */
+  --card: oklch(1.0 0 0); /* Pure white for cards */
+  --card-foreground: oklch(0.30 0.08 170); /* Forest green text on cards */
+  --popover: oklch(1.0 0 0);
+  --popover-foreground: oklch(0.30 0.08 170);
+  --primary: oklch(0.68 0.08 85); /* Keep warm tan for primary actions */
+  --primary-foreground: oklch(0.20 0.01 30); /* Dark text on tan remains */
+  --secondary: oklch(0.95 0.01 85); /* Very light warm background */
+  --secondary-foreground: oklch(0.30 0.08 170); /* Forest green text */
+  --muted: oklch(0.92 0.01 85); /* Light muted background */
+  --muted-foreground: oklch(0.45 0.06 170); /* Lighter forest green for muted text */
+  --accent: oklch(0.75 0.06 80); /* Light tan accent */
+  --accent-foreground: oklch(0.20 0.01 30); /* Dark text on accent */
+  --destructive: oklch(0.577 0.245 27.325); /* Keep destructive unchanged */
+  --border: oklch(0.88 0.02 85); /* Light warm borders */
+  --input: oklch(0.96 0.005 85); /* Very light background for inputs */
+  --ring: oklch(0.68 0.08 85); /* Warm tan focus ring */
+  
+  /* Chart colors - adjusted for light mode */
+  --chart-1: oklch(0.30 0.08 170); /* Forest green */
+  --chart-2: oklch(0.68 0.08 85); /* Warm tan */
+  --chart-3: oklch(0.48 0.10 55); /* Brown */
+  --chart-4: oklch(0.40 0.06 220); /* Blue gray */
+  --chart-5: oklch(0.75 0.06 80); /* Light tan */
+  
+  /* Sidebar colors for light mode */
+  --sidebar: oklch(0.96 0.005 85);
+  --sidebar-foreground: oklch(0.30 0.08 170);
+  --sidebar-primary: oklch(0.68 0.08 85);
+  --sidebar-primary-foreground: oklch(0.20 0.01 30);
+  --sidebar-accent: oklch(0.75 0.06 80);
+  --sidebar-accent-foreground: oklch(0.20 0.01 30);
+  --sidebar-border: oklch(0.88 0.02 85);
+  --sidebar-ring: oklch(0.68 0.08 85);
 }
 
 /* Custom Font Face Definitions */
@@ -241,12 +281,27 @@
       oklch(0.26 0.07 170) 100%);
   }
   
+  /* Light mode gradients */
+  [data-theme="light"] .bg-gradient-dark {
+    background: linear-gradient(180deg, 
+      oklch(0.98 0.005 85) 0%, 
+      oklch(0.96 0.01 85) 50%, 
+      oklch(0.98 0.005 85) 100%);
+  }
+  
+  [data-theme="light"] .bg-gradient-card {
+    background: linear-gradient(135deg, 
+      oklch(1.0 0 0) 0%, 
+      oklch(0.98 0.005 85) 100%);
+    box-shadow: 0 1px 3px oklch(0.3 0.08 170 / 0.1);
+  }
+  
   .bg-pattern-dots {
     background-image: radial-gradient(circle, oklch(0.75 0.06 80 / 0.15) 1px, transparent 1px);
     background-size: 20px 20px;
   }
   
-  /* Glassmorphism */
+  /* Glassmorphism - Dark Mode */
   .glass {
     backdrop-filter: blur(10px) saturate(120%);
     background: oklch(0.22 0.07 170 / 0.85);
@@ -262,6 +317,26 @@
   .glass-light {
     backdrop-filter: blur(8px);
     background: oklch(0.94 0.01 85 / 0.1);
+  }
+  
+  /* Glassmorphism - Light Mode */
+  [data-theme="light"] .glass {
+    backdrop-filter: blur(10px) saturate(110%);
+    background: oklch(1.0 0 0 / 0.8);
+    border-bottom: 1px solid oklch(0.88 0.02 85 / 0.4);
+    box-shadow: 0 4px 16px oklch(0.3 0.08 170 / 0.1);
+  }
+  
+  [data-theme="light"] .glass-mobile {
+    backdrop-filter: blur(12px) saturate(120%);
+    background: oklch(1.0 0 0 / 0.9);
+    border-bottom: 1px solid oklch(0.88 0.02 85 / 0.5);
+    box-shadow: 0 8px 32px oklch(0.3 0.08 170 / 0.15);
+  }
+  
+  [data-theme="light"] .glass-light {
+    backdrop-filter: blur(8px);
+    background: oklch(0.96 0.005 85 / 0.8);
   }
   
   /* Animations */
@@ -451,7 +526,7 @@ header.sticky,
 
 /* Hero section readability improvements */
 @layer utilities {
-  /* Enhanced gradient overlay for better text contrast */
+  /* Enhanced gradient overlay for better text contrast - Dark Mode */
   .hero-overlay-enhanced {
     background: linear-gradient(
       135deg,
@@ -461,7 +536,7 @@ header.sticky,
     );
   }
 
-  /* Alternative stronger overlay for problem areas */
+  /* Alternative stronger overlay for problem areas - Dark Mode */
   .hero-overlay-strong {
     background: linear-gradient(
       to bottom,
@@ -475,13 +550,13 @@ header.sticky,
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
   }
 
-  /* Enhanced pricing/info section backgrounds */
+  /* Enhanced pricing/info section backgrounds - Dark Mode */
   .pricing-info-bg {
     background: rgba(0, 0, 0, 0.60);
     backdrop-filter: blur(8px);
   }
 
-  /* Content section improvements */
+  /* Content section improvements - Dark Mode */
   .content-hero-bg {
     background: linear-gradient(180deg, 
       rgba(42, 64, 53, 0.90) 0%,  /* Forest green with high opacity */
@@ -502,7 +577,7 @@ header.sticky,
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
 
-  /* Ensure content sections with background colors have proper contrast */
+  /* Ensure content sections with background colors have proper contrast - Dark Mode */
   .content-section-bg {
     background: linear-gradient(135deg, 
       rgba(42, 64, 53, 0.88) 0%,
@@ -522,6 +597,73 @@ header.sticky,
   .content-section-bg p {
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Light Mode Hero Overlays */
+  [data-theme="light"] .hero-overlay-enhanced {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0.70) 40%,
+      rgba(42, 64, 53, 0.20) 100%  /* Very light forest green tint */
+    );
+  }
+
+  [data-theme="light"] .hero-overlay-strong {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.80),
+      rgba(255, 255, 255, 0.85)
+    );
+  }
+
+  [data-theme="light"] .hero-text-shadow {
+    text-shadow: 0 1px 3px rgba(42, 64, 53, 0.3);
+  }
+
+  [data-theme="light"] .pricing-info-bg {
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(42, 64, 53, 0.1);
+  }
+
+  [data-theme="light"] .content-hero-bg {
+    background: linear-gradient(180deg, 
+      rgba(248, 248, 246, 0.95) 0%,  /* Very light warm background */
+      rgba(255, 255, 255, 0.90) 100%
+    );
+  }
+  
+  [data-theme="light"] .text-bg-dark {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(42, 64, 53, 0.1);
+  }
+
+  [data-theme="light"] .prose h1, 
+  [data-theme="light"] .prose h2, 
+  [data-theme="light"] .prose h3 {
+    text-shadow: 0 1px 2px rgba(42, 64, 53, 0.1);
+  }
+
+  [data-theme="light"] .content-section-bg {
+    background: linear-gradient(135deg, 
+      rgba(248, 248, 246, 0.95) 0%,
+      rgba(255, 255, 255, 0.90) 100%
+    );
+    border: 1px solid rgba(42, 64, 53, 0.1);
+  }
+
+  [data-theme="light"] .content-section-bg h1, 
+  [data-theme="light"] .content-section-bg h2, 
+  [data-theme="light"] .content-section-bg h3 {
+    color: oklch(0.30 0.08 170); /* Forest green text */
+    text-shadow: none;
+  }
+
+  [data-theme="light"] .content-section-bg p {
+    color: oklch(0.30 0.08 170);
+    text-shadow: none;
   }
 }
 
