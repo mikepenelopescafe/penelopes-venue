@@ -38,11 +38,11 @@ featured: true
 
 # Intimate Micro Wedding Venues Throughout Denver Metro
 
-Welcome to Penelope's Venue, where intimate moments become unforgettable memories. Our micro wedding packages are designed for couples who want a meaningful celebration without the overwhelming logistics of a large wedding.
+Welcome to Penelope's Venue, where intimate moments feel real. Our micro wedding packages are designed for couples who want meaning without the overwhelm.
 
 ## Perfect for Denver Area Couples
 
-With locations throughout the Denver metro area, our boutique venues provide the ideal setting for couples seeking an intimate, personalized wedding experience. Whether you're eloping with just your closest family or hosting a gathering of up to 50 guests, we create magical moments in our charming spaces.
+With locations throughout the Denver metro area, our boutique venues fit couples seeking a personal experience. Whether you're eloping with your closest people or hosting up to 50 guests, we set a moody tone in spaces with character.
 
 ## What's Included in Your Micro Wedding Package
 

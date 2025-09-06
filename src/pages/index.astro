@@ -9,30 +9,30 @@ import { Badge } from '@/components/ui/badge';
 import { Image } from 'astro:assets';
 
 const seo = {
-  title: "Penelope's Cafe & Venue - Boutique Wedding & Event Space in Westminster, CO",
-  description: "Host unforgettable weddings and events at Penelope's Cafe & Venue in Westminster. Full-service catering, premium bar, and boutique space for 50-100 guests since 2004.",
+  title: "Penelope's Cafe & Venue — Boutique Wedding & Event Space in Westminster, CO",
+  description: "Spanish-inspired, intimate venue with full kitchen and bar. Boutique space for 50–100 guests in Westminster.",
   keywords: "Westminster wedding venue, event venue Westminster CO, wedding venue Denver metro, full service event venue, boutique wedding venue, catering venue Westminster, Penelope's Cafe",
 };
 
 const services = [
   {
-    title: "Great Food Service",
-    description: "Tasty Latin-style dishes made with love - Bronze, Silver, and Gold options to choose from",
+    title: "Catering",
+    description: "Latin-inspired menus. Bronze, Silver, Gold.",
     icon: "Chef's Hat"
   },
   {
-    title: "Bar Service",
-    description: "Cool drinks, beer, and wine choices with skilled bartenders and full bar setup",
+    title: "Bar",
+    description: "Beer, wine, cocktails. Skilled bartenders. Full setup.",
     icon: "Bar Glass"
   },
   {
-    title: "Full Venue Rental",
-    description: "Have the whole cafe to yourself for your private party with our event helpers taking care of everything",
+    title: "Private venue",
+    description: "Exclusive buyout. Your night, your rules.",
     icon: "Event Space"
   },
   {
-    title: "Friendly Event Team",
-    description: "Experienced professional staff handling all the details from start to finish",
+    title: "Event team",
+    description: "Detail‑obsessed crew from first call to last toast.",
     icon: "Team"
   }
 ];
@@ -54,9 +54,9 @@ const testimonials = [
 ];
 
 const venueStats = [
-  { label: "Guest Capacity", value: "50-100", icon: "Guests" },
-  { label: "In House Catering", value: "Yes", icon: "Delicious Food" },
-  { label: "Spanish Inspired", value: "Yes", icon: "Moody Atmosphere" },
+  { label: "Capacity", value: "50–100", icon: "Guests" },
+  { label: "Catering", value: "In‑house", icon: "Delicious Food" },
+  { label: "Style", value: "Spanish‑inspired", icon: "Moody Atmosphere" },
   { label: "Location", value: "Westminster, CO", icon: "Location" }
 ];
 ---
@@ -64,9 +64,9 @@ const venueStats = [
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
   <!-- Hero Section -->
   <Hero
-    subheadline="Moody Spanish-style venue with our own kitchen and bar, perfect for events with 50-100 guests. Great spot for weddings and parties in Westminster."
-    ctaPrimary={{ text: "Book a Tour", href: "/contact#book" }}
-    ctaSecondary={{ text: "See Our Packages", href: "/pricing" }}
+    subheadline="Spanish‑inspired. Intimate. All yours. Full kitchen + bar for 50–100 guests in Westminster."
+    ctaPrimary={{ text: "See the space", href: "/contact#book" }}
+    ctaSecondary={{ text: "View pricing", href: "/pricing" }}
   />
 
   <!-- Venue Overview Stats -->
@@ -86,10 +86,10 @@ const venueStats = [
       <div class="w-full">
         <div class="mb-16">
           <h2 class="text-5xl font-display text-white mb-4 leading-tight">
-            Your Perfect <span class="text-primary">Event Venue</span>
+            Your vibe. <span class="text-primary">Your venue.</span>
           </h2>
           <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Enjoy our moody Spanish-style space, made for fun gatherings of 50-100 people
+            Moody, Spanish‑inspired space for effortless gatherings of 50–100.
           </p>
         </div>
 
@@ -112,7 +112,7 @@ const venueStats = [
         <!-- Call to Action -->
         <div class="mt-16">
           <a href="/contact#book" class="btn-primary-lg">
-            Let's Plan Your Event
+            Plan your event
           </a>
         </div>
       </div>
@@ -123,10 +123,10 @@ const venueStats = [
   <section class="py-20 px-6 bg-background" transition:name="services">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Full Party Package</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Why Pick Penelope's Cafe & Venue</h2>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Full service</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Full‑service, done right</h2>
         <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-          From our tasty Latin-style food to our helpful event team, we give you everything for amazing parties
+          Latin‑inspired menus, a thoughtful bar, and a team that keeps it seamless.
         </p>
       </div>
 
@@ -147,23 +147,22 @@ const venueStats = [
   <section class="py-20 px-6 bg-card/30" transition:name="about-preview">
     <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Team</Badge>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">The space</Badge>
         <h2 class="text-4xl font-display text-foreground mb-6">
-          Westminster's Favorite Party Spot
+          A space that feels like you
         </h2>
         <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
-          Located at 8050 Federal Blvd in the middle of Westminster, Penelope's Venue
-          has been making great Latin-style food and throwing great parties. Our love for good food and great service
-          makes us the top choice for weddings, business events, and special parties.
+          At 8050 Federal Blvd in Westminster, we’ve hosted intimate weddings, showers,
+          and milestone nights. Spanish‑inspired design, warm service, and food people remember.
         </p>
         <div class="grid grid-cols-2 gap-6 mb-8">
           <div class="text-center p-4 bg-primary/5 rounded-lg">
             <div class="text-2xl font-bold text-primary">$</div>
-            <div class="text-sm text-muted-foreground"> Perfect Package</div>
+            <div class="text-sm text-muted-foreground">Clean pricing</div>
           </div>
           <div class="text-center p-4 bg-primary/5 rounded-lg">
-            <div class="text-2xl font-bold text-primary">9AM-11PM</div>
-            <div class="text-sm text-muted-foreground">Event Hours</div>
+            <div class="text-2xl font-bold text-primary">9AM–11PM</div>
+            <div class="text-sm text-muted-foreground">Event hours</div>
           </div>
         </div>
 
@@ -195,9 +194,9 @@ const venueStats = [
   <section class="py-20 px-6 bg-background">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-display text-foreground mb-4">What Our Guests Say</h2>
+        <h2 class="text-4xl font-display text-foreground mb-4">What guests say</h2>
         <p class="text-lg text-muted-foreground">
-          Real stories from real parties at Penelope's Venue
+          Real notes from good nights.
         </p>
       </div>
 
@@ -229,23 +228,23 @@ const venueStats = [
   <section class="py-16 px-6 bg-gradient-card">
     <div class="max-w-4xl mx-auto text-center">
       <div class="mb-8">
-        <h2 class="text-3xl font-display text-foreground mb-2">Visit Us in Westminster</h2>
+        <h2 class="text-3xl font-display text-foreground mb-2">Visit us</h2>
         <p class="text-lg text-primary font-medium mb-2">8050 Federal Blvd, Westminster, CO 80031</p>
         <p class="text-muted-foreground">
           (720) 639-2406
         </p>
       </div>
 
-      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Party?</h2>
+      <h2 class="text-4xl font-display text-foreground mb-6">Plan your event</h2>
       <p class="text-xl mb-8 text-foreground/90">
-        Join hundreds of happy guests who have picked Penelope's Venue for their best celebrations
+        Boutique, full‑service. Clean, bold, true.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="btn-primary">
-          Book a Tour
+          Book a tour
         </a>
         <a href="/services" class="btn-outline">
-          See Our Packages
+          Explore services
         </a>
       </div>
     </div>

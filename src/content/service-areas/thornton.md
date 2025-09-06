@@ -39,7 +39,7 @@ featured: false
 
 # Planning an Event in Thornton? Our Westminster Venue is Right Next Door
 
-Are you looking for the perfect event venue for your Thornton celebration? You want something close to home but special enough to make your event unforgettable.
+Are you looking for the right venue for your Thornton celebration? Close to home, with a vibe that sticks.
 
 ## Perfect Location for Thornton Events
 
@@ -54,10 +54,10 @@ Many of our staff live in the north metro area, including Thornton. We understan
 ## Serving All Thornton Events
 
 ### Weddings
-Thornton couples choose us for our beautiful garden ceremonies and elegant reception spaces. Professional coordination means less stress, more joy.
+Thornton couples choose us for garden ceremonies and moody reception spaces. Professional coordination means less stress, more joy.
 
 ### Corporate Events
-From Heritage business districts to Eastlake companies, we provide sophisticated spaces for meetings, conferences, and corporate celebrations.
+From Heritage business districts to Eastlake companies, we provide polished spaces for meetings, conferences, and corporate celebrations.
 
 ### Family Gatherings
 Birthday parties, graduations, family reunions - we help Thornton families celebrate every milestone in style.
@@ -80,7 +80,7 @@ Stop searching all over the metro area for the right venue. We're right in your 
 
 ### Why Thornton Clients Choose Us:
 1. **Unbeatable location** - practically next door
-2. **Beautiful spaces** - garden ceremonies and elegant receptions  
+2. **Beautiful spaces** - garden ceremonies and moody receptions  
 3. **Professional service** - we handle all the details
 4. **Local knowledge** - we know the Thornton community
 

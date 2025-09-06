@@ -40,7 +40,7 @@ featured: true
 
 Elevate your business gatherings at Penelope's Venue, with modern corporate event spaces throughout the Denver metro area designed for professional meetings, trainings, and corporate events. Our flexible venues combine functionality with style, creating the perfect environment for productive business gatherings.
 
-## Premier Business Venue Location
+## Polished Business Venue Location
 
 Strategically located in Westminster with excellent access to Denver's business district, our venue provides a professional yet welcoming atmosphere for corporate events. Whether you're hosting a quarterly meeting, product launch, or team-building event, we offer the space and support you need.
 

@@ -1,5 +1,5 @@
 ---
-title: "Event Venue Westminster CO - Penelope's Premier Event Space"
+title: "Event Venue Westminster CO - Casual, Moody, Eclectic"
 description: "Looking for the perfect event venue in Westminster, CO? Penelope's Venue offers beautiful spaces for weddings, corporate events, and parties."
 keywords: ["event venue Westminster CO", "wedding venue Westminster Colorado", "corporate event space Westminster", "private party venue Westminster", "Westminster event planning"]
 customerProblem: "Need a beautiful, affordable event venue in Westminster that handles all the details?"
@@ -47,7 +47,7 @@ Are you searching for a beautiful event venue in Westminster, CO that won't brea
 
 Westminster offers the perfect mix of small-town charm and big-city convenience. Located just 20 minutes from downtown Denver, it's easy for guests to reach from anywhere in the metro area.
 
-Our Westminster venue combines elegant gardens with modern amenities. You get the beauty of an outdoor celebration with the reliability of covered spaces and climate control.
+Our Westminster venue blends Spanish‑inspired character with modern basics. You get the look and the reliability — covered spaces and climate control.
 
 ## What Makes Our Westminster Location Special
 

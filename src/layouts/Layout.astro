@@ -21,7 +21,7 @@ export interface Props {
 
 const { 
   title, 
-  description = "Discover Penelope's Venue - Your premier destination for elegant weddings and unforgettable events. Book your dream venue today.",
+  description = "Penelope’s Venue — casual, moody, eclectic space for real‑life celebrations.",
   keywords = "wedding venue, event venue, outdoor wedding, garden venue",
   canonical,
   ogImage = '/images/og-default.jpg',
@@ -258,6 +258,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     
     <!-- Theme persistence script that runs on every navigation -->
     <script>
+      // @ts-ignore - themeManager is attached at runtime in the head script
       // Function to restore theme and re-attach event listeners
       function restoreTheme() {
         const savedTheme = localStorage.getItem('theme');
@@ -267,11 +268,15 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
         document.documentElement.setAttribute('data-theme', theme);
         
         // Update theme manager and re-attach event listeners
+        // @ts-ignore - runtime global
         if (window.themeManager) {
+          // @ts-ignore
           window.themeManager.currentTheme = theme;
           // Small delay to ensure DOM is ready after navigation
           setTimeout(function() {
+            // @ts-ignore
             window.themeManager.updateUI(theme);
+            // @ts-ignore
             window.themeManager.attachEventListeners();
           }, 10);
         }

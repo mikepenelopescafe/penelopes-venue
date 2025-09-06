@@ -33,7 +33,7 @@ targetAudience: ["adults", "families"]
 featured: false
 ---
 
-# Planning a Special Birthday Party in Westminster? Make It Unforgettable
+# Planning a Birthday in Westminster? Make It Yours
 
 Are you celebrating a milestone birthday but don't want to host at home? You want somewhere special that can handle your guest list without breaking the bank.
 
@@ -115,6 +115,6 @@ Perfect! We've hosted many surprise parties. We can help coordinate timing and k
 
 ## Ready to Celebrate Your Special Day?
 
-Let's make your milestone birthday unforgettable. We'll provide the perfect space while you focus on celebrating with the people who matter most.
+Let’s make your milestone birthday feel like you. We’ll set the vibe while you celebrate with your people.
 
 Your birthday deserves somewhere special to celebrate.

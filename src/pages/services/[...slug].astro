@@ -75,7 +75,7 @@ const seo = {
                 {service.data.capacity.min}-{service.data.capacity.max} guests
               </div>
               <div class="text-sm text-white/80">
-                📍 {service.data.location.city}, {service.data.location.state}
+                {service.data.location.city}, {service.data.location.state}
               </div>
               <span class="px-4 py-2 bg-primary/20 text-white rounded-full capitalize border border-primary/30">
                 {service.data.availability.replace('-', ' ')}
@@ -119,7 +119,7 @@ const seo = {
       
       <aside class="lg:sticky lg:top-8 h-fit">
         <div class="bg-white rounded-lg shadow-lg p-6 space-y-6">
-          <h3 class="text-xl font-serif" style="color: #2a4035;">Package Includes</h3>
+          <h3 class="text-xl font-serif" style="color: #2a4035;">What’s Included</h3>
 
           <ul class="space-y-3">
             {service.data.amenities.map(amenity => (
@@ -135,9 +135,9 @@ const seo = {
                     <div class="border-t pt-6">
             <div class="space-y-4">
               <div>
-                <p class="text-sm mb-1" style="color: #2a4035;">Capacity</p>
+                <p class="text-sm mb-1" style="color: #2a4035;">Guests</p>
                 <p class="font-medium" style="color: #2a4035;">
-                  {service.data.capacity.min} - {service.data.capacity.max} guests
+                  {service.data.capacity.min} - {service.data.capacity.max}
                 </p>
               </div>
 
@@ -149,7 +149,7 @@ const seo = {
               </div>
 
               <div>
-                <p class="text-sm mb-1" style="color: #2a4035;">Starting Price</p>
+                <p class="text-sm mb-1" style="color: #2a4035;">From</p>
                 <p class="text-xl font-medium" style="color: #d6b67e;">
                   ${servicePricing.price.toLocaleString()}
                 </p>
@@ -169,7 +169,7 @@ const seo = {
                 onmouseover="this.style.backgroundColor='#b8975e'"
                 onmouseout="this.style.backgroundColor='#d6b67e'"
               >
-                Book This Package
+                Book Now
               </a>
             ) : (
               <a
@@ -179,7 +179,7 @@ const seo = {
                 onmouseover="this.style.backgroundColor='#b8975e'"
                 onmouseout="this.style.backgroundColor='#d6b67e'"
               >
-                Request Information
+                Request Info
               </a>
             )}
             <a
@@ -189,7 +189,7 @@ const seo = {
               onmouseover="this.style.borderColor='rgba(42, 64, 53, 0.4)'"
               onmouseout="this.style.borderColor='rgba(42, 64, 53, 0.2)'"
             >
-              View Full Pricing
+              See Pricing
             </a>
             <a
               href="/contact"
@@ -198,14 +198,14 @@ const seo = {
               onmouseover="this.style.borderColor='rgba(42, 64, 53, 0.4)'"
               onmouseout="this.style.borderColor='rgba(42, 64, 53, 0.2)'"
             >
-              Schedule a Tour
+              Book a Tour
             </a>
           </div>
 
           {/* Add-ons Section - only show if using new pricing system */}
           {recommendedAddOns.length > 0 && (
             <div class="border-t pt-6">
-              <h3 class="text-lg font-serif mb-4" style="color: #2a4035;">Popular Add-ons</h3>
+              <h3 class="text-lg font-serif mb-4" style="color: #2a4035;">Popular Add‑ons</h3>
               <div class="space-y-3">
                 {recommendedAddOns.map(addOn => (
                   <div class="p-3 bg-primary/5 rounded-lg">
@@ -232,14 +232,14 @@ const seo = {
           {/* Pricing tier info - show enhanced details if using new system */}
           {servicePricing.tier && (
             <div class="border-t pt-6">
-              <h3 class="text-lg font-serif mb-4" style="color: #2a4035;">Package Details</h3>
+              <h3 class="text-lg font-serif mb-4" style="color: #2a4035;">Details</h3>
               <div class="space-y-2">
                 <div class="flex justify-between text-sm">
                   <span style="color: #2a4035;">Duration:</span>
                   <span class="font-medium">{servicePricing.tier.duration} hours</span>
                 </div>
                 <div class="flex justify-between text-sm">
-                  <span style="color: #2a4035;">Guest Range:</span>
+                  <span style="color: #2a4035;">Guests:</span>
                   <span class="font-medium">
                     {servicePricing.tier.guestRange[0]}-{servicePricing.tier.guestRange[1]} guests
                   </span>

@@ -138,7 +138,7 @@ Every package includes venue rental, ceremony and reception spaces, setup and br
 Absolutely! We work with your chosen vendors or can recommend trusted local professionals. Our coordinator handles all vendor communication.
 
 **What happens if it rains?**
-Every location has beautiful covered spaces. Your ceremony and reception happen rain or shine. Many couples say their rainy-day photos turned out even more romantic.
+Every location has covered spaces. Your ceremony and reception happen rain or shine. Many couples say their rainy‑day photos hit the mood just right.
 
 **How far in advance should we book?**
 Popular dates (especially spring and fall Saturdays) book 12-18 months ahead. But we often have availability for weekday and Sunday weddings with shorter notice.

@@ -9,7 +9,7 @@ location:
   region: "Denver Metro"
   isGeneric: false
 packageName: "Full Wedding Celebration"
-shortDescription: "Complete wedding experience with all amenities for 50-100 guests in our elegant Westminster venue."
+shortDescription: "Complete wedding experience with all amenities for 50–100 guests in our moody Westminster venue."
 pricingTierId: "wedding-full"
 capacity:
   min: 50
@@ -97,7 +97,7 @@ Your bridal party gets a dedicated preparation area with mirrors and seating. Yo
 - Engaged couples wanting a complete wedding experience
 - Families hosting 50-100 guests for ceremony and reception
 - Couples who want professional coordination without the stress
-- Those looking for an elegant venue with ample parking
+- Those looking for a moody venue with ample parking
 
 ## Common Questions About Full Weddings
 

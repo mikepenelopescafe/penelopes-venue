@@ -54,7 +54,7 @@ Like Lakewood itself, our venue offers the best of both worlds - beautiful outdo
 ## Serving All Types of Lakewood Events
 
 ### Weddings
-Lakewood couples love our garden ceremonies and elegant reception spaces. Professional coordination means you can relax and enjoy your special day.
+Lakewood couples love our garden ceremonies and moody reception spaces. Professional coordination keeps it easy so you can enjoy the night.
 
 ### Corporate Events  
 From Belmar businesses to Green Mountain companies, we provide professional event spaces for meetings, conferences, and corporate celebrations.

@@ -1,11 +1,11 @@
 ---
-title: "Penelope's Venue - Elegant Wedding & Event Venue"
-description: "Premier wedding and event venue featuring outdoor gardens, historic charm, and full-service planning. Create unforgettable moments. Book today."
+title: "Penelope's Venue - Casual, Moody, Eclectic"
+description: "Penelope's Venue: Spanish-inspired character, beautiful gardens for weddings and events. Clean packages make planning your special occasion stress-free."
 keywords: ["wedding venue", "event venue", "outdoor wedding", "garden venue", "event space rental"]
 template: "landing"
 hero:
-  headline: "Where Timeless Elegance Meets Natural Beauty"
-  subheadline: "Create unforgettable moments in our enchanting garden venue"
+  headline: "Spanish‑Inspired. Moody. Yours."
+  subheadline: "Make it feel like you — without the fuss."
   ctaText: "Schedule a Tour"
   ctaLink: "/contact"
 ---

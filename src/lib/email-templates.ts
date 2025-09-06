@@ -241,7 +241,7 @@ const createBaseTemplate = (content: string, title: string): string => {
     <div class="footer">
       <div style="margin-bottom: 20px;">
         <strong style="color: #d6b67e;">Penelope's Venue</strong><br>
-        <span style="color: #c4aa76; font-size: 14px;">Your premier destination for elegant weddings and unforgettable events</span>
+        <span style="color: #c4aa76; font-size: 14px;">Casual, moody, eclectic — make it yours</span>
       </div>
 
       <div style="margin-bottom: 15px;">
@@ -266,16 +266,16 @@ const createBaseTemplate = (content: string, title: string): string => {
 
 // Booking inquiry email template
 export const createBookingEmailTemplate = (data: ContactFormData): { subject: string; html: string } => {
-  const subject = `🎉 New Event Booking Inquiry - ${data.name}`;
+  const subject = `New Event Inquiry — ${data.name}`;
 
   const content = `
     <div class="info-box urgent">
-      <strong style="color: #d6b67e; font-size: 18px;">⚡ URGENT: Please respond within 24 hours</strong><br>
-      <span style="color: #f4f1ed; font-size: 14px;">This is a booking inquiry that requires immediate attention.</span>
+      <strong style="color: #d6b67e; font-size: 18px;">Please respond within 24 hours</strong><br>
+      <span style="color: #f4f1ed; font-size: 14px;">Booking inquiry. Timely follow‑up recommended.</span>
     </div>
 
     <div class="section">
-      <h2 class="section-title">👤 Contact Information</h2>
+      <h2 class="section-title">Contact</h2>
       <div style="line-height: 1.8;">
         <div><span class="label">Name:</span> <span class="value">${data.name}</span></div>
         <div><span class="label">Email:</span> <span class="value"><a href="mailto:${data.email}" style="color: #d6b67e; text-decoration: none;">${data.email}</a></span></div>
@@ -284,7 +284,7 @@ export const createBookingEmailTemplate = (data: ContactFormData): { subject: st
     </div>
 
     <div class="section">
-      <h2 class="section-title">🎊 Event Details</h2>
+      <h2 class="section-title">Event</h2>
       <div class="info-box">
         <div style="line-height: 1.8;">
           <div><span class="label">Event Type:</span> <span class="value">${data.eventType || 'Not specified'}</span></div>
@@ -297,7 +297,7 @@ export const createBookingEmailTemplate = (data: ContactFormData): { subject: st
 
     ${data.specialRequirements ? `
     <div class="section">
-      <h2 class="section-title">💫 Special Requirements</h2>
+      <h2 class="section-title">Notes</h2>
       <div class="info-box">
         <div style="color: #f4f1ed; line-height: 1.6;">
           ${data.specialRequirements.replace(/\n/g, '<br>')}
@@ -309,12 +309,12 @@ export const createBookingEmailTemplate = (data: ContactFormData): { subject: st
     <div class="divider"></div>
 
     <div class="btn-container">
-      <a href="mailto:${data.email}" class="btn">📧 Reply to Customer</a>
-      <a href="tel:${data.phone}" class="btn">📞 Call Customer</a>
+      <a href="mailto:${data.email}" class="btn">Reply</a>
+      <a href="tel:${data.phone}" class="btn">Call</a>
     </div>
 
     <div style="margin-top: 30px; padding: 20px; background-color: #1a2320; border-radius: 8px; border-left: 4px solid #d6b67e;">
-      <strong style="color: #d6b67e;">💡 Next Steps:</strong>
+      <strong style="color: #d6b67e;">Next steps</strong>
       <ul style="color: #f4f1ed; margin: 10px 0 0 20px; padding: 0;">
         <li>Contact the customer within 24 hours</li>
         <li>Discuss their vision and requirements</li>
@@ -332,11 +332,11 @@ export const createBookingEmailTemplate = (data: ContactFormData): { subject: st
 
 // General inquiry email template
 export const createGeneralEmailTemplate = (data: ContactFormData): { subject: string; html: string } => {
-  const subject = `💬 General Inquiry - ${data.subject || 'No Subject'} - ${data.name}`;
+  const subject = `General Inquiry — ${data.subject || 'No Subject'} — ${data.name}`;
 
   const content = `
     <div class="section">
-      <h2 class="section-title">👤 Contact Information</h2>
+      <h2 class="section-title">Contact</h2>
       <div style="line-height: 1.8;">
         <div><span class="label">Name:</span> <span class="value">${data.name}</span></div>
         <div><span class="label">Email:</span> <span class="value"><a href="mailto:${data.email}" style="color: #d6b67e; text-decoration: none;">${data.email}</a></span></div>
@@ -346,7 +346,7 @@ export const createGeneralEmailTemplate = (data: ContactFormData): { subject: st
     </div>
 
     <div class="section">
-      <h2 class="section-title">💬 Message</h2>
+      <h2 class="section-title">Message</h2>
       <div class="info-box">
         <div style="color: #f4f1ed; line-height: 1.6; font-style: italic;">
           ${data.message ? `"${data.message.replace(/\n/g, '<br>')}"` : 'No message provided'}
@@ -357,11 +357,11 @@ export const createGeneralEmailTemplate = (data: ContactFormData): { subject: st
     <div class="divider"></div>
 
     <div class="btn-container">
-      <a href="mailto:${data.email}" class="btn">📧 Reply to Customer</a>
+      <a href="mailto:${data.email}" class="btn">Reply</a>
     </div>
 
     <div style="margin-top: 30px; padding: 20px; background-color: #1a2320; border-radius: 8px;">
-      <strong style="color: #d6b67e;">⏰ Response Timeline:</strong>
+      <strong style="color: #d6b67e;">Response timeline</strong>
       <p style="color: #f4f1ed; margin: 10px 0;">
         General inquiries should be addressed within 4 hours during business hours (Monday-Friday, 9 AM - 6 PM MST).
       </p>
@@ -378,28 +378,27 @@ export const createGeneralEmailTemplate = (data: ContactFormData): { subject: st
 export const createConfirmationEmailTemplate = (data: ContactFormData): { subject: string; html: string } => {
   const isBooking = data.formType === 'booking';
   const subject = isBooking
-    ? "We've Received Your Event Inquiry - Penelope's Venue"
-    : "Thank You for Contacting Penelope's Venue";
+    ? "We received your event inquiry — Penelope’s Venue"
+    : "Thanks for reaching out — Penelope’s Venue";
 
   const content = `
     <div style="text-align: center; margin-bottom: 30px;">
-      <h2 class="section-title" style="text-align: center;">Thank You, ${data.name}!</h2>
+      <h2 class="section-title" style="text-align: center;">Thank you, ${data.name}</h2>
       <p style="color: #f4f1ed; font-size: 18px; margin: 20px 0;">
-        We've received your ${isBooking ? 'event inquiry' : 'message'} and appreciate you reaching out to us.
+        We received your ${isBooking ? 'event inquiry' : 'message'}. We appreciate you reaching out.
       </p>
     </div>
 
     ${isBooking ? `
     <div class="info-box urgent">
-      <strong style="color: #d6b67e; font-size: 18px;">What's Next?</strong><br>
+      <strong style="color: #d6b67e; font-size: 18px;">What’s next</strong><br>
       <span style="color: #f4f1ed;">
-        A member of our team will contact you within 24 hours to discuss your event vision and provide a personalized quote.
-        We're excited to help make your special day unforgettable!
+        We’ll reach out within 24 hours to talk through your vision and share a clean, simple quote.
       </span>
     </div>
 
     <div class="section">
-      <h3 style="color: #d6b67e; font-family: 'Georgia', serif; font-size: 20px; margin-bottom: 15px;">Your Event Details Summary:</h3>
+      <h3 style="color: #d6b67e; font-family: 'Georgia', serif; font-size: 20px; margin-bottom: 15px;">Your event</h3>
       <div class="info-box">
         <div style="line-height: 1.8;">
           <div><span class="label">Event Type:</span> <span class="value">${data.eventType || 'To be discussed'}</span></div>
@@ -411,21 +410,21 @@ export const createConfirmationEmailTemplate = (data: ContactFormData): { subjec
     </div>
 
     <div class="info-box" style="margin-top: 20px;">
-      <strong style="color: #d6b67e;">Why Choose Penelope's Venue?</strong><br>
+      <strong style="color: #d6b67e;">Why Penelope’s</strong><br>
       <span style="color: #f4f1ed;">
-        ${data.eventType === 'wedding' ? "Our garden venue has hosted hundreds of beautiful weddings, each one unique and magical with our signature garden package." :
-          data.eventType === 'corporate' ? "Perfect for team building, product launches, and corporate celebrations with modern amenities and professional service." :
-          data.eventType === 'birthday' ? "Create unforgettable birthday memories in our elegant garden setting, perfect for celebrations of all sizes." :
-          data.eventType === 'anniversary' ? "Celebrate your milestone in our romantic outdoor space with stunning natural beauty and timeless charm." :
-          data.eventType === 'graduation' ? "Honor achievements in our beautiful, inspiring environment surrounded by gardens and historic architecture." :
-          "Our versatile venue adapts to any vision you have in mind, from intimate gatherings to grand celebrations."}
+        ${data.eventType === 'wedding' ? "Moody, intimate weddings without the fuss. Real moments, good flow." :
+          data.eventType === 'corporate' ? "Built for focused teams, launches, and modern celebrations." :
+          data.eventType === 'birthday' ? "Make it personal. Minimal fuss, maximum vibe." :
+          data.eventType === 'anniversary' ? "A warm, moody setting for a timeless milestone." :
+          data.eventType === 'graduation' ? "An easy, high‑energy backdrop to honor big wins." :
+          "Versatile, modern, and easy — we adapt to your vision."}
       </span>
     </div>
     ` : `
     <div class="info-box">
-      <strong style="color: #d6b67e; font-size: 18px;">Response Time</strong><br>
+      <strong style="color: #d6b67e; font-size: 18px;">Response time</strong><br>
       <span style="color: #f4f1ed;">
-        We'll respond to your inquiry within 4 hours during business hours (Monday-Friday, 9 AM - 6 PM MST).
+        We typically reply within 4 hours during business hours (Mon–Fri, 9a–6p MST).
       </span>
     </div>
     `}
@@ -433,8 +432,8 @@ export const createConfirmationEmailTemplate = (data: ContactFormData): { subjec
     <div class="section">
       <h3 style="color: #d6b67e; font-family: 'Georgia', serif; font-size: 20px; margin-bottom: 15px;">Need Immediate Assistance?</h3>
       <div class="btn-container">
-        <a href="tel:+17206392406" class="btn">Call Us Now</a>
-        <a href="mailto:events@penelopes.cafe" class="btn">Email Us</a>
+        <a href="tel:+17206392406" class="btn">Call us</a>
+        <a href="mailto:events@penelopes.cafe" class="btn">Email us</a>
       </div>
     </div>
 
@@ -452,9 +451,9 @@ export const createConfirmationEmailTemplate = (data: ContactFormData): { subjec
     </div>
 
     <div style="margin-top: 30px; padding: 20px; background-color: #1a2320; border-radius: 8px; text-align: center;">
-      <strong style="color: #d6b67e;">We can't wait to work with you!</strong>
+      <strong style="color: #d6b67e;">We’re excited to connect.</strong>
       <p style="color: #f4f1ed; margin: 10px 0 0 0; font-style: italic;">
-        Creating magical moments is what we do best.
+        Clean, modern, and true to you.
       </p>
     </div>
   `;

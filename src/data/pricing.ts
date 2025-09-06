@@ -33,7 +33,7 @@ export interface AddOnPricing {
 // Venue base pricing by day type
 export const venuePricing = {
   offPeak: {
-    days: "Sundays & Weekdays (Monday-Thursday)",
+    days: "Sun–Thu",
     hourlyRate: 250,
     minimumHours: 3,
     blocks: {
@@ -43,7 +43,7 @@ export const venuePricing = {
     }
   },
   peak: {
-    days: "Fridays, Saturdays & Holiday Sundays",
+    days: "Fri–Sat & holiday Sun",
     hourlyRate: 400,
     minimumHours: 4,
     blocks: {
@@ -52,7 +52,7 @@ export const venuePricing = {
     }
   },
   premium: {
-    days: "New Year's Eve, Halloween",
+    days: "NYE, Halloween",
     hourlyRate: 550,
     minimumHours: 4,
     blocks: {
@@ -68,7 +68,7 @@ export const pricingTiers = {
     micro: {
       id: 'wedding-micro',
       name: 'Micro Wedding',
-      description: 'Intimate ceremony and reception for your closest family and friends',
+      description: 'Intimate, modern ceremony and reception for your closest people.',
       guestRange: [20, 50] as [number, number],
       basePrice: 2000,
       duration: 4,
@@ -90,7 +90,7 @@ export const pricingTiers = {
     full: {
       id: 'wedding-full',
       name: 'Full Wedding Celebration',
-      description: 'Complete wedding experience with all amenities included',
+      description: 'A complete wedding experience with a clean, moody feel.',
       guestRange: [50, 100] as [number, number],
       basePrice: 4000,
       duration: 8,
@@ -113,7 +113,7 @@ export const pricingTiers = {
     shower: {
       id: 'social-shower',
       name: 'Shower Celebration',
-      description: 'Perfect space for bridal or baby showers',
+      description: 'For bridal or baby showers—simple, chic, effortless.',
       guestRange: [15, 100] as [number, number],
       pricing: {
         offPeak: 900, // 3 hours at $300/hour
@@ -136,7 +136,7 @@ export const pricingTiers = {
     birthday: {
       id: 'social-birthday',
       name: 'Birthday Party',
-      description: 'Celebrate milestone birthdays in style',
+      description: 'Celebrate your way—minimal fuss, maximum vibe.',
       guestRange: [20, 100] as [number, number],
       pricing: {
         offPeak: 1200, // 4 hours at $300/hour
@@ -159,7 +159,7 @@ export const pricingTiers = {
     anniversary: {
       id: 'social-anniversary',
       name: 'Anniversary Celebration',
-      description: 'Honor your years together with family and friends',
+      description: 'Mark the moment with understated style.',
       guestRange: [25, 100] as [number, number],
       pricing: {
         offPeak: 1500, // 5 hours at $300/hour
@@ -184,7 +184,7 @@ export const pricingTiers = {
     meeting: {
       id: 'corporate-meeting',
       name: 'Corporate Meeting',
-      description: 'Professional space for team meetings and presentations',
+      description: 'Modern space for focused meetings and presentations.',
       guestRange: [10, 30] as [number, number],
       basePrice: 750,
       duration: 4,
@@ -203,7 +203,7 @@ export const pricingTiers = {
     party: {
       id: 'corporate-party',
       name: 'Company Celebration',
-      description: 'Celebrate achievements with your team',
+      description: 'A clean, moody backdrop for team celebrations.',
       guestRange: [30, 100] as [number, number],
       basePrice: 2000,
       duration: 5,
@@ -231,7 +231,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   catering: {
     id: 'catering',
     name: 'Catering Service',
-    description: 'Professional catering with American or Latin fusion menus',
+    description: 'American or Latin fusion menus, handled end‑to‑end.',
     pricing: {
       perGuest: 30, // Starting price, varies by menu and style
       minimum: 18
@@ -240,7 +240,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   bar: {
     id: 'bar',
     name: 'Bar Service',
-    description: 'Professional bartender with beer, wine, and cocktails',
+    description: 'Professional bartender, beer, wine, and cocktails.',
     pricing: {
       perGuest: 18, // 2-hour package
       setup: 300,
@@ -251,7 +251,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   photoBooth: {
     id: 'photoBooth',
     name: 'Photo Booth',
-    description: 'Professional photo booth for your special day',
+    description: 'Clean, modern photo booth setup.',
     pricing: {
       fixed: 400 // 4-hour package
     }
@@ -259,7 +259,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   flowers: {
     id: 'flowers',
     name: 'Floral Arrangements',
-    description: 'Beautiful centerpieces and ceremony flowers (Starting price)',
+    description: 'Timeless centerpieces and ceremony florals (starting price).',
     pricing: {
       fixed: 500 // Basic package
     }
@@ -275,7 +275,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   'upgraded-linens': {
     id: 'upgraded-linens',
     name: 'Premium Linens',
-    description: 'Upgraded table linens and napkins. (Starting price)',
+    description: 'Premium table linens and napkins (starting price).',
     pricing: {
       fixed: 200
     }
@@ -283,7 +283,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   'dance-floor': {
     id: 'dance-floor',
     name: 'Dance Floor',
-    description: 'Professional dance floor setup',
+    description: 'Professional dance floor setup.',
     pricing: {
       fixed: 500
     }
@@ -291,7 +291,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   decorations: {
     id: 'decorations',
     name: 'Event Decorations',
-    description: 'Custom decorations for your theme. (Starting price)',
+    description: 'Curated decor for your theme (starting price).',
     pricing: {
       fixed: 300
     }
@@ -299,7 +299,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
   'av-upgrade': {
     id: 'av-upgrade',
     name: 'AV Equipment Upgrade',
-    description: 'Enhanced sound system and presentation equipment',
+    description: 'Enhanced sound and presentation gear.',
     pricing: {
       fixed: 200
     }
@@ -310,7 +310,7 @@ export const addOnPricing: Record<string, AddOnPricing> = {
 export const cateringPackages = {
   american: {
     name: "All-American",
-    description: "Hearty, crowd-pleasing dishes with fresh, local ingredients",
+    description: "Comfort classics, done right.",
     priceRange: "$18-33/guest",
     serviceStyles: {
       plated: "Formal, seated service (+$1-3/guest)",
@@ -322,19 +322,19 @@ export const cateringPackages = {
         name: "Bar Bites Package", 
         buffet: 18, 
         passed: 20, 
-        description: "3 Small Plates + Side. Ideal for casual mixers." 
+        description: "3 Small Plates + Side. Great for laid‑back gatherings." 
       },
       { 
         name: "All-American Feast", 
         plated: 33, 
         buffet: 30, 
-        description: "Small Plate + Main + Dessert. Perfect for heartier events." 
+        description: "Small Plate + Main + Dessert. Ideal for a fuller experience." 
       }
     ]
   },
   latinFusion: {
     name: "Latin Fusion",
-    description: "Vibrant flavors from Mexico, Peru and beyond",
+    description: "Vibrant flavors from Mexico, Peru, and beyond.",
     priceRange: "$18-33/guest",
     serviceStyles: {
       plated: "Formal, seated service (+$1-3/guest)",
@@ -346,13 +346,13 @@ export const cateringPackages = {
         name: "Tasting Plate", 
         buffet: 18, 
         passed: 20, 
-        description: "3 Small Plates + Dessert. Great for casual bar events." 
+        description: "3 Small Plates + Dessert. Great for bar‑forward events." 
       },
       { 
         name: "Full Latin Feast", 
         plated: 33, 
         buffet: 30, 
-        description: "Small Plate + Main + Dessert. Ideal for upscale gatherings." 
+        description: "Small Plate + Main + Dessert. Ideal for moody gatherings." 
       }
     ]
   }
@@ -364,11 +364,11 @@ export const barPackages = [
     name: "Open Bar (2 hours)", 
     beerWine: 18, 
     fullBar: 28, 
-    description: "Pre-paid drinks for 2 hours - beer/wine or full bar with cocktails, meets $300 minimum via sales" 
+    description: "Prepaid for 2 hours — beer/wine or full bar. Meets $300 minimum via sales." 
   },
   { 
     name: "Cash Bar", 
-    description: "Guests pay per drink, meets $300 minimum via sales" 
+    description: "Guests pay per drink. Meets $300 minimum via sales." 
   }
 ] as const;
 

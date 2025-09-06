@@ -1,6 +1,6 @@
 ---
 title: "Anniversary Venue Westminster, CO - Celebrate Together"
-description: "Beautiful anniversary celebration venue in Westminster, CO for 25-100 guests. Elegant packages starting at $1,500 with enhanced lighting."
+description: "Celebrate wedding anniversaries at Penelope's Venue in Westminster, CO. Ideal for 25-100 guests with moody lighting, sound system, and 5-hour flexible packages."
 keywords: ["anniversary party venue Westminster CO", "anniversary celebration venue", "wedding anniversary party", "milestone anniversary venue", "Westminster anniversary venue", "anniversary reception"]
 serviceType: "anniversary"
 location:
@@ -9,7 +9,7 @@ location:
   region: "Denver Metro"
   isGeneric: false
 packageName: "Anniversary Celebration"
-shortDescription: "Elegant anniversary celebration packages to honor your years together with family and friends."
+shortDescription: "Casual anniversary packages to celebrate with your people—no fuss."
 pricingTierId: "social-anniversary"
 capacity:
   min: 25
@@ -37,25 +37,25 @@ featured: false
 
 Are you approaching a milestone wedding anniversary and want to celebrate with family and friends? You've built a beautiful life together and deserve a special celebration.
 
-Home feels too casual for such an important milestone. Restaurants can't accommodate your guest list properly. You want somewhere elegant that honors your journey together.
+Home’s too casual. Restaurants feel cramped. You want a spot with mood that still feels like you.
 
 ## Your Anniversary Celebration Challenge
 
-Planning an anniversary party for 25-100 people needs the right atmosphere. You want elegant but not stuffy. Spacious but intimate. Somewhere that feels worthy of your years together.
+Planning for 25–100 needs the right feel—warm, not stuffy. Space to mingle, room to breathe.
 
 Many venues treat anniversary parties like any other event. But this isn't just any party - it's celebrating the foundation of your family and all you've built together.
 
 ## Our Anniversary Celebration Solution
 
-Our Anniversary Celebration package creates the perfect atmosphere to honor your marriage milestone. We provide elegant table settings, enhanced lighting, and a sound system for toasts and dancing.
+Our Anniversary Celebration keeps it simple: moody lighting, solid sound, tables that look good without trying.
 
 You get 5 hours to celebrate - perfect for cocktails, dinner, speeches, and dancing. We set up photo display areas for your wedding pictures and family memories over the years.
 
-The enhanced lighting package creates romantic ambiance that photographs beautifully. Your guests will see why you chose this venue to celebrate your love story.
+Lighting sets the tone and photographs well. Your people will get the vibe.
 
 ## What Makes Anniversary Celebrations Special Here
 
-**Elegant Atmosphere**: Enhanced lighting and elegant table settings create the perfect romantic ambiance for your celebration.
+**Moody Atmosphere**: Low‑lit, warm tone that feels intimate and real.
 
 **Memory Displays**: Perfect spaces to showcase your wedding photos and family pictures from throughout your marriage.
 

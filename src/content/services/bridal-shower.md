@@ -1,15 +1,15 @@
 ---
-title: "Bridal Shower Venues Denver Metro - Elegant Celebrations"
-description: "Beautiful bridal shower venues throughout Denver metro for 15-100 guests. Elegant packages starting at $900 with complete event coordination."
-keywords: ["bridal shower venue Denver metro", "engagement party space Colorado", "bridal celebration venue", "wedding shower location", "Colorado bridal shower", "elegant party venue"]
+title: "Bridal Shower Venues Denver Metro - Casual, Moody, Eclectic"
+description: "Discover perfect bridal shower venues across Denver metro for 15-100 guests. Moody, flexible packages starting at $900 with professional coordination and setup."
+keywords: ["bridal shower venue Denver metro", "engagement party space Colorado", "bridal celebration venue", "wedding shower location", "Colorado bridal shower"]
 serviceType: "bridal-shower"
 location:
   city: "Multiple Locations"
   state: "CO"
   region: "Denver Metro"
   isGeneric: true
-packageName: "Bridal Shower Elegance"
-shortDescription: "Elegant bridal shower venues throughout Denver metro with customizable packages for 15-100 guests and engagement parties."
+packageName: "Bridal Shower — Moody Edition"
+shortDescription: "Casual, moody bridal shower venues with flexible packages for 15–100."
 pricingTierId: "social-shower"
 capacity:
   min: 15
@@ -34,13 +34,13 @@ pricingPageLink: "/pricing"
 featured: true
 ---
 
-# Elegant Bridal Shower Venue in Westminster, CO
+# Moody Bridal Shower Venue in Westminster, CO
 
-Celebrate love and friendship at Penelope's Venue, Westminster's premier bridal shower venue. Our charming space provides the perfect setting for intimate engagement parties, bridal showers, and pre-wedding celebrations that honor the bride-to-be in style.
+Celebrate love and friendship at Penelope's Venue — casual, moody, and easy. Our space fits intimate engagement parties, bridal showers, and pre‑wedding hangs without the fuss.
 
 ## Charming Westminster Location
 
-Nestled in the heart of Westminster, our venue offers an elegant yet approachable atmosphere perfect for bridal showers. With beautiful architecture, flexible spaces, and professional coordination, we create memorable celebrations that reflect the bride's personality and style.
+In the heart of Westminster, the space blends Spanish‑inspired edges with a laid‑back feel. Flexible layout, helpful team, and a look that photographs well.
 
 ## Bridal Shower Package Features
 
@@ -70,7 +70,7 @@ Nestled in the heart of Westminster, our venue offers an elegant yet approachabl
 ## Perfect for Various Celebration Styles
 
 ### Traditional Bridal Showers
-Classic celebrations with tea sandwiches, elegant decor, and traditional bridal shower games and activities.
+Classic celebrations with sweets, simple decor, and your own twist on games.
 
 ### Modern Celebrations
 Contemporary gatherings with creative themes, interactive elements, and personalized touches that reflect the couple's style.
@@ -97,8 +97,8 @@ Our bridal shower packages accommodate 15-100 guests, making them perfect for in
 
 ## Why Brides Choose Our Venue
 
-### Elegant & Memorable
-Our charming space creates the perfect backdrop for celebrating this special milestone in the bride's journey.
+### Moody & Memorable
+The vibe sets the tone — warm lighting, textures, and room to relax.
 
 ### Personalized Service
 We work closely with brides and their bridal parties to create a celebration that reflects their unique style and vision.
@@ -107,10 +107,10 @@ We work closely with brides and their bridal parties to create a celebration tha
 Professional coordination means brides can relax and enjoy their shower while we handle all the details.
 
 ### Complete Packages
-Transparent pricing with everything included, from elegant decor to professional coordination.
+Transparent pricing with the essentials covered — decor options and easy coordination.
 
 ## Ready to Celebrate Your Bride-to-Be?
 
-Contact us today to begin planning your perfect bridal shower. We'll work with you to create an elegant celebration that honors the bride and creates lasting memories for everyone.
+Contact us to plan your shower. We’ll keep it clean, moody, and true to her.
 
 [Plan Your Bridal Shower](/contact#book)

@@ -70,7 +70,7 @@ Close family and longtime friends. Sit-down dinner reception with dancing. Intim
 Out-of-town guests come to Colorado for your wedding weekend. Beautiful venue gives them a true Colorado experience.
 
 ### Second Weddings or Older Couples (20-60 guests)
-Elegant celebration without the fuss of a first wedding. Sophisticated spaces perfect for refined tastes.
+Moody celebration without the fuss of a first wedding. Polished spaces with character.
 
 ## Denver Area Intimate Wedding Locations
 
@@ -98,7 +98,7 @@ Elegant celebration without the fuss of a first wedding. Sophisticated spaces pe
 "We looked at so many big venues that felt cold and expensive. Penelope's garden space was exactly what we pictured - intimate, beautiful, and reasonably priced. Our coordinator made sure every detail was perfect for our small group."
 
 **Jennifer & David, 28 guests in Arvada**  
-"As a second marriage, we wanted elegant but not elaborate. The historic venue gave us sophistication without the big wedding fuss. Our guests loved the intimate setting and personal service."
+"As a second marriage, we wanted moody but not overdone. The historic venue had character without the big wedding fuss. Our guests loved the intimate setting and personal service."
 
 ## Frequently Asked Questions
 
