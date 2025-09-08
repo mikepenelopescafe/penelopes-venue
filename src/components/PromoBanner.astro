@@ -1,0 +1,56 @@
+---
+import { venueRules } from '@/data/pricing';
+
+const monThuPct = Math.round((1 - (venueRules.offPeak.discounts.monThu ?? 1)) * 100);
+const friPct = Math.round((1 - (venueRules.offPeak.discounts.friday ?? 1)) * 100);
+---
+
+<div id="promo-banner" class="relative isolate">
+  <div class="w-full text-xs sm:text-sm bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-b border-primary/20 text-foreground">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center gap-3">
+      <p class="flex-1 leading-relaxed">
+        <span class="font-medium">Grand Opening Glow‑Up</span> — Sep–Mar. Mon–Thu <span class="font-semibold text-primary">{monThuPct}% off</span>, Fri & Sat <span class="font-semibold text-primary">{friPct}% off</span>.
+      </p>
+      <a href="/venue" class="hidden sm:inline-flex items-center rounded-md border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary hover:bg-primary/15 transition">Pricing</a>
+      <button id="promo-banner-close" class="ml-1 inline-flex items-center justify-center h-6 w-6 rounded hover:bg-foreground/10 text-muted-foreground" aria-label="Dismiss banner">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'promoBanner:dismissed:v1';
+
+    function hideBanner() {
+      const el = document.getElementById('promo-banner');
+      if (!el) return;
+      el.style.display = 'none';
+    }
+
+    function showBannerIfNeeded() {
+      try {
+        const dismissed = localStorage.getItem(STORAGE_KEY) === 'true';
+        if (dismissed) hideBanner();
+      } catch {}
+    }
+
+    function attach() {
+      const btn = document.getElementById('promo-banner-close');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        try { localStorage.setItem(STORAGE_KEY, 'true'); } catch {}
+        hideBanner();
+      });
+    }
+
+    // Initial
+    showBannerIfNeeded();
+    attach();
+
+    // Re-attach on Astro view transitions
+    document.addEventListener('astro:after-swap', function(){ showBannerIfNeeded(); attach(); });
+    document.addEventListener('astro:page-load', function(){ showBannerIfNeeded(); attach(); });
+  </script>
+</div>
+
+

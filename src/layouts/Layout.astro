@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import Navigation from '@/components/Navigation.astro';
+import PromoBanner from '@/components/PromoBanner.astro';
 import Footer from '@/components/Footer.astro';
 import { ClientRouter } from 'astro:transitions';
 
@@ -248,6 +249,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col">
+    <PromoBanner />
     <Navigation />
     <main class="flex-1">
       <slot />
