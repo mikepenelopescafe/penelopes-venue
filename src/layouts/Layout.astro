@@ -31,7 +31,7 @@ const {
   article,
 } = Astro.props;
 
-const siteUrl = Astro.site || 'https://penelopesvenue.com';
+const siteUrl = Astro.site || 'https://penelopesboutiquevenue.com';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 ---
 
@@ -55,7 +55,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="Penelope's Venue" />
+    <meta property="og:site_name" content="Penelope's Boutique Venue" />
     <meta property="og:image" content={new URL(ogImage, siteUrl).href} />
     <meta property="og:locale" content="en_US" />
     
@@ -88,7 +88,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
         "@context": "https://schema.org",
         "@type": "EventVenue",
         "@id": new URL('#venue', siteUrl).href,
-        "name": "Penelope's Cafe & Venue",
+        "name": "Penelope's Boutique Venue",
         "description": description,
         "url": siteUrl,
         "telephone": "+1-720-639-2406",
@@ -113,7 +113,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+   
     <link rel="icon" type="image/png" href="/favicon.png" />
     
     <!-- Preconnect to external domains -->
