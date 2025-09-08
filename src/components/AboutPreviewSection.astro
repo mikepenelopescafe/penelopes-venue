@@ -1,0 +1,52 @@
+---
+// About Preview Section Component - Streamable
+import { Image } from 'astro:assets';
+import { Badge } from '@/components/ui/badge';
+import exteriorVenueImage from '@/assets/images/penelope-exterior.webp';
+---
+
+<section class="py-20 px-6 bg-card/30" transition:name="about-preview">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">The space</Badge>
+      <h2 class="text-4xl font-display text-foreground mb-6">
+        A space that feels like you
+      </h2>
+      <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
+        At 8050 Federal Blvd in Westminster, we've hosted intimate weddings, showers,
+        and milestone nights. Spanish‑inspired design, warm service, and food people remember.
+      </p>
+      <div class="grid grid-cols-2 gap-6 mb-8">
+        <div class="text-center p-4 bg-primary/5 rounded-lg">
+          <div class="text-2xl font-bold text-primary">$</div>
+          <div class="text-sm text-muted-foreground">Clean pricing</div>
+        </div>
+        <div class="text-center p-4 bg-primary/5 rounded-lg">
+          <div class="text-2xl font-bold text-primary">9AM–11PM</div>
+          <div class="text-sm text-muted-foreground">Event hours</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="relative group hover-lift transition-all duration-300">
+        <Image
+          src={exteriorVenueImage}
+          alt="Elegant Spanish-inspired exterior of Penelope's Café & Venue in Westminster, Colorado"
+          width={800}
+          height={450}
+          class="w-full aspect-video object-cover rounded-lg shadow-xl"
+          loading="eager"
+        />
+        <!-- Image Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <!-- Location Badge -->
+        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+          <p class="text-sm font-semibold text-primary">Westminster, CO</p>
+          <p class="text-xs text-primary/70">8050 N Federal Blvd</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

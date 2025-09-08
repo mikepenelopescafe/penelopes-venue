@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Capacity",
+    "value": "50–100",
+    "icon": "👥",
+    "description": "Perfect for intimate gatherings"
+  },
+  {
+    "label": "Catering",
+    "value": "In‑house",
+    "icon": "👨‍🍳",
+    "description": "Latin-inspired menus and professional service"
+  },
+  {
+    "label": "Style",
+    "value": "Spanish‑inspired",
+    "icon": "🏛️",
+    "description": "Moody, elegant atmosphere"
+  },
+  {
+    "label": "Location",
+    "value": "Westminster, CO",
+    "icon": "📍",
+    "description": "Convenient Denver metro location"
+  }
+]

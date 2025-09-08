@@ -1,0 +1,41 @@
+---
+// Testimonials Section Component - Streamable
+import { Card, CardContent } from '@/components/ui/card';
+
+export interface Props {
+  testimonials: Array<{
+    quote: string;
+    author: string;
+    event: string;
+  }>;
+}
+
+const { testimonials } = Astro.props;
+---
+
+<section class="py-20 px-6 bg-background">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-display text-foreground mb-4">What guests say</h2>
+      <p class="text-lg text-muted-foreground">
+        Real notes from good nights.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {testimonials.map(testimonial => (
+        <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
+          <CardContent className="p-6">
+            <blockquote class="text-foreground/80 mb-4 italic leading-relaxed">
+              "{testimonial.quote}"
+            </blockquote>
+            <div class="text-sm">
+              <div class="font-medium text-foreground">{testimonial.author}</div>
+              <div class="text-primary">{testimonial.event}</div>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

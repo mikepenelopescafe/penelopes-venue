@@ -1,0 +1,64 @@
+---
+// Venue Statistics Section Component - Streamable
+import { Image } from 'astro:assets';
+import diningRoomImage from '@/assets/images/penelope-diningroom.jpeg';
+
+export interface Props {
+  venueStats: Array<{
+    label: string;
+    value: string;
+    icon: string;
+  }>;
+}
+
+const { venueStats } = Astro.props;
+---
+
+<section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+       style={`background-image: url('${diningRoomImage.src}');`}>
+    <!-- Gradient Overlay for Text Readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <!-- Subtle Pattern Overlay for Texture -->
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+    <!-- Section Header -->
+    <div class="w-full">
+      <div class="mb-16">
+        <h2 class="text-5xl font-display text-white mb-4 leading-tight">
+          Your vibe. <span class="text-primary">Your venue.</span>
+        </h2>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+          Moody, Spanish‑inspired space for effortless gatherings of 50–100.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {venueStats.map(stat => (
+          <div class="group hover-lift transition-all duration-300">
+            <!-- Glassmorphism Card -->
+            <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300">
+              <div class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
+                {stat.icon}
+              </div>
+              <div class=" font-bold text-white mb-2">{stat.value}</div>
+              <div class="text-white/80 text-sm font-medium">{stat.label}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-16">
+        <a href="/contact#book" class="btn-primary-lg">
+          Plan your event
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

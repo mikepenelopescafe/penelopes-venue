@@ -9,7 +9,10 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://penelopesvenue.com', // Update with your actual domain
+  site: 'https://penelopesboutiquevenue.com', // Update with your actual domain
+
+  // Prefetch configuration for better navigation performance
+  prefetch: true,
 
   vite: {
     plugins: [tailwindcss()],
@@ -20,7 +23,10 @@ export default defineConfig({
 
   integrations: [
     react(),
-    mdx(),
+    mdx({
+      // Optimize MDX processing for better performance
+      optimize: true,
+    }),
     sitemap({
       filter: (page) => !page.includes('/admin/'),
       changefreq: 'weekly',
@@ -38,13 +44,42 @@ export default defineConfig({
   output: 'server',
 
   adapter: vercel({
-    webAnalytics: { enabled: true }
+    webAnalytics: { enabled: true },
+    // Enable compression for better performance
+    compress: true,
   }),
 
+  // Optimized image service configuration
   image: {
-    domains: ['penelopesvenue.com'],
+    // Sharp service with performance optimizations
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        // Remove pixel limits for better quality control
+        limitInputPixels: false,
+        // Balance quality and file size
+        quality: 80,
+        // Enable progressive JPEGs
+        progressive: true,
+      },
+    },
+    domains: ['penelopesboutiquevenue.com'],
     remotePatterns: [{ protocol: 'https' }],
+    // Default responsive image layout for better performance
+    layout: 'constrained',
   },
+
+  // Enable HTML compression
+  compressHTML: true,
+
+  // Additional performance optimizations
+  build: {
+    // Inline stylesheets for better performance
+    inlineStylesheets: 'auto',
+  },
+
+  // Optimize output format for better performance
+  output: 'server',
 
   redirects: {
     '/events': '/services',

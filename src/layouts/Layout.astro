@@ -3,6 +3,7 @@ import '@/styles/global.css';
 import Navigation from '@/components/Navigation.astro';
 import PromoBanner from '@/components/PromoBanner.astro';
 import Footer from '@/components/Footer.astro';
+import PerformanceMonitor from '@/components/PerformanceMonitor.astro';
 import { ClientRouter } from 'astro:transitions';
 
 export interface Props {
@@ -22,10 +23,10 @@ export interface Props {
 
 const { 
   title, 
-  description = "Penelope’s Venue — casual, moody, eclectic space for real‑life celebrations.",
-  keywords = "wedding venue, event venue, outdoor wedding, garden venue",
+  description = "Boutique wedding & event venue in Westminster, CO. 50–100 guests, in‑house catering & full bar.",
+  keywords = "wedding venue Westminster, event venue Westminster CO, Denver metro venue, small wedding venue, private event space",
   canonical,
-  ogImage = '/images/og-default.jpg',
+  ogImage = '/logo.svg',
   noIndex = false,
   article,
 } = Astro.props;
@@ -86,30 +87,28 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "EventVenue",
-        "name": "Penelope's Venue",
+        "@id": new URL('#venue', siteUrl).href,
+        "name": "Penelope's Cafe & Venue",
         "description": description,
         "url": siteUrl,
-        "telephone": "+1-555-0123",
+        "telephone": "+1-720-639-2406",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Your City",
-          "addressRegion": "State",
+          "streetAddress": "8050 Federal Blvd",
+          "addressLocality": "Westminster",
+          "addressRegion": "CO",
+          "postalCode": "80031",
           "addressCountry": "US"
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 40.7128,
-          "longitude": -74.0060
-        },
         "image": new URL(ogImage, siteUrl).href,
-        "priceRange": "$$$$",
+        "priceRange": "$$-$$$",
         "amenityFeature": [
-          {"@type": "LocationFeatureSpecification", "name": "Outdoor Garden"},
-          {"@type": "LocationFeatureSpecification", "name": "Historic Building"},
+          {"@type": "LocationFeatureSpecification", "name": "In-house Catering"},
+          {"@type": "LocationFeatureSpecification", "name": "Full Bar"},
           {"@type": "LocationFeatureSpecification", "name": "Event Planning Services"},
-          {"@type": "LocationFeatureSpecification", "name": "Catering Available"},
           {"@type": "LocationFeatureSpecification", "name": "Parking"}
-        ]
+        ],
+        "areaServed": ["Westminster", "Denver Metro", "Arvada", "Thornton", "Northglenn"]
       })}
     </script>
     
@@ -256,6 +255,9 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     </main>
     <Footer />
     <ClientRouter />
+
+    <!-- Performance monitoring for Core Web Vitals -->
+    <PerformanceMonitor />
     
     <!-- Theme persistence script that runs on every navigation -->
     <script>

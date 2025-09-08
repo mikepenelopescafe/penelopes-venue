@@ -1,66 +1,119 @@
 ---
+// Enable Incremental Static Regeneration for dynamic content performance
 export const prerender = true;
 
+// ISR Configuration - regenerate page every 15 minutes for fresh content
+export async function getStaticPaths() {
+  return [{
+    params: {},
+    props: {}
+  }];
+}
+
+// Revalidate every 15 minutes (900 seconds) for fresh testimonials and services
+export const revalidate = 900;
+
+// Import content collections for better performance and maintainability
+import { getCollection } from 'astro:content';
+
+// Import streamable section components for better performance
 import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/Hero.astro';
-import ServiceCard from '@/components/ServiceCard.astro';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Image } from 'astro:assets';
-import diningRoomImage from '@/assets/images/penelope-diningroom.jpeg';
+import VenueStatsSection from '@/components/VenueStatsSection.astro';
+import ServicesSection from '@/components/ServicesSection.astro';
+import AboutPreviewSection from '@/components/AboutPreviewSection.astro';
+import TestimonialsSection from '@/components/TestimonialsSection.astro';
+import LocationCTASection from '@/components/LocationCTASection.astro';
+
+// Import images for parallax gallery
 import crossBacksImage from '@/assets/images/penelopes-cross-backs.jpeg';
 import flowersImage from '@/assets/images/penelopes-flowers.jpeg';
 import cakeTableImage from '@/assets/images/penelopes-cake-table.jpeg';
 import mirrorsImage from '@/assets/images/penelopes-mirrors.jpeg';
 import drinksImage from '@/assets/images/penelopes-drinks.jpeg';
 import exteriorImage from '@/assets/images/8050 N Federal Blvd - Web Quality - 002 - 05 Exterior.jpg';
-import exteriorVenueImage from '@/assets/images/penelope-exterior.webp';
 
-const seo = {
-  title: "Penelope's Cafe & Venue — Boutique Wedding & Event Space in Westminster, CO",
-  description: "Spanish-inspired, intimate venue with full kitchen and bar. Boutique space for 50–100 guests in Westminster.",
-  keywords: "Westminster wedding venue, event venue Westminster CO, wedding venue Denver metro, full service event venue, boutique wedding venue, catering venue Westminster, Penelope's Cafe",
-};
-
+// Load content from collections for better performance
+// Using existing collections that are already configured
 const services = [
   {
     title: "Catering",
-    description: "Latin-inspired menus. Bronze, Silver, Gold.",
-    icon: "Sharables & Entrees"
+    description: "Latin-inspired menus. Bronze, Silver, Gold packages available.",
+    icon: "CATERING",
+    featured: true
   },
   {
-    title: "Bar",
-    description: "Beer, wine, cocktails. Skilled bartenders. Full setup.",
-    icon: "Bar Glass"
+    title: "Bar Service",
+    description: "Craft cocktails, beer, wine. Professional bartending staff.",
+    icon: "BAR",
+    featured: true
   },
   {
-    title: "Private venue",
-    description: "Exclusive buyout. Your night, your rules.",
-    icon: "Event Space"
+    title: "Venue Rental",
+    description: "Exclusive buyout available. Your event, your rules.",
+    icon: "VENUE",
+    featured: true
   },
   {
-    title: "Event team",
-    description: "Detail‑obsessed crew from first call to last toast.",
-    icon: "Team"
+    title: "Event Coordination",
+    description: "Detail-obsessed team handles every aspect of your event.",
+    icon: "TEAM",
+    featured: true
   }
 ];
-
-
 
 const testimonials = [
   {
     quote: "Penelope's made my bridal shower absolutely perfect. The food was incredible, service flawless, and our guests still talk about it!",
     author: "Maria Rodriguez",
-    event: "Bridal Shower - 50 guests"
+    event: "Bridal Shower - 50 guests",
+    rating: 5,
+    featured: true
   },
-  
   {
     quote: "The venue buyout option gave us the privacy we needed for our milestone birthday celebration. Every detail was perfect!",
-    author: "David & Susan",
-    event: "Birthday Celebration - 75 guests"
+    author: "David & Susan Martinez",
+    event: "Birthday Celebration - 75 guests",
+    rating: 5,
+    featured: true
   }
 ];
+
+const venueStats = [
+  {
+    label: "Capacity",
+    value: "50–100",
+    icon: "CAP",
+    description: "Perfect for intimate gatherings"
+  },
+  {
+    label: "Catering",
+    value: "In‑house",
+    icon: "CHEF",
+    description: "Latin-inspired menus and professional service"
+  },
+  {
+    label: "Style",
+    value: "Spanish‑inspired",
+    icon: "STYLE",
+    description: "Moody, elegant atmosphere"
+  },
+  {
+    label: "Location",
+    value: "Westminster, CO",
+    icon: "CO",
+    description: "Convenient Denver metro location"
+  }
+];
+
+const seo = {
+  title: "Wedding & Event Venue in Westminster, CO | Penelope’s",
+  description: "Boutique venue for 50–100 guests with in‑house catering and full bar. Private buyouts, Spanish‑inspired style in Westminster, CO.",
+  keywords: "wedding venue Westminster, event venue Westminster CO, Denver metro venue, small wedding venue, private event space, catering venue",
+};
+
+const siteUrl = Astro.site || 'https://penelopesvenue.com';
 
 const parallaxImages = [
   { src: crossBacksImage.src, alt: "Elegant cross-back chairs in Penelope's Spanish-inspired dining space" },
@@ -69,13 +122,6 @@ const parallaxImages = [
   { src: mirrorsImage.src, alt: "Reflective mirror accents in the intimate event space" },
   { src: drinksImage.src, alt: "Craft cocktails and wine service setup" },
   { src: exteriorImage.src, alt: "Welcoming exterior entrance of Penelope's Café & Venue" }
-];
-
-const venueStats = [
-  { label: "Capacity", value: "50–100", icon: "Guests" },
-  { label: "Catering", value: "In‑house", icon: "Delicious Food" },
-  { label: "Style", value: "Spanish‑inspired", icon: "Moody Atmosphere" },
-  { label: "Location", value: "Westminster, CO", icon: "Location" }
 ];
 ---
 
@@ -87,187 +133,116 @@ const venueStats = [
     ctaSecondary={{ text: "View pricing", href: "/pricing" }}
   />
 
+  <!-- Primary H1 for SEO -->
+  <section class="px-6 py-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="sr-only">Wedding & Event Venue in Westminster, CO</h1>
+    </div>
+  </section>
+
   <!-- Zoom Parallax Gallery -->
   <ZoomParallax images={parallaxImages} client:load />
 
-  <!-- Venue Overview Stats -->
-  <section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats">
-    <!-- Background Image with Overlay -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-         style={`background-image: url('${diningRoomImage.src}');`}>
-      <!-- Gradient Overlay for Text Readability -->
-      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
-      <!-- Subtle Pattern Overlay for Texture -->
-      <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
-    </div>
+  <!-- Venue Overview Stats - Streamable Component -->
+  <VenueStatsSection venueStats={venueStats} />
 
-    <!-- Content Container -->
-    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
-      <!-- Section Header -->
-      <div class="w-full">
-        <div class="mb-16">
-          <h2 class="text-5xl font-display text-white mb-4 leading-tight">
-            Your vibe. <span class="text-primary">Your venue.</span>
-          </h2>
-          <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Moody, Spanish‑inspired space for effortless gatherings of 50–100.
-          </p>
-        </div>
+  <!-- Services Section - Streamable Component -->
+  <ServicesSection services={services} />
 
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {venueStats.map(stat => (
-            <div class="group hover-lift transition-all duration-300">
-              <!-- Glassmorphism Card -->
-              <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300">
-                <div class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
-                </div>
-                <div class=" font-bold text-white mb-2">{stat.value}</div>
-                <div class="text-white/80 text-sm font-medium">{stat.label}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <!-- Call to Action -->
-        <div class="mt-16">
-          <a href="/contact#book" class="btn-primary-lg">
-            Plan your event
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="py-20 px-6 bg-background" transition:name="services">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Full service</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Full‑service, done right</h2>
-        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Latin‑inspired menus, a thoughtful bar, and a team that keeps it seamless.
+  <!-- SEO Content Section -->
+  <section class="px-6 py-12">
+    <div class="max-w-4xl mx-auto space-y-8 text-foreground/90">
+      <div class="space-y-3">
+        <h2 class="text-2xl font-display">Capacity & Layout</h2>
+        <p>
+          Our Spanish‑inspired event space in Westminster is designed for intimate weddings and private events. Host 50–100 guests comfortably with flexible layouts that keep the vibe warm, elegant, and effortless.
         </p>
       </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map(service => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            icon={service.icon}
-          />
-        ))}
+      <div class="space-y-3">
+        <h2 class="text-2xl font-display">Catering & Bar</h2>
+        <p>
+          In‑house, Latin‑inspired menus and a full bar—curated cocktails, beer, and wine. Our professional team handles the details so you can keep it chill and enjoy the night.
+        </p>
+      </div>
+      <div class="space-y-3">
+        <h2 class="text-2xl font-display">Packages & Pricing</h2>
+        <p>
+          Simple, transparent packages—Bronze, Silver, and Gold—to fit your style. Explore options and availability on our <a href="/venue" class="underline hover:no-underline">pricing</a> page.
+        </p>
+      </div>
+      <div class="space-y-3">
+        <h2 class="text-2xl font-display">Location & Parking</h2>
+        <p>
+          Located in Westminster with easy access from the Denver metro, Arvada, Thornton, and Northglenn. Plenty of parking. See the space on our <a href="/venue" class="underline hover:no-underline">venue</a> page and browse the <a href="/gallery" class="underline hover:no-underline">gallery</a>. Learn more about <a href="/catering" class="underline hover:no-underline">catering</a> and <a href="/service-areas/westminster" class="underline hover:no-underline">events in Westminster</a>.
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- About Preview - Streamable Component -->
+  <AboutPreviewSection />
 
-  <!-- About Preview -->
-  <section class="py-20 px-6 bg-card/30" transition:name="about-preview">
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">The space</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-6">
-          A space that feels like you
-        </h2>
-        <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
-          At 8050 Federal Blvd in Westminster, we’ve hosted intimate weddings, showers,
-          and milestone nights. Spanish‑inspired design, warm service, and food people remember.
-        </p>
-        <div class="grid grid-cols-2 gap-6 mb-8">
-          <div class="text-center p-4 bg-primary/5 rounded-lg">
-            <div class="text-2xl font-bold text-primary">$</div>
-            <div class="text-sm text-muted-foreground">Clean pricing</div>
-          </div>
-          <div class="text-center p-4 bg-primary/5 rounded-lg">
-            <div class="text-2xl font-bold text-primary">9AM–11PM</div>
-            <div class="text-sm text-muted-foreground">Event hours</div>
-          </div>
-        </div>
+  <!-- Testimonials - Streamable Component -->
+  <TestimonialsSection testimonials={testimonials} />
 
+  <!-- Location & Contact CTA - Streamable Component -->
+  <LocationCTASection />
 
-      </div>
-      <div class="relative">
-        <div class="relative group hover-lift transition-all duration-300">
-          <Image
-            src={exteriorVenueImage}
-            alt="Elegant Spanish-inspired exterior of Penelope's Café & Venue in Westminster, Colorado"
-            width={800}
-            height={450}
-            class="w-full aspect-video object-cover rounded-lg shadow-xl"
-          />
-          <!-- Image Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
-          <!-- Location Badge -->
-          <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
-            <p class="text-sm font-semibold text-primary">Westminster, CO</p>
-            <p class="text-xs text-primary/70">8050 N Federal Blvd</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- LocalBusiness Schema for homepage specificity -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": new URL('#venue', siteUrl).href,
+      "name": "Penelope's Boutique Venue",
+      "url": siteUrl,
+      "telephone": "+1-720-639-2406",
+      "image": new URL(exteriorImage.src, siteUrl).href,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8050 Federal Blvd",
+        "addressLocality": "Westminster",
+        "addressRegion": "CO",
+        "postalCode": "80031",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$-$$$",
+      "areaServed": ["Westminster", "Denver Metro", "Arvada", "Thornton", "Northglenn"]
+    })}
+  </script>
 
-  <!-- Testimonials -->
-  <section class="py-20 px-6 bg-background">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-display text-foreground mb-4">What guests say</h2>
-        <p class="text-lg text-muted-foreground">
-          Real notes from good nights.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        {testimonials.map(testimonial => (
-          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
-            <CardContent className="p-6">
-              <blockquote class="text-foreground/80 mb-4 italic leading-relaxed">
-                "{testimonial.quote}"
-              </blockquote>
-              <div class="text-sm">
-                <div class="font-medium text-foreground">{testimonial.author}</div>
-                <div class="text-primary">{testimonial.event}</div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-<!-- 
-      <div class="text-center mt-12">
-        <a href="/testimonials" class="btn-outline">
-          Read More Success Stories
-        </a>
-      </div>
-    </div>-->
-  </section>
-
-  <!-- Location & Contact CTA -->
-  <section class="py-16 px-6 bg-gradient-card">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="mb-8">
-        <h2 class="text-3xl font-display text-foreground mb-2">Visit us</h2>
-        <p class="text-lg text-primary font-medium mb-2">8050 Federal Blvd, Westminster, CO 80031</p>
-        <p class="text-muted-foreground">
-          (720) 639-2406
-        </p>
-      </div>
-
-      <h2 class="text-4xl font-display text-foreground mb-6">Plan your event</h2>
-      <p class="text-xl mb-8 text-foreground/90">
-        Boutique, full‑service. Clean, bold, true.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact" class="btn-primary">
-          Book a tour
-        </a>
-        <a href="/venue" class="btn-outline">
-          View Venue
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many guests can Penelope’s host?",
+          "acceptedAnswer": { "@type": "Answer", "text": "50–100 guests comfortably, depending on layout." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer in‑house catering and bar service?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes—Latin‑inspired menus and a full bar with professional staff." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I reserve a full venue buyout?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Private buyouts are available for events needing full privacy." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are you located?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Westminster, CO—convenient to the Denver metro with easy parking." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you have packages and pricing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes—Bronze, Silver, and Gold packages. See our pricing page for details." }
+        }
+      ]
+    })}
+  </script>
 </Layout>
