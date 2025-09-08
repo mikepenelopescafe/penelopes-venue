@@ -1,203 +1,123 @@
-# Service Content Management Guidelines
+# Venue & Catering Architecture Guidelines (No Service Pages)
 
-This directory contains service content files that power the services listing page. These files work in conjunction with the centralized pricing data model to provide rich, SEO-optimized service pages.
+This document defines the simplified content and pricing architecture centered on two offerings pages: a single Venue page and a single Catering page. Service-specific pages are deprecated. The goal: simple, transparent pricing that’s easy for customers to understand, while keeping strong foundations for location and keyword SEO.
 
 ## Architecture Overview
 
 ### **Hybrid Content System**
-- **Pricing Page** → Powered by `/src/data/pricing.ts` (centralized data)
-- **Services Page** → Powered by MDX files in this directory
-- **Individual Service Pages** → Combination of MDX content + pricing data
+- **Venue Page (`/venue`)** → Powered by `venuePricing` in `/src/data/pricing.ts` + venue amenities/content
+- **Catering Page (`/catering`)** → Powered by `cateringPackages` and `barPackages` in `/src/data/pricing.ts`
+- **Location Pages (`/locations/...`)** → Powered by MD/MDX in `/src/content/locations/`; link to `/venue` and `/catering`
+- **Keyword Landing Pages (`/content/pages/...`)** → MD/MDX pages for SEO topics; link to `/venue` and `/catering`
 
 ### **Data Flow**
-1. Add MDX file → Automatically appears on services page
-2. Remove MDX file → Automatically removed from services page  
-3. Update pricing in `pricing.ts` → All linked services update automatically
-4. MDX provides rich content, SEO, descriptions
-5. Pricing data provides rates, packages, add-ons
+1. Update `/src/data/pricing.ts` → Venue and Catering pages update automatically
+2. Update `/src/content/locations/*.md` → Location hub pages update
+3. Update `/src/content/pages/*.md` → Keyword landing pages update
+4. No service MDX files are used; service-specific pricing is removed
 
-## Requirements for New Service Files
+## Offerings Pages
 
-### **1. Required Frontmatter Fields**
-Every service MDX file MUST include:
+### Venue Page (`/venue`)
+- Source of truth: `venuePricing` in `/src/data/pricing.ts`
+- Shows: pricing by day-type (offPeak/peak/premium), minimum hours, hour blocks, included amenities, capacity ranges, gallery, FAQs, CTAs
+- Schema: `EventVenue`
 
-```yaml
----
-title: "SEO-optimized title (60 chars max)"
-description: "Meta description (120-160 characters)"
-keywords: ["keyword1", "keyword2", "keyword3"]
-serviceType: "micro-wedding" # Must match schema enum
-location:
-  city: "Westminster"
-  state: "CO"
-  region: "Denver Metro"
-  isGeneric: false # true for city-agnostic service pages
-packageName: "Service Package Name"
-shortDescription: "Brief description under 200 characters"
-pricingTierId: "wedding-micro" # REQUIRED - must exist in pricing.ts
-capacity:
-  min: 10
-  max: 30
-  ideal: 20
-amenities:
-  - "Amenity 1"
-  - "Amenity 2"
-availability: "year-round" # year-round, seasonal, weekends-only, custom
-duration:
-  min: 4
-  max: 8
-  recommended: 6
-targetAudience: ["couples", "families"]
-featured: false # true to highlight on services page
----
-```
+### Catering Page (`/catering`)
+- Source of truth: `cateringPackages` and `barPackages` in `/src/data/pricing.ts`
+- Shows: menu families, service styles (plated/buffet/passed), per-guest ranges, bar options and minimums, FAQs, CTAs
+- Schema: `Caterer`
 
-### **2. Pricing Tier Relationship**
-- `pricingTierId` MUST reference an existing tier in `/src/data/pricing.ts`
-- The pricing tier must be defined BEFORE creating the MDX file
-- Pricing tier provides: basePrice, duration, includes, addOns
-
-### **3. Content Structure**
-- Use clear, customer-focused language (8th grade reading level)
-- Start with customer problem/question
-- Include what's included, capacity, pricing info
+### Content Style
+- Use clear, customer-focused language 
+- Start with the customer problem
+- Include what’s included and transparent pricing
 - Add local SEO elements (city, landmarks, directions)
-- Follow brand voice guidelines from main CLAUDE.md
+- Follow brand voice and tone guidelines in Cursor Rules `brand-voice.mdc`
 
-## Workflow for Adding New Services
+## Workflow Updates
 
-### **Step 1: Define Pricing Tier**
-Add to `/src/data/pricing.ts`:
-```typescript
-social: {
-  graduation: {
-    id: 'social-graduation',
-    name: 'Graduation Party',
-    description: 'Celebrate academic achievements',
-    guestRange: [15, 50],
-    basePrice: 1200,
-    duration: 4,
-    includes: [...],
-    addOns: [...]
-  }
-}
-```
-
-### **Step 2: Create MDX File**
-Create file in this directory:
-- Filename: `graduation-party-westminster.md`
-- Set `pricingTierId: "social-graduation"`
-- Include all required frontmatter
-- Write customer-focused content
-
-### **Step 3: Verify**
-- Check services page displays new service
-- Verify pricing displays correctly
-- Test service detail page
-- Run build to catch any errors
-
-## Workflow for Removing Services
-
-### **Option 1: Hide Service**
-```yaml
-# In frontmatter
-featured: false
-# Service won't appear prominently but page still exists
-```
-
-### **Option 2: Remove Completely**
-1. Delete the MDX file from this directory
-2. Service automatically removed from services page
-3. Optionally clean up pricing tier from `pricing.ts` if not needed
-
-## Workflow for Updating Pricing
-
-### **Price Changes**
+### Add or Update Pricing
 1. Edit `/src/data/pricing.ts`
-2. All services with matching `pricingTierId` update automatically
-3. No need to touch individual MDX files
+   - Venue: update `venuePricing`
+   - Catering: update `cateringPackages` and `barPackages`
+2. Run locally and verify `/venue` and `/catering`
 
-### **Service Details Changes**
-1. Edit the MDX file directly
-2. Update frontmatter fields as needed
-3. Pricing information will still come from pricing.ts
+### Add or Update Locations
+1. Create/update MD/MDX in `/src/content/locations/`
+2. Ensure each location links to `/venue` and `/catering`
+3. Include local landmarks, directions, and testimonials
+
+## Decommissioning Services (Deprecated)
+
+- No new service pages or MDX files
+- Remove `/src/pages/services/*` routes
+- Remove the `services` collection from `src/content/config.ts`
+- Replace any remaining links to `/services` with `/venue` or `/catering`
+
+## Updating Pricing
+
+1. Edit `/src/data/pricing.ts`
+2. Verify updates on `/venue` and `/catering`
 
 ## Validation & Error Prevention
 
-### **Validation Checks**
-The system includes validation to ensure data integrity:
-- Warns if `pricingTierId` doesn't exist in pricing data
-- TypeScript validation for frontmatter schema
-- Build-time checks for missing required fields
+### Remove Legacy Validation
+- Remove validation tied to service `pricingTierId`
+- Remove utilities that expect service pages
 
-### **Common Issues to Avoid**
-- ❌ Don't hardcode prices in MDX content - use pricing references
-- ❌ Don't create MDX file before defining pricing tier
-- ❌ Don't use duplicate `pricingTierId` across services
-- ❌ Don't skip required frontmatter fields
-- ✅ Always link to existing pricing tier
-- ✅ Use descriptive, unique filenames
-- ✅ Follow SEO guidelines for title/description
+### New Checks
+- Ensure `/venue` renders `venuePricing` blocks and minimums
+- Ensure `/catering` renders all packages and bar options
+- Verify all legacy `/services` links are updated
 
-## Service Categories
+## SEO Strategy
 
-### **Current Service Types**
-Based on schema definition:
-- `micro-wedding` - Intimate wedding ceremonies
-- `elopement` - Very small, private ceremonies  
-- `corporate-event` - Business meetings and parties
-- `private-party` - Birthday, anniversary, celebrations
-- `bridal-shower` - Pre-wedding celebrations
-- `baby-shower` - Baby celebration events
-- `wedding` - Full wedding ceremonies
-- `reception` - Wedding receptions
-- `anniversary` - Anniversary celebrations
-- `birthday` - Birthday parties
-- `graduation` - Graduation celebrations
-- `retirement` - Retirement parties
+### Core Pages
+- `/venue`: Primary commercial intent for all “venue” queries
+- `/catering`: Primary commercial intent for catering + bar queries
 
-### **Location Strategy**
-- Generic services (`isGeneric: true`) for SEO authority
-- Location-specific services for local search
-- Westminster focus with expansion capability
+### Location SEO
+- Keep `/locations/[city]` hub pages with local landmarks, directions, testimonials, and links to `/venue` and `/catering`
+
+### Keyword Pages (Topical Authority)
+- Use `/src/content/pages` for keyword clusters (venue-types, guest-count, budget-focused, seasonal, special-features)
+- Each keyword page links back to `/venue` and/or `/catering`
 
 ## SEO Best Practices
 
 ### **File Naming**
-- `service-type-location.md` (e.g., `micro-wedding-westminster.md`)
-- Use hyphens, not underscores
-- Include location for local SEO
+- Keyword pages: `topic-keyword.md`
+- Location pages: `city-slug.md`
 
 ### **Content Structure**
 - H1: Problem-focused headline
 - Lead with customer pain points
-- Include local landmarks and directions
-- Add capacity, pricing, what's included
-- Link to related services and locations
+- Include local landmarks and directions (on location pages)
+- Add capacity, pricing, and what’s included (on `/venue` and `/catering`)
+- Link to related keyword and location pages
 
 ### **Meta Data**
-- Title: Under 60 characters, include location
+- Title: Under 60 characters, include location when relevant
 - Description: 120-160 characters, compelling
 - Keywords: 3-5 relevant, local terms
 
 ## Maintenance
 
 ### **Monthly Reviews**
-- [ ] Verify all pricing tier references are valid
+- [ ] Verify venue and catering pricing is accurate
 - [ ] Update seasonal availability if needed
-- [ ] Check for new service opportunities
+- [ ] Add new keyword pages as opportunities arise
 - [ ] Review and respond to customer feedback
 
 ### **When Pricing Changes**
 - [ ] Update `/src/data/pricing.ts`
-- [ ] Verify changes appear on services page
-- [ ] Test individual service pages
+- [ ] Verify changes appear on `/venue` and `/catering`
 - [ ] Run full build to check for issues
 
 ### **When Adding Locations**
-- [ ] Create location-specific variants
-- [ ] Update `availableLocations` arrays
-- [ ] Add location hub pages
+- [ ] Add/Update MD/MDX in `/src/content/locations/`
+- [ ] Link to `/venue` and `/catering`
 - [ ] Update navigation if needed
 
 ---
@@ -205,22 +125,20 @@ Based on schema definition:
 ## Quick Reference Commands
 
 ```bash
-# Add new service
-1. Edit src/data/pricing.ts (add tier)
-2. Create src/content/services/new-service.md
-3. Set pricingTierId in frontmatter
-4. npm run dev (test locally)
-
-# Remove service  
-1. Delete src/content/services/service-name.md
-2. Optionally clean up pricing.ts
-
 # Update pricing
 1. Edit src/data/pricing.ts
-2. All related services update automatically
+2. npm run dev (test locally)
+
+# Update locations  
+1. Edit src/content/locations/*.md
+2. Link to /venue and /catering
+
+# Add keyword page
+1. Create src/content/pages/new-topic.md
+2. Link to /venue and/or /catering
 
 # Validate setup
-npm run build  # Catches validation errors
+npm run build  # Catches content errors
 ```
 
-Remember: The goal is scalable, maintainable service management where pricing stays consistent and content remains flexible for SEO and marketing needs.
+Remember: Keep it simple for customers—one clean Venue page and one clean Catering page—while building SEO depth through locations and keyword pages. For tone/voice, follow Cursor Rules `brand-voice.mdc`.

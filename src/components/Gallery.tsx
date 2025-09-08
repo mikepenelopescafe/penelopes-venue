@@ -185,8 +185,8 @@ const Gallery: React.FC<Props> = ({ images }) => {
                 <a href="/contact" className="btn-primary">
                   Plan Your Event
                 </a>
-                <a href="/services" className="btn-outline">
-                  View Services
+                <a href="/venue" className="btn-outline">
+                  View Venue
                 </a>
               </div>
             </div>

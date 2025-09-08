@@ -1,0 +1,176 @@
+---
+export const prerender = true;
+
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { venuePackages, calculateVenuePackagePrice, venueRules } from '@/data/pricing';
+
+const seo = {
+  title: "Venue Pricing & Details | Penelope’s Venue",
+  description: "Simple, transparent venue pricing with flexible hour blocks and included amenities. Clean, modern space in the Denver metro.",
+  keywords: "venue pricing, event venue Denver, Westminster venue"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <section class="relative py-24 px-6 overflow-hidden" style="background-image: url('/cross-backs.jpeg'); background-size: cover; background-position: center;">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+    <div class="relative max-w-6xl mx-auto text-center min-h-[420px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Venue</Badge>
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Clean, Modern Venue <span class="text-primary">with Simple Pricing</span>
+        </h1>
+        <p class="text-xl text-white/90 max-w-4xl mx-auto">Flexible blocks, clear minimums, no stress. Your vibe, your rules.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">8‑Hour Event Packages</Badge>
+        <h2 class="text-3xl font-display">Simple Day‑Based Pricing</h2>
+      </div>
+
+      <Card className="bg-card border-primary/20">
+        <CardHeader className="text-center">
+          <CardTitle className="text-xl">Packages</CardTitle>
+          <CardDescription>8 & 4 hour packages with clear rates and simple rules</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left text-muted-foreground border-b border-primary/10">
+                  <th class="py-3 pr-4 font-medium">Package</th>
+                  <th class="py-3 pr-4 font-medium hidden md:table-cell">Days</th>
+                  <th class="py-3 pr-4 font-medium">4‑Hour</th>
+                  <th class="py-3 pr-4 font-medium">8‑Hour</th>
+                </tr>
+              </thead>
+              <tbody>
+                {([
+                  'friday',
+                  'saturday',
+                  'sunday',
+                  'monThu',
+                  'memorialMonThu',
+                  'nonProfitMonThu'
+                ] as const).map((id) => {
+                  const pkg = venuePackages[id];
+                  const price8 = calculateVenuePackagePrice({ packageId: id, durationHours: 8 });
+                  const price4 = calculateVenuePackagePrice({ packageId: id, durationHours: 4 });
+                  const isSpecial = pkg.type !== 'standard';
+                  return (
+                    <tr class={`border-b border-primary/10 ${isSpecial ? 'bg-primary/5' : ''}`}>
+                      <td class="py-3 pr-4">
+                        <div class="font-medium">
+                          {pkg.label}
+                          {pkg.notes && <sup class="ml-1 text-primary">*</sup>}
+                        </div>
+                        <div class="text-xs text-muted-foreground md:hidden">{pkg.days}</div>
+                      </td>
+                      <td class="py-3 pr-4 hidden md:table-cell">{pkg.days}</td>
+                      <td class="py-3 pr-4">{price4 > 0 ? `$${price4.toLocaleString()}` : '—'}</td>
+                      <td class="py-3 pr-4">{price8 > 0 ? `$${price8.toLocaleString()}` : '—'}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-6 text-xs text-muted-foreground text-center">
+            Grand Opening discounts auto‑apply Sep–Mar where eligible. Holiday surcharges may apply.
+            <br />
+            <span class="inline-block mt-1">* Not subject to discount.</span>
+          </div>
+          <div class="mt-4 flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/contact" class="btn-primary-lg">Start Your Quote</a>
+            <a href="/contact#tour" class="btn-outline-lg">Schedule a Tour</a>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Grand Opening & Special Dates</Badge>
+        <h2 class="text-2xl font-display">Seasonal Savings & Surcharges</h2>
+        <p class="text-sm text-muted-foreground max-w-2xl mx-auto">Certain dates may include a holiday surcharge. Grand Opening discounts automatically apply September through March.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <Card className="bg-card border-primary/20 relative overflow-hidden">
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
+          <CardHeader>
+            <div class="flex items-start justify-between">
+              <div>
+                <CardTitle className="text-lg">Grand Opening Glow‑Up</CardTitle>
+                <CardDescription>September–March</CardDescription>
+              </div>
+              <Badge className="bg-primary/10 text-primary border-primary/20">Sep–Mar</Badge>
+            </div>
+          </CardHeader>
+          <CardContent className="text-sm">
+            <div class="space-y-3">
+              <div class="flex items-baseline justify-between">
+                <span class="text-muted-foreground">Mon–Thu</span>
+                <span class="text-2xl font-semibold text-primary">{Math.round((1 - (venueRules.offPeak.discounts.monThu ?? 1)) * 100)}% off</span>
+              </div>
+             
+              <div class="flex items-baseline justify-between">
+                <span class="text-muted-foreground">Fri & Sat</span>
+                <span class="text-2xl font-semibold text-primary">{Math.round((1 - (venueRules.offPeak.discounts.friday ?? 1)) * 100)}% off</span>
+              </div>
+              <div class="text-xs text-muted-foreground">Clean and simple—discount auto‑applies.</div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-card border-primary/20">
+          <CardHeader>
+            <CardTitle className="text-lg">Holiday Surcharge</CardTitle>
+            <CardDescription>Applied to select dates</CardDescription>
+          </CardHeader>
+          <CardContent className="text-sm space-y-2">
+            {(venueRules.holidaySurcharge.appliesTo as readonly string[]).map(item => (
+              <div>{item}</div>
+            ))}
+            <div class="text-muted-foreground">Surcharge may apply; ask for details.</div>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-card border-primary/20">
+          <CardHeader>
+            <CardTitle className="text-lg">What’s Included</CardTitle>
+            <CardDescription>Always part of your package</CardDescription>
+          </CardHeader>
+          <CardContent className="grid grid-cols-2 gap-3 text-sm">
+            <div>Tables & Chairs</div>
+            <div>Ambient Lighting</div>
+            <div>Setup & Cleanup</div>
+            <div>Day‑of Coordination</div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-display mb-4">Ready to see the space?</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#tour" class="btn-primary-lg">Schedule a Tour</a>
+        <a href="/catering" class="btn-outline-lg">Explore Catering</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+

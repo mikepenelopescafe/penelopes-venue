@@ -4,9 +4,18 @@ export const prerender = true;
 import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/Hero.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
+import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Image } from 'astro:assets';
+import diningRoomImage from '@/assets/images/penelope-diningroom.jpeg';
+import crossBacksImage from '@/assets/images/penelopes-cross-backs.jpeg';
+import flowersImage from '@/assets/images/penelopes-flowers.jpeg';
+import cakeTableImage from '@/assets/images/penelopes-cake-table.jpeg';
+import mirrorsImage from '@/assets/images/penelopes-mirrors.jpeg';
+import drinksImage from '@/assets/images/penelopes-drinks.jpeg';
+import exteriorImage from '@/assets/images/8050 N Federal Blvd - Web Quality - 002 - 05 Exterior.jpg';
+import exteriorVenueImage from '@/assets/images/penelope-exterior.webp';
 
 const seo = {
   title: "Penelope's Cafe & Venue — Boutique Wedding & Event Space in Westminster, CO",
@@ -18,7 +27,7 @@ const services = [
   {
     title: "Catering",
     description: "Latin-inspired menus. Bronze, Silver, Gold.",
-    icon: "Chef's Hat"
+    icon: "Sharables & Entrees"
   },
   {
     title: "Bar",
@@ -53,6 +62,15 @@ const testimonials = [
   }
 ];
 
+const parallaxImages = [
+  { src: crossBacksImage.src, alt: "Elegant cross-back chairs in Penelope's Spanish-inspired dining space" },
+  { src: flowersImage.src, alt: "Fresh floral arrangements and moody table settings" },
+  { src: cakeTableImage.src, alt: "Stylish cake table setup with candles and decor" },
+  { src: mirrorsImage.src, alt: "Reflective mirror accents in the intimate event space" },
+  { src: drinksImage.src, alt: "Craft cocktails and wine service setup" },
+  { src: exteriorImage.src, alt: "Welcoming exterior entrance of Penelope's Café & Venue" }
+];
+
 const venueStats = [
   { label: "Capacity", value: "50–100", icon: "Guests" },
   { label: "Catering", value: "In‑house", icon: "Delicious Food" },
@@ -69,11 +87,14 @@ const venueStats = [
     ctaSecondary={{ text: "View pricing", href: "/pricing" }}
   />
 
+  <!-- Zoom Parallax Gallery -->
+  <ZoomParallax images={parallaxImages} client:load />
+
   <!-- Venue Overview Stats -->
   <section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-         style="background-image: url('/penelope-diningroom.webp');">
+         style={`background-image: url('${diningRoomImage.src}');`}>
       <!-- Gradient Overlay for Text Readability -->
       <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
       <!-- Subtle Pattern Overlay for Texture -->
@@ -102,7 +123,7 @@ const venueStats = [
                 <div class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
                 </div>
-                <div class="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div class=" font-bold text-white mb-2">{stat.value}</div>
                 <div class="text-white/80 text-sm font-medium">{stat.label}</div>
               </div>
             </div>
@@ -171,8 +192,8 @@ const venueStats = [
       <div class="relative">
         <div class="relative group hover-lift transition-all duration-300">
           <Image
-            src="/penelope-exterior.webp"
-            alt="Penelope's Café & Venue Exterior - Westminster, CO"
+            src={exteriorVenueImage}
+            alt="Elegant Spanish-inspired exterior of Penelope's Café & Venue in Westminster, Colorado"
             width={800}
             height={450}
             class="w-full aspect-video object-cover rounded-lg shadow-xl"
@@ -243,8 +264,8 @@ const venueStats = [
         <a href="/contact" class="btn-primary">
           Book a tour
         </a>
-        <a href="/services" class="btn-outline">
-          Explore services
+        <a href="/venue" class="btn-outline">
+          View Venue
         </a>
       </div>
     </div>

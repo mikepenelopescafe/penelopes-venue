@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { getServicePricing } from '@/lib/pricing-utils';
 
 export const prerender = true;
 
@@ -18,17 +17,8 @@ export async function getStaticPaths() {
 const { location } = Astro.props;
 const { Content } = await location.render();
 
-// Get generic services available at all locations
-const genericServices = await getCollection('services', ({ data }) => 
-  data.location.isGeneric === true
-);
-
-// Sort services by featured, then by name
-const sortedServices = genericServices.sort((a, b) => {
-  if (a.data.featured && !b.data.featured) return -1;
-  if (!a.data.featured && b.data.featured) return 1;
-  return a.data.packageName.localeCompare(b.data.packageName);
-});
+// Services are now handled through venue and catering pages
+// No need to fetch individual services
 
 // Get testimonials for this location
 const testimonials = location.data.localTestimonials 
@@ -139,41 +129,62 @@ const businessSchema = {
           <div class="mb-12">
             <h2 class="text-3xl font-display text-foreground mb-8">Available Services</h2>
             <p class="text-lg text-muted-foreground mb-8">
-              All of our services are available for {location.data.city} area clients. Our Westminster venue 
+              All of our services are available for {location.data.city} area clients. Our Westminster venue
               is convenient for your guests and provides the same quality and professional coordination you expect.
             </p>
             <div class="grid md:grid-cols-2 gap-6">
-              {sortedServices.map(service => {
-                const pricing = getServicePricing(service);
-                return (
-                  <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
-                    <CardHeader>
-                      <CardTitle className="text-xl font-display text-foreground">
-                        {service.data.packageName}
-                      </CardTitle>
-                      <CardDescription className="text-sm text-muted-foreground">
-                        {service.data.capacity.min}-{service.data.capacity.max} guests
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p class="text-sm text-muted-foreground">
-                        {service.data.shortDescription}
-                      </p>
-                      <div class="flex justify-between items-center pt-4 border-t border-primary/10">
-                        <div class="text-lg font-bold text-primary">
-                          {pricing.formatted}
-                        </div>
-                        <a
-                          href={`/services/${service.slug}`}
-                          class="text-sm text-primary hover:underline"
-                        >
-                          View Details →
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+              <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl font-display text-foreground">
+                    Venue Rental
+                  </CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground">
+                    20-100 guests
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p class="text-sm text-muted-foreground">
+                    Beautiful event space with professional coordination and all amenities included.
+                  </p>
+                  <div class="flex justify-between items-center pt-4 border-t border-primary/10">
+                    <div class="text-lg font-bold text-primary">
+                      Starting at $4,000
+                    </div>
+                    <a
+                      href="/venue"
+                      class="text-sm text-primary hover:underline"
+                    >
+                      View Details →
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-xl font-display text-foreground">
+                    Catering & Bar
+                  </CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground">
+                    18+ guests
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p class="text-sm text-muted-foreground">
+                    American and Latin fusion menus with full bar service and professional staff.
+                  </p>
+                  <div class="flex justify-between items-center pt-4 border-t border-primary/10">
+                    <div class="text-lg font-bold text-primary">
+                      Starting at $18/guest
+                    </div>
+                    <a
+                      href="/catering"
+                      class="text-sm text-primary hover:underline"
+                    >
+                      View Details →
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
 
@@ -356,8 +367,8 @@ const businessSchema = {
         <a href="/locations" class="btn-primary">
           View All Service Areas
         </a>
-        <a href="/services" class="btn-outline">
-          Browse Services
+        <a href="/venue" class="btn-outline">
+          View Venue
         </a>
       </div>
     </div>

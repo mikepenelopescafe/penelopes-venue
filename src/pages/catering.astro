@@ -1,0 +1,95 @@
+---
+export const prerender = true;
+
+import Layout from '@/layouts/Layout.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { cateringPackages, barPackages } from '@/data/pricing';
+
+const seo = {
+  title: "Catering & Bar | Penelope’s Venue",
+  description: "American and Latin fusion catering with plated, buffet, and passed options. Transparent per‑guest pricing and simple bar packages.",
+  keywords: "event catering, wedding catering, bar packages, Denver catering"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <section class="relative py-24 px-6 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+    <div class="relative max-w-6xl mx-auto text-center min-h-[420px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Catering</Badge>
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Catering That Fits Your <span class="text-primary">Style</span>
+        </h1>
+        <p class="text-xl text-white/90 max-w-4xl mx-auto">Plated, buffet, or passed. Menus with clean flavors and easy pricing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+      {Object.values(cateringPackages).map(pkg => (
+        <Card className="bg-card border-primary/20">
+          <CardHeader>
+            <CardTitle className="text-2xl">{pkg.name}</CardTitle>
+            <CardDescription>{pkg.description}</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {pkg.packages.map(p => (
+              <div class="p-4 bg-primary/5 rounded-lg">
+                <div class="flex items-start justify-between">
+                  <div class="font-medium">{p.name}</div>
+                  <div class="text-right">
+                    {p.buffet && <div class="text-primary font-bold">${p.buffet}/guest</div>}
+                    {p.plated && <div class="text-sm text-muted-foreground">${p.plated}/guest plated</div>}
+                    {p.passed && <div class="text-sm text-muted-foreground">${p.passed}/guest passed</div>}
+                  </div>
+                </div>
+                <p class="text-sm text-muted-foreground mt-1">{p.description}</p>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-display">Bar Service</h2>
+        <p class="text-muted-foreground">Simple options, professional bartender. Minimums disclosed upfront.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        {barPackages.map(pkg => (
+          <Card className="bg-card border-primary/20">
+            <CardContent className="p-6">
+              <div class="flex items-start justify-between">
+                <div class="font-medium">{pkg.name}</div>
+                <div class="text-right">
+                  {pkg.beerWine && <div class="text-primary font-bold">${pkg.beerWine}/guest</div>}
+                  {pkg.fullBar && <div class="text-primary font-bold">${pkg.fullBar}/guest</div>}
+                </div>
+              </div>
+              {pkg.description && <p class="text-sm text-muted-foreground mt-2">{pkg.description}</p>}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-display mb-4">Pair it with the space</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/venue" class="btn-primary-lg">View Venue</a>
+        <a href="/contact" class="btn-outline-lg">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+

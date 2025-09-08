@@ -69,60 +69,6 @@ const blog = defineCollection({
   }),
 });
 
-// Services collection - for venue packages and service types (generic and location-specific)
-const services = defineCollection({
-  type: 'content',
-  schema: z.object({
-    ...seoSchema.shape,
-    serviceType: z.enum([
-      'micro-wedding',
-      'elopement',
-      'corporate-event',
-      'private-party',
-      'bridal-shower',
-      'baby-shower',
-      'wedding',
-      'reception',
-      'anniversary',
-      'birthday',
-      'graduation',
-      'retirement'
-    ]),
-    location: z.object({
-      city: z.string().default('Westminster'),
-      state: z.string().default('CO'),
-      region: z.string().default('Denver Metro'),
-      isGeneric: z.boolean().default(false), // true for city-agnostic service pages
-    }),
-    packageName: z.string(),
-    shortDescription: z.string().max(200, 'Short description should be under 200 characters'),
-    // Primary pricing reference system
-    pricingTierId: z.string(), // Reference to pricing tier ID (required)
-    capacity: z.object({
-      min: z.number(),
-      max: z.number(),
-      ideal: z.number().optional(),
-    }),
-    amenities: z.array(z.string()),
-    availability: z.enum(['year-round', 'seasonal', 'weekends-only', 'custom']),
-    duration: z.object({
-      min: z.number(), // hours
-      max: z.number(), // hours
-      recommended: z.number().optional(),
-    }).optional(),
-    targetAudience: z.array(z.string()).optional(), // e.g., ["couples", "families", "professionals"]
-    bookingLink: z.string().url().optional(),
-    pricingPageLink: z.string().default('/pricing'),
-    gallery: z.array(z.object({
-      src: z.string(),
-      alt: z.string(),
-      caption: z.string().optional(),
-    })).optional(),
-    relatedServices: z.array(z.string()).optional(), // slugs of related services
-    availableLocations: z.array(z.string()).optional(), // for generic services, list of cities
-    featured: z.boolean().default(false),
-  }),
-});
 
 // Service Areas collection - for areas served by the Westminster venue
 const serviceAreas = defineCollection({
@@ -249,7 +195,6 @@ const docs = defineCollection({
 export const collections = {
   pages,
   blog,
-  services,
   locations,
   'service-areas': serviceAreas,
   testimonials,

@@ -3,27 +3,18 @@ import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { getServicePricing } from '@/lib/pricing-utils';
 
 export const prerender = true;
 
 const locations = await getCollection('locations');
-const genericServices = await getCollection('services', ({ data }) => 
-  data.location.isGeneric === true
-);
-
 // Sort by priority: primary first, then secondary, then tertiary
 const sortedLocations = locations.sort((a, b) => {
   const priorityOrder = { primary: 0, secondary: 1, tertiary: 2 };
   return priorityOrder[a.data.priority] - priorityOrder[b.data.priority];
 });
 
-// Sort services by featured, then by name
-const sortedServices = genericServices.sort((a, b) => {
-  if (a.data.featured && !b.data.featured) return -1;
-  if (!a.data.featured && b.data.featured) return 1;
-  return a.data.packageName.localeCompare(b.data.packageName);
-});
+// Services are now handled through venue and catering pages
+// No need to fetch individual services
 
 const seo = {
   title: "Service Areas - Westminster Venue Serving Denver Metro",
@@ -59,58 +50,43 @@ const seo = {
           <a href="#service-areas-grid" class="btn-primary-lg">
             Find Your Service Area
           </a>
-          <a href="/services" class="btn-outline-lg">
-            View Services
+          <a href="/venue" class="btn-outline-lg">
+            View Venue
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section - Available at All Locations -->
+  <!-- Offerings Section - Available at All Locations -->
   <section class="py-20 px-6 bg-card/30">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Services</Badge>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Offerings</Badge>
         <h2 class="text-4xl font-display text-foreground mb-4">Available for All Service Areas</h2>
-        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
-          Our Westminster venue offers complete event services for clients throughout the Denver metro area. 
-          Same exceptional quality and professional coordination, wherever you're located.
-        </p>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">One beautiful venue. Catering made easy. Everything you need.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {sortedServices.map(service => {
-          const pricing = getServicePricing(service);
-          return (
-            <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl font-display text-foreground mb-2">
-                  {service.data.packageName}
-                </CardTitle>
-                <div class="text-2xl font-medium text-primary mb-2">
-                  {pricing.formatted}
-                </div>
-                <CardDescription className="text-sm text-muted-foreground">
-                  {service.data.capacity.min}-{service.data.capacity.max} guests
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p class="text-sm text-muted-foreground text-center">
-                  {service.data.shortDescription}
-                </p>
-                <div class="pt-4 border-t border-primary/10">
-                  <a
-                    href={`/services/${service.slug}`}
-                    class="block w-full text-center bg-primary/10 hover:bg-primary hover:text-primary-foreground text-primary px-4 py-3 rounded-md text-sm font-medium transition-colors"
-                  >
-                    Learn More
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+      <div class="grid md:grid-cols-2 gap-8">
+        <Card className="bg-card border-primary/20 hover-lift">
+          <CardHeader className="text-center">
+            <CardTitle className="text-xl">Venue</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-center">
+            <p class="text-sm text-muted-foreground">Clean, modern space with flexible pricing.</p>
+            <a href="/venue" class="btn-primary w-full">View Venue</a>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-card border-primary/20 hover-lift">
+          <CardHeader className="text-center">
+            <CardTitle className="text-xl">Catering</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-center">
+            <p class="text-sm text-muted-foreground">American + Latin fusion menus. Simple bar packages.</p>
+            <a href="/catering" class="btn-primary w-full">Explore Catering</a>
+          </CardContent>
+        </Card>
       </div>
     </div>
   </section>
@@ -286,9 +262,7 @@ const seo = {
         <a href="/contact#book" class="btn-primary">
           Schedule a Tour
         </a>
-        <a href="/services" class="btn-outline">
-          Explore Services
-        </a>
+        <a href="/venue" class="btn-outline">View Venue</a>
       </div>
     </div>
   </section>

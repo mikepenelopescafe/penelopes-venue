@@ -1,310 +1,167 @@
-// Pricing configuration types
-export interface PricingTier {
-  id: string;
-  name: string;
-  description: string;
-  guestRange: [number, number];
-  basePrice?: number; // For fixed price tiers
-  pricing?: {
-    offPeak?: number;
-    peak?: number;
-    premium?: number;
-  };
-  duration: number;
-  includes: string[];
-  addOns: string[];
-  featured?: boolean;
-  popular?: boolean;
+
+// Venue day-based package pricing (8-hour packages)
+export type VenuePackageId =
+  | 'monThu'
+  | 'friday'
+  | 'saturday'
+  | 'sunday'
+  | 'memorialMonThu'
+  | 'nonProfitMonThu';
+
+export interface VenuePackage {
+  id: VenuePackageId;
+  label: string;       // e.g., "FRIDAY", "MON–THU"
+  days: string;        // human-readable days
+  price4Hours: number; // 4-hour package price
+  price8Hours: number; // 8-hour package price
+  type: 'standard' | 'memorial' | 'nonProfit';
+  discountEligible: boolean; // seasonal discounts allowed
+  notes?: string;      // short clarifier (e.g., not subject to discount)
 }
 
-export interface AddOnPricing {
-  id: string;
-  name: string;
-  description: string;
-  pricing: {
-    perGuest?: number;
-    fixed?: number;
-    minimum?: number;
-    duration?: number;
-    setup?: number;
-  };
-}
+export const venuePackages: Record<VenuePackageId, VenuePackage> = {
+  friday: {
+    id: 'friday',
+    label: 'FRIDAY',
+    days: 'Friday',
+    price4Hours: 1920,
+    price8Hours: 3200,
+    type: 'standard',
+    discountEligible: true
+  },
+  saturday: {
+    id: 'saturday',
+    label: 'SATURDAY',
+    days: 'Saturday',
+    price4Hours: 1920,
+    price8Hours: 3200,
+    type: 'standard',
+    discountEligible: true
+  },
+  sunday: {
+    id: 'sunday',
+    label: 'SUNDAY',
+    days: 'Sunday',
+    price4Hours: 1440,
+    price8Hours: 2400,
+    type: 'standard',
+    discountEligible: true
+  },
+  monThu: {
+    id: 'monThu',
+    label: 'MON–THURS',
+    days: 'Monday–Thursday',
+    price4Hours: 1440,
+    price8Hours: 2400,
+    type: 'standard',
+    discountEligible: true
+  },
+  memorialMonThu: {
+    id: 'memorialMonThu',
+    label: 'MON–THURS MEMORIAL',
+    days: 'Monday–Thursday',
+    price4Hours: 1150,
+    price8Hours: 0, // 8-hour not available for memorial
+    type: 'memorial',
+    discountEligible: false,
+    notes: '4 hours only - Not subject to discount'
+  },
+  nonProfitMonThu: {
+    id: 'nonProfitMonThu',
+    label: 'MON–THURS NON‑PROFIT',
+    days: 'Monday–Thursday',
+    price4Hours: 1150,
+    price8Hours: 2400,
+    type: 'nonProfit',
+    discountEligible: false,
+    notes: 'Not subject to discount'
+  }
+} as const;
 
-// Venue base pricing by day type
-export const venuePricing = {
+// Venue policies: off-peak and holiday surcharge
+export const venueRules = {
   offPeak: {
-    days: "Sun–Thu",
-    hourlyRate: 250,
-    minimumHours: 3,
-    blocks: {
-      twoHour: { price: 750, rate: 250 },
-      fourHour: { price: 900, rate: 225 },
-      eightHour: { price: 2000, rate: 200 }
-    }
+    months: [9, 10, 11, 12, 1, 2, 3] as const, // Sep, Oct, Nov, Dec, Jan, Feb, Mar
+    discounts: {
+      monThu: 0.7,      // 30% off Mon–Thu in off-peak months
+      friday: 0.8,      // 20% off Friday
+      saturday: 0.8     // 20% off Saturday
+      // Sunday not discounted by spec
+    } as Partial<Record<'monThu' | 'friday' | 'saturday' | 'sunday', number>>
   },
-  peak: {
-    days: "Fri–Sat & holiday Sun",
-    hourlyRate: 400,
-    minimumHours: 4,
-    blocks: {
-      fourHour: { price: 1600, rate: 400 },
-      eightHour: { price: 2400, rate: 300 }
-    }
-  },
-  premium: {
-    days: "NYE, Halloween",
-    hourlyRate: 550,
-    minimumHours: 4,
-    blocks: {
-      fourHour: { price: 2200, rate: 550 },
-      eightHour: { price: 4000, rate: 500 }
-    }
+  holidaySurcharge: {
+    type: 'percent' as const,
+    value: 0.15, // 15% surcharge (can be adjusted)
+    appliesTo: ['Labor Day Weekend', 'Memorial Day Weekend', 'NYE'] as const
   }
 } as const;
 
-// Event-type focused pricing tiers
-export const pricingTiers = {
-  weddings: {
-    micro: {
-      id: 'wedding-micro',
-      name: 'Micro Wedding',
-      description: 'Intimate, modern ceremony and reception for your closest people.',
-      guestRange: [20, 50] as [number, number],
-      basePrice: 2000,
-      duration: 4,
-      includes: [
-        'Venue rental for 4 hours',
-        'Ceremony and reception spaces',
-        'Setup and breakdown included',
-        'Reception area with tables and chairs',
-        'Venue Management',
-        'Sound system',
-        'Ambient lighting',
-        'Non-Alcoholic Beverage Station',
-        'Cake Cutting Service',
-        'Champagne Pour Service'
-      ],
-      addOns: ['catering', 'bar', 'flowers', 'photo booth', 'upgraded-linens', 'dance-floor','extended-hours'],
-      featured: true
-    },
-    full: {
-      id: 'wedding-full',
-      name: 'Full Wedding Celebration',
-      description: 'A complete wedding experience with a clean, moody feel.',
-      guestRange: [50, 100] as [number, number],
-      basePrice: 4000,
-      duration: 8,
-      includes: [
-        'Venue rental for 8 hours',
-        'Ceremony and reception spaces',
-        'Setup and breakdown included',
-        'Reception area with tables and chairs',
-        'Venue Management',
-        'Sound System',
-        'Ambient Lighting',
-        'Bar Setup',
-        'Cake Cutting Service',
-        'Champagne Pour Service'
-      ],
-      addOns: ['catering', 'flowers', 'photo booth', 'extended-hours', 'upgraded-linens', 'dance-floor']
-    },
-  },
-  social: {
-    shower: {
-      id: 'social-shower',
-      name: 'Shower Celebration',
-      description: 'For bridal or baby showers—simple, chic, effortless.',
-      guestRange: [15, 100] as [number, number],
-      pricing: {
-        offPeak: 900, // 3 hours at $300/hour
-        peak: 1350, // 3 hours at $450/hour
-        premium: 1650 // 3 hours at $550/hour
-      },
-      duration: 3,
-      includes: [
-        'Venue rental for 3 hours',
-        'Setup and cleanup',
-        'Tables and chair setup',
-        'Basic linens and place settings',
-        'Venue Management',
-        'Sound System',
-        'Ambient Lighting',
-        'Non-Alcoholic Beverage Station'
-      ],
-      addOns: ['catering', 'bar', 'flowers', 'extended-hours', 'upgraded-linens']
-    },
-    birthday: {
-      id: 'social-birthday',
-      name: 'Birthday Party',
-      description: 'Celebrate your way—minimal fuss, maximum vibe.',
-      guestRange: [20, 100] as [number, number],
-      pricing: {
-        offPeak: 1200, // 4 hours at $300/hour
-        peak: 1800, // 4 hours at $450/hour
-        premium: 2000 // 4 hours at $550/hour
-      },
-      duration: 4,
-      includes: [
-        'Venue rental for 4 hours',
-        'Setup and cleanup',
-        'Tables and chair setup',
-        'Basic linens and place settings',
-        'Venue Management',
-        'Sound System',
-        'Ambient Lighting',
-        'Non-Alcoholic Beverage Station'
-      ],
-      addOns: ['catering', 'bar', 'dance-floor', 'upgraded-linens','photo booth','extended-hours']
-    },
-    anniversary: {
-      id: 'social-anniversary',
-      name: 'Anniversary Celebration',
-      description: 'Mark the moment with understated style.',
-      guestRange: [25, 100] as [number, number],
-      pricing: {
-        offPeak: 1500, // 5 hours at $300/hour
-        peak: 2250, // 5 hours at $450/hour
-        premium: 2750 // 5 hours at $550/hour
-      },
-      duration: 5,
-      includes: [
-        'Venue rental for 5 hours',
-        'Setup and cleanup',
-        'Tables and chair setup',
-        'Basic linens and place settings',
-        'Venue Management',
-        'Sound System',
-        'Ambient Lighting',
-        'Non-Alcoholic Beverage Station'
-      ],
-      addOns: ['catering', 'bar', 'flowers', 'photo booth', 'upgraded-linens', 'extended-hours','dance-floor']
-    }
-  },
-  corporate: {
-    meeting: {
-      id: 'corporate-meeting',
-      name: 'Corporate Meeting',
-      description: 'Modern space for focused meetings and presentations.',
-      guestRange: [10, 30] as [number, number],
-      basePrice: 750,
-      duration: 4,
-      includes: [
-        'Venue rental for 4 hours',
-        'Setup and cleanup',
-        'Conference-style seating',
-        'Professional coordination',
-        'Presentation screen and projector',
-        'Sound system for presentations',
-        'Wi-Fi access',
-        'Basic refreshment area'
-      ],
-      addOns: ['catering', 'av-upgrade', 'extended-hours']
-    },
-    party: {
-      id: 'corporate-party',
-      name: 'Company Celebration',
-      description: 'A clean, moody backdrop for team celebrations.',
-      guestRange: [30, 100] as [number, number],
-      basePrice: 2000,
-      duration: 5,
-      includes: [
-        'Venue rental for 5 hours',
-        'Setup and cleanup',
-        'Tables and chair setup',
-        'Basic linens and place settings',
-        'Reception-style setup',
-        'Professional Coordination',
-        'Sound system for presentations',
-        'Enhanced lighting',
-        'Wi-Fi access',
-        'Bar area setup'
-      ],
-      addOns: ['catering', 'bar', 'av-upgrade', 'extended-hours','flowers','upgraded-linens','dance-floor','photo booth']
-    },
-    
-    
-  }
-} as const;
+type DateInput = Date | string | number | undefined;
 
-// Add-on pricing structure
-export const addOnPricing: Record<string, AddOnPricing> = {
-  catering: {
-    id: 'catering',
-    name: 'Catering Service',
-    description: 'American or Latin fusion menus, handled end‑to‑end.',
-    pricing: {
-      perGuest: 30, // Starting price, varies by menu and style
-      minimum: 18
-    }
-  },
-  bar: {
-    id: 'bar',
-    name: 'Bar Service',
-    description: 'Professional bartender, beer, wine, and cocktails.',
-    pricing: {
-      perGuest: 18, // 2-hour package
-      setup: 300,
-      minimum: 20,
-      duration: 2
-    }
-  },
-  photoBooth: {
-    id: 'photoBooth',
-    name: 'Photo Booth',
-    description: 'Clean, modern photo booth setup.',
-    pricing: {
-      fixed: 400 // 4-hour package
-    }
-  },
-  flowers: {
-    id: 'flowers',
-    name: 'Floral Arrangements',
-    description: 'Timeless centerpieces and ceremony florals (starting price).',
-    pricing: {
-      fixed: 500 // Basic package
-    }
-  },
-  'extended-hours': {
-    id: 'extended-hours',
-    name: 'Extended Hours',
-    description: 'Add extra time to your event.',
-    pricing: {
-      fixed: 250 // Per hour
-    }
-  },
-  'upgraded-linens': {
-    id: 'upgraded-linens',
-    name: 'Premium Linens',
-    description: 'Premium table linens and napkins (starting price).',
-    pricing: {
-      fixed: 200
-    }
-  },
-  'dance-floor': {
-    id: 'dance-floor',
-    name: 'Dance Floor',
-    description: 'Professional dance floor setup.',
-    pricing: {
-      fixed: 500
-    }
-  },
-  decorations: {
-    id: 'decorations',
-    name: 'Event Decorations',
-    description: 'Curated decor for your theme (starting price).',
-    pricing: {
-      fixed: 300
-    }
-  },
-  'av-upgrade': {
-    id: 'av-upgrade',
-    name: 'AV Equipment Upgrade',
-    description: 'Enhanced sound and presentation gear.',
-    pricing: {
-      fixed: 200
-    }
+function toDate(value: DateInput): Date | undefined {
+  if (!value) return undefined;
+  const d = value instanceof Date ? value : new Date(value);
+  return isNaN(d.getTime()) ? undefined : d;
+}
+
+function isOffPeak(date?: Date): boolean {
+  if (!date) return false;
+  const month = date.getMonth() + 1; // 1-12
+  return (venueRules.offPeak.months as readonly number[]).includes(month);
+}
+
+function isHolidayDate(_date?: Date): boolean {
+  // Placeholder: callers can pass isHoliday true if they know a date falls on listed holidays/weekends.
+  // This stub keeps the API convenient without hardcoding a calendar.
+  return false;
+}
+
+export interface CalculateVenuePriceOptions {
+  packageId: VenuePackageId;
+  date?: DateInput;          // to auto-apply off-peak/holiday rules
+  durationHours?: 4 | 8;     // default 8; 4-hour block available for all packages
+  applyOffPeak?: boolean;    // default true
+  isHoliday?: boolean;       // override holiday detection if needed
+}
+
+export function calculateVenuePackagePrice(options: CalculateVenuePriceOptions): number {
+  const pkg = venuePackages[options.packageId];
+  const date = toDate(options.date);
+  const applyOffPeak = options.applyOffPeak !== false;
+  const duration = options.durationHours ?? 8; // Default to 8 hours if not specified
+
+  // Get base price from explicit pricing
+  let base = 0;
+  if (duration === 4) {
+    base = pkg.price4Hours;
+  } else if (duration === 8) {
+    base = pkg.price8Hours;
   }
-};
+
+  // If the requested duration is not available (price is 0), return 0
+  if (base === 0) {
+    return 0;
+  }
+
+  let total = base;
+
+  // Off‑peak discounts
+  const holiday = options.isHoliday ?? isHolidayDate(date);
+  if (applyOffPeak && pkg.discountEligible && date && isOffPeak(date)) {
+    const map: Record<string, number | undefined> = venueRules.offPeak.discounts as any;
+    const discountFactor = map[pkg.id] ?? map[(pkg.id as string)] ?? undefined;
+    if (discountFactor) total = Math.round(total * discountFactor);
+  }
+
+  // Holiday surcharge
+  if (holiday) {
+    total = Math.round(total * (1 + venueRules.holidaySurcharge.value));
+  }
+
+  return total;
+}
+
+
 
 // Detailed catering pricing (for pricing page)
 export const cateringPackages = {
@@ -371,101 +228,3 @@ export const barPackages = [
     description: "Guests pay per drink. Meets $300 minimum via sales." 
   }
 ] as const;
-
-// Helper function to get all pricing tiers as flat array
-export function getAllPricingTiers(): PricingTier[] {
-  const allTiers: PricingTier[] = [];
-  Object.values(pricingTiers).forEach(category => {
-    Object.values(category).forEach(tier => {
-      allTiers.push(tier);
-    });
-  });
-  return allTiers;
-}
-
-// Helper function to get pricing tier by ID
-export function getPricingTierById(id: string): PricingTier | undefined {
-  return getAllPricingTiers().find(tier => tier.id === id);
-}
-
-// Helper function to get base price for a tier and pricing type
-export function getTierBasePrice(
-  tierId: string,
-  pricingType: 'offPeak' | 'peak' | 'premium' = 'offPeak'
-): number {
-  const tier = getPricingTierById(tierId);
-  if (!tier) return 0;
-
-  if (tier.pricing) {
-    return tier.pricing[pricingType] || tier.pricing.offPeak || 0;
-  } else if (tier.basePrice) {
-    return tier.basePrice;
-  }
-
-  return 0;
-}
-
-// Helper function to get pricing range for a tier (min-max across pricing types)
-export function getTierPriceRange(tierId: string): { min: number; max: number } {
-  const tier = getPricingTierById(tierId);
-  if (!tier) return { min: 0, max: 0 };
-
-  if (tier.pricing) {
-    const prices = Object.values(tier.pricing).filter(price => price !== undefined) as number[];
-    return {
-      min: Math.min(...prices),
-      max: Math.max(...prices)
-    };
-  } else if (tier.basePrice) {
-    return { min: tier.basePrice, max: tier.basePrice };
-  }
-
-  return { min: 0, max: 0 };
-}
-
-// Helper function to calculate total price with add-ons
-export function calculateTotalPrice(
-  tierId: string,
-  guestCount: number,
-  selectedAddOns: string[] = [],
-  pricingType: 'offPeak' | 'peak' | 'premium' = 'offPeak'
-): number {
-  const tier = getPricingTierById(tierId);
-  if (!tier) return 0;
-
-  let total = 0;
-
-  // Get base price from either new pricing structure or legacy basePrice
-  if (tier.pricing) {
-    total = tier.pricing[pricingType] || tier.pricing.offPeak || 0;
-  } else if (tier.basePrice) {
-    total = tier.basePrice;
-  }
-
-  selectedAddOns.forEach(addOnId => {
-    const addOn = addOnPricing[addOnId];
-    if (!addOn) return;
-
-    if (addOn.pricing.perGuest) {
-      const minGuests = addOn.pricing.minimum || guestCount;
-      total += addOn.pricing.perGuest * Math.max(guestCount, minGuests);
-    }
-
-    if (addOn.pricing.fixed) {
-      total += addOn.pricing.fixed;
-    }
-
-    if (addOn.pricing.setup) {
-      total += addOn.pricing.setup;
-    }
-  });
-
-  return total;
-}
-
-// Export pricing tier categories for easy access
-export const PRICING_CATEGORIES = {
-  WEDDINGS: 'weddings',
-  SOCIAL: 'social', 
-  CORPORATE: 'corporate'
-} as const;

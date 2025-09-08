@@ -8,20 +8,20 @@ const footerLinks = {
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/#about' },
     { label: 'Gallery', href: '/gallery' },
+    { label: 'Venue Details', href: '/venue' },
   ],
-  services: [
-    { label: 'All Services', href: '/services' },
-    { label: 'Weddings', href: '/services/weddings' },
-    { label: 'Corporate Events', href: '/services/corporate-event-westminster' },
-    { label: 'Private Parties', href: '/services/private-party-westminster' },
-    { label: 'Pricing & Packages', href: '/pricing' },
+  offerings: [
+    { label: 'Venue Pricing', href: '/venue' },
+    { label: 'Catering Menu', href: '/catering' },
+    { label: 'Pricing Overview', href: '/pricing' },
+    { label: 'Book a Tour', href: '/contact#book' },
   ],
-  serviceAreas: [
-    { label: 'Areas We Serve', href: '/service-areas' },
-    { label: 'Westminster (Our Venue)', href: '/service-areas/westminster' },
-    { label: 'Arvada Area', href: '/service-areas/arvada' },
-    { label: 'Lakewood Area', href: '/service-areas/lakewood' },
-    { label: 'Thornton Area', href: '/service-areas/thornton' },
+  locations: [
+    { label: 'Areas We Serve', href: '/locations' },
+    { label: 'Westminster (Our Venue)', href: '/locations/westminster' },
+    { label: 'Arvada Area', href: '/locations/arvada' },
+    { label: 'Lakewood Area', href: '/locations/lakewood' },
+    { label: 'Thornton Area', href: '/locations/thornton' },
   ],
   resources: [
     { label: 'Event Planning Guide', href: '/pricing#planning' },
@@ -101,9 +101,9 @@ const contactInfo = {
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Services</h3>
+          <h3 class="text-sm font-semibold text-primary mb-4">Offerings</h3>
           <ul class="space-y-2">
-            {footerLinks.services.map(link => (
+            {footerLinks.offerings.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
                   {link.label}
@@ -114,9 +114,9 @@ const contactInfo = {
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Service Areas</h3>
+          <h3 class="text-sm font-semibold text-primary mb-4">Locations</h3>
           <ul class="space-y-2">
-            {footerLinks.serviceAreas.map(link => (
+            {footerLinks.locations.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
                   {link.label}

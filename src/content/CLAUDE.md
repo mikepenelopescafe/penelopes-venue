@@ -77,40 +77,66 @@ Write: "Want a Perfect Bridal Shower Without the Stress? Here's How"
 
 ## Content Types & Specific Guidelines
 
-### Service Pages (Generic - Build Authority)
+### Venue Page (Core Offering)
 
-**Purpose**: Establish topical authority for service types
-**Target**: Broader service keywords like "wedding venue Denver"
+**Purpose**: Central page for all venue-related intent
+**Target**: "event venue [city]", "venue pricing", "wedding venue" (general)
 **Length**: 800-1,200 words
 
 **Required Elements:**
 - Problem statement in first paragraph
-- Comprehensive service overview
-- Pricing transparency
-- Process explanation
-- FAQ section (5-7 questions)
-- Links to all location-specific versions
+- Venue overview: capacity, vibe, amenities
+- Transparent pricing from `venuePricing` (offPeak/peak/premium, minimum hours, blocks)
+- Gallery
+- FAQ (5-7 questions)
+- Clear CTAs (tour, contact)
 
 **Example Structure:**
 ```markdown
-# Planning a Wedding in Denver? Here's Everything You Need to Know
+# Looking for a Modern Event Venue in Denver?
 
-Are you engaged and feeling overwhelmed by wedding planning? You're not alone. Most couples struggle to find a venue that matches their vision and budget.
+Finding a space with the right vibe and budget can be hard. We keep it simple—clean design, flexible pricing, and no stress.
 
-## The Wedding Planning Challenge
-Planning a wedding can feel impossible. There are so many decisions to make. Where do you even start?
+## What You Get
+[Capacity, amenities, layout]
 
-## How We Make Weddings Simple
-[Detailed explanation of your wedding services]
+## Venue Pricing
+[Off-peak, peak, premium; minimums and blocks]
 
-## Our Wedding Packages
-[Clear breakdown of options]
+## Gallery
+[Images]
 
-## Available Locations
-We serve couples throughout the Denver metro area:
-- [Link to Westminster wedding venue page]
-- [Link to Arvada wedding venue page]
-- [Link to Lakewood wedding venue page]
+## Common Questions
+[5–7 FAQs]
+```
+
+### Catering Page (Core Offering)
+
+**Purpose**: Central page for all catering and bar intent
+**Target**: "event catering [city]", "wedding catering", "bar packages"
+**Length**: 700-1,000 words
+
+**Required Elements:**
+- Menu families (e.g., American, Latin Fusion)
+- Service styles (plated/buffet/passed) with price ranges
+- Bar packages and any minimums/setup
+- Add-ons if relevant
+- Clear CTAs
+
+**Example Structure:**
+```markdown
+# Catering That Fits Your Vibe
+
+Great food, done right—plated, buffet, or passed. Choose your style and we’ll handle the rest.
+
+## Menu Options
+[Families + descriptions]
+
+## Service Styles & Pricing
+[Per-guest ranges]
+
+## Bar Service
+[Packages + minimums]
 ```
 
 ### Location Hub Pages (Local SEO Powerhouse)
@@ -155,18 +181,17 @@ Westminster offers the perfect blend of city convenience and suburban charm. Loc
 [2-3 brief testimonials from Westminster clients]
 ```
 
-### Location-Service Pages (Hyper-Local Targeting)
+### Keyword Landing Pages (Service Intent without Service Pages)
 
-**Purpose**: Target specific "service + city" combinations
-**Target**: "wedding venue Westminster CO"
-**Length**: 500-700 words
+**Purpose**: Capture specific intents (e.g., micro weddings, birthdays) without separate service pages
+**Target**: Long-tail queries like "small wedding venue Westminster"
+**Length**: 500-800 words
 
 **Required Elements:**
-- Both service and city in title
-- Local angles and references
-- Specific to that service type
-- Links to related services in same city
-- Links to same service in other cities
+- Problem-first intro tailored to the intent
+- How the venue and catering fit that use case
+- Internal links to `/venue`, `/catering`, and relevant location pages
+- Local angles where helpful
 
 ### Keyword Landing Pages (Long-Tail Domination)
 
@@ -218,11 +243,7 @@ Westminster offers the perfect blend of city convenience and suburban charm. Loc
 ## Voice & Tone Guidelines
 
 ### Brand Voice
-- **Warm and welcoming**: Make everyone feel included
-- **Professional but approachable**: Expert without being stuffy
-- **Solution-focused**: Always offer help and answers
-- **Empathetic**: Understand customer stress and concerns
-- **Confident**: Know your expertise but never pushy
+- Follow brand voice and tone guidelines in Cursor Rules `brand-voice.mdc`
 
 ### Writing Style
 - Use "you" to speak directly to readers
@@ -264,7 +285,8 @@ Westminster offers the perfect blend of city convenience and suburban charm. Loc
 
 ### Evergreen Content (Pages Collection)
 Create these first as they'll drive consistent traffic:
-- Service pages for each location
+- Venue page (`/venue`)
+- Catering page (`/catering`)
 - Keyword-targeted landing pages
 - Location hub pages
 
