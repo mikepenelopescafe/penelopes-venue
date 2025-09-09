@@ -3,7 +3,6 @@ import '@/styles/global.css';
 import Navigation from '@/components/Navigation.astro';
 import PromoBanner from '@/components/PromoBanner.astro';
 import Footer from '@/components/Footer.astro';
-import PerformanceMonitor from '@/components/PerformanceMonitor.astro';
 import { ClientRouter } from 'astro:transitions';
 
 export interface Props {
@@ -249,6 +248,16 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 
     <!-- Sitemap Link for Search Engines -->
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ5ECQE84Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FJ5ECQE84Q');
+</script>
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col">
     <PromoBanner />
@@ -259,9 +268,6 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     <Footer />
     <ClientRouter />
 
-    <!-- Performance monitoring for Core Web Vitals -->
-    <PerformanceMonitor />
-    
     <!-- Theme persistence script that runs on every navigation -->
     <script>
       // @ts-ignore - themeManager is attached at runtime in the head script
