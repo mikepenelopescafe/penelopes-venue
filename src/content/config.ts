@@ -53,7 +53,10 @@ const pages = defineCollection({
       'guest-count',
       'seasonal',
       'special-features',
-      'location-specific'
+      'location-specific',
+      'wedding-services',
+      'catering-options',
+      'planning-tips'
     ]).optional(),
     relatedServices: z.array(z.string()).optional(),
     relatedLocations: z.array(z.string()).optional(),

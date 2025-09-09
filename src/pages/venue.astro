@@ -29,54 +29,80 @@ const seo = {
     </div>
   </section>
 
-  <section class="py-20 px-6 bg-background">
-    <div class="max-w-6xl mx-auto">
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">8‑Hour Event Packages</Badge>
-        <h2 class="text-3xl font-display">Simple Day‑Based Pricing</h2>
+        <h2 class="text-5xl mb-4" style="font-family: 'Brush Script MT', cursive; color: #000; font-weight: normal;">
+          Simple day-based pricing
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">8 & 4 hour packages with clear rates and simple rules</p>
       </div>
 
-      <Card className="bg-card border-primary/20">
-        <CardHeader className="text-center">
-          <CardTitle className="text-xl">Packages</CardTitle>
-          <CardDescription>8 & 4 hour packages with clear rates and simple rules</CardDescription>
-        </CardHeader>
-        <CardContent>
+      <div class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+        <div class="p-8">
           <div class="overflow-x-auto">
-            <table class="w-full text-sm">
+            <table class="w-full">
               <thead>
-                <tr class="text-left text-muted-foreground border-b border-primary/10">
-                  <th class="py-3 pr-4 font-medium">Package</th>
-                  <th class="py-3 pr-4 font-medium hidden md:table-cell">Days</th>
-                  <th class="py-3 pr-4 font-medium">4‑Hour</th>
-                  <th class="py-3 pr-4 font-medium">8‑Hour</th>
+                <tr class="border-b-2 border-gray-200">
+                  <th class="text-left py-4 pr-8 font-semibold text-lg">Packages</th>
+                  <th class="text-left py-4 pr-8 font-semibold text-lg">Days</th>
+                  <th class="text-right py-4 pr-8 font-semibold text-lg">4-hour</th>
+                  <th class="text-right py-4 font-semibold text-lg">8-hour</th>
                 </tr>
               </thead>
               <tbody>
                 {([
                   'friday',
-                  'saturday',
+                  'saturday', 
                   'sunday',
                   'monThu',
                   'memorialMonThu',
                   'nonProfitMonThu'
                 ] as const).map((id) => {
                   const pkg = venuePackages[id];
-                  const price8 = calculateVenuePackagePrice({ packageId: id, durationHours: 8 });
-                  const price4 = calculateVenuePackagePrice({ packageId: id, durationHours: 4 });
-                  const isSpecial = pkg.type !== 'standard';
+                  const basePrice4 = pkg.price4Hours;
+                  const basePrice8 = pkg.price8Hours;
+                  const discountedPrice4 = calculateVenuePackagePrice({ packageId: id, durationHours: 4, date: new Date('2025-01-15') }); // Use Jan date for off-peak
+                  const discountedPrice8 = calculateVenuePackagePrice({ packageId: id, durationHours: 8, date: new Date('2025-01-15') });
+                  const hasDiscount = pkg.discountEligible;
+                  
                   return (
-                    <tr class={`border-b border-primary/10 ${isSpecial ? 'bg-primary/5' : ''}`}>
-                      <td class="py-3 pr-4">
-                        <div class="font-medium">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-4 pr-8">
+                        <div class="font-semibold text-base">
                           {pkg.label}
-                          {pkg.notes && <sup class="ml-1 text-primary">*</sup>}
+                          {pkg.notes && <span class="text-gray-500">*</span>}
                         </div>
-                        <div class="text-xs text-muted-foreground md:hidden">{pkg.days}</div>
                       </td>
-                      <td class="py-3 pr-4 hidden md:table-cell">{pkg.days}</td>
-                      <td class="py-3 pr-4">{price4 > 0 ? `$${price4.toLocaleString()}` : '—'}</td>
-                      <td class="py-3 pr-4">{price8 > 0 ? `$${price8.toLocaleString()}` : '—'}</td>
+                      <td class="py-4 pr-8 text-base">{pkg.days}</td>
+                      <td class="py-4 pr-8 text-right">
+                        {basePrice4 > 0 ? (
+                          <div>
+                            {hasDiscount ? (
+                              <div>
+                                <div class="text-red-500 line-through text-base">${basePrice4.toLocaleString()}</div>
+                                <div class="font-semibold text-lg">${discountedPrice4.toLocaleString()}</div>
+                              </div>
+                            ) : (
+                              <div class="font-semibold text-lg">${basePrice4.toLocaleString()}</div>
+                            )}
+                          </div>
+                        ) : '—'}
+                      </td>
+                      <td class="py-4 text-right">
+                        {basePrice8 > 0 ? (
+                          <div>
+                            {hasDiscount ? (
+                              <div>
+                                <div class="text-red-500 line-through text-base">${basePrice8.toLocaleString()}</div>
+                                <div class="font-semibold text-lg">${discountedPrice8.toLocaleString()}</div>
+                              </div>
+                            ) : (
+                              <div class="font-semibold text-lg">${basePrice8.toLocaleString()}</div>
+                            )}
+                          </div>
+                        ) : '—'}
+                      </td>
                     </tr>
                   );
                 })}
@@ -84,56 +110,34 @@ const seo = {
             </table>
           </div>
 
-          <div class="mt-6 text-xs text-muted-foreground text-center">
-            Grand Opening discounts auto‑apply Sep–Mar where eligible. Holiday surcharges may apply.
-            <br />
-            <span class="inline-block mt-1">* Not subject to discount.</span>
+          <div class="mt-6 text-sm text-gray-600 text-center">
+            Grand Opening discounts auto-apply September 2025- March 2026 where eligible. holiday surcharges may apply. * Not subject to discount.
           </div>
-          <div class="mt-4 flex flex-col sm:flex-row gap-3 justify-center">
+          
+          <div class="mt-8">
+            <div class="bg-red-500 text-white text-center py-4 px-6 rounded text-xl font-bold tracking-wide">
+              20% OFF FRIDAY & SATURDAY, AND 30% MONDAY-THURSDAY
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <a href="/contact" class="btn-primary-lg">Start Your Quote</a>
             <a href="/contact#tour" class="btn-outline-lg">Schedule a Tour</a>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="py-20 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-10">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Grand Opening & Special Dates</Badge>
-        <h2 class="text-2xl font-display">Seasonal Savings & Surcharges</h2>
-        <p class="text-sm text-muted-foreground max-w-2xl mx-auto">Certain dates may include a holiday surcharge. Grand Opening discounts automatically apply September through March.</p>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Special Dates & Inclusions</Badge>
+        <h2 class="text-2xl font-display">Holiday Surcharges & What's Included</h2>
+        <p class="text-sm text-muted-foreground max-w-2xl mx-auto">Certain dates may include a holiday surcharge. All packages include essential amenities.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <Card className="bg-card border-primary/20 relative overflow-hidden">
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"></div>
-          <CardHeader>
-            <div class="flex items-start justify-between">
-              <div>
-                <CardTitle className="text-lg">Grand Opening Glow‑Up</CardTitle>
-                <CardDescription>September–March</CardDescription>
-              </div>
-              <Badge className="bg-primary/10 text-primary border-primary/20">Sep–Mar</Badge>
-            </div>
-          </CardHeader>
-          <CardContent className="text-sm">
-            <div class="space-y-3">
-              <div class="flex items-baseline justify-between">
-                <span class="text-muted-foreground">Mon–Thu</span>
-                <span class="text-2xl font-semibold text-primary">{Math.round((1 - (venueRules.offPeak.discounts.monThu ?? 1)) * 100)}% off</span>
-              </div>
-             
-              <div class="flex items-baseline justify-between">
-                <span class="text-muted-foreground">Fri & Sat</span>
-                <span class="text-2xl font-semibold text-primary">{Math.round((1 - (venueRules.offPeak.discounts.friday ?? 1)) * 100)}% off</span>
-              </div>
-              <div class="text-xs text-muted-foreground">Clean and simple—discount auto‑applies.</div>
-            </div>
-          </CardContent>
-        </Card>
-
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <Card className="bg-card border-primary/20">
           <CardHeader>
             <CardTitle className="text-lg">Holiday Surcharge</CardTitle>
@@ -149,7 +153,7 @@ const seo = {
 
         <Card className="bg-card border-primary/20">
           <CardHeader>
-            <CardTitle className="text-lg">What’s Included</CardTitle>
+            <CardTitle className="text-lg">What's Included</CardTitle>
             <CardDescription>Always part of your package</CardDescription>
           </CardHeader>
           <CardContent className="grid grid-cols-2 gap-3 text-sm">
