@@ -44,7 +44,7 @@ export default defineConfig({
   output: 'server',
 
   adapter: vercel({
-    webAnalytics: { enabled: true },
+    webAnalytics: { enabled: false },
     // Enable compression for better performance
     compress: true,
   }),
