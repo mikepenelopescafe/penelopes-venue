@@ -667,6 +667,50 @@ header.sticky,
   }
 }
 
+/* Service area typography refinements */
+.service-content h1 {
+  font-size: var(--text-4xl);
+  letter-spacing: var(--tracking-tight);
+}
+
+.service-content h2 {
+  font-size: var(--text-3xl);
+  letter-spacing: var(--tracking-tight);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.service-content .prose h1,
+.service-content .prose h2,
+.service-content .prose h3 {
+  font-family: var(--font-sans) !important;
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.service-content .prose h1 { font-size: var(--text-3xl); }
+.service-content .prose h2 { font-size: var(--text-2xl); }
+.service-content .prose h3 { font-size: var(--text-xl); }
+
+.service-content .prose p {
+  margin-bottom: 0.75rem;
+}
+
+.service-content .prose ul,
+.service-content .prose ol {
+  margin: 0.75rem 0 1rem 1.25rem;
+}
+
+.service-content .prose strong {
+  font-weight: 600;
+}
+
+/* Sidebar label weight softening */
+.sidebar-muted-label {
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),

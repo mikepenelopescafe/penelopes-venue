@@ -1,30 +1,30 @@
 ---
-title: "Lakewood Event Venue – Weddings & Parties"
-description: "Planning an event in Lakewood, CO? Discover a chic, moody venue experience with elegant spaces, seamless coordination, and effortless access for your guests."
-keywords: ["Lakewood event venue", "Lakewood wedding venue", "party venues Lakewood CO", "corporate events Lakewood", "Lakewood events"]
-customerProblem: "Looking for a stylish, stress-free venue near Lakewood with clean design and expert coordination?"
-city: "Lakewood"
+title: "Wheat Ridge Event Venue – Weddings & Parties"
+description: "Planning an event in Wheat Ridge, CO? Discover a chic, moody venue experience with elegant spaces, seamless coordination, and effortless access for your guests."
+keywords: ["Wheat Ridge event venue", "Wheat Ridge wedding venue", "party venues Wheat Ridge CO", "corporate events Wheat Ridge", "Wheat Ridge events"]
+customerProblem: "Looking for a stylish, stress-free venue near Wheat Ridge with clean design and expert coordination?"
+city: "Wheat Ridge"
 state: "CO"
 region: "Denver Metro"
-citySlug: "lakewood"
+citySlug: "wheat-ridge"
 coordinates:
-  lat: 39.7047
-  lng: -105.0814
+  lat: 39.7661
+  lng: -105.0772
 demographics:
-  population: 155733
-  medianIncome: 68000
-  description: "Lakewood blends outdoor adventure with moody energy—perfect for weddings, parties, and polished corporate moments."
+  population: 33289
+  medianIncome: 62000
+  description: "Wheat Ridge blends foothills charm with moody energy—perfect for weddings, parties, and polished corporate moments."
 localInfo:
-  landmarks: ["Belmar Park", "Lakewood Cultural Center", "Green Mountain Park", "Bear Creek Trail"]
-  neighborhoods: ["Belmar", "Green Mountain", "Lakewood Gulch", "Wadsworth"]
-  nearbyAttractions: ["Red Rocks Amphitheatre", "Denver Mountain Parks", "Lakewood Farmers Market", "Outdoor recreation"]
+  landmarks: ["Wheat Ridge Recreation Center", "Clear Creek Trail", "Wheat Ridge Greenbelt", "Historic Downtown"]
+  neighborhoods: ["Northwest", "Southeast", "Southwest", "Central"]
+  nearbyAttractions: ["Lookout Mountain", "Golden Gate Canyon Park", "Local breweries", "Foothills trails"]
   transportation:
-    fromDenver: "About 15 minutes via US-6 or I-70"
-    fromGolden: "About 10 minutes via US-6"
+    fromDenver: "About 15 minutes via I-70 or US-6"
+    fromLakewood: "About 5 minutes via US-6"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
 businessSchema:
-  name: "Penelope's Venue – Serving Lakewood"
+  name: "Penelope's Venue – Serving Wheat Ridge"
   address:
     street: "8050 N Federal Blvd"
     city: "Westminster"
@@ -37,18 +37,18 @@ priority: "secondary"
 featured: false
 ---
 
-# Lakewood Events, Elevated
+# Wheat Ridge Events, Elevated
 
-Planning your event in Lakewood? Our venue offers clean lines, warm light, and a sophisticated space that lets your vision take center stage. We handle the details seamlessly, so you can focus on what matters.
+Planning your event in Wheat Ridge? Our venue offers clean lines, warm light, and a sophisticated space that lets your vision take center stage. We handle the details seamlessly, so you can focus on what matters.
 
-## Why Lakewood Chooses Us
+## Why Wheat Ridge Chooses Us
 
 - **Effortless style**: A sleek, flexible venue with room to move—timeless, not try-hard.
 - **Seamless coordination**: Expert planning that feels calm, confident, and on your side.
-- **Easy for your guests**: Quick access from Lakewood with plenty of parking. No stress, just smooth arrivals.
+- **Easy for your guests**: Quick access from Wheat Ridge with plenty of parking. No stress, just smooth arrivals.
 - **Trusted local partners**: DJs, florals, catering—curated to match your mood and budget.
 
-## Wedding Receptions in Lakewood
+## Wedding Receptions in Wheat Ridge
 
 Classic or chic minimal, we shape the space around your vision. From first toast to last dance, our team keeps the flow smooth and the details on lock.
 
@@ -64,7 +64,7 @@ Fresh air for meetings, launches, and team nights. Professional energy, moody de
 - **Brand events**: Clean canvas for product spots, content shoots, or client dinners.
 - **Holiday parties**: Cozy lighting, curated playlists, easy logistics.
 
-## Private Parties with Lakewood Energy
+## Private Parties with Wheat Ridge Energy
 
 Birthdays, showers, graduations—celebrate your way. We make it personal, stylish, and smooth.
 
@@ -72,15 +72,15 @@ Birthdays, showers, graduations—celebrate your way. We make it personal, styli
 - **Catering support** with trusted local options.
 - **A team that listens** so the night stays true to you.
 
-## Getting Here from Lakewood
+## Getting Here from Wheat Ridge
 
 Just a short, simple drive with straightforward routes like US-6 and Federal Boulevard—no downtown maze. There's convenient on-site parking for you and your guests.
 
-## What Lakewood Clients Say
+## What Wheat Ridge Clients Say
 
-"Moody, beautiful, and easy. Our guests loved the vibe and how simple everything felt." – Lakewood couple
+"Moody, beautiful, and easy. Our guests loved the vibe and how simple everything felt." – Wheat Ridge couple
 
-"Professional without being rigid. Our offsite looked on-brand and ran on time." – Lakewood business lead
+"Professional without being rigid. Our offsite looked on-brand and ran on time." – Wheat Ridge business lead
 
 ## Ready to See It?
 
@@ -90,4 +90,4 @@ Your vibe, your rules. Let's make it real.
 - Schedule a tour
 - Get a tailored quote
 
-Prefer to chat? Call **(720) 639-2406** or email **events@penelopesboutiquevenue.com**. Clean, bold, and effortless—made for Lakewood.
+Prefer to chat? Call **(720) 639-2406** or email **events@penelopesboutiquevenue.com**. Clean, bold, and effortless—made for Wheat Ridge.

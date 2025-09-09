@@ -1,8 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { getVenuePricing, formatPriceRange } from '@/lib/pricing-utils';
+import { cateringPackages } from '@/data/pricing';
 
 export const prerender = true;
 
@@ -21,11 +24,12 @@ const { Content } = await location.render();
 // Services are now handled through venue and catering pages
 // No need to fetch individual services
 
-// Get testimonials for this location
-const testimonials = location.data.localTestimonials 
-  ? await getCollection('testimonials', (testimonial) => 
-      location.data.localTestimonials.includes(testimonial.slug))
-  : [];
+// Get testimonials for this location with explicit narrowing
+let testimonials: CollectionEntry<'testimonials'>[] = [];
+const testimonialIds = location.data.localTestimonials;
+if (Array.isArray(testimonialIds) && testimonialIds.length > 0) {
+  testimonials = await getCollection('testimonials', (testimonial) => testimonialIds.includes(testimonial.slug));
+}
 
 // Services are now managed generically - no need for grouping logic
 
@@ -89,17 +93,15 @@ const businessSchema = {
         </Badge>
 
         <h1 class="text-5xl font-display text-white mb-6 leading-tight">
-          Westminster Venue Serving <span class="text-primary">{location.data.city}, {location.data.state}</span>
+          Events Near <span class="text-primary">{location.data.city}, {location.data.state}</span>
         </h1>
 
         <p class="text-xl text-white/90 max-w-4xl leading-relaxed mb-8">
-          Looking for event services in {location.data.city}? Our Westminster venue is perfectly 
-          located to serve your area. We provide everything you need for weddings, corporate events, 
-          and private celebrations with the same professional coordination and flexible packages.
+          Planning in {location.data.city}? Explore a moody, full‑service venue experience with seamless coordination, flexible layouts, and warm hospitality.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#services" class="btn-primary-lg">
+          <a href="#available-services" class="btn-primary-lg">
             View Services
           </a>
           <a href="/contact#book" class="btn-outline-lg">
@@ -111,27 +113,23 @@ const businessSchema = {
   </section>
 
   <!-- Location Info & Services -->
-  <section id="services" class="py-20 px-6 bg-background">
+  <section id="services" class="py-20 px-6 bg-background scroll-mt-28 md:scroll-mt-32 lg:scroll-mt-40">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-3 gap-12">
         <!-- Main Content -->
-        <div class="lg:col-span-2">
+        <div class="lg:col-span-2 service-content">
           <!-- About This Location -->
           <div class="mb-12">
-            <h2 class="text-3xl font-display text-foreground mb-6">
-              Serving {location.data.city} from Our Westminster Venue
-            </h2>
             <div class="prose prose-lg max-w-none">
               <Content />
             </div>
           </div>
 
           <!-- Available Services -->
-          <div class="mb-12">
-            <h2 class="text-3xl font-display text-foreground mb-8">Available Services</h2>
-            <p class="text-lg text-muted-foreground mb-8">
-              All of our services are available for {location.data.city} area clients. Our Westminster venue
-              is convenient for your guests and provides the same quality and professional coordination you expect.
+          <div id="available-services" class="mb-12">
+            <h2 class="text-3xl font-display text-foreground mb-4">Available Services</h2>
+            <p class="text-lg text-muted-foreground mb-6">
+              All of our services are available for {location.data.city} area clients.
             </p>
             <div class="grid md:grid-cols-2 gap-6">
               <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
@@ -149,7 +147,7 @@ const businessSchema = {
                   </p>
                   <div class="flex justify-between items-center pt-4 border-t border-primary/10">
                     <div class="text-lg font-bold text-primary">
-                      Starting at $4,000
+                      {getVenuePricing('monThu').formatted}
                     </div>
                     <a
                       href="/venue"
@@ -175,7 +173,7 @@ const businessSchema = {
                   </p>
                   <div class="flex justify-between items-center pt-4 border-t border-primary/10">
                     <div class="text-lg font-bold text-primary">
-                      Starting at $18/guest
+                      {formatPriceRange(18, 33)}/guest
                     </div>
                     <a
                       href="/catering"
@@ -192,7 +190,7 @@ const businessSchema = {
           <!-- Local Testimonials -->
           {testimonials.length > 0 && (
             <div class="mb-12">
-              <h2 class="text-3xl font-display text-foreground mb-8">
+              <h2 class="text-3xl font-display text-foreground mb-6">
                 Success Stories from {location.data.city} Area
               </h2>
               <div class="space-y-6">
@@ -209,8 +207,8 @@ const businessSchema = {
                           </div>
                         </div>
                         <div class="flex text-yellow-400">
-                          {Array.from({length: testimonial.data.rating}, (_, i) => (
-                            <span key={i}>⭐</span>
+                          {Array.from({length: testimonial.data.rating}).map(() => (
+                            <span>⭐</span>
                           ))}
                         </div>
                       </div>
@@ -236,27 +234,27 @@ const businessSchema = {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <div class="text-sm text-muted-foreground mb-1">City</div>
+                <div class="text-sm sidebar-muted-label mb-1">City</div>
                 <div class="font-medium text-foreground">
                   {location.data.city}, {location.data.state}
                 </div>
               </div>
               
               <div>
-                <div class="text-sm text-muted-foreground mb-1">Region</div>
+                <div class="text-sm sidebar-muted-label mb-1">Region</div>
                 <div class="font-medium text-foreground">{location.data.region}</div>
               </div>
 
               <div>
-                <div class="text-sm text-muted-foreground mb-1">Service Approach</div>
+                <div class="text-sm sidebar-muted-label mb-1">Service Approach</div>
                 <div class="font-medium text-foreground">
-                  Served by Westminster venue
+                  Served by our venue
                 </div>
               </div>
 
               {location.data.demographics?.population && (
                 <div>
-                  <div class="text-sm text-muted-foreground mb-1">Population</div>
+                  <div class="text-sm sidebar-muted-label mb-1">Population</div>
                   <div class="font-medium text-foreground">
                     {location.data.demographics.population.toLocaleString()}
                   </div>
@@ -270,13 +268,13 @@ const businessSchema = {
             <Card className="bg-card border-primary/20">
               <CardHeader>
                 <CardTitle className="text-xl font-display text-foreground">
-                  Getting Here
+                  Getting from Arvada to our Westminster venue
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {location.data.localInfo.transportation.fromDenver && (
                   <div>
-                    <div class="text-sm text-muted-foreground mb-1">From Denver</div>
+                    <div class="text-sm sidebar-muted-label mb-1">From Denver</div>
                     <div class="text-sm text-foreground">
                       {location.data.localInfo.transportation.fromDenver}
                     </div>
@@ -285,7 +283,7 @@ const businessSchema = {
 
                 {location.data.localInfo.transportation.fromBoulder && (
                   <div>
-                    <div class="text-sm text-muted-foreground mb-1">From Boulder</div>
+                    <div class="text-sm sidebar-muted-label mb-1">From Boulder</div>
                     <div class="text-sm text-foreground">
                       {location.data.localInfo.transportation.fromBoulder}
                     </div>
@@ -294,7 +292,7 @@ const businessSchema = {
 
                 {location.data.localInfo.transportation.parking && (
                   <div>
-                    <div class="text-sm text-muted-foreground mb-1">Parking</div>
+                    <div class="text-sm sidebar-muted-label mb-1">Parking</div>
                     <div class="text-sm text-foreground">
                       {location.data.localInfo.transportation.parking}
                     </div>
@@ -362,7 +360,7 @@ const businessSchema = {
         Other Service Areas
       </h2>
       <p class="text-lg text-muted-foreground mb-8">
-        Our Westminster venue also serves other cities throughout the Denver metro area.
+        We also serve other cities throughout the Denver metro area.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/service-areas" class="btn-primary">
