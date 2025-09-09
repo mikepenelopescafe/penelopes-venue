@@ -11,6 +11,11 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://penelopesboutiquevenue.com', // Update with your actual domain
 
+  // Experimental features for enhanced developer experience
+  experimental: {
+    contentIntellisense: true, // Enables better autocomplete in content files
+  },
+
   // Prefetch configuration for better navigation performance
   prefetch: true,
 

@@ -13,8 +13,8 @@ export async function getStaticPaths() {
 // Revalidate every 15 minutes (900 seconds) for fresh testimonials and services
 export const revalidate = 900;
 
-// Import content collections for better performance and maintainability
-import { getCollection } from 'astro:content';
+// Import optimized ContentUtils for better performance and maintainability
+import { ContentUtils } from '@/lib/content-utils';
 
 // Import streamable section components for better performance
 import Layout from '@/layouts/Layout.astro';
@@ -34,78 +34,35 @@ import mirrorsImage from '@/assets/images/penelopes-mirrors.jpeg';
 import drinksImage from '@/assets/images/penelopes-drinks.jpeg';
 import exteriorImage from '@/assets/images/8050 N Federal Blvd - Web Quality - 002 - 05 Exterior.jpg';
 
-// Load content from collections for better performance
-// Using existing collections that are already configured
-const services = [
-  {
-    title: "Catering",
-    description: "Latin-inspired menus. Bronze, Silver, Gold packages available.",
-    icon: "CATERING",
-    featured: true
-  },
-  {
-    title: "Bar Service",
-    description: "Craft cocktails, beer, wine. Professional bartending staff.",
-    icon: "BAR",
-    featured: true
-  },
-  {
-    title: "Venue Rental",
-    description: "Exclusive buyout available. Your event, your rules.",
-    icon: "VENUE",
-    featured: true
-  },
-  {
-    title: "Event Coordination",
-    description: "Detail-obsessed team handles every aspect of your event.",
-    icon: "TEAM",
-    featured: true
-  }
-];
+// Load content from optimized collections with caching and error handling
+const [servicesResult, testimonialsResult, venueStatsResult] = await Promise.all([
+  ContentUtils.getCachedCollection('services'),
+  ContentUtils.getCachedCollection('testimonialsFile'),
+  ContentUtils.getCachedCollection('venueStats')
+]);
 
-const testimonials = [
-  {
-    quote: "Penelope's made my bridal shower absolutely perfect. The food was incredible, service flawless, and our guests still talk about it!",
-    author: "Maria Rodriguez",
-    event: "Bridal Shower - 50 guests",
-    rating: 5,
-    featured: true
-  },
-  {
-    quote: "The venue buyout option gave us the privacy we needed for our milestone birthday celebration. Every detail was perfect!",
-    author: "David & Susan Martinez",
-    event: "Birthday Celebration - 75 guests",
-    rating: 5,
-    featured: true
-  }
-];
+// Extract data from results (with fallback handling)
+const services = servicesResult.map(service => ({
+  title: service.data.title,
+  description: service.data.description,
+  icon: service.data.icon,
+  featured: service.data.featured
+}));
 
-const venueStats = [
-  {
-    label: "Capacity",
-    value: "50–100",
-    icon: "CAP",
-    description: "Perfect for intimate gatherings"
-  },
-  {
-    label: "Catering",
-    value: "In‑house",
-    icon: "CHEF",
-    description: "Latin-inspired menus and professional service"
-  },
-  {
-    label: "Style",
-    value: "Spanish‑inspired",
-    icon: "STYLE",
-    description: "Moody, elegant atmosphere"
-  },
-  {
-    label: "Location",
-    value: "Westminster, CO",
-    icon: "CO",
-    description: "Convenient Denver metro location"
-  }
-];
+const testimonials = testimonialsResult.map(testimonial => ({
+  quote: testimonial.data.quote,
+  author: testimonial.data.author,
+  event: testimonial.data.event,
+  rating: testimonial.data.rating,
+  featured: testimonial.data.featured
+}));
+
+const venueStats = venueStatsResult.map(stat => ({
+  label: stat.data.label,
+  value: stat.data.value,
+  icon: stat.data.icon,
+  description: stat.data.description
+}));
 
 const seo = {
   title: "Wedding & Event Venue in Westminster, CO | Penelope’s",

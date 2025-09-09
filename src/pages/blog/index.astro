@@ -1,21 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import { ContentUtils } from '@/lib/content-utils';
 import Layout from '@/layouts/Layout.astro';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export const prerender = true;
 
-const posts = await getCollection('blog');
-
-// Sort posts by publish date (newest first)
-const sortedPosts = posts.sort((a, b) => {
-  const dateA = a.data.publishDate ? new Date(a.data.publishDate) : new Date(0);
-  const dateB = b.data.publishDate ? new Date(b.data.publishDate) : new Date(0);
-  return dateB.getTime() - dateA.getTime();
+// Get sorted posts using ContentUtils (cached and optimized)
+const sortedPosts = await ContentUtils.getCachedCollection('blog', {
+  sortBy: 'publishDate',
+  sortOrder: 'desc'
 });
 
-// Group posts by category for category navigation
+// Get all categories for navigation (using ContentUtils for efficiency)
+const allPosts = await ContentUtils.getCachedCollection('blog');
+const categories = [...new Set(allPosts.map(post => post.data.category))];
+
+// Group posts by category for category navigation (using the already sorted posts)
 const postsByCategory = sortedPosts.reduce((acc: Record<string, any[]>, post) => {
   const category = post.data.category;
   if (!acc[category]) {
@@ -24,9 +25,6 @@ const postsByCategory = sortedPosts.reduce((acc: Record<string, any[]>, post) =>
   acc[category].push(post);
   return acc;
 }, {});
-
-// Get all categories
-const categories = Object.keys(postsByCategory);
 
 const seo = {
   title: "Wedding & Event Planning Blog - Penelope's Venue",

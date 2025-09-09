@@ -1,5 +1,6 @@
 [
   {
+    "id": "maria-rodriguez",
     "quote": "Penelope's made my bridal shower absolutely perfect. The food was incredible, service flawless, and our guests still talk about it!",
     "author": "Maria Rodriguez",
     "event": "Bridal Shower - 50 guests",
@@ -7,16 +8,10 @@
     "featured": true
   },
   {
+    "id": "david-susan-martinez",
     "quote": "The venue buyout option gave us the privacy we needed for our milestone birthday celebration. Every detail was perfect!",
     "author": "David & Susan Martinez",
     "event": "Birthday Celebration - 75 guests",
-    "rating": 5,
-    "featured": true
-  },
-  {
-    "quote": "Our wedding reception was exactly what we dreamed of. The Spanish-inspired decor and amazing catering made our special day unforgettable.",
-    "author": "Jennifer & Michael Chen",
-    "event": "Wedding Reception - 80 guests",
     "rating": 5,
     "featured": true
   }

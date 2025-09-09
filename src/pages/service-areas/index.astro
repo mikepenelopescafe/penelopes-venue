@@ -1,17 +1,21 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { ContentUtils } from '@/lib/content-utils';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
 export const prerender = true;
 
-const serviceAreas = (await getCollection('service-areas')).filter(area => area.data.citySlug !== 'westminster');
-// Sort by priority: primary first, then secondary, then tertiary
-const sortedServiceAreas = serviceAreas.sort((a, b) => {
-  const priorityOrder = { primary: 0, secondary: 1, tertiary: 2 };
-  return priorityOrder[a.data.priority] - priorityOrder[b.data.priority];
-});
+// Get service areas using ContentUtils with filtering and sorting
+const allServiceAreas = await ContentUtils.getCachedCollection('service-areas');
+
+// Filter out Westminster and sort by priority
+const sortedServiceAreas = allServiceAreas
+  .filter(area => area.data.citySlug !== 'westminster')
+  .sort((a, b) => {
+    const priorityOrder = { primary: 0, secondary: 1, tertiary: 2 };
+    return priorityOrder[a.data.priority] - priorityOrder[b.data.priority];
+  });
 
 const seo = {
   title: "Service Areas - Westminster Venue Serving Denver Metro",

@@ -1,26 +1,30 @@
 [
   {
+    "id": "catering",
     "title": "Catering",
     "description": "Latin-inspired menus. Bronze, Silver, Gold packages available.",
-    "icon": "🍽️",
+    "icon": "utensils",
     "featured": true
   },
   {
+    "id": "bar-service",
     "title": "Bar Service",
     "description": "Craft cocktails, beer, wine. Professional bartending staff.",
-    "icon": "🍸",
+    "icon": "cocktail",
     "featured": true
   },
   {
+    "id": "venue-rental",
     "title": "Venue Rental",
     "description": "Exclusive buyout available. Your event, your rules.",
-    "icon": "🏛️",
+    "icon": "building",
     "featured": true
   },
   {
+    "id": "event-coordination",
     "title": "Event Coordination",
     "description": "Detail-obsessed team handles every aspect of your event.",
-    "icon": "👥",
+    "icon": "users",
     "featured": true
   }
 ]

@@ -1,17 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
+import { ContentUtils } from '@/lib/content-utils';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const blogPosts = await getCollection('blog');
+  // Get all blog posts using ContentUtils
+  const blogPosts = await ContentUtils.getCachedCollection('blog');
 
   // Get unique categories
   const categories = [...new Set(blogPosts.map(post => post.data.category))];
 
   return categories.map(category => {
+    // Get posts for this category using ContentUtils filtering
     const posts = blogPosts.filter(post => post.data.category === category);
     return {
       params: { category },
