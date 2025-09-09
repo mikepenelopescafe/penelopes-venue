@@ -64,6 +64,10 @@ Fresh air for meetings, launches, and team nights. Professional energy, moody de
 - **Brand events**: Clean canvas for product spots, content shoots, or client dinners.
 - **Holiday parties**: Cozy lighting, curated playlists, easy logistics.
 
+## Seasonal and Holiday Event Spotlights
+
+In Northglenn, every season has its moment—and our venue leans into it. Winter brings candlelit soirées, New Year's countdowns, and cozy corporate mixers with warm lighting and luxe textures. Spring unfolds with fresh florals and daylight-forward timelines for showers and milestone birthdays. Summer hits different: open, airy layouts for graduations, reunions, and brand launches with crisp AV and chilled cocktail service. Fall delivers moody palettes, harvest-inspired menus, and elegant engagement parties that feel cinematic. Whether you're planning holiday celebrations, Friendsgiving, or a sleek year-end awards night, we shape the space to fit the vibe—clean, bold, and right on time. Book your date early to lock prime weekends across the calendar.
+
 ## Private Parties with Northglenn Energy
 
 Birthdays, showers, graduations—celebrate your way. We make it personal, stylish, and smooth.

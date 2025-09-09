@@ -246,6 +246,9 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     </script>
     
     <title>{title}</title>
+
+    <!-- Sitemap Link for Search Engines -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col">
     <PromoBanner />
