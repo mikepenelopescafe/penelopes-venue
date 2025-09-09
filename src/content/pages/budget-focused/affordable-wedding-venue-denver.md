@@ -9,7 +9,7 @@ hero:
   headline: "Affordable Wedding Venue Denver - Beautiful Weddings Under $5000"
   subheadline: "No hidden fees, all-inclusive packages, gorgeous venues you can actually afford"
   ctaText: "See Budget Packages"
-  ctaLink: "/pricing"
+  ctaLink: "/venue"
 relatedServices: ["micro-wedding", "elopement", "wedding"]
 relatedLocations: ["arvada"]
 featured: true

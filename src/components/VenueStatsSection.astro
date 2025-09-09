@@ -38,19 +38,21 @@ const { venueStats } = Astro.props;
       </div>
 
       <!-- Stats Grid -->
-      <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
         {venueStats.map(stat => (
-          <div class="group hover-lift transition-all duration-300">
+          <dl class="group hover-lift transition-all duration-300">
             <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300">
-              <span class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                {stat.icon}
-              </span>
-              <dt class="text-white/80 text-sm font-medium">{stat.label}</dt>
-              <dd class=" font-bold text-white mb-2">{stat.value}</dd>
+              <dt class="text-white/80 text-sm font-medium">
+                <span class="text-4xl font-display text-primary mb-3 mr-2 group-hover:scale-110 transition-transform duration-300 inline-block" aria-hidden="true">
+                  {stat.icon}
+                </span>
+                {stat.label}
+              </dt>
+              <dd class="font-bold text-white mb-2">{stat.value}</dd>
             </div>
-          </div>
+          </dl>
         ))}
-      </dl>
+      </div>
 
       <!-- Call to Action -->
       <div class="mt-16">

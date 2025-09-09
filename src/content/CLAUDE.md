@@ -4,7 +4,7 @@ This file provides comprehensive guidelines for creating content that dominates 
 
 ## Core Writing Standards
 
-### 1. Reading Level: 8th Grade (Critical Requirement)
+### 1. Writing sytle should match `brand-voice.mdc`
 
 **Why This Matters:**
 - Higher Google rankings for accessible content
@@ -139,7 +139,7 @@ Great food, done right—plated, buffet, or passed. Choose your style and we’l
 [Packages + minimums]
 ```
 
-### Location Hub Pages (Local SEO Powerhouse)
+### Service Area Pages (Local SEO Powerhouse)
 
 **Purpose**: Dominate local search for entire city
 **Target**: "[City] event venue" and variations
@@ -206,8 +206,8 @@ Westminster offers the perfect blend of city convenience and suburban charm. Loc
 ├── event-styles/          # "garden wedding", "rustic reception"
 ├── budget-focused/        # "affordable venue", "budget wedding"
 ├── guest-count/          # "small wedding venue", "intimate celebration"
-├── seasonal/             # "winter wedding venue", "outdoor summer events"
-└── special-features/     # "venues with gardens", "all-inclusive packages"
+├── testimonials/           
+└── service-areas/     # 
 ```
 
 ## SEO Optimization Requirements
