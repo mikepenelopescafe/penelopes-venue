@@ -75,7 +75,7 @@ export default defineConfig({
   // Additional performance optimizations
   build: {
     // Inline stylesheets for better performance
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
 
   // Optimize output format for better performance
