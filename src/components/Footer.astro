@@ -88,8 +88,9 @@ const contactInfo = {
       <!-- Links -->
       <div class="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Venue</h3>
-          <ul class="space-y-2">
+          <h3 id="footer-venue-heading" class="text-sm font-semibold text-primary mb-4">Venue</h3>
+          <nav aria-labelledby="footer-venue-heading">
+            <ul class="space-y-2">
             {footerLinks.venue.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
@@ -97,12 +98,14 @@ const contactInfo = {
                 </a>
               </li>
             ))}
-          </ul>
+            </ul>
+          </nav>
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Offerings</h3>
-          <ul class="space-y-2">
+          <h3 id="footer-offerings-heading" class="text-sm font-semibold text-primary mb-4">Offerings</h3>
+          <nav aria-labelledby="footer-offerings-heading">
+            <ul class="space-y-2">
             {footerLinks.offerings.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
@@ -110,12 +113,14 @@ const contactInfo = {
                 </a>
               </li>
             ))}
-          </ul>
+            </ul>
+          </nav>
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Locations</h3>
-          <ul class="space-y-2">
+          <h3 id="footer-locations-heading" class="text-sm font-semibold text-primary mb-4">Locations</h3>
+          <nav aria-labelledby="footer-locations-heading">
+            <ul class="space-y-2">
             {footerLinks.locations.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
@@ -123,12 +128,14 @@ const contactInfo = {
                 </a>
               </li>
             ))}
-          </ul>
+            </ul>
+          </nav>
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Resources</h3>
-          <ul class="space-y-2">
+          <h3 id="footer-resources-heading" class="text-sm font-semibold text-primary mb-4">Resources</h3>
+          <nav aria-labelledby="footer-resources-heading">
+            <ul class="space-y-2">
             {footerLinks.resources.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
@@ -136,12 +143,14 @@ const contactInfo = {
                 </a>
               </li>
             ))}
-          </ul>
+            </ul>
+          </nav>
         </div>
         
         <div>
-          <h3 class="text-sm font-semibold text-primary mb-4">Contact</h3>
-          <ul class="space-y-2">
+          <h3 id="footer-contact-heading" class="text-sm font-semibold text-primary mb-4">Contact</h3>
+          <nav aria-labelledby="footer-contact-heading">
+            <ul class="space-y-2">
             {footerLinks.contact.map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
@@ -149,7 +158,8 @@ const contactInfo = {
                 </a>
               </li>
             ))}
-          </ul>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>

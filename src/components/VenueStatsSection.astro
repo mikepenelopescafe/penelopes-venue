@@ -14,7 +14,7 @@ export interface Props {
 const { venueStats } = Astro.props;
 ---
 
-<section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats">
+<section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats" aria-labelledby="venue-stats-heading">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
        style={`background-image: url('${diningRoomImage.src}');`}>
@@ -29,7 +29,7 @@ const { venueStats } = Astro.props;
     <!-- Section Header -->
     <div class="w-full">
       <div class="mb-16">
-        <h2 class="text-5xl font-display text-white mb-4 leading-tight">
+        <h2 id="venue-stats-heading" class="text-5xl font-display text-white mb-4 leading-tight">
           Your vibe. <span class="text-primary">Your venue.</span>
         </h2>
         <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
@@ -38,20 +38,19 @@ const { venueStats } = Astro.props;
       </div>
 
       <!-- Stats Grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8">
         {venueStats.map(stat => (
           <div class="group hover-lift transition-all duration-300">
-            <!-- Glassmorphism Card -->
             <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300">
-              <div class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300">
+              <span class="text-4xl font-display text-primary mb-3 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                 {stat.icon}
-              </div>
-              <div class=" font-bold text-white mb-2">{stat.value}</div>
-              <div class="text-white/80 text-sm font-medium">{stat.label}</div>
+              </span>
+              <dt class="text-white/80 text-sm font-medium">{stat.label}</dt>
+              <dd class=" font-bold text-white mb-2">{stat.value}</dd>
             </div>
           </div>
         ))}
-      </div>
+      </dl>
 
       <!-- Call to Action -->
       <div class="mt-16">

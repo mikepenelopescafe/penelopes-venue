@@ -5,11 +5,13 @@ import { Badge } from '@/components/ui/badge';
 import exteriorVenueImage from '@/assets/images/penelope-exterior.webp';
 ---
 
-<section class="py-20 px-6 bg-card/30" transition:name="about-preview">
+<section class="py-20 px-6 bg-card/30" transition:name="about-preview" aria-labelledby="about-heading">
   <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
     <div>
-      <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">The space</Badge>
-      <h2 class="text-4xl font-display text-foreground mb-6">
+      <span aria-hidden="true">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">The space</Badge>
+      </span>
+      <h2 id="about-heading" class="text-4xl font-display text-foreground mb-6">
         A space that feels like you
       </h2>
       <p class="text-lg text-foreground/80 mb-6 leading-relaxed">
@@ -18,12 +20,16 @@ import exteriorVenueImage from '@/assets/images/penelope-exterior.webp';
       </p>
       <div class="grid grid-cols-2 gap-6 mb-8">
         <div class="text-center p-4 bg-primary/5 rounded-lg">
-          <div class="text-2xl font-bold text-primary">$</div>
-          <div class="text-sm text-muted-foreground">Clean pricing</div>
+          <dl>
+            <dt class="text-sm text-muted-foreground">Pricing</dt>
+            <dd class="text-2xl font-bold text-primary">$</dd>
+          </dl>
         </div>
         <div class="text-center p-4 bg-primary/5 rounded-lg">
-          <div class="text-2xl font-bold text-primary">9AM–11PM</div>
-          <div class="text-sm text-muted-foreground">Event hours</div>
+          <dl>
+            <dt class="text-sm text-muted-foreground">Event hours</dt>
+            <dd class="text-2xl font-bold text-primary">9AM–11PM</dd>
+          </dl>
         </div>
       </div>
     </div>
