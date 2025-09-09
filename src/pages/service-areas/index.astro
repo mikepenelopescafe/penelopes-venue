@@ -1,6 +1,266 @@
 ---
-// Redirect service-areas to the updated locations page (which is now our service areas hub)
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
 export const prerender = true;
 
-return Astro.redirect("/locations", 301);
+const serviceAreas = (await getCollection('service-areas')).filter(area => area.data.citySlug !== 'westminster');
+// Sort by priority: primary first, then secondary, then tertiary
+const sortedServiceAreas = serviceAreas.sort((a, b) => {
+  const priorityOrder = { primary: 0, secondary: 1, tertiary: 2 };
+  return priorityOrder[a.data.priority] - priorityOrder[b.data.priority];
+});
+
+const seo = {
+  title: "Service Areas - Westminster Venue Serving Denver Metro",
+  description: "Penelope's Westminster venue serves the Denver metro area including Arvada, Lakewood, Thornton and surrounding cities. Professional event services wherever you are.",
+  keywords: "Westminster venue, Denver metro event services, venue serving Arvada, venue serving Lakewood, event planning Westminster"
+};
 ---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="service-areas-hero">
+    <!-- Dark Black Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <!-- Subtle Pattern Overlay for Texture -->
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-6xl mx-auto text-center min-h-[500px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Service Areas</Badge>
+
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Westminster Venue Serving the <span class="text-primary">Denver Metro Area</span>
+        </h1>
+
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          Looking for a venue near you? Our beautiful Westminster location serves couples and businesses
+          throughout the Denver metro area. One stunning venue, convenient for guests from
+          Arvada, Lakewood, Thornton, and surrounding cities.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#service-areas-grid" class="btn-primary-lg">
+            Find Your Service Area
+          </a>
+          <a href="/venue" class="btn-outline-lg">
+            View Venue
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offerings Section - Available for All Service Areas -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Offerings</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Available for All Service Areas</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">One beautiful venue. Catering made easy. Everything you need.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <Card className="bg-card border-primary/20 hover-lift">
+          <CardHeader className="text-center">
+            <CardTitle className="text-xl">Venue</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-center">
+            <p class="text-sm text-muted-foreground">Clean, modern space with flexible pricing.</p>
+            <a href="/venue" class="btn-primary w-full">View Venue</a>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-card border-primary/20 hover-lift">
+          <CardHeader className="text-center">
+            <CardTitle className="text-xl">Catering</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-center">
+            <p class="text-sm text-muted-foreground">American + Latin fusion menus. Simple bar packages.</p>
+            <a href="/catering" class="btn-primary w-full">Explore Catering</a>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas Grid -->
+  <section id="service-areas-grid" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Areas</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Areas We Serve</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Our Westminster venue is perfectly located to serve the entire Denver metro area.
+          See how convenient we are for guests in your area.
+        </p>
+      </div>
+
+      {/* Primary Service Areas */}
+      {sortedServiceAreas.filter(area => area.data.priority === 'primary').length > 0 && (
+        <div class="mb-16">
+          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Our Westminster Venue Serves Your Area</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sortedServiceAreas.filter(area => area.data.priority === 'primary').map(serviceArea => {
+              return (
+                <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-2xl font-display text-foreground mb-2">
+                      {serviceArea.data.city}, {serviceArea.data.state}
+                    </CardTitle>
+                    <CardDescription className="text-base text-primary font-medium mb-2">
+                      {serviceArea.data.region}
+                    </CardDescription>
+                    <div class="text-sm text-muted-foreground">
+                      Served by Westminster venue
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {serviceArea.data.demographics?.description && (
+                      <p class="text-sm text-muted-foreground text-center">
+                        {serviceArea.data.demographics.description}
+                      </p>
+                    )}
+
+                    {serviceArea.data.localInfo?.transportation && (
+                      <div class="space-y-3">
+                        <h4 class="font-medium text-foreground text-sm">Location Benefits:</h4>
+                        <div class="space-y-2 text-sm text-muted-foreground">
+                          {serviceArea.data.localInfo.transportation.fromDenver && (
+                            <div class="flex items-center gap-2">
+                              <span class="text-primary">📍</span>
+                              From Denver: {serviceArea.data.localInfo.transportation.fromDenver}
+                            </div>
+                          )}
+                          {serviceArea.data.localInfo.transportation.parking && (
+                            <div class="flex items-center gap-2">
+                              <span class="text-primary">🅿️</span>
+                              {serviceArea.data.localInfo.transportation.parking}
+                            </div>
+                          )}
+                          {serviceArea.data.localInfo.landmarks && serviceArea.data.localInfo.landmarks.length > 0 && (
+                            <div class="flex items-center gap-2">
+                              <span class="text-primary">🏛️</span>
+                              Near {serviceArea.data.localInfo.landmarks[0]}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    <div class="pt-4 border-t border-primary/10">
+                      <a
+                        href={`/service-areas/${serviceArea.data.citySlug}`}
+                        class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                      >
+                        Service for {serviceArea.data.city} Area
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Secondary Service Areas */}
+      {sortedServiceAreas.filter(area => area.data.priority === 'secondary').length > 0 && (
+        <div class="mb-16">
+          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Additional Service Areas</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {sortedServiceAreas.filter(area => area.data.priority === 'secondary').map(serviceArea => {
+              return (
+                <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group text-center">
+                  <CardContent className="p-6">
+                    <h4 class="text-lg font-display text-foreground mb-2">
+                      {serviceArea.data.city}
+                    </h4>
+                    <div class="text-sm text-muted-foreground mb-3">
+                      Served by Westminster venue
+                    </div>
+                    {serviceArea.data.localInfo?.transportation?.fromDenver && (
+                      <div class="text-xs text-muted-foreground mb-4">
+                        {serviceArea.data.localInfo.transportation.fromDenver}
+                      </div>
+                    )}
+                    <a
+                      href={`/service-areas/${serviceArea.data.citySlug}`}
+                      class="text-sm text-primary hover:underline"
+                    >
+                      Service Details →
+                    </a>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Service Coverage -->
+  <section class="py-20 px-6 bg-card/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Coverage</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Complete Event Solutions</h2>
+        <p class="text-lg text-muted-foreground">
+          Every location offers our full range of event services with local expertise.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">💒</div>
+            <div class="text-xl font-display text-foreground mb-2">Weddings</div>
+            <div class="text-sm text-muted-foreground">
+              From intimate micro weddings to grand celebrations
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">🏢</div>
+            <div class="text-xl font-display text-foreground mb-2">Corporate</div>
+            <div class="text-sm text-muted-foreground">
+              Professional spaces for meetings and company events
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-primary/20">
+          <CardContent className="p-6 text-center">
+            <div class="text-4xl mb-4">🎉</div>
+            <div class="text-xl font-display text-foreground mb-2">Private Parties</div>
+            <div class="text-sm text-muted-foreground">
+              Birthday parties, showers, and family celebrations
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Perfect Event?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Contact us today to discuss your event needs. Our Westminster venue is perfectly located
+        to serve you and your guests, wherever you're located in the Denver metro area.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">
+          Schedule a Tour
+        </a>
+        <a href="/venue" class="btn-outline">View Venue</a>
+      </div>
+    </div>
+  </section>
+</Layout>

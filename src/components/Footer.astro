@@ -16,12 +16,12 @@ const footerLinks = {
     { label: 'Pricing Overview', href: '/pricing' },
     { label: 'Book a Tour', href: '/contact#book' },
   ],
-  locations: [
-    { label: 'Areas We Serve', href: '/locations' },
-    { label: 'Westminster (Our Venue)', href: '/locations/westminster' },
-    { label: 'Arvada Area', href: '/locations/arvada' },
-    { label: 'Lakewood Area', href: '/locations/lakewood' },
-    { label: 'Thornton Area', href: '/locations/thornton' },
+  'service-areas': [
+    { label: 'Areas We Serve', href: '/service-areas' },
+    { label: 'Westminster Venue', href: '/venue' },
+    { label: 'Arvada Area', href: '/service-areas/arvada' },
+    { label: 'Lakewood Area', href: '/service-areas/lakewood' },
+    { label: 'Thornton Area', href: '/service-areas/thornton' },
   ],
   resources: [
     { label: 'Event Planning Guide', href: '/pricing#planning' },
@@ -118,10 +118,10 @@ const contactInfo = {
         </div>
 
         <div>
-          <h3 id="footer-locations-heading" class="text-sm font-semibold text-primary mb-4">Locations</h3>
-          <nav aria-labelledby="footer-locations-heading">
+          <h3 id="footer-service-areas-heading" class="text-sm font-semibold text-primary mb-4">Service Areas</h3>
+          <nav aria-labelledby="footer-service-areas-heading">
             <ul class="space-y-2">
-            {footerLinks.locations.map(link => (
+            {footerLinks['service-areas'].map(link => (
               <li>
                 <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
                   {link.label}

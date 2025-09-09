@@ -8,7 +8,8 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const serviceAreas = await getCollection('service-areas');
-  return serviceAreas.map(location => ({
+  const filtered = serviceAreas.filter(area => area.data.citySlug !== 'westminster');
+  return filtered.map(location => ({
     params: { city: location.data.citySlug },
     props: { location }
   }));
@@ -78,7 +79,7 @@ const businessSchema = {
         <div class="flex items-center gap-2 text-sm text-white/80 mb-6">
           <a href="/" class="hover:text-white transition-colors">Home</a>
           <span>/</span>
-          <a href="/locations" class="hover:text-white transition-colors">Locations</a>
+          <a href="/service-areas" class="hover:text-white transition-colors">Service Areas</a>
           <span>/</span>
           <span class="text-primary">{location.data.city}</span>
         </div>
@@ -354,7 +355,7 @@ const businessSchema = {
     </div>
   </section>
 
-  <!-- Explore Other Locations -->
+  <!-- Explore Other Service Areas -->
   <section class="py-16 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-display text-foreground mb-6">
@@ -364,7 +365,7 @@ const businessSchema = {
         Our Westminster venue also serves other cities throughout the Denver metro area.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/locations" class="btn-primary">
+        <a href="/service-areas" class="btn-primary">
           View All Service Areas
         </a>
         <a href="/venue" class="btn-outline">

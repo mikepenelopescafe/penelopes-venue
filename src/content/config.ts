@@ -78,7 +78,7 @@ const serviceAreas = defineCollection({
     city: z.string(),
     state: z.string().default('CO'),
     region: z.string().default('Denver Metro'),
-    citySlug: z.string(), // URL-friendly version: "westminster", "arvada"
+    citySlug: z.string(), // URL-friendly version: "arvada", "lakewood"
     coordinates: z.object({
       lat: z.number(),
       lng: z.number(),
@@ -116,58 +116,6 @@ const serviceAreas = defineCollection({
   }),
 });
 
-// Locations collection - for city-specific hub pages and location-service combinations
-const locations = defineCollection({
-  type: 'content',
-  schema: z.object({
-    ...seoSchema.shape,
-    city: z.string(),
-    state: z.string().default('CO'),
-    region: z.string().default('Denver Metro'),
-    citySlug: z.string(), // URL-friendly version: "westminster", "arvada"
-    coordinates: z.object({
-      lat: z.number(),
-      lng: z.number(),
-    }).optional(),
-    demographics: z.object({
-      population: z.number().optional(),
-      medianIncome: z.number().optional(),
-      description: z.string().optional(),
-    }).optional(),
-    localInfo: z.object({
-      landmarks: z.array(z.string()).optional(),
-      neighborhoods: z.array(z.string()).optional(),
-      nearbyAttractions: z.array(z.string()).optional(),
-      transportation: z.object({
-        fromDenver: z.string().optional(),
-        fromBoulder: z.string().optional(),
-        publicTransit: z.string().optional(),
-        parking: z.string().optional(),
-      }).optional(),
-    }).optional(),
-    availableServices: z.array(z.object({
-      serviceType: z.string(),
-      packageName: z.string(),
-      slug: z.string(),
-      price: z.number(),
-      featured: z.boolean().default(false),
-    })).optional(), // Optional since services are now dynamically generated
-    localTestimonials: z.array(z.string()).optional(), // slugs to testimonials
-    businessSchema: z.object({
-      name: z.string(),
-      address: z.object({
-        street: z.string().optional(),
-        city: z.string(),
-        state: z.string(),
-        zipCode: z.string().optional(),
-      }),
-      phone: z.string().optional(),
-      email: z.string().optional(),
-      website: z.string().optional(),
-    }),
-    priority: z.enum(['primary', 'secondary', 'tertiary']).default('secondary'),
-  }),
-});
 
 // Testimonials collection - for social proof
 const testimonials = defineCollection({
@@ -195,7 +143,6 @@ const docs = defineCollection({
 export const collections = {
   pages,
   blog,
-  locations,
   'service-areas': serviceAreas,
   testimonials,
   docs,

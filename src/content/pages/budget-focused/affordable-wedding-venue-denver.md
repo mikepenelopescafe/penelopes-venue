@@ -11,7 +11,7 @@ hero:
   ctaText: "See Budget Packages"
   ctaLink: "/pricing"
 relatedServices: ["micro-wedding", "elopement", "wedding"]
-relatedLocations: ["westminster", "arvada"]
+relatedLocations: ["arvada"]
 featured: true
 ---
 

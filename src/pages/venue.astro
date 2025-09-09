@@ -5,6 +5,7 @@ import Layout from '@/layouts/Layout.astro';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { venuePackages, calculateVenuePackagePrice, venueRules } from '@/data/pricing';
+import crossBacksImage from '@/assets/images/penelopes-cross-backs.jpeg';
 
 const seo = {
   title: "Venue Pricing & Details | Penelope’s Venue",
@@ -14,7 +15,7 @@ const seo = {
 ---
 
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
-  <section class="relative py-24 px-6 overflow-hidden" style="background-image: url('/cross-backs.jpeg'); background-size: cover; background-position: center;">
+  <section class="relative py-24 px-6 overflow-hidden" style={`background-image: url('${crossBacksImage.src}'); background-size: cover; background-position: center;`}>
     <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
     <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
     <div class="relative max-w-6xl mx-auto text-center min-h-[420px] flex items-center">

@@ -11,7 +11,7 @@ hero:
   ctaText: "View Our Intimate Spaces"
   ctaLink: "/contact#book"
 relatedServices: ["micro-wedding", "elopement", "garden-wedding"]
-relatedLocations: ["westminster", "arvada"]
+relatedLocations: ["arvada"]
 featured: true
 ---
 
