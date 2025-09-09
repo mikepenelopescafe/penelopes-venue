@@ -83,6 +83,7 @@ export const venueRules = {
   offPeak: {
     months: [9, 10, 11, 12, 1, 2, 3] as const, // Sep, Oct, Nov, Dec, Jan, Feb, Mar
     discounts: {
+      sunday: 0.7,      // 20% off Sunday
       monThu: 0.7,      // 30% off Mon–Thu in off-peak months
       friday: 0.8,      // 20% off Friday
       saturday: 0.8     // 20% off Saturday
