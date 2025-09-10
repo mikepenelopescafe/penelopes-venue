@@ -23,6 +23,12 @@ localInfo:
     fromBoulder: "About 25 minutes via US-36 and Wadsworth"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.ottsworld.com/wp-content/uploads/2021/07/Olde-Town-Arvada-Water-Tower-scaled.jpeg"
+  alt: "Historic Olde Town Arvada water tower landmark showcasing the charming historic district and local architecture in Colorado"
+  attribution: "Ott's World"
+  sourceUrl: "https://www.ottsworld.com/"
+  caption: "Iconic Olde Town Arvada water tower representing the historic charm and community spirit"
 businessSchema:
   name: "Penelope's Venue – Serving Arvada"
   address:

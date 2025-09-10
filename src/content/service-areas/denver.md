@@ -22,6 +22,12 @@ localInfo:
     fromDenver: "Central location - just minutes away"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://media.shebuystravel.com/wp-content/uploads/2017/09/01054230/downtown-denver-with-kids-header.jpg"
+  alt: "Downtown Denver cityscape with people enjoying the vibrant urban environment and outdoor activities in Colorado"
+  attribution: "She Buys Travel"
+  sourceUrl: "https://www.shebuystravel.com/"
+  caption: "Downtown Denver showcasing the vibrant city life and urban attractions"
 businessSchema:
   name: "Penelope's Venue – Serving Denver"
   address:

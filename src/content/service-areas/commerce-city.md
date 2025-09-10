@@ -23,6 +23,12 @@ localInfo:
     fromAirport: "About 20 minutes via I-76"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.uncovercolorado.com/wp-content/uploads/2016/09/Commerce-City-Refinery-Colorado-1280x640.jpg"
+  alt: "Commerce City Refinery landmark in Colorado showcasing industrial heritage and local architectural significance"
+  attribution: "Uncover Colorado"
+  sourceUrl: "https://www.uncovercolorado.com/"
+  caption: "Commerce City Refinery representing the industrial heritage and local landmarks of the community"
 businessSchema:
   name: "Penelope's Venue – Serving Commerce City"
   address:

@@ -169,6 +169,13 @@ const serviceAreas = defineCollection({
     localTestimonials: z.array(z.string().min(1))
       .max(5, 'Maximum 5 local testimonials')
       .optional(), // slugs to testimonials
+    heroImage: z.object({
+      src: z.string().url('Hero image source must be a valid URL'),
+      alt: z.string().min(1, 'Alt text is required for accessibility'),
+      attribution: z.string().max(100, 'Attribution should be concise').optional(),
+      sourceUrl: z.string().url('Source URL must be a valid URL').optional(),
+      caption: z.string().max(150, 'Caption should be concise').optional(),
+    }).optional(),
     businessSchema: z.object({
       name: z.string()
         .min(1, 'Business name is required')

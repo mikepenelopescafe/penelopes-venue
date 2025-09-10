@@ -23,6 +23,12 @@ localInfo:
     fromAirport: "About 10 minutes via Peña Boulevard"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.uncovercolorado.com/wp-content/uploads/2020/05/Southlands-in-Aurora-CO-1600x800-1.jpg"
+  alt: "Beautiful Southlands community in Aurora, Colorado showcasing modern residential architecture and suburban charm"
+  attribution: "Uncover Colorado"
+  sourceUrl: "https://www.uncovercolorado.com/"
+  caption: "Southlands in Aurora representing the vibrant suburban community and modern living"
 businessSchema:
   name: "Penelope's Venue – Serving Aurora"
   address:

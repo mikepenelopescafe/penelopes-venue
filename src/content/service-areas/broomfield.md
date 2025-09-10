@@ -23,6 +23,12 @@ localInfo:
     fromBoulder: "About 15 minutes via US-36"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.dailycamera.com/wp-content/uploads/2019/06/4THFireworksGAP638.jpg?w=863"
+  alt: "Spectacular 4th of July fireworks display over Broomfield, Colorado celebrating community spirit and patriotic festivities"
+  attribution: "Daily Camera"
+  sourceUrl: "https://www.dailycamera.com/"
+  caption: "Broomfield 4th of July fireworks celebration showcasing community pride and festive atmosphere"
 businessSchema:
   name: "Penelope's Venue – Serving Broomfield"
   address:
