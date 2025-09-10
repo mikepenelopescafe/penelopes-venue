@@ -8,6 +8,7 @@ export interface Props {
     label: string;
     value: string;
     icon: string;
+    description?: string;
   }>;
 }
 
@@ -29,36 +30,51 @@ const { venueStats } = Astro.props;
     <!-- Section Header -->
     <div class="w-full">
       <div class="mb-16">
-        <h2 id="venue-stats-heading" class="text-5xl font-display text-white mb-4 leading-tight">
-          Your vibe. <span class="text-primary">Your venue.</span>
+        <h2 id="venue-stats-heading" class="text-5xl font-display text-white mb-6 leading-tight">
+          Your space. <span class="text-primary">Your rules.</span>
         </h2>
-        <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-          Moody, Spanish‑inspired space for effortless gatherings of 50–100.
+        <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          Westminster's boutique venue where Spanish-inspired design meets modern celebrations. 
+          <span class="text-primary font-medium">Intimate by design, effortless by nature.</span>
         </p>
       </div>
 
       <!-- Stats Grid -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {venueStats.map(stat => (
-          <dl class="group hover-lift transition-all duration-300">
-            <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300">
-              <dt class="text-white/80 text-sm font-medium">
-                <span class="text-4xl font-display text-primary mb-3 mr-2 group-hover:scale-110 transition-transform duration-300 inline-block" aria-hidden="true">
-                  {stat.icon}
-                </span>
+          <div class="group hover-lift transition-all duration-300">
+            <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 shadow-2xl hover:bg-white/15 transition-all duration-300 text-center">
+             
+              
+              <!-- Value -->
+              <div class="text-2xl font-bold text-white mb-2 font-display">
+                {stat.value}
+              </div>
+              
+              <!-- Label -->
+              <div class="text-primary font-medium text-sm uppercase tracking-wide mb-3">
                 {stat.label}
-              </dt>
-              <dd class="font-bold text-white mb-2">{stat.value}</dd>
+              </div>
+              
+              <!-- Description -->
+              {stat.description && (
+                <p class="text-white/80 text-sm leading-relaxed">
+                  {stat.description}
+                </p>
+              )}
             </div>
-          </dl>
+          </div>
         ))}
       </div>
 
       <!-- Call to Action -->
       <div class="mt-16">
-        <a href="/contact#book" class="btn-primary-lg">
-          Plan your event
+        <a href="/contact#book" class="btn-primary-lg hero-text-shadow">
+          See the space
         </a>
+        <p class="text-white/70 text-sm mt-4">
+          Book a tour • View pricing • Start planning
+        </p>
       </div>
     </div>
   </div>

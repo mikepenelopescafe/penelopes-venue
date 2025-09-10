@@ -246,7 +246,7 @@ const createBaseTemplate = (content: string, title: string): string => {
 
       <div style="margin-bottom: 15px;">
         <a href="tel:+17206392406" style="color: #d6b67e; text-decoration: none; margin: 0 10px;">📞 (720) 639-2406</a>
-        <a href="mailto:events@penelopes.cafe" style="color: #d6b67e; text-decoration: none; margin: 0 10px;">✉️ events@penelopes.cafe</a>
+        <a href="mailto:events@penelopesboutiquevenue.com" style="color: #d6b67e; text-decoration: none; margin: 0 10px;">✉️ events@penelopesboutiquevenue.com</a>
       </div>
 
       <div style="color: #888; font-size: 12px; margin-top: 20px;">
@@ -433,7 +433,7 @@ export const createConfirmationEmailTemplate = (data: ContactFormData): { subjec
       <h3 style="color: #d6b67e; font-family: 'Georgia', serif; font-size: 20px; margin-bottom: 15px;">Need Immediate Assistance?</h3>
       <div class="btn-container">
         <a href="tel:+17206392406" class="btn">Call us</a>
-        <a href="mailto:events@penelopes.cafe" class="btn">Email us</a>
+        <a href="mailto:events@penelopesboutiquevenue.com" class="btn">Email us</a>
       </div>
     </div>
 

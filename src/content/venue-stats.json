@@ -1,30 +1,30 @@
 [
   {
     "id": "capacity",
-    "label": "Capacity",
+    "label": "Guest Capacity",
     "value": "50–100",
     "icon": "users",
-    "description": "Perfect for intimate gatherings"
+    "description": "Intimate scale that keeps it personal"
   },
   {
     "id": "catering",
-    "label": "Catering",
-    "value": "In‑house",
+    "label": "Kitchen + Bar",
+    "value": "Full Service",
     "icon": "chef",
-    "description": "Latin-inspired menus and professional service"
+    "description": "Latin-inspired menus & craft cocktails"
   },
   {
     "id": "style",
-    "label": "Style",
-    "value": "Spanish‑inspired",
+    "label": "Vibe",
+    "value": "Spanish-Inspired",
     "icon": "building",
-    "description": "Moody, elegant atmosphere"
+    "description": "Moody architecture meets modern execution"
   },
   {
     "id": "location",
     "label": "Location",
-    "value": "Westminster, CO",
+    "value": "Westminster",
     "icon": "map-pin",
-    "description": "Convenient Denver metro location"
+    "description": "Easy Denver metro access with parking"
   }
 ]

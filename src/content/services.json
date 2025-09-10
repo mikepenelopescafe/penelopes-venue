@@ -1,29 +1,29 @@
 [
   {
     "id": "catering",
-    "title": "Catering",
-    "description": "Latin-inspired menus. Bronze, Silver, Gold packages available.",
+    "title": "In-House Catering",
+    "description": "Latin-inspired wedding and event menus crafted by our Westminster kitchen. Bronze, Silver, and Gold packages feature fresh, seasonal ingredients with authentic flavors that keep guests talking.",
     "icon": "utensils",
     "featured": true
   },
   {
     "id": "bar-service",
-    "title": "Bar Service",
-    "description": "Craft cocktails, beer, wine. Professional bartending staff.",
+    "title": "Full Bar Service",
+    "description": "Curated craft cocktails, premium beer, and wine selection. Our professional bartending team creates signature drinks and handles all beverage service for your Westminster event.",
     "icon": "cocktail",
     "featured": true
   },
   {
     "id": "venue-rental",
-    "title": "Venue Rental",
-    "description": "Exclusive buyout available. Your event, your rules.",
+    "title": "Private Venue Buyout",
+    "description": "Exclusive access to our entire Spanish-inspired space in Westminster. Perfect for weddings, corporate events, and celebrations requiring complete privacy and personalized service.",
     "icon": "building",
     "featured": true
   },
   {
     "id": "event-coordination",
-    "title": "Event Coordination",
-    "description": "Detail-obsessed team handles every aspect of your event.",
+    "title": "Full Event Coordination",
+    "description": "Our detail-focused Westminster team handles every aspect—from setup to breakdown. Professional event coordination ensures your celebration runs seamlessly while you enjoy the moment.",
     "icon": "users",
     "featured": true
   }
