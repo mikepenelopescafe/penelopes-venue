@@ -18,9 +18,9 @@ const sortedServiceAreas = allServiceAreas
   });
 
 const seo = {
-  title: "Service Areas - Westminster Venue Serving Denver Metro",
-  description: "Penelope's Westminster venue serves the Denver metro area including Arvada, Lakewood, Thornton and surrounding cities. Professional event services wherever you are.",
-  keywords: "Westminster venue, Denver metro event services, venue serving Arvada, venue serving Lakewood, event planning Westminster"
+  title: "Service Areas - Spanish-Inspired Venue Serving Denver Metro | Penelope's",
+  description: "Penelope's Spanish-inspired Westminster venue serves Denver metro with intimate, moody spaces for 50-100 guests. Authentic atmosphere, modern execution across Arvada, Lakewood, Thornton & more.",
+  keywords: "Spanish-inspired venue Denver metro, Westminster wedding venue, intimate event space Denver, moody venue Colorado, boutique wedding venue, 50-100 guest venue, Denver metro event services"
 };
 ---
 
@@ -38,21 +38,21 @@ const seo = {
         <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Service Areas</Badge>
 
         <h1 class="text-5xl font-display text-white mb-6 leading-tight">
-          Westminster Venue Serving the <span class="text-primary">Denver Metro Area</span>
+          Spanish-Inspired Venue Serving the <span class="text-primary">Denver Metro Area</span>
         </h1>
 
         <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
-          Looking for a venue near you? Our Westminster location serves couples and businesses
-          throughout the Denver metro area. One venue, effortlessly convenient for guests from
-          Arvada, Lakewood, Thornton, and surrounding cities.
+          Moody Spanish architecture meets modern intimacy. Our Westminster venue creates 
+          authentic experiences for 50-100 guests throughout the Denver metro area. Warm, 
+          curated, effortless — your vision, our space.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#service-areas-grid" class="btn-primary-lg">
-            Find Your Service Area
+            See the Space
           </a>
           <a href="/venue" class="btn-outline-lg">
-            View Venue
+            Your Vision Starts Here
           </a>
         </div>
       </div>
@@ -64,28 +64,28 @@ const seo = {
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Offerings</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Available for All Service Areas</h2>
-        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">One venue. Clean coordination. Everything you need.</p>
+        <h2 class="text-4xl font-display text-foreground mb-4">Spanish-Inspired. Intimate. All Yours.</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">Moody Spanish charm meets effortless modern execution. Full-service simplicity for 50-100 guests.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         <Card className="bg-card border-primary/20 hover-lift">
           <CardHeader className="text-center">
-            <CardTitle className="text-xl">Venue</CardTitle>
+            <CardTitle className="text-xl">Intimate Spanish-Inspired Venue</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-center">
-            <p class="text-sm text-muted-foreground">Clean, modern space. Flexible pricing.</p>
-            <a href="/venue" class="btn-primary w-full">View Venue</a>
+            <p class="text-sm text-muted-foreground">Moody architecture, warm lighting, authentic details. Perfect for 50-100 guests.</p>
+            <a href="/venue" class="btn-primary w-full">See the Space</a>
           </CardContent>
         </Card>
 
         <Card className="bg-card border-primary/20 hover-lift">
           <CardHeader className="text-center">
-            <CardTitle className="text-xl">Catering</CardTitle>
+            <CardTitle className="text-xl">Latin-Inspired Catering & Bar</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-center">
-            <p class="text-sm text-muted-foreground">American and Latin fusion menus. Clean bar packages.</p>
-            <a href="/catering" class="btn-primary w-full">Explore Catering</a>
+            <p class="text-sm text-muted-foreground">Curated Latin-American flavors with modern presentation. Full bar service.</p>
+            <a href="/catering" class="btn-primary w-full">Explore Menus</a>
           </CardContent>
         </Card>
       </div>
@@ -97,17 +97,17 @@ const seo = {
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Areas</Badge>
-        <h2 class="text-4xl font-display text-foreground mb-4">Areas We Serve</h2>
+        <h2 class="text-4xl font-display text-foreground mb-4">Your Vision, Our Westminster Space</h2>
         <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
-          Our Westminster venue is perfectly located to serve the entire Denver metro area.
-          See how convenient we are for guests in your area.
+          Conveniently located to serve authentic celebrations throughout the Denver metro. 
+          Spanish-inspired intimacy, modern execution, effortless for your guests.
         </p>
       </div>
 
       {/* Primary Service Areas */}
       {sortedServiceAreas.filter(area => area.data.priority === 'primary').length > 0 && (
         <div class="mb-16">
-          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Our Westminster Venue Serves Your Area</h3>
+          <h3 class="text-2xl font-display text-foreground mb-8 text-center">Intimate by Design, Effortless by Nature</h3>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sortedServiceAreas.filter(area => area.data.priority === 'primary').map(serviceArea => {
               return (
@@ -120,7 +120,7 @@ const seo = {
                       {serviceArea.data.region}
                     </CardDescription>
                     <div class="text-sm text-muted-foreground">
-                      Served by Westminster venue
+                      Spanish-inspired venue serving your area
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-6">
@@ -161,7 +161,7 @@ const seo = {
                         href={`/service-areas/${serviceArea.data.citySlug}`}
                         class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
                       >
-                        Service for {serviceArea.data.city} Area
+                        See the Space
                       </a>
                     </div>
                   </CardContent>
@@ -185,7 +185,7 @@ const seo = {
                       {serviceArea.data.city}
                     </h4>
                     <div class="text-sm text-muted-foreground mb-3">
-                      Served by Westminster venue
+                      Spanish-inspired venue serving your area
                     </div>
                     {serviceArea.data.localInfo?.transportation?.fromDenver && (
                       <div class="text-xs text-muted-foreground mb-4">
@@ -196,7 +196,7 @@ const seo = {
                       href={`/service-areas/${serviceArea.data.citySlug}`}
                       class="text-sm text-primary hover:underline"
                     >
-                      Service Details →
+                      See the Space →
                     </a>
                   </CardContent>
                 </Card>
@@ -212,10 +212,10 @@ const seo = {
   <section class="py-20 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
-        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Service Coverage</Badge>
-        <h2 class="text-3xl font-display text-foreground mb-4">Complete Event Solutions</h2>
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Event Types</Badge>
+        <h2 class="text-3xl font-display text-foreground mb-4">Intimate Celebrations, Authentic Moments</h2>
         <p class="text-lg text-muted-foreground">
-          Every location offers our full range of services with seamless coordination.
+          Spanish-inspired atmosphere for meaningful gatherings. Modern approach to timeless celebrations.
         </p>
       </div>
 
@@ -224,7 +224,7 @@ const seo = {
           <CardContent className="p-6 text-center">
             <div class="text-xl font-display text-foreground mb-2">Weddings</div>
             <div class="text-sm text-muted-foreground">
-              From intimate gatherings to grand celebrations
+              Intimate, personal celebrations with Spanish charm
             </div>
           </CardContent>
         </Card>
@@ -232,7 +232,7 @@ const seo = {
           <CardContent className="p-6 text-center">
             <div class="text-xl font-display text-foreground mb-2">Corporate</div>
             <div class="text-sm text-muted-foreground">
-              Professional spaces for meetings and company events
+              Professional events with personality and style
             </div>
           </CardContent>
         </Card>
@@ -240,7 +240,7 @@ const seo = {
           <CardContent className="p-6 text-center">
             <div class="text-xl font-display text-foreground mb-2">Private Parties</div>
             <div class="text-sm text-muted-foreground">
-              Birthday parties, showers, and family celebrations
+              Birthdays, showers, and milestone moments with warmth
             </div>
           </CardContent>
         </Card>
@@ -251,16 +251,16 @@ const seo = {
   <!-- Call to Action -->
   <section class="py-16 px-6 bg-gradient-card">
     <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan Your Event?</h2>
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Make It Real?</h2>
       <p class="text-xl mb-8 text-foreground/90">
-        Contact us to discuss your needs. Our Westminster venue serves you and your guests
-        throughout the Denver metro area.
+        Your vision deserves the right space. Spanish charm, modern confidence, 
+        effortless execution for 50-100 guests throughout the Denver metro.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact#book" class="btn-primary">
-          Schedule a Tour
+          Let's Connect
         </a>
-        <a href="/venue" class="btn-outline">View Venue</a>
+        <a href="/venue" class="btn-outline">See the Space</a>
       </div>
     </div>
   </section>

@@ -1,8 +1,8 @@
 ---
-title: "Englewood Event Venue – Weddings & Parties"
-description: "Planning an event in Englewood, CO? Discover a chic, moody venue experience with elegant spaces, seamless coordination, and effortless access for your guests."
-keywords: ["Englewood event venue", "Englewood wedding venue", "party venues Englewood CO", "corporate events Englewood", "Englewood events"]
-customerProblem: "Looking for a stylish, stress-free venue near Englewood with clean design and expert coordination?"
+title: "Spanish Venue Serving Englewood | Penelope's"
+description: "Planning an event in Englewood, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
+keywords: ["Spanish-inspired venue Englewood", "Englewood wedding venue", "intimate event space Englewood CO", "moody venue near Englewood", "50-100 guest venue Englewood", "Westminster venue serving Englewood"]
+customerProblem: "Looking for an intimate Spanish-inspired venue near Englewood with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Englewood"
 state: "CO"
 region: "Denver Metro"
@@ -37,16 +37,16 @@ priority: "secondary"
 featured: false
 ---
 
-# Englewood Events, Elevated
+# Spanish-Inspired Events Near Englewood
 
-Planning your event in Englewood? Our venue offers clean lines, warm light, and a sophisticated space that lets your vision take center stage. We handle the details seamlessly, so you can focus on what matters.
+Planning your celebration in Englewood? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
-## Why Englewood Chooses Us
+## Why Englewood Loves Penelope's
 
-- **Effortless style**: A sleek, flexible venue with room to move—timeless, not try-hard.
-- **Seamless coordination**: Expert planning that feels calm, confident, and on your side.
-- **Easy for your guests**: Quick access from Englewood with plenty of parking. No stress, just smooth arrivals.
-- **Trusted local partners**: DJs, florals, catering—curated to match your mood and budget.
+- **Authentic Spanish charm**: Moody architecture, warm lighting, and curated vintage details that feel genuine, not themed.
+- **Intimate by design**: Perfect for 50-100 guests who want meaningful connections, not overwhelming crowds.
+- **Effortless execution**: Professional coordination that feels calm and confident — we handle the details so you can enjoy your moment.
+- **Convenient for your guests**: Easy 20-minute drive from Englewood with on-site parking and straightforward access.
 
 ## Wedding Receptions in Englewood
 

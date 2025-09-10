@@ -94,19 +94,19 @@ const businessSchema = {
         </Badge>
 
         <h1 class="text-5xl font-display text-white mb-6 leading-tight">
-          Events Near <span class="text-primary">{location.data.city}, {location.data.state}</span>
+          Spanish-Inspired Events Near <span class="text-primary">{location.data.city}, {location.data.state}</span>
         </h1>
 
         <p class="text-xl text-white/90 max-w-4xl leading-relaxed mb-8">
-          Planning in {location.data.city}? Explore a moody, full‑service venue experience with seamless coordination, flexible layouts, and warm hospitality.
+          Planning in {location.data.city}? Our Westminster venue brings moody Spanish charm and modern intimacy to your celebration. Authentic atmosphere, effortless execution for 50-100 guests.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="#available-services" class="btn-primary-lg">
-            View Services
+            See the Space
           </a>
           <a href="/contact#book" class="btn-outline-lg">
-            Schedule a Tour
+            Let's Connect
           </a>
         </div>
       </div>
@@ -128,23 +128,23 @@ const businessSchema = {
 
           <!-- Available Services -->
           <div id="available-services" class="mb-12">
-            <h2 class="text-3xl font-display text-foreground mb-4">Available Services</h2>
+            <h2 class="text-3xl font-display text-foreground mb-4">Spanish-Inspired. Intimate. All Yours.</h2>
             <p class="text-lg text-muted-foreground mb-6">
-              All of our services are available for {location.data.city} area clients.
+              Full-service Spanish charm for {location.data.city} celebrations. Moody architecture meets modern execution.
             </p>
             <div class="grid md:grid-cols-2 gap-6">
               <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-xl font-display text-foreground">
-                    Venue Rental
+                    Spanish-Inspired Venue
                   </CardTitle>
                   <CardDescription className="text-sm text-muted-foreground">
-                    20-100 guests
+                    50-100 guests
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p class="text-sm text-muted-foreground">
-                    Beautiful event space with professional coordination and all amenities included.
+                    Moody Spanish architecture with warm lighting and authentic details. Intimate scale, professional execution.
                   </p>
                   <div class="flex justify-between items-center pt-4 border-t border-primary/10">
                     <div class="text-lg font-bold text-primary">
@@ -154,7 +154,7 @@ const businessSchema = {
                       href="/venue"
                       class="text-sm text-primary hover:underline"
                     >
-                      View Details →
+                      See the Space →
                     </a>
                   </div>
                 </CardContent>
@@ -162,7 +162,7 @@ const businessSchema = {
               <Card className="bg-card border-primary/20 hover-lift transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="text-xl font-display text-foreground">
-                    Catering & Bar
+                    Latin-Inspired Catering & Bar
                   </CardTitle>
                   <CardDescription className="text-sm text-muted-foreground">
                     18+ guests
@@ -170,7 +170,7 @@ const businessSchema = {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p class="text-sm text-muted-foreground">
-                    American and Latin fusion menus with full bar service and professional staff.
+                    Curated Latin-American flavors with modern presentation. Full bar service with professional staff.
                   </p>
                   <div class="flex justify-between items-center pt-4 border-t border-primary/10">
                     <div class="text-lg font-bold text-primary">
@@ -180,7 +180,7 @@ const businessSchema = {
                       href="/catering"
                       class="text-sm text-primary hover:underline"
                     >
-                      View Details →
+                      Explore Menus →
                     </a>
                   </div>
                 </CardContent>
@@ -192,7 +192,7 @@ const businessSchema = {
           {testimonials.length > 0 && (
             <div class="mb-12">
               <h2 class="text-3xl font-display text-foreground mb-6">
-                Success Stories from {location.data.city} Area
+                Real Moments from {location.data.city} Area
               </h2>
               <div class="space-y-6">
                 {testimonials.map(testimonial => (
@@ -230,7 +230,7 @@ const businessSchema = {
           <Card className="bg-card border-primary/20">
             <CardHeader>
               <CardTitle className="text-xl font-display text-foreground">
-                Service Area Information
+                Your Area, Our Space
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -247,9 +247,9 @@ const businessSchema = {
               </div>
 
               <div>
-                <div class="text-sm sidebar-muted-label mb-1">Service Approach</div>
+                <div class="text-sm sidebar-muted-label mb-1">Our Approach</div>
                 <div class="font-medium text-foreground">
-                  Served by our venue
+                  Spanish-inspired intimacy meets modern execution
                 </div>
               </div>
 
@@ -269,7 +269,7 @@ const businessSchema = {
             <Card className="bg-card border-primary/20">
               <CardHeader>
                 <CardTitle className="text-xl font-display text-foreground">
-                  Getting from Arvada to our Westminster venue
+                  Getting to Our Westminster Venue
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -328,23 +328,23 @@ const businessSchema = {
           <Card className="bg-gradient-card border-primary/20">
             <CardContent className="p-6 space-y-4 text-center">
               <h3 class="text-lg font-display text-foreground">
-                Ready to Book?
+                Ready to Make It Real?
               </h3>
               <p class="text-sm text-foreground/80">
-                Contact us to check availability and get started planning your perfect event.
+                Your vision deserves authentic Spanish charm and modern execution. Let's connect.
               </p>
               <div class="space-y-3">
                 <a
                   href="/contact#book"
                   class="block w-full bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
                 >
-                  Schedule a Tour
+                  Let's Connect
                 </a>
                 <a
                   href="/venue"
                   class="block w-full border border-primary/20 hover:border-primary/40 text-foreground text-center px-4 py-3 rounded-md text-sm font-medium transition-colors"
                 >
-                  View Pricing
+                  See the Space
                 </a>
               </div>
             </CardContent>
@@ -358,17 +358,17 @@ const businessSchema = {
   <section class="py-16 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto text-center">
       <h2 class="text-3xl font-display text-foreground mb-6">
-        Other Service Areas
+        Spanish Charm Throughout the Metro
       </h2>
       <p class="text-lg text-muted-foreground mb-8">
-        We also serve other cities throughout the Denver metro area.
+        Moody intimacy and authentic celebrations for communities across the Denver area.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/service-areas" class="btn-primary">
-          View All Service Areas
+          Explore All Areas
         </a>
         <a href="/venue" class="btn-outline">
-          View Venue
+          See the Space
         </a>
       </div>
     </div>
