@@ -23,6 +23,12 @@ localInfo:
     fromEnglewood: "About 10 minutes via US-285"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://static.wixstatic.com/media/ce3892_c25fb36e2de340c194da475df8aab29d~mv2.jpg/v1/fill/w_1802,h_1016,al_c,q_85,enc_avif,quality_auto/ce3892_c25fb36e2de340c194da475df8aab29d~mv2.jpg"
+  alt: "Historic downtown Littleton, Colorado showcasing charming architecture and community landmarks"
+  attribution: "Wix Static"
+  sourceUrl: "https://www.wixstatic.com/"
+  caption: "Historic downtown Littleton representing the charming historic district and community spirit"
 businessSchema:
   name: "Penelope's Venue – Serving Littleton"
   address:

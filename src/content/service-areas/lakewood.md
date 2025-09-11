@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Lakewood | Penelope's"
 description: "Planning an event in Lakewood, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Lakewood", "Lakewood wedding venue", "intimate event space Lakewood CO", "moody venue near Lakewood", "50-100 guest venue Lakewood", "Westminster venue serving Lakewood"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Lakewood with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Lakewood", "Lakewood wedding venue", "intimate event space Lakewood CO", "moody venue near Lakewood", "50-100 guest venue Lakewood", "Westminster venue serving Lakewood"]
+customerProblem: "Looking for an intimate boutique venue near Lakewood with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Lakewood"
 state: "CO"
 region: "Denver Metro"
@@ -23,6 +23,12 @@ localInfo:
     fromGolden: "About 10 minutes via US-6"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.uncovercolorado.com/wp-content/uploads/2020/05/Belmar-Shopping-District-in-Lakewood-CO-22.jpg"
+  alt: "Belmar Shopping District in Lakewood, Colorado showcasing the vibrant community hub and modern commercial architecture"
+  attribution: "Uncover Colorado"
+  sourceUrl: "https://www.uncovercolorado.com/"
+  caption: "Belmar Shopping District representing Lakewood's vibrant community and modern commercial center"
 businessSchema:
   name: "Penelope's Venue – Serving Lakewood"
   address:
@@ -37,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Lakewood
+# Boutique Events Near Lakewood
 
-Planning your celebration in Lakewood? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Lakewood? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Lakewood Loves Penelope's
 
@@ -70,6 +76,11 @@ Professional doesn't mean boring. Our Spanish-inspired space brings warmth and c
 Every season brings new possibilities for authentic celebrations. Our Spanish-inspired venue adapts beautifully — warm candlelit gatherings in winter, fresh garden-party vibes in spring, intimate summer soirées, and rich autumnal celebrations that feel both timeless and current.
 
 From holiday parties that blend traditional warmth with modern style to milestone birthdays that celebrate in intimate elegance, we create seasonal moments that feel genuine to your vision. The moody architecture and warm lighting work year-round, while our Latin-inspired catering adapts to seasonal flavors and celebrations.
+
+> Planning a holiday event near Lakewood? Explore seasonal options:
+>
+> - [Holiday Parties — Westminster](/seasonal/holiday/)
+> - [Holiday Parties — Lakewood](/seasonal/holiday/lakewood/)
 
 ## Private Celebrations, Authentic Moments
 

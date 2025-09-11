@@ -30,6 +30,34 @@ const seo = {
 
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords} canonical={seo.canonical}>
   <div class="min-h-screen">
+    {page.data.businessSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: page.data.businessSchema.name,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: page.data.businessSchema.address.street,
+          addressLocality: page.data.businessSchema.address.city,
+          addressRegion: page.data.businessSchema.address.state,
+          postalCode: page.data.businessSchema.address.zipCode,
+        },
+        telephone: page.data.businessSchema.phone,
+        email: page.data.businessSchema.email,
+        url: page.data.businessSchema.website || seo.canonical,
+      })} />
+    )}
+    {page.data.faqs && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: page.data.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      })} />
+    )}
     {page.data.hero && (
       <section class="relative bg-gradient-to-b from-brand-cream to-white py-20 px-6">
         <div class="max-w-6xl mx-auto text-center">

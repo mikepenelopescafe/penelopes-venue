@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Aurora | Penelope's"
 description: "Planning an event in Aurora, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Aurora", "Aurora wedding venue", "intimate event space Aurora CO", "moody venue near Aurora", "50-100 guest venue Aurora", "Westminster venue serving Aurora"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Aurora with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Aurora", "Aurora wedding venue", "intimate event space Aurora CO", "moody venue near Aurora", "50-100 guest venue Aurora", "Westminster venue serving Aurora"]
+customerProblem: "Looking for an intimate boutique venue near Aurora with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Aurora"
 state: "CO"
 region: "Denver Metro"
@@ -43,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Aurora
+# Boutique Events Near Aurora
 
-Planning your celebration in Aurora? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Aurora? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Aurora Loves Penelope's
 

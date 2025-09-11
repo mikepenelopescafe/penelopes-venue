@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Arvada | Penelope's"
 description: "Planning an event in Arvada, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Arvada", "Arvada wedding venue", "intimate event space Arvada CO", "moody venue near Arvada", "50-100 guest venue Arvada", "Westminster venue serving Arvada"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Arvada with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Arvada", "Arvada wedding venue", "intimate event space Arvada CO", "moody venue near Arvada", "50-100 guest venue Arvada", "Westminster venue serving Arvada"]
+customerProblem: "Looking for an intimate boutique venue near Arvada with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Arvada"
 state: "CO"
 region: "Denver Metro"
@@ -43,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Arvada
+# Boutique Events Near Arvada
 
-Planning your celebration in Arvada? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Arvada? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Arvada Loves Penelope's
 
@@ -76,6 +76,11 @@ Professional doesn't mean boring. Our Spanish-inspired space brings warmth and c
 Every season brings new possibilities for authentic celebrations. Our Spanish-inspired venue adapts beautifully — warm candlelit gatherings in winter, fresh garden-party vibes in spring, intimate summer soirées, and rich autumnal celebrations that feel both timeless and current.
 
 From holiday parties that blend traditional warmth with modern style to milestone birthdays that celebrate in intimate elegance, we create seasonal moments that feel genuine to your vision. The moody architecture and warm lighting work year-round, while our Latin-inspired catering adapts to seasonal flavors and celebrations.
+
+> Planning a holiday event near Arvada? Explore seasonal options:
+>
+> - [Holiday Parties — Westminster](/seasonal/holiday/)
+> - [Holiday Parties — Arvada](/seasonal/holiday/arvada/)
 
 ## Private Celebrations, Authentic Moments
 

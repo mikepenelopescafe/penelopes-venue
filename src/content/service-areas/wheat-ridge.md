@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Wheat Ridge | Penelope's"
 description: "Planning an event in Wheat Ridge, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Wheat Ridge", "Wheat Ridge wedding venue", "intimate event space Wheat Ridge CO", "moody venue near Wheat Ridge", "50-100 guest venue Wheat Ridge", "Westminster venue serving Wheat Ridge"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Wheat Ridge with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Wheat Ridge", "Wheat Ridge wedding venue", "intimate event space Wheat Ridge CO", "moody venue near Wheat Ridge", "50-100 guest venue Wheat Ridge", "Westminster venue serving Wheat Ridge"]
+customerProblem: "Looking for an intimate boutique venue near Wheat Ridge with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Wheat Ridge"
 state: "CO"
 region: "Denver Metro"
@@ -23,6 +23,12 @@ localInfo:
     fromLakewood: "About 5 minutes via US-6"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.wheatridgebiz.com/wp-content/uploads/2019/03/2020_Slides2013_6-e1554007124538.jpg"
+  alt: "Wheat Ridge business district streetscape showcasing local shops, community life, and small‑town charm"
+  attribution: "Wheat Ridge Business Association"
+  sourceUrl: "https://www.wheatridgebiz.com/"
+  caption: "Wheat Ridge business district representing local small businesses and community spirit"
 businessSchema:
   name: "Penelope's Venue – Serving Wheat Ridge"
   address:
@@ -37,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Wheat Ridge
+# Boutique Events Near Wheat Ridge
 
-Planning your celebration in Wheat Ridge? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Wheat Ridge? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Wheat Ridge Loves Penelope's
 

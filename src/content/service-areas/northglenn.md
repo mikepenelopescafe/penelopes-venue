@@ -23,6 +23,12 @@ localInfo:
     fromThornton: "About 5 minutes via E-470"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.uncovercolorado.com/wp-content/uploads/2022/04/Northglenn-City-Hall-CO-Top-1600x800-1.jpg"
+  alt: "Northglenn City Hall municipal building showcasing community pride and modern public architecture in Colorado"
+  attribution: "Uncover Colorado"
+  sourceUrl: "https://www.uncovercolorado.com/"
+  caption: "Northglenn City Hall representing municipal pride and community spirit"
 businessSchema:
   name: "Penelope's Venue – Serving Northglenn"
   address:

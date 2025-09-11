@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Broomfield | Penelope's"
 description: "Planning an event in Broomfield, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Broomfield", "Broomfield wedding venue", "intimate event space Broomfield CO", "moody venue near Broomfield", "50-100 guest venue Broomfield", "Westminster venue serving Broomfield"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Broomfield with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Broomfield", "Broomfield wedding venue", "intimate event space Broomfield CO", "moody venue near Broomfield", "50-100 guest venue Broomfield", "Westminster venue serving Broomfield"]
+customerProblem: "Looking for an intimate boutique venue near Broomfield with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Broomfield"
 state: "CO"
 region: "Denver Metro"
@@ -43,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Broomfield
+# Boutique Events Near Broomfield
 
-Planning your celebration in Broomfield? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Broomfield? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Broomfield Loves Penelope's
 
@@ -76,6 +76,11 @@ Professional doesn't mean boring. Our Spanish-inspired space brings warmth and c
 Every season brings new possibilities for authentic celebrations. Our Spanish-inspired venue adapts beautifully — warm candlelit gatherings in winter, fresh garden-party vibes in spring, intimate summer soirées, and rich autumnal celebrations that feel both timeless and current.
 
 From holiday parties that blend traditional warmth with modern style to milestone birthdays that celebrate in intimate elegance, we create seasonal moments that feel genuine to your vision. The moody architecture and warm lighting work year-round, while our Latin-inspired catering adapts to seasonal flavors and celebrations.
+
+> Planning a holiday event near Broomfield? Explore seasonal options:
+>
+> - [Holiday Parties — Westminster](/seasonal/holiday/)
+> - [Holiday Parties — Broomfield](/seasonal/holiday/broomfield/)
 
 ## Private Celebrations, Authentic Moments
 

@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Englewood | Penelope's"
 description: "Planning an event in Englewood, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Englewood", "Englewood wedding venue", "intimate event space Englewood CO", "moody venue near Englewood", "50-100 guest venue Englewood", "Westminster venue serving Englewood"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Englewood with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Englewood", "Englewood wedding venue", "intimate event space Englewood CO", "moody venue near Englewood", "50-100 guest venue Englewood", "Westminster venue serving Englewood"]
+customerProblem: "Looking for an intimate boutique venue near Englewood with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Englewood"
 state: "CO"
 region: "Denver Metro"
@@ -23,6 +23,12 @@ localInfo:
     fromAurora: "About 10 minutes via I-25"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://www.englewoodco.gov/home/showpublishedimage/9849/638786801540630000"
+  alt: "Englewood, Colorado cityscape and historic downtown area showcasing local architecture and community landmarks"
+  attribution: "City of Englewood"
+  sourceUrl: "https://www.englewoodco.gov/"
+  caption: "Englewood, Colorado representing the historic downtown and vibrant community spirit"
 businessSchema:
   name: "Penelope's Venue – Serving Englewood"
   address:
@@ -37,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Englewood
+# Boutique Events Near Englewood
 
-Planning your celebration in Englewood? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Englewood? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Englewood Loves Penelope's
 

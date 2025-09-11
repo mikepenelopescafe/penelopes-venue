@@ -58,6 +58,37 @@ const pages = defineCollection({
       'catering-options',
       'planning-tips'
     ]).optional(),
+    // Seasonal/location fields for scalable local SEO landing pages
+    season: z.enum(['holiday', 'winter', 'spring', 'summer', 'fall']).optional(),
+    holidayTypes: z.array(z.string().min(1).trim()).max(6).optional(),
+    city: z.string().trim().optional(),
+    citySlug: z.string().regex(/^[a-z0-9-]+$/, 'City slug should be URL friendly').toLowerCase().optional(),
+    state: z.string().length(2, 'State should be 2-letter code').toUpperCase().optional(),
+    distanceMiles: z.number().min(0).max(100).optional(),
+    driveTimeMinutes: z.number().min(0).max(240).optional(),
+    directions: z.object({
+      fromCityCenter: z.string().max(160).optional(),
+    }).optional(),
+    neighborhoodsServed: z.array(z.string().min(1).trim()).max(10).optional(),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    businessSchema: z.object({
+      name: z.string()
+        .min(1, 'Business name is required')
+        .trim(),
+      address: z.object({
+        street: z.string().trim().optional(),
+        city: z.string().min(1, 'City is required').trim(),
+        state: z.string().length(2, 'State should be 2-letter code').toUpperCase(),
+        zipCode: z.string()
+          .regex(/^\d{5}(-\d{4})?$/, 'Zip code should be valid format')
+          .optional(),
+      }),
+      phone: z.string()
+        .regex(/^[\+]?[\d\s\-\(\)]{10,20}$/, 'Phone number should be valid (10-20 characters including digits, spaces, dashes, parentheses)')
+        .optional(),
+      email: z.string().email('Email should be valid').optional(),
+      website: z.string().url('Website should be valid URL').optional(),
+    }).optional(),
     relatedServices: z.array(z.string()).optional(),
     relatedLocations: z.array(z.string()).optional(),
   }),

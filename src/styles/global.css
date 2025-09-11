@@ -680,6 +680,37 @@ header.sticky,
   margin-bottom: 0.75rem;
 }
 
+/* Seasonal page content spacing improvements */
+.prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--primary);
+  background: var(--muted);
+  border-radius: 0.5rem;
+}
+
+.prose iframe {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.prose hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background: var(--border);
+}
+
 .service-content .prose h1,
 .service-content .prose h2,
 .service-content .prose h3 {

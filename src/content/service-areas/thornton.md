@@ -1,8 +1,8 @@
 ---
 title: "Spanish Venue Serving Thornton | Penelope's"
 description: "Planning an event in Thornton, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
-keywords: ["Spanish-inspired venue Thornton", "Thornton wedding venue", "intimate event space Thornton CO", "moody venue near Thornton", "50-100 guest venue Thornton", "Westminster venue serving Thornton"]
-customerProblem: "Looking for an intimate Spanish-inspired venue near Thornton with authentic atmosphere and modern execution for 50-100 guests?"
+keywords: ["Boutique venue Thornton", "Thornton wedding venue", "intimate event space Thornton CO", "moody venue near Thornton", "50-100 guest venue Thornton", "Westminster venue serving Thornton"]
+customerProblem: "Looking for an intimate boutique venue near Thornton with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Thornton"
 state: "CO"
 region: "Denver Metro"
@@ -23,6 +23,12 @@ localInfo:
     fromBoulder: "About 30 minutes via US-36 and I-76"
     parking: "Easy on-site parking with quick access for guests"
 localTestimonials: []
+heroImage:
+  src: "https://5280fire.com/wp-content/uploads/2022/05/IMG_2024.jpg"
+  alt: "Vibrant fire department celebration and community event in Thornton, Colorado showcasing local pride and festivities"
+  attribution: "5280 Fire"
+  sourceUrl: "https://5280fire.com/"
+  caption: "Thornton fire department community celebration representing local pride and civic spirit"
 businessSchema:
   name: "Penelope's Venue – Serving Thornton"
   address:
@@ -37,9 +43,9 @@ priority: "secondary"
 featured: false
 ---
 
-# Spanish-Inspired Events Near Thornton
+# Boutique Events Near Thornton
 
-Planning your celebration in Thornton? Our Westminster venue brings moody Spanish architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
+Planning your celebration in Thornton? Our Westminster boutique venue brings moody architecture and warm intimacy to your special moments. Authentic atmosphere meets modern execution — your vision, our space.
 
 ## Why Thornton Loves Penelope's
 
@@ -70,6 +76,11 @@ Professional doesn't mean boring. Our Spanish-inspired space brings warmth and c
 Every season brings new possibilities for authentic celebrations. Our Spanish-inspired venue adapts beautifully — warm candlelit gatherings in winter, fresh garden-party vibes in spring, intimate summer soirées, and rich autumnal celebrations that feel both timeless and current.
 
 From holiday parties that blend traditional warmth with modern style to milestone birthdays that celebrate in intimate elegance, we create seasonal moments that feel genuine to your vision. The moody architecture and warm lighting work year-round, while our Latin-inspired catering adapts to seasonal flavors and celebrations.
+
+> Planning a holiday event near Thornton? Explore seasonal options:
+>
+> - [Holiday Parties — Westminster](/seasonal/holiday/)
+> - [Holiday Parties — Thornton](/seasonal/holiday/thornton/)
 
 ## Private Celebrations, Authentic Moments
 
