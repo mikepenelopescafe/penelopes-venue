@@ -92,9 +92,30 @@ Milestone birthdays, bridal showers, graduations — your personal celebrations 
 - **Flexible Spanish charm**: Our moody architecture adapts to your vision while maintaining authentic atmosphere.
 - **Latin-inspired hospitality**: Curated menus and professional service that feels warm, not formal.
 
+## Budget & Value
+
+Beautiful doesn’t have to be complicated. See how our pricing keeps things clean and realistic without sacrificing style.
+
+- [Affordable Wedding Venue — Denver](/budget-focused/affordable-wedding-venue-denver)
+
+## Capacity Guidance
+
+Find your sweet spot. Explore layouts, sample timelines, and tips for each size:
+
+- [50 Person Wedding Venue — Denver](/venue/capacity/50-person-wedding-venue-denver)
+- [60 Guests Wedding Venue — Denver](/venue/capacity/60-guests-wedding-venue-denver)
+- [75 Guest Wedding Venue — Denver](/venue/capacity/75-guest-wedding-venue-denver)
+- [100 Person Wedding Venue — Denver](/venue/capacity/100-person-wedding-venue-denver)
+
 ## Effortless Access from Denver
 
 Your guests will love the convenient drive from Denver via I-76 and Federal Boulevard. No complicated navigation — just straightforward routes to our Westminster location with plenty of on-site parking.
+
+## FAQs
+
+- Do you have parking? Yes — free, on-site, steps from the door.
+- Can we bring our own dessert? Yes. No cake cutting fees.
+- What’s the guest sweet spot? 50–100 guests.
 
 ## What Denver Clients Say
 

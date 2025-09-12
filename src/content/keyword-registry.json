@@ -27,6 +27,14 @@
     "dimension": "feature"
   },
   {
+    "id": "budget-focused/index",
+    "collection": "pages",
+    "url": "/budget-focused",
+    "primaryKeyword": "budget wedding venues denver",
+    "intent": "commercial",
+    "dimension": "feature"
+  },
+  {
     "id": "budget-focused/wedding-venue-under-5000-denver",
     "collection": "pages",
     "url": "/budget-focused/wedding-venue-under-5000-denver",
@@ -35,6 +43,54 @@
     "dimension": "feature",
     "citySlug": "denver",
     "canonicalOf": "/budget-focused/affordable-wedding-venue-denver"
+  },
+  {
+    "id": "events/anniversary-party-venue-denver",
+    "collection": "pages",
+    "url": "/events/anniversary-party-venue-denver",
+    "primaryKeyword": "anniversary party venue denver",
+    "intent": "commercial",
+    "dimension": "occasion"
+  },
+  {
+    "id": "events/birthday-party-venue-denver",
+    "collection": "pages",
+    "url": "/events/birthday-party-venue-denver",
+    "primaryKeyword": "birthday party venue denver",
+    "intent": "commercial",
+    "dimension": "occasion"
+  },
+  {
+    "id": "events/corporate-event-venue-denver",
+    "collection": "pages",
+    "url": "/events/corporate-event-venue-denver",
+    "primaryKeyword": "corporate event venue denver",
+    "intent": "commercial",
+    "dimension": "occasion"
+  },
+  {
+    "id": "events/elopement-reception-denver",
+    "collection": "pages",
+    "url": "/events/elopement-reception-denver",
+    "primaryKeyword": "elopement reception venue denver",
+    "intent": "commercial",
+    "dimension": "occasion"
+  },
+  {
+    "id": "events/private-party-venue-denver",
+    "collection": "pages",
+    "url": "/events/private-party-venue-denver",
+    "primaryKeyword": "private party venue denver",
+    "intent": "commercial",
+    "dimension": "occasion"
+  },
+  {
+    "id": "events/reception-hall-denver",
+    "collection": "pages",
+    "url": "/events/reception-hall-denver",
+    "primaryKeyword": "denver wedding reception hall",
+    "intent": "commercial",
+    "dimension": "occasion"
   },
   {
     "id": "index",
@@ -293,6 +349,15 @@
     "intent": "commercial",
     "dimension": "city",
     "citySlug": "thornton"
+  },
+  {
+    "id": "westminster",
+    "collection": "service-areas",
+    "url": "/service-areas/westminster",
+    "primaryKeyword": "wedding venue westminster co",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "westminster"
   },
   {
     "id": "wheat-ridge",

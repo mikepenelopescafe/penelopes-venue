@@ -99,7 +99,12 @@ function validate(registry) {
   for (const r of registry) {
     const intent = r.intent || '';
     const dimension = r.dimension || '';
-    const scope = r.citySlug || r.season || '';
+    // Scope governance: prefer explicit locality/season. For occasion (or other non-local dims),
+    // fall back to primaryKeyword so distinct event types don't collide.
+    const derivedScope = (dimension === 'occasion' || dimension === 'feature' || dimension === 'style' || dimension === 'capacity')
+      ? (r.citySlug || r.season || r.primaryKeyword || '')
+      : (r.citySlug || r.season || '');
+    const scope = derivedScope;
     const comboKey = [intent, dimension, scope].join('|');
     if (comboKey.replace(/\|/g, '').length === 0) continue;
     if (r.canonicalOf) continue;

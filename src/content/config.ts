@@ -76,6 +76,26 @@ const pages = defineCollection({
     }).optional(),
     neighborhoodsServed: z.array(z.string().min(1).trim()).max(10).optional(),
     faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+    breadcrumbs: z.array(z.object({
+      name: z.string(),
+      url: z.string(),
+    })).optional(),
+    offers: z.array(z.object({
+      name: z.string(),
+      description: z.string().optional(),
+      guests: z.number().min(1).max(300).optional(),
+      priceFrom: z.number().optional(),
+      priceCurrency: z.string().optional(),
+    })).optional(),
+    howTo: z.object({
+      name: z.string(),
+      description: z.string().optional(),
+      steps: z.array(z.object({ title: z.string(), text: z.string() })),
+    }).optional(),
+    itemList: z.array(z.object({
+      name: z.string(),
+      url: z.string(),
+    })).optional(),
     businessSchema: z.object({
       name: z.string()
         .min(1, 'Business name is required')
