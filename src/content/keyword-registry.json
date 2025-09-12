@@ -5,7 +5,36 @@
     "url": "/budget-focused/affordable-wedding-venue-denver",
     "primaryKeyword": "affordable wedding venue denver",
     "intent": "commercial",
+    "dimension": "feature",
+    "citySlug": "denver"
+  },
+  {
+    "id": "budget-focused/cheap-wedding-venues-denver",
+    "collection": "pages",
+    "url": "/budget-focused/cheap-wedding-venues-denver",
+    "primaryKeyword": "cheap wedding venues denver",
+    "intent": "commercial",
+    "dimension": "feature",
+    "citySlug": "denver",
+    "canonicalOf": "/budget-focused/affordable-wedding-venue-denver"
+  },
+  {
+    "id": "budget-focused/colorado-wedding-venues-on-budget",
+    "collection": "pages",
+    "url": "/budget-focused/colorado-wedding-venues-on-budget",
+    "primaryKeyword": "colorado wedding venues on a budget",
+    "intent": "commercial",
     "dimension": "feature"
+  },
+  {
+    "id": "budget-focused/wedding-venue-under-5000-denver",
+    "collection": "pages",
+    "url": "/budget-focused/wedding-venue-under-5000-denver",
+    "primaryKeyword": "wedding venue under 5000 denver",
+    "intent": "commercial",
+    "dimension": "feature",
+    "citySlug": "denver",
+    "canonicalOf": "/budget-focused/affordable-wedding-venue-denver"
   },
   {
     "id": "index",
@@ -93,6 +122,54 @@
     "season": "holiday"
   },
   {
+    "id": "venue/capacity/100-person-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/venue/capacity/100-person-wedding-venue-denver",
+    "primaryKeyword": "100 person wedding venue denver",
+    "intent": "commercial",
+    "dimension": "capacity",
+    "citySlug": "denver",
+    "canonicalOf": "/venue/capacity/75-guest-wedding-venue-denver"
+  },
+  {
+    "id": "venue/capacity/50-person-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/venue/capacity/50-person-wedding-venue-denver",
+    "primaryKeyword": "50 person wedding venue denver",
+    "intent": "commercial",
+    "dimension": "capacity",
+    "citySlug": "denver",
+    "canonicalOf": "/venue/capacity/75-guest-wedding-venue-denver"
+  },
+  {
+    "id": "venue/capacity/60-guests-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/venue/capacity/60-guests-wedding-venue-denver",
+    "primaryKeyword": "wedding venue for 60 guests denver",
+    "intent": "commercial",
+    "dimension": "capacity",
+    "citySlug": "denver",
+    "canonicalOf": "/venue/capacity/75-guest-wedding-venue-denver"
+  },
+  {
+    "id": "venue/capacity/75-guest-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/venue/capacity/75-guest-wedding-venue-denver",
+    "primaryKeyword": "75 guest wedding venue denver",
+    "intent": "commercial",
+    "dimension": "capacity",
+    "citySlug": "denver"
+  },
+  {
+    "id": "venue-types/hacienda-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/venue-types/hacienda-wedding-venue-denver",
+    "primaryKeyword": "hacienda wedding venue denver",
+    "intent": "commercial",
+    "dimension": "style",
+    "citySlug": "denver"
+  },
+  {
     "id": "venue-types/intimate-wedding-venue-denver",
     "collection": "pages",
     "url": "/venue-types/intimate-wedding-venue-denver",
@@ -110,12 +187,22 @@
     "citySlug": "denver"
   },
   {
+    "id": "venue-types/spanish-style-wedding-venue-colorado",
+    "collection": "pages",
+    "url": "/venue-types/spanish-style-wedding-venue-colorado",
+    "primaryKeyword": "spanish style wedding venue colorado",
+    "intent": "commercial",
+    "dimension": "style",
+    "canonicalOf": "/venue-types/spanish-wedding-venue"
+  },
+  {
     "id": "venue-types/spanish-wedding-venue",
     "collection": "pages",
     "url": "/venue-types/spanish-wedding-venue",
     "primaryKeyword": "spanish wedding venue denver",
     "intent": "commercial",
-    "dimension": "style"
+    "dimension": "style",
+    "citySlug": "westminster"
   },
   {
     "id": "arvada",

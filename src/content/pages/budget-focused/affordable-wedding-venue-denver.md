@@ -16,6 +16,7 @@ hero:
 relatedServices: ["micro-wedding", "elopement", "wedding"]
 relatedLocations: ["arvada"]
 featured: true
+citySlug: "denver"
 ---
 
 # Looking for an Affordable Wedding Venue in Denver? Stop Stressing About Your Budget

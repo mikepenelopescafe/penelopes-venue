@@ -7,6 +7,7 @@ intent: "commercial"
 dimension: "style"
 template: "keyword"
 keywordCategory: "venue-types"
+citySlug: "westminster"
 hero:
   headline: "Spanish-Inspired Wedding Venue in Westminster"
   subheadline: "Moody architecture, warm lighting, intimate scale — authentically Spanish, never overdone"
@@ -29,7 +30,7 @@ Spanish architectural bones. Warm, moody lighting. Rich textures with modern lin
 
 - Terracotta tones and dark wood details set the mood
 - Ambient light and candle-style glow keep things warm, not harsh
-- Courtyard-style flow that makes ceremony to reception effortless
+- Seamless indoor flow from ceremony to reception
 
 ## Capacity & Flow
 
