@@ -1,6 +1,9 @@
 ---
 title: "Spanish Venue Serving Broomfield | Penelope's"
 description: "Planning an event in Broomfield, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
+primaryKeyword: "wedding venue broomfield"
+intent: "commercial"
+dimension: "city"
 keywords: ["Boutique venue Broomfield", "Broomfield wedding venue", "intimate event space Broomfield CO", "moody venue near Broomfield", "50-100 guest venue Broomfield", "Westminster venue serving Broomfield"]
 customerProblem: "Looking for an intimate boutique venue near Broomfield with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Broomfield"

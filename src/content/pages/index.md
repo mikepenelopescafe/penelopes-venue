@@ -3,6 +3,9 @@ title: "Penelope's Venue - Casual, Moody, Eclectic"
 description: "Penelope's Venue: Spanish-inspired character, beautiful gardens for weddings and events. Clean packages make planning your special occasion stress-free."
 keywords: ["wedding venue", "event venue", "outdoor wedding", "garden venue", "event space rental"]
 template: "landing"
+primaryKeyword: "penelopes venue"
+intent: "navigational"
+dimension: "style"
 hero:
   headline: "Spanish‑Inspired. Moody. Yours."
   subheadline: "Make it feel like you — without the fuss."

@@ -44,11 +44,17 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
           Venue Pricing & Packages in Westminster, CO
         </h1>
         <p class="text-xl text-white/90 max-w-4xl mx-auto">Spanish‑inspired. Intimate. All yours. Moody architecture meets modern execution.</p>
+        <div class="mt-6 flex flex-wrap gap-3 justify-center text-sm">
+          <a href="#pricing" class="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20">Pricing</a>
+          <a href="#layout" class="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20">Layout</a>
+          <a href="#features" class="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20">Features</a>
+          <a href="#inclusions" class="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 text-white border border-white/20">Inclusions</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 px-6 bg-white">
+  <section id="pricing" class="py-20 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-5xl mb-4" style="font-family: 'Brush Script MT', cursive; color: #000; font-weight: normal;">
@@ -140,15 +146,15 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
           </div>
 
           <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="/contact" class="btn-primary-lg">See the Space</a>
-            <a href="/contact#tour" class="btn-outline-lg">Let's Connect</a>
+            <a href="#pricing" class="btn-primary-lg">See Pricing</a>
+            <a href="/service-areas/" class="btn-outline-lg">Near You</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 px-6 bg-card/30">
+  <section id="inclusions" class="py-20 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-10">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Special Dates & Inclusions</Badge>
@@ -187,7 +193,7 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
   </section>
 
   <!-- Spanish-Inspired Venue Features -->
-  <section class="py-20 px-6 bg-white">
+  <section id="features" class="py-20 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Venue Features</Badge>
@@ -261,7 +267,7 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
   </section>
 
   <!-- Venue Layout & Capacity -->
-  <section class="py-20 px-6 bg-card/30">
+  <section id="layout" class="py-20 px-6 bg-card/30">
     <div class="max-w-6xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
@@ -301,7 +307,7 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
   </section>
 
   <!-- Westminster Event Venue SEO Content -->
-  <section class="py-20 px-6 bg-white">
+  <section id="about" class="py-20 px-6 bg-white">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-display mb-4">Westminster's Premier Spanish-Inspired Event Venue</h2>
@@ -334,8 +340,9 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-display mb-4">Ready to make it yours?</h2>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact#tour" class="btn-primary-lg">See the Space</a>
-        <a href="/catering" class="btn-outline-lg">Explore Catering</a>
+        <a href="#pricing" class="btn-primary-lg">Pricing</a>
+        <a href="#layout" class="btn-outline-lg">Layout</a>
+        <a href="#features" class="btn-outline-lg">Features</a>
       </div>
     </div>
   </section>

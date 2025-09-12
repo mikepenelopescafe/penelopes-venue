@@ -1,0 +1,219 @@
+[
+  {
+    "id": "budget-focused/affordable-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/budget-focused/affordable-wedding-venue-denver",
+    "primaryKeyword": "affordable wedding venue denver",
+    "intent": "commercial",
+    "dimension": "feature"
+  },
+  {
+    "id": "index",
+    "collection": "pages",
+    "url": "/",
+    "primaryKeyword": "penelopes venue",
+    "intent": "navigational",
+    "dimension": "style"
+  },
+  {
+    "id": "seasonal/christmas/index",
+    "collection": "pages",
+    "url": "/seasonal/christmas",
+    "primaryKeyword": "christmas party venue westminster",
+    "intent": "commercial",
+    "dimension": "season",
+    "citySlug": "westminster",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/holiday/arvada",
+    "collection": "pages",
+    "url": "/seasonal/holiday/arvada",
+    "primaryKeyword": "holiday party venue arvada",
+    "intent": "commercial",
+    "dimension": "season",
+    "citySlug": "arvada",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/holiday/broomfield",
+    "collection": "pages",
+    "url": "/seasonal/holiday/broomfield",
+    "primaryKeyword": "holiday party venue broomfield",
+    "intent": "commercial",
+    "dimension": "season",
+    "citySlug": "broomfield",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/holiday/denver",
+    "collection": "pages",
+    "url": "/seasonal/holiday/denver",
+    "primaryKeyword": "holiday party venue denver",
+    "intent": "commercial",
+    "dimension": "season",
+    "citySlug": "denver",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/holiday/index",
+    "collection": "pages",
+    "url": "/seasonal/holiday",
+    "citySlug": "westminster",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/holiday/lakewood",
+    "collection": "pages",
+    "url": "/seasonal/holiday/lakewood",
+    "primaryKeyword": "holiday party venue lakewood",
+    "intent": "commercial",
+    "dimension": "season",
+    "citySlug": "lakewood",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/holiday/thornton",
+    "collection": "pages",
+    "url": "/seasonal/holiday/thornton",
+    "primaryKeyword": "holiday party venue thornton",
+    "intent": "commercial",
+    "dimension": "season",
+    "citySlug": "thornton",
+    "season": "holiday"
+  },
+  {
+    "id": "seasonal/new-years/index",
+    "collection": "pages",
+    "url": "/seasonal/new-years",
+    "primaryKeyword": "new years eve venue westminster",
+    "intent": "commercial",
+    "dimension": "occasion",
+    "citySlug": "westminster",
+    "season": "holiday"
+  },
+  {
+    "id": "venue-types/intimate-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/venue-types/intimate-wedding-venue-denver",
+    "primaryKeyword": "intimate wedding venue denver",
+    "intent": "commercial",
+    "dimension": "capacity"
+  },
+  {
+    "id": "venue-types/micro-wedding-venue",
+    "collection": "pages",
+    "url": "/venue-types/micro-wedding-venue",
+    "primaryKeyword": "micro wedding venue denver",
+    "intent": "commercial",
+    "dimension": "occasion",
+    "citySlug": "denver"
+  },
+  {
+    "id": "venue-types/spanish-wedding-venue",
+    "collection": "pages",
+    "url": "/venue-types/spanish-wedding-venue",
+    "primaryKeyword": "spanish wedding venue denver",
+    "intent": "commercial",
+    "dimension": "style"
+  },
+  {
+    "id": "arvada",
+    "collection": "service-areas",
+    "url": "/service-areas/arvada",
+    "primaryKeyword": "wedding venue arvada",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "arvada"
+  },
+  {
+    "id": "aurora",
+    "collection": "service-areas",
+    "url": "/service-areas/aurora",
+    "primaryKeyword": "wedding venue aurora",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "aurora"
+  },
+  {
+    "id": "broomfield",
+    "collection": "service-areas",
+    "url": "/service-areas/broomfield",
+    "primaryKeyword": "wedding venue broomfield",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "broomfield"
+  },
+  {
+    "id": "commerce-city",
+    "collection": "service-areas",
+    "url": "/service-areas/commerce-city",
+    "primaryKeyword": "wedding venue commerce city",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "commerce-city"
+  },
+  {
+    "id": "denver",
+    "collection": "service-areas",
+    "url": "/service-areas/denver",
+    "primaryKeyword": "wedding venue denver",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "denver"
+  },
+  {
+    "id": "englewood",
+    "collection": "service-areas",
+    "url": "/service-areas/englewood",
+    "primaryKeyword": "wedding venue englewood",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "englewood"
+  },
+  {
+    "id": "lakewood",
+    "collection": "service-areas",
+    "url": "/service-areas/lakewood",
+    "primaryKeyword": "wedding venue lakewood",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "lakewood"
+  },
+  {
+    "id": "littleton",
+    "collection": "service-areas",
+    "url": "/service-areas/littleton",
+    "primaryKeyword": "wedding venue littleton",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "littleton"
+  },
+  {
+    "id": "northglenn",
+    "collection": "service-areas",
+    "url": "/service-areas/northglenn",
+    "primaryKeyword": "wedding venue northglenn",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "northglenn"
+  },
+  {
+    "id": "thornton",
+    "collection": "service-areas",
+    "url": "/service-areas/thornton",
+    "primaryKeyword": "wedding venue thornton",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "thornton"
+  },
+  {
+    "id": "wheat-ridge",
+    "collection": "service-areas",
+    "url": "/service-areas/wheat-ridge",
+    "primaryKeyword": "wedding venue wheat ridge",
+    "intent": "commercial",
+    "dimension": "city",
+    "citySlug": "wheat-ridge"
+  }
+]

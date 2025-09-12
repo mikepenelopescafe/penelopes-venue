@@ -4,6 +4,9 @@ description: "Holiday party venue near Arvada, CO. Spanish-inspired, intimate sp
 keywords: ["holiday party venue Arvada", "Christmas party venue near Arvada", "New Year's Eve venue Arvada"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "holiday party venue arvada"
+intent: "commercial"
+dimension: "season"
 
 season: "holiday"
 holidayTypes: ["Christmas", "New Year's Eve"]

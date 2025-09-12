@@ -1,5 +1,8 @@
 ---
 title: "Spanish Venue Serving Aurora | Penelope's"
+primaryKeyword: "wedding venue aurora"
+intent: "commercial"
+dimension: "city"
 description: "Planning an event in Aurora, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
 keywords: ["Boutique venue Aurora", "Aurora wedding venue", "intimate event space Aurora CO", "moody venue near Aurora", "50-100 guest venue Aurora", "Westminster venue serving Aurora"]
 customerProblem: "Looking for an intimate boutique venue near Aurora with authentic atmosphere and modern execution for 50-100 guests?"

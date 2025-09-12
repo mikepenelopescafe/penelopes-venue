@@ -3,6 +3,9 @@ title: "Intimate Wedding Venue Denver - Small Wedding Spaces CO"
 description: "Looking for an intimate wedding venue in Denver? Discover beautiful small wedding spaces perfect for 20-50 guests with garden ceremonies."
 keywords: ["intimate wedding venue Denver", "small wedding venue Colorado", "micro wedding Denver", "intimate celebration space", "small wedding locations Denver"]
 customerProblem: "Want an intimate wedding venue in Denver that feels personal, not like a big impersonal ballroom?"
+primaryKeyword: "intimate wedding venue denver"
+intent: "commercial"
+dimension: "capacity"
 template: "keyword"
 keywordCategory: "venue-types"
 hero:

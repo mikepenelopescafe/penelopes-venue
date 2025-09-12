@@ -4,6 +4,9 @@ description: "New Year's Eve venue in Westminster, CO with Spanish-inspired warm
 keywords: ["New Year's Eve venue Westminster", "NYE party venue Westminster", "holiday party venue Westminster"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "new years eve venue westminster"
+intent: "commercial"
+dimension: "occasion"
 lastmod: "2024-12-11"
 
 season: "holiday"

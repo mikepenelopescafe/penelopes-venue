@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import { getCollection } from 'astro:content';
 import Navigation from '@/components/Navigation.astro';
 import PromoBanner from '@/components/PromoBanner.astro';
 import Footer from '@/components/Footer.astro';
@@ -32,6 +33,76 @@ const {
 
 const siteUrl = Astro.site || 'https://penelopesboutiquevenue.com';
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+
+// Compute AggregateRating and limited Review items from testimonials
+let testimonialsMarkdown = [] as Array<{ author: string; body?: string; rating: number }>;
+let testimonialsJson = [] as Array<{ author: string; body?: string; rating: number }>;
+
+try {
+  const mdEntries = await getCollection('testimonials');
+  testimonialsMarkdown = mdEntries.map((t) => ({
+    author: t.data.clientName,
+    body: t.data.highlight,
+    rating: t.data.rating,
+  }));
+} catch (_) {}
+
+try {
+  const jsonEntries = await getCollection('testimonialsFile');
+  testimonialsJson = jsonEntries.map((t) => ({
+    author: t.data.author,
+    body: t.data.quote,
+    rating: t.data.rating,
+  }));
+} catch (_) {}
+
+const allReviews = [...testimonialsMarkdown, ...testimonialsJson].filter((r) => typeof r.rating === 'number');
+const reviewCount = allReviews.length;
+const ratingValue = reviewCount
+  ? Number((allReviews.reduce((sum, r) => sum + (r.rating || 0), 0) / reviewCount).toFixed(1))
+  : undefined;
+
+const venueSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'EventVenue',
+  '@id': new URL('#venue', siteUrl).href,
+  name: "Penelope's Boutique Venue",
+  description,
+  url: siteUrl,
+  telephone: '+1-720-639-2406',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '8050 Federal Blvd',
+    addressLocality: 'Westminster',
+    addressRegion: 'CO',
+    postalCode: '80031',
+    addressCountry: 'US',
+  },
+  image: new URL(ogImage, siteUrl).href,
+  priceRange: '$$-$$$',
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: 'In-house Catering' },
+    { '@type': 'LocationFeatureSpecification', name: 'Full Bar' },
+    { '@type': 'LocationFeatureSpecification', name: 'Event Planning Services' },
+    { '@type': 'LocationFeatureSpecification', name: 'Parking' },
+  ],
+  areaServed: ['Westminster', 'Denver Metro', 'Arvada', 'Thornton', 'Northglenn'],
+};
+
+if (ratingValue && reviewCount) {
+  (venueSchema as any).aggregateRating = {
+    '@type': 'AggregateRating',
+    ratingValue,
+    reviewCount,
+  };
+  // Include up to 3 recent-looking reviews for rich snippets without bloating
+  (venueSchema as any).review = allReviews.slice(0, 3).map((r) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.author },
+    reviewBody: r.body,
+    reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+  }));
+}
 ---
 
 
@@ -252,10 +323,14 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ5ECQE84Q"></script>
 <script>
+  // @ts-ignore - GA global shim
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  // @ts-ignore - GA global shim
+  function gtag(){ window.dataLayer.push(arguments); }
+  // @ts-ignore - GA invocation
   gtag('js', new Date());
 
+  // @ts-ignore - GA config
   gtag('config', 'G-FJ5ECQE84Q');
 </script>
   </head>

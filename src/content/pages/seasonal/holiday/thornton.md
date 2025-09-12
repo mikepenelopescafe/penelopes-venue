@@ -4,6 +4,9 @@ description: "Holiday party venue near Thornton, CO. Spanish-inspired, intimate 
 keywords: ["holiday party venue Thornton", "Christmas party venue near Thornton", "New Year's Eve venue Thornton"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "holiday party venue thornton"
+intent: "commercial"
+dimension: "season"
 
 season: "holiday"
 holidayTypes: ["Christmas", "New Year's Eve"]

@@ -4,6 +4,9 @@ description: "Holiday party venue near Denver, CO. Spanish-inspired, intimate sp
 keywords: ["holiday party venue Denver", "Christmas party venue near Denver", "New Year's Eve venue Denver"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "holiday party venue denver"
+intent: "commercial"
+dimension: "season"
 
 season: "holiday"
 holidayTypes: ["Christmas", "New Year's Eve"]

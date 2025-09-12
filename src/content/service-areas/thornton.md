@@ -1,6 +1,9 @@
 ---
 title: "Spanish Venue Serving Thornton | Penelope's"
 description: "Planning an event in Thornton, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
+primaryKeyword: "wedding venue thornton"
+intent: "commercial"
+dimension: "city"
 keywords: ["Boutique venue Thornton", "Thornton wedding venue", "intimate event space Thornton CO", "moody venue near Thornton", "50-100 guest venue Thornton", "Westminster venue serving Thornton"]
 customerProblem: "Looking for an intimate boutique venue near Thornton with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Thornton"

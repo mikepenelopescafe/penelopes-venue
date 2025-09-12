@@ -4,6 +4,9 @@ description: "Christmas party venue in Westminster, CO with moody Spanish style.
 keywords: ["Christmas party venue Westminster", "holiday party venue Westminster", "winter party venue Westminster"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "christmas party venue westminster"
+intent: "commercial"
+dimension: "season"
 lastmod: "2024-12-11"
 
 season: "holiday"

@@ -34,6 +34,11 @@ const pages = defineCollection({
   type: 'content',
   schema: z.object({
     ...seoSchema.shape,
+    // Anti-cannibalization governance fields
+    primaryKeyword: z.string().min(1).trim().optional(),
+    intent: z.enum(['navigational','commercial','transactional','informational']).optional(),
+    dimension: z.enum(['city','occasion','capacity','season','feature','style']).optional(),
+    canonicalOf: z.string().trim().optional(),
     template: z.enum(['landing', 'service', 'about', 'contact', 'keyword']).default('landing'),
     hero: z.object({
       headline: z.string(),
@@ -138,6 +143,11 @@ const serviceAreas = defineCollection({
   type: 'content',
   schema: z.object({
     ...seoSchema.shape,
+    // Anti-cannibalization governance fields
+    primaryKeyword: z.string().min(1).trim().optional(),
+    intent: z.enum(['navigational','commercial','transactional','informational']).optional(),
+    dimension: z.enum(['city','occasion','capacity','season','feature','style']).optional(),
+    canonicalOf: z.string().trim().optional(),
     city: z.string()
       .min(1, 'City name is required')
       .trim(),

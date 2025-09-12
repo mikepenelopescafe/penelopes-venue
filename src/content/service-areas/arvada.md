@@ -1,6 +1,9 @@
 ---
 title: "Spanish Venue Serving Arvada | Penelope's"
 description: "Planning an event in Arvada, CO? Our Westminster venue offers moody Spanish architecture and intimate spaces for 50-100 guests. Authentic atmosphere."
+primaryKeyword: "wedding venue arvada"
+intent: "commercial"
+dimension: "city"
 keywords: ["Boutique venue Arvada", "Arvada wedding venue", "intimate event space Arvada CO", "moody venue near Arvada", "50-100 guest venue Arvada", "Westminster venue serving Arvada"]
 customerProblem: "Looking for an intimate boutique venue near Arvada with authentic atmosphere and modern execution for 50-100 guests?"
 city: "Arvada"

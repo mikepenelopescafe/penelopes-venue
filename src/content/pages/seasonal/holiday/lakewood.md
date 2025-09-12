@@ -4,6 +4,9 @@ description: "Holiday party venue near Lakewood, CO. Spanish-inspired, intimate 
 keywords: ["holiday party venue Lakewood", "Christmas party venue near Lakewood", "New Year's Eve venue Lakewood"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "holiday party venue lakewood"
+intent: "commercial"
+dimension: "season"
 
 season: "holiday"
 holidayTypes: ["Christmas", "New Year's Eve"]

@@ -2,6 +2,9 @@
 title: "Affordable Wedding Venue Denver - Budget Venues Colorado"
 description: "Looking for an affordable wedding venue in Denver? Find beautiful budget-friendly venues with packages under $5000, no hidden fees included."
 keywords: ["affordable wedding venue Denver", "budget wedding venues Colorado", "cheap wedding venue Denver", "low cost wedding venue", "budget-friendly wedding Denver"]
+primaryKeyword: "affordable wedding venue denver"
+intent: "commercial"
+dimension: "feature"
 customerProblem: "Need a beautiful wedding venue in Denver that won't break your budget or surprise you with hidden fees?"
 template: "keyword"
 keywordCategory: "budget-focused"

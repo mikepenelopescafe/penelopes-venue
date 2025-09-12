@@ -4,6 +4,9 @@ description: "Holiday party venue near Broomfield, CO. Spanish-inspired, intimat
 keywords: ["holiday party venue Broomfield", "Christmas party venue near Broomfield", "New Year's Eve venue Broomfield"]
 keywordCategory: "seasonal"
 template: "landing"
+primaryKeyword: "holiday party venue broomfield"
+intent: "commercial"
+dimension: "season"
 
 season: "holiday"
 holidayTypes: ["Christmas", "New Year's Eve"]
