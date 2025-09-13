@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+// Get capacity-focused venue pages
+const pages = await getCollection('pages');
+const capacityPages = pages.filter(page => page.slug.startsWith('venue/capacity/') && page.slug !== 'venue/capacity/index');
+
+const seo = {
+  title: "Venue Capacity — 50 to 100 Guests near Denver",
+  description: "Explore intimate venue capacity options near Denver. Find 50, 60, 75, and 100‑guest pages with layouts, tips, and pricing links.",
+  keywords: "50 person wedding venue denver, 75 guest venue, 100 person venue denver, small wedding venue colorado"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <!-- Hero Section -->
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="capacity-hero">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+    <div class="relative max-w-6xl mx-auto text-center min-h-[480px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Capacity</Badge>
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Right‑Sized Spaces for <span class="text-primary">50–100 Guests</span>
+        </h1>
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          Keep it intimate. Explore pages tailored to your guest count—so the night feels personal and effortless.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#capacity-pages" class="btn-primary-lg">Browse Capacity Pages</a>
+          <a href="/venue" class="btn-outline-lg">View Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capacity Pages Grid -->
+  <section id="capacity-pages" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Guest Count</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Capacity Guides</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Compare layouts, seating, and flow for your ideal guest count.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {capacityPages.map(page => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-display text-foreground mb-2">
+                {page.data.title?.split(' | ')[0] || page.slug.replace('venue/capacity/','').replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase())}
+              </CardTitle>
+              <CardDescription className="text-base text-primary font-medium mb-2">
+                Capacity Guide
+              </CardDescription>
+              {page.data.description && (
+                <div class="text-sm text-muted-foreground">
+                  {page.data.description.split('.')[0]}.
+                </div>
+              )}
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div class="pt-4 border-t border-primary/10">
+                <a
+                  href={`/${page.slug}`}
+                  class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  View Details →
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+
+        {capacityPages.length === 0 && (
+          <div class="col-span-full text-center py-12">
+            <p class="text-lg text-muted-foreground">Capacity pages are coming soon.</p>
+            <p class="text-sm text-muted-foreground mt-2">Tell us your guest count and we’ll recommend a layout.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Dial in your headcount</h2>
+      <p class="text-xl mb-8 text-foreground/90">Share your number—50, 75, or 100—and we’ll map the room.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">Start Your Inquiry</a>
+        <a href="/venue" class="btn-outline">See Pricing</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+

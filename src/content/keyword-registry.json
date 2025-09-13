@@ -8,50 +8,10 @@
     "dimension": "feature"
   },
   {
-    "id": "events/anniversary-party-venue-denver",
+    "id": "events/index",
     "collection": "pages",
-    "url": "/events/anniversary-party-venue-denver",
-    "primaryKeyword": "anniversary party venue denver",
-    "intent": "commercial",
-    "dimension": "occasion"
-  },
-  {
-    "id": "events/birthday-party-venue-denver",
-    "collection": "pages",
-    "url": "/events/birthday-party-venue-denver",
-    "primaryKeyword": "birthday party venue denver",
-    "intent": "commercial",
-    "dimension": "occasion"
-  },
-  {
-    "id": "events/corporate-event-venue-denver",
-    "collection": "pages",
-    "url": "/events/corporate-event-venue-denver",
-    "primaryKeyword": "corporate event venue denver",
-    "intent": "commercial",
-    "dimension": "occasion"
-  },
-  {
-    "id": "events/elopement-reception-denver",
-    "collection": "pages",
-    "url": "/events/elopement-reception-denver",
-    "primaryKeyword": "elopement reception venue denver",
-    "intent": "commercial",
-    "dimension": "occasion"
-  },
-  {
-    "id": "events/private-party-venue-denver",
-    "collection": "pages",
-    "url": "/events/private-party-venue-denver",
-    "primaryKeyword": "private party venue denver",
-    "intent": "commercial",
-    "dimension": "occasion"
-  },
-  {
-    "id": "events/reception-hall-denver",
-    "collection": "pages",
-    "url": "/events/reception-hall-denver",
-    "primaryKeyword": "denver wedding reception hall",
+    "url": "/events",
+    "primaryKeyword": "event venues denver",
     "intent": "commercial",
     "dimension": "occasion"
   },
@@ -62,6 +22,15 @@
     "primaryKeyword": "penelopes venue",
     "intent": "navigational",
     "dimension": "style"
+  },
+  {
+    "id": "planning/index",
+    "collection": "pages",
+    "url": "/planning",
+    "primaryKeyword": "event planning denver",
+    "intent": "informational",
+    "dimension": "occasion",
+    "citySlug": "westminster"
   },
   {
     "id": "seasonal/christmas/index",
@@ -138,6 +107,15 @@
     "dimension": "season",
     "citySlug": "thornton",
     "season": "holiday"
+  },
+  {
+    "id": "seasonal/index",
+    "collection": "pages",
+    "url": "/seasonal",
+    "primaryKeyword": "seasonal wedding venue denver",
+    "intent": "informational",
+    "dimension": "season",
+    "citySlug": "westminster"
   },
   {
     "id": "seasonal/new-years/index",

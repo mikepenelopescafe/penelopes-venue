@@ -87,6 +87,6 @@ export default defineConfig({
   output: 'server',
 
   redirects: {
-    '/events': '/services',
+    // '/events': '/services', // Removed - now we have a proper events index page
   },
 });

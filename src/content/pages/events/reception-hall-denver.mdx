@@ -6,7 +6,16 @@ dimension: "occasion"
 description: "Wedding reception hall near Denver with warm Spanish architecture. Reception-first layouts, curated bar, and Latin-inspired menus."
 keywords: ["denver wedding reception hall","reception venue denver","reception space denver"]
 template: "keyword"
+breadcrumbs:
+  - name: "Home"
+    url: "/"
+  - name: "Events"
+    url: "/events/"
+  - name: "Wedding Reception Hall in Denver"
+    url: "/events/reception-hall-denver"
 ---
+
+import PricingSnapshot from '@/components/PricingSnapshot';
 
 # Denver Wedding Reception Hall — Reception‑First Design
 
@@ -15,8 +24,9 @@ Spanish warmth with modern flow. We’re in Westminster—convenient to Denver, 
 ## At a Glance
 - Capacity: 50–100 guests
 - Flow: Cocktail hour → dinner → toasts → dancing
-- Price examples: reception‑only with menu tiers; quotes based on guest count and bar
 - Area served: Denver, Westminster, Arvada, Thornton
+
+<PricingSnapshot showEightHour />
 
 ## Reception‑Forward Layouts
 - Bar placement that supports mingling and dance energy
@@ -39,7 +49,7 @@ On‑site, free parking and straightforward guest arrival. ADA‑friendly layout
   src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
   width="100%"
   height="300"
-  style="border:0"
+  style={{ border: 0 }}
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
   aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
@@ -70,26 +80,34 @@ See the flow in person and get a tailored quote.
 - [Private Party Venue Denver](/events/private-party-venue-denver)
 - [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Can you help with DJ or band placement?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll guide layout for acoustics and dance floor."}},
-    {"@type": "Question", "name": "What is the standard end time?", "acceptedAnswer": {"@type": "Answer", "text": "10:30pm standard; ask about extensions."}},
-    {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and easy."}},
-    {"@type": "Question", "name": "Do you offer ceremony space?", "acceptedAnswer": {"@type": "Answer", "text": "We focus on reception‑first events. Ask about micro‑ceremony add‑ons."}}
-  ]
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Can you help with DJ or band placement?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll guide layout for acoustics and dance floor."}},
+        {"@type": "Question", "name": "What is the standard end time?", "acceptedAnswer": {"@type": "Answer", "text": "10:30pm standard; ask about extensions."}},
+        {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and easy."}},
+        {"@type": "Question", "name": "Do you offer ceremony space?", "acceptedAnswer": {"@type": "Answer", "text": "We focus on reception‑first events. Ask about micro‑ceremony add‑ons."}}
+      ]
+    })
+  }}
+/>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Wedding reception hall",
-  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
-  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
-  "offers": {"@type": "Offer", "priceCurrency": "USD"}
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Wedding reception hall",
+      "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+      "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+      "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "1440", "highPrice": "3200"}
+    })
+  }}
+/>
+
+

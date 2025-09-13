@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+const pages = await getCollection('pages');
+const eventPages = pages.filter(page => page.slug.startsWith('events/'));
+
+const seo = {
+  title: "Denver Event Venues - Corporate & Social Gatherings",
+  description: "Explore intimate, Spanish-inspired event spaces near Denver. Flexible layouts for birthdays, anniversaries, corporate events, and receptions.",
+  keywords: "event venues Denver, party venue Denver, corporate event venue Denver, reception hall Denver"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="events-hero">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+    <div class="relative max-w-6xl mx-auto text-center min-h-[420px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Events</Badge>
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Event Spaces For Real Moments
+        </h1>
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          Corporate meetups, social celebrations, and everything in between—modern execution in a timeless setting.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#event-types" class="btn-primary-lg">Explore Event Types</a>
+          <a href="/venue" class="btn-outline-lg">See the Space</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="event-types" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Event Types</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Find Your Fit</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Explore our most-requested event pages and get the details you need.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {eventPages.map(page => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-display text-foreground mb-2">
+                {page.data.title?.split(' | ')[0] || page.slug.replace('events/','').replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase())}
+              </CardTitle>
+              <CardDescription className="text-base text-primary font-medium mb-2">
+                Event Page
+              </CardDescription>
+              {page.data.description && (
+                <div class="text-sm text-muted-foreground">
+                  {page.data.description.split('.')[0]}.
+                </div>
+              )}
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div class="pt-4 border-t border-primary/10">
+                <a
+                  href={`/${page.slug}`}
+                  class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  View Details →
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+
+        {eventPages.length === 0 && (
+          <div class="col-span-full text-center py-12">
+            <p class="text-lg text-muted-foreground">Event pages coming soon.</p>
+            <p class="text-sm text-muted-foreground mt-2">Contact us for availability and options.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Tell us about your event—corporate, social, or something one-of-a-kind. We’ll make it effortless.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">Start Your Inquiry</a>
+        <a href="/venue" class="btn-outline">View Pricing</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+

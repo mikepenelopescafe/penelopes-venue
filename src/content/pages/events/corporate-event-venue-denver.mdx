@@ -11,7 +11,16 @@ hero:
   subheadline: "Professional, not boring. Warm Spanish atmosphere."
   ctaText: "Plan your event"
   ctaLink: "/contact"
+breadcrumbs:
+  - name: "Home"
+    url: "/"
+  - name: "Events"
+    url: "/events/"
+  - name: "Corporate Event Venue in Denver"
+    url: "/events/corporate-event-venue-denver"
 ---
+
+import PricingSnapshot from '@/components/PricingSnapshot';
 
 # Corporate Event Venue in Denver — Professional, not boring
 
@@ -21,8 +30,9 @@ Host mixers, offsites, and launches in a space that feels polished—and photoge
 - Capacity: 50–100 guests
 - Formats: Mixers, team offsites, client events, brand/content activations
 - Timelines: 4–6 hours typical with staffed bar and catering
-- Price examples: from $3,200 (4‑hour mixer) · from $4,500 (6‑hour offsite)
 - Area served: Denver, Westminster, Arvada, Thornton
+
+<PricingSnapshot showEightHour />
 
 ## Why Teams Choose Us
 - Spanish architecture that photographs beautifully for social and press
@@ -35,11 +45,11 @@ Host mixers, offsites, and launches in a space that feels polished—and photoge
 - Offsite: presentation seating + breakout spaces; smooth transitions to meals
 - Launch: hero backdrop and content capture spots with power access
 
-## Packages & Pricing (examples)
+## Packages & Example Totals
 - 4‑Hour Mixer: from $3,200 — stations or passed, staffed bar, coordination
-- 6‑Hour Offsite: from $4,500 — coffee + meals, basic AV, run‑of‑show support
+- Extended Program (6–8 hours): from $4,500 — coffee + meals, basic AV, run‑of‑show support
 
-Exact pricing depends on menu, bar, and AV needs. Explore options on our [catering](/catering) page or request a tailored quote.
+Exact totals vary by menu, bar, and AV needs. Explore options on our [catering](/catering) page or request a tailored quote.
 
 ## AV, Wi‑Fi & Logistics
 - AV: handheld mic, speakers, screen/projector (basic, vendor‑friendly for upgrades)
@@ -50,7 +60,7 @@ Exact pricing depends on menu, bar, and AV needs. Explore options on our [cateri
   src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
   width="100%"
   height="300"
-  style="border:0"
+  style={{ border: 0 }}
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
   aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
@@ -87,27 +97,35 @@ Schedule a walkthrough and get a clear quote for your program.
 - [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
 - [Birthday Party Venue Denver](/events/birthday-party-venue-denver)
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Can we brand the space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes—ask for our branding guide with approved placements."}},
-    {"@type": "Question", "name": "Do you provide AV?", "acceptedAnswer": {"@type": "Answer", "text": "Basic AV is available. We’re vendor‑friendly if you need more."}},
-    {"@type": "Question", "name": "Can we get early access for setup?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll coordinate load‑in and timelines."}},
-    {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and free."}},
-    {"@type": "Question", "name": "Do you invoice and provide a W‑9?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We can invoice your company and provide necessary documentation."}}
-  ]
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Can we brand the space?", "acceptedAnswer": {"@type": "Answer", "text": "Yes—ask for our branding guide with approved placements."}},
+        {"@type": "Question", "name": "Do you provide AV?", "acceptedAnswer": {"@type": "Answer", "text": "Basic AV is available. We’re vendor‑friendly if you need more."}},
+        {"@type": "Question", "name": "Can we get early access for setup?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll coordinate load‑in and timelines."}},
+        {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and free."}},
+        {"@type": "Question", "name": "Do you invoice and provide a W‑9?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We can invoice your company and provide necessary documentation."}}
+      ]
+    })
+  }}
+/>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Corporate event venue",
-  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
-  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
-  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "3200"}
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Corporate event venue",
+      "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+      "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+      "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "1440", "highPrice": "3200"}
+    })
+  }}
+/>
+
+

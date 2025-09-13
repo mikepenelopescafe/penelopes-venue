@@ -1,0 +1,161 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+export const prerender = true;
+
+const pages = await getCollection('pages');
+const planningPages = pages.filter(page => page.slug.startsWith('planning/') && page.slug !== 'planning/index');
+
+const seo = {
+  title: "Denver Event Planning - Showers, Engagements, Rehearsals",
+  description: "Plan showers, engagements, graduations, and rehearsal dinners near Denver. Spanish-inspired venue with intimate scale, modern service, and simple packages.",
+  keywords: "baby shower venue denver, engagement party venue denver, rehearsal dinner denver, graduation party denver"
+};
+---
+
+<Layout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <section class="relative py-24 px-6 overflow-hidden" transition:name="planning-hero">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+
+    <div class="relative max-w-6xl mx-auto text-center min-h-[420px] flex items-center">
+      <div class="w-full">
+        <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-lg px-4 py-2">Planning</Badge>
+        <h1 class="text-5xl font-display text-white mb-6 leading-tight">
+          Plan The Moments That Matter
+        </h1>
+        <p class="text-xl text-white/90 max-w-5xl mx-auto leading-relaxed mb-8">
+          Showers, engagements, graduations, and rehearsal dinners—modern execution in a timeless setting.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#planning-pages" class="btn-primary-lg">Explore Planning Pages</a>
+          <a href="/venue" class="btn-outline-lg">See the Space</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-background/60">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-display text-foreground mb-4">Start Here</h2>
+        <ul class="space-y-2 text-muted-foreground">
+          <li>• Date & preferred time — brunch, afternoon, or evening</li>
+          <li>• Guest count range — our sweet spot is 30–100 depending on format</li>
+          <li>• Format — cocktail‑style mingle, seated meal, or a relaxed hybrid</li>
+          <li>• Priorities — food, bar, photos, speeches, activities</li>
+          <li>• Budget range — we’ll steer you toward the right package</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-display text-foreground mb-4">Compare Formats</h2>
+        <ul class="space-y-2 text-muted-foreground">
+          <li>• Cocktail‑style: lively energy, easy mingling — great for engagements & grads</li>
+          <li>• Seated dinner: intentional flow, toast‑friendly — perfect for rehearsal dinners</li>
+          <li>• Brunch/tea: bright, welcoming — ideal for baby & bridal showers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-card/40">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-display text-foreground mb-4">Simple Planning Timeline</h2>
+        <ul class="space-y-2 text-muted-foreground">
+          <li>• 6–8 weeks: Check availability, align on format & budget</li>
+          <li>• 4 weeks: Choose menu & bar approach, pencil in timeline</li>
+          <li>• 2 weeks: Final guest count, floor plan, key moments</li>
+          <li>• Week‑of: Share final details and drop off decor</li>
+          <li>• Day‑of: We handle setup, service, and cleanup — you enjoy</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-display text-foreground mb-4">What We Handle vs What You Bring</h2>
+        <ul class="space-y-2 text-muted-foreground">
+          <li>• We handle: setup & cleanup, staff, bar, catering, basic AV, on‑site guidance</li>
+          <li>• You bring: personal decor, printed items, desserts or favors, gifts/cards</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-background">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-display text-foreground mb-4">Tools & Next Steps</h2>
+      <p class="text-lg text-muted-foreground mb-6">See example pricing, browse menus, and save inspiration.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/venue" class="btn-primary">Venue & Pricing</a>
+        <a href="/catering" class="btn-outline">Catering</a>
+        <a href="/gallery" class="btn-outline">Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="planning-pages" class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Occasions</Badge>
+        <h2 class="text-4xl font-display text-foreground mb-4">Planning Pages</h2>
+        <p class="text-lg text-muted-foreground max-w-5xl mx-auto">
+          Explore our most-requested planning topics and get the details you need.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {planningPages.map(page => (
+          <Card className="bg-card border-primary/20 hover-lift transition-all duration-300 group">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-display text-foreground mb-2">
+                {page.data.title?.split(' | ')[0] || page.slug.replace('planning/','').replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase())}
+              </CardTitle>
+              <CardDescription className="text-base text-primary font-medium mb-2">
+                Planning Topic
+              </CardDescription>
+              {page.data.description && (
+                <div class="text-sm text-muted-foreground">
+                  {page.data.description.split('.')[0]}.
+                </div>
+              )}
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div class="pt-4 border-t border-primary/10">
+                <a
+                  href={`/${page.slug}`}
+                  class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  View Details →
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+
+        {planningPages.length === 0 && (
+          <div class="col-span-full text-center py-12">
+            <p class="text-lg text-muted-foreground">Planning pages coming soon.</p>
+            <p class="text-sm text-muted-foreground mt-2">Contact us for availability and options.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gradient-card">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-display text-foreground mb-6">Ready to Plan?</h2>
+      <p class="text-xl mb-8 text-foreground/90">
+        Tell us about your occasion—baby shower, engagement, graduation, or rehearsal dinner. We’ll make it effortless.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact#book" class="btn-primary">Start Your Inquiry</a>
+        <a href="/venue" class="btn-outline">View Pricing</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+

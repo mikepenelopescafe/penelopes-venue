@@ -6,17 +6,27 @@ dimension: "occasion"
 description: "Intimate anniversary party venue near Denver for 50–100 guests. Spanish-inspired ambiance, curated bar, in-house catering, and effortless coordination."
 keywords: ["anniversary party venue denver","milestone celebration venue","private event space denver"]
 template: "keyword"
+breadcrumbs:
+  - name: "Home"
+    url: "/"
+  - name: "Events"
+    url: "/events/"
+  - name: "Anniversary Party Venue in Denver"
+    url: "/events/anniversary-party-venue-denver"
 ---
 
-# Anniversary Party Venue in Denver — Celebrate Your Story
+import PricingSnapshot from '@/components/PricingSnapshot';
+
+# Anniversary Party Venue near Denver — Celebrate Your Story
 
 Warm Spanish architecture meets modern hosting—intimate, photogenic, and easy. We’re in Westminster, close to Denver, Arvada, and Thornton, with simple packages and an in‑house team to keep the night flowing.
 
 ## At a Glance
 - Capacity: 50–100 guests
 - Ideal formats: Seated dinner with toasts, cocktail‑style celebration, daytime family event
-- Price examples: 50–70 guests from $2,900 · 70–100 guests from $3,700
 - Area served: Denver, Westminster, Arvada, Thornton
+
+<PricingSnapshot showEightHour />
 
 ## Why Our Space Fits
 - Warm, moody textures suit meaningful moments and photos
@@ -28,12 +38,11 @@ Warm Spanish architecture meets modern hosting—intimate, photogenic, and easy.
 - Tapas‑style celebration with a signature cocktail
 - Dietary accommodations available (vegetarian, vegan, gluten‑free)
 
-## Packages & What’s Included
-- Venue, tables/chairs/linens, glassware, serviceware
-- Staffed bar and in‑house catering team
-- Coordinator, setup/cleanup, timeline support
+## Packages & Example Totals
+- 50–70 guests: from $2,900
+- 70–100 guests: from $3,700
 
-Add‑ons: extended time, basic AV (mic, speakers, screen), decor enhancements.
+Totals vary by menu and bar. See our [catering](/catering) page for options.
 
 ## Logistics & Parking
 On‑site, free parking with easy access. ADA‑friendly layout. We’ll provide a simple arrival plan and coordinate with your vendors.
@@ -42,7 +51,7 @@ On‑site, free parking with easy access. ADA‑friendly layout. We’ll provide
   src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
   width="100%"
   height="300"
-  style="border:0"
+  style={{ border: 0 }}
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
   aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
@@ -76,26 +85,34 @@ Tour the space and reserve your celebration.
 - [Private Party Venue Denver](/events/private-party-venue-denver)
 - [Corporate Event Venue Denver](/events/corporate-event-venue-denver)
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Can we show a slideshow?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A screen is available upon request."}},
-    {"@type": "Question", "name": "Do you allow outside dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bring your cake—no cutting fees."}},
-    {"@type": "Question", "name": "Can you accommodate dietary needs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll craft a menu that fits your guests."}},
-    {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and easy."}}
-  ]
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Can we show a slideshow?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A screen is available upon request."}},
+        {"@type": "Question", "name": "Do you allow outside dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bring your cake—no cutting fees."}},
+        {"@type": "Question", "name": "Can you accommodate dietary needs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll craft a menu that fits your guests."}},
+        {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and easy."}}
+      ]
+    })
+  }}
+/>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Anniversary party venue",
-  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
-  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
-  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2900"}
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Anniversary party venue",
+      "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+      "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+      "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "1440", "highPrice": "3200"}
+    })
+  }}
+/>
+
+

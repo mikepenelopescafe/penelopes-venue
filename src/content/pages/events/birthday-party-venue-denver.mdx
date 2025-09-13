@@ -11,7 +11,16 @@ hero:
   subheadline: "Warm Spanish style. Effortless hosting."
   ctaText: "See the space"
   ctaLink: "/venue"
+breadcrumbs:
+  - name: "Home"
+    url: "/"
+  - name: "Events"
+    url: "/events/"
+  - name: "Birthday Party Venue in Denver"
+    url: "/events/birthday-party-venue-denver"
 ---
+
+import PricingSnapshot from '@/components/PricingSnapshot';
 
 # Birthday Party Venue in Denver — Warm, Modern, Yours
 
@@ -21,8 +30,9 @@ Celebrate in a Spanish-inspired space that feels stylish, not staged. We’re in
 - Capacity: 50–100 guests (cocktail or seated)
 - Formats: Cocktail mixer, seated dinner with toasts, daytime family-friendly
 - Typical timeline: 3–4 hours (setup and cleanup handled by our team)
-- Price examples: from $2,800 (50–70) · from $3,600 (70–90) · from $4,400 (90–100)
 - Area served: Denver, Westminster, Arvada, Thornton
+
+<PricingSnapshot showEightHour />
 
 ## Capacity & Layouts
 - Cocktail-style: roaming small plates, bar-forward flow, space for speeches and a dance area
@@ -30,15 +40,12 @@ Celebrate in a Spanish-inspired space that feels stylish, not staged. We’re in
 - DJ/band layout guidance to balance energy and conversation
 - Photo-worthy backdrops: arches, textured walls, warm lighting
 
-## Packages & Pricing (examples)
+## Packages & Example Totals
 - Classic Birthday (50–70): from $2,800
-  - Venue, tables/chairs/linens, staffed bar, setup/cleanup, coordination
 - Signature Birthday (70–90): from $3,600
-  - Adds expanded menu options and enhanced service cadence
 - Milestone Celebration (90–100): from $4,400
-  - Ideal for big birthdays; room for dance floor and speeches
 
-Exact pricing depends on menu, bar, and timeline. See menus on our [catering](/catering) page or ask for a tailored quote.
+Exact totals depend on menu, bar, and timeline. See menus on our [catering](/catering) page or ask for a tailored quote.
 
 ## Menus & Bar
 Latin-inspired menus with modern presentation—tapas-style or plated dinners. Curated cocktails, beer, and wine with signature options for milestone birthdays. Dietary accommodations available.
@@ -61,7 +68,7 @@ We’re in Westminster—easy to reach from Denver—with on-site, free parking 
   src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
   width="100%"
   height="300"
-  style="border:0"
+  style={{ border: 0 }}
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
   aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
@@ -74,7 +81,7 @@ We’re in Westminster—easy to reach from Denver—with on-site, free parking 
 
 ## FAQs
 ### Can we bring a DJ or live music?
-Yes. We’ll guide placement for sound balance and dance area.
+Yes. We’ll guide placement for sound balance and a dance area.
 
 ### Is outside dessert allowed?
 Yes. Bring your cake or dessert bar—no cutting fees.
@@ -98,47 +105,35 @@ See the space, confirm availability, and get a tailored quote.
 - [Private Party Venue Denver](/events/private-party-venue-denver)
 - [Corporate Event Venue Denver](/events/corporate-event-venue-denver)
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can we bring a DJ or live music?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll guide placement for sound balance and a dance area."}
-    },
-    {
-      "@type": "Question",
-      "name": "Is outside dessert allowed?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bring your cake or dessert bar—no cutting fees."}
-    },
-    {
-      "@type": "Question",
-      "name": "How long is a typical birthday event?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Three to four hours is standard. Ask about extensions."}
-    },
-    {
-      "@type": "Question",
-      "name": "Do you offer parking?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. On-site and free, with easy access for guests and vendors."}
-    },
-    {
-      "@type": "Question",
-      "name": "Can you accommodate dietary needs?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer vegetarian, vegan, gluten-free, and other options."}
-    }
-  ]
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Can we bring a DJ or live music?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll guide placement for sound balance and a dance area."}},
+        {"@type": "Question", "name": "Is outside dessert allowed?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bring your cake or dessert bar—no cutting fees."}},
+        {"@type": "Question", "name": "How long is a typical birthday event?", "acceptedAnswer": {"@type": "Answer", "text": "Three to four hours is standard. Ask about extensions."}},
+        {"@type": "Question", "name": "Do you offer parking?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On-site and free, with easy access for guests and vendors."}},
+        {"@type": "Question", "name": "Can you accommodate dietary needs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer vegetarian, vegan, gluten-free, and other options."}}
+      ]
+    })
+  }}
+/>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Birthday party venue",
-  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
-  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
-  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2800"}
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Birthday party venue",
+      "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+      "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+      "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "1440", "highPrice": "3200"}
+    })
+  }}
+/>
+
+

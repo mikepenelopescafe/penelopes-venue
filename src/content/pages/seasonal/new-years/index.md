@@ -123,3 +123,14 @@ Westminster, CO 80031
 Call **(720) 639-2406** or email **info@penelopesboutiquevenue.com**.
 
 
+---
+
+### Related Pages
+- [Holiday Parties — Westminster Hub](/seasonal/holiday/)
+- [Christmas Parties](/seasonal/christmas/)
+- [Holiday Parties — Denver](/seasonal/holiday/denver/)
+- [Holiday Parties — Arvada](/seasonal/holiday/arvada/)
+- [Holiday Parties — Broomfield](/seasonal/holiday/broomfield/)
+- [Holiday Parties — Thornton](/seasonal/holiday/thornton/)
+- [Holiday Parties — Lakewood](/seasonal/holiday/lakewood/)
+

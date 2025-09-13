@@ -6,7 +6,16 @@ dimension: "occasion"
 description: "Private party venue near Denver with authentic Spanish ambiance. 50–100 guests, curated bar and Latin-inspired catering, simple pricing."
 keywords: ["private party venue denver","private event space denver","party hall denver"]
 template: "keyword"
+breadcrumbs:
+  - name: "Home"
+    url: "/"
+  - name: "Events"
+    url: "/events/"
+  - name: "Private Party Venue in Denver"
+    url: "/events/private-party-venue-denver"
 ---
+
+import PricingSnapshot from '@/components/PricingSnapshot';
 
 # Private Party Venue in Denver — Make It Yours
 
@@ -16,8 +25,9 @@ An intimate Spanish-inspired space that works for milestones, reunions, showers,
 - Capacity: 50–100 guests
 - Formats: Cocktail, seated dinner, or hybrid
 - Timelines: 3–5 hours typical
-- Price examples: from $2,800 (50–70) · from $3,600 (70–100)
 - Area served: Denver, Westminster, Arvada, Thornton
+
+<PricingSnapshot showEightHour />
 
 ## Events We Host
 - Milestone birthdays, anniversaries, reunions, showers
@@ -29,11 +39,11 @@ An intimate Spanish-inspired space that works for milestones, reunions, showers,
 - Staffed bar and Latin‑inspired in‑house catering
 - Event coordination, setup/cleanup, timeline guidance
 
-## Packages & Pricing (examples)
+## Packages & Example Totals
 - Private Cocktail Party (50–70): from $2,800 — stations or passed, staffed bar
 - Signature Seated Dinner (70–100): from $3,600 — multi‑course menu, toasts, bar
 
-Exact pricing depends on menu, bar, and event timing. See options on our [catering](/catering) page.
+Exact totals depend on menu, bar, and event timing. See options on our [catering](/catering) page.
 
 ## Add‑Ons (optional)
 - Extended event time
@@ -47,7 +57,7 @@ We’re in Westminster with on‑site, free parking and straightforward guest ar
   src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
   width="100%"
   height="300"
-  style="border:0"
+  style={{ border: 0 }}
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
   aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
@@ -78,26 +88,34 @@ Book a tour and get a tailored quote.
 - [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
 - [Corporate Event Venue Denver](/events/corporate-event-venue-denver)
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "What decor is allowed?", "acceptedAnswer": {"@type": "Answer", "text": "Keep flames enclosed; no confetti. We’ll share a simple decor guide."}},
-    {"@type": "Question", "name": "Do you allow DJs or live music?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, within our sound policy. We’ll guide layout."}},
-    {"@type": "Question", "name": "Can we bring our own dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Outside dessert is welcome."}},
-    {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and free."}}
-  ]
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What decor is allowed?", "acceptedAnswer": {"@type": "Answer", "text": "Keep flames enclosed; no confetti. We’ll share a simple decor guide."}},
+        {"@type": "Question", "name": "Do you allow DJs or live music?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, within our sound policy. We’ll guide layout."}},
+        {"@type": "Question", "name": "Can we bring our own dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Outside dessert is welcome."}},
+        {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and free."}}
+      ]
+    })
+  }}
+/>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Private party venue",
-  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
-  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
-  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2800"}
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Private party venue",
+      "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+      "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+      "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "1440", "highPrice": "3200"}
+    })
+  }}
+/>
+
+

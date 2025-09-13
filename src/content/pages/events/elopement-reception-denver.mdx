@@ -6,7 +6,16 @@ dimension: "occasion"
 description: "Elopement reception venue near Denver for 20–60 guests. Spanish-inspired ambiance, curated bar, simple packages, and effortless coordination."
 keywords: ["elopement reception venue denver","post elopement party denver","elopement dinner venue"]
 template: "keyword"
+breadcrumbs:
+  - name: "Home"
+    url: "/"
+  - name: "Events"
+    url: "/events/"
+  - name: "Elopement Reception Venue in Denver"
+    url: "/events/elopement-reception-denver"
 ---
+
+import PricingSnapshot from '@/components/PricingSnapshot';
 
 # Denver Elopement Reception Venue — Intimate Celebration After “I Do”
 
@@ -18,7 +27,9 @@ Celebrate your way—dinner, toasts, and a little dancing—in a Spanish‑inspi
 - Timelines: 2.5–4 hours typical
 - Area served: Denver, Westminster, Arvada, Thornton
 
-## Packages & Pricing (examples)
+<PricingSnapshot showEightHour={false} />
+
+## Packages & Example Totals
 - Elopement Dinner (20–40): from $1,900 — plated or family‑style, staffed bar
 - Small Reception (40–60): from $2,400 — tapas‑style or plated, toasts, bar
 
@@ -41,7 +52,7 @@ We’re in Westminster with on‑site, free parking and simple arrival. ADA‑fr
   src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
   width="100%"
   height="300"
-  style="border:0"
+  style={{ border: 0 }}
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
   aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
@@ -72,26 +83,34 @@ See the space, review options, and lock in your celebration.
 - [Private Party Venue Denver](/events/private-party-venue-denver)
 - [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "Can we take photos before or after?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll plan time for portraits around your timeline."}},
-    {"@type": "Question", "name": "Can we bring outside dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dessert bars and small cakes are welcome."}},
-    {"@type": "Question", "name": "Do you allow music or a small DJ setup?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Playlists or a compact DJ setup works well for elopement‑scale events."}},
-    {"@type": "Question", "name": "Can you host a brief ceremony?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Ask about a micro‑ceremony add‑on before dinner."}}
-  ]
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Can we take photos before or after?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll plan time for portraits around your timeline."}},
+        {"@type": "Question", "name": "Can we bring outside dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dessert bars and small cakes are welcome."}},
+        {"@type": "Question", "name": "Do you allow music or a small DJ setup?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Playlists or a compact DJ setup works well for elopement‑scale events."}},
+        {"@type": "Question", "name": "Can you host a brief ceremony?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Ask about a micro‑ceremony add‑on before dinner."}}
+      ]
+    })
+  }}
+/>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Elopement reception venue",
-  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
-  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
-  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "1900"}
-}
-</script>
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Elopement reception venue",
+      "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+      "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+      "offers": {"@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "1150", "highPrice": "2400"}
+    })
+  }}
+/>
+
+
