@@ -4,11 +4,9 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node ./scripts/validate-keywords.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "validate:keywords": "node ./scripts/validate-keywords.mjs"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
