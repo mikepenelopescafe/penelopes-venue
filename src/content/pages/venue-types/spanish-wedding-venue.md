@@ -43,5 +43,31 @@ Spanish architectural bones. Warm, moody lighting. Rich textures with modern lin
 - See the space and pricing on our Venue page
 - Explore Latin-inspired menus on our Catering page
 
-[See the Space](/venue) · [Explore Catering](/catering)
+## Pricing & Availability
+
+### Day‑Based Venue Pricing
+- Monday–Thursday: 4 hours from $1,440; 8 hours from $2,400
+- Friday: 4 hours from $1,920; 8 hours from $3,200
+- Saturday: 4 hours from $1,920; 8 hours from $3,200
+- Sunday: 4 hours from $1,440; 8 hours from $2,400
+
+### Menu & Bar Options
+- Catering: $18–33 per guest (Spanish‑ and Latin‑inspired menus)
+- Open Bar (2 hours): Beer/Wine from $18; Full Bar from $28
+- Cash Bar: $300 minimum via sales
+
+Note: Off‑peak months and holiday periods may affect pricing. Request a date‑specific quote.
+
+## FAQs: Spanish‑Inspired Weddings
+
+**Is the architecture authentic?**  
+Yes — Spanish colonial revival bones, moody lighting, and rich textures. Never themed.
+
+**What’s the ideal capacity?**  
+Best for 50–100 guests with seamless indoor flow.
+
+**Do you offer catering and bar?**  
+Yes. Menus are $18–33/guest with multiple service styles. Open Bar (2 hrs) or Cash Bar available.
+
+[See the Space](/venue) · [Explore Catering](/catering) · [View Gallery](/gallery)
 

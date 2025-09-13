@@ -86,7 +86,7 @@ Located at 8050 N Federal Blvd with easy access from US‑36, our Westminster ve
 
 ### Why It Works
 
-- [Curated bar service](/bar) and [seasonal menus](/catering)
+- [Curated bar service](/venue#pricing) and [seasonal menus](/catering)
 - Flexible layouts for mingling and dancing
 - On‑site parking and late‑night options
 - View our [venue gallery](/gallery) and [pricing information](/pricing)

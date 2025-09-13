@@ -182,6 +182,21 @@ if (ratingValue && reviewCount) {
       })}
     </script>
     
+    <!-- BreadcrumbList JSON-LD (global; path-based) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": Astro.url.pathname.split('/').filter(Boolean).map((segment, index, parts) => {
+          const name = segment
+            .replace(/-/g, ' ')
+            .replace(/\b\w/g, (c) => c.toUpperCase());
+          const item = new URL('/' + parts.slice(0, index + 1).join('/') + '/', siteUrl).href;
+          return { "@type": "ListItem", position: index + 1, name, item };
+        })
+      })}
+    </script>
+    
     <!-- Favicon -->
    
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

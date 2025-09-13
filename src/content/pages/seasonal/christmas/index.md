@@ -83,7 +83,7 @@ Located at 8050 N Federal Blvd just off US‑36, our Westminster venue creates C
 
 ### What You'll Love
 
-- [Seasonal menus](/catering) and [curated cocktails](/bar)
+- [Seasonal menus](/catering) and [curated cocktails](/venue#pricing)
 - Cozy layouts for 50–100 guests
 - Easy access and on‑site parking
 - Browse our [venue gallery](/gallery) for Christmas party inspiration

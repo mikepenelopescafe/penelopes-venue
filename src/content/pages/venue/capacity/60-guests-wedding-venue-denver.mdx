@@ -1,0 +1,133 @@
+---
+title: "60 Guests Wedding Venue Denver | Just-Right Intimacy"
+description: "Wedding venue for 60 guests in Westminster near Denver. Spanish‑inspired interiors with in‑house catering, full bar, and coordination."
+keywords: ["wedding venue for 60 guests denver", "60 guests wedding denver", "small wedding venue 60 denver"]
+primaryKeyword: "wedding venue for 60 guests denver"
+intent: "commercial"
+dimension: "capacity"
+template: "landing"
+citySlug: "denver"
+canonicalOf: "/venue/capacity/75-guest-wedding-venue-denver"
+canonical: "https://penelopesboutiquevenue.com/venue/capacity/75-guest-wedding-venue-denver"
+hero:
+  headline: "Wedding Venue for 60 Guests in Denver"
+  subheadline: "Room to celebrate. Close enough to connect."
+  ctaText: "See the space"
+  ctaLink: "/venue"
+faqs:
+  - q: "Is 60 guests enough for a reception?"
+    a: "Yes. 60 delivers full energy without crowding. Seating is easy and the flow stays smooth."
+  - q: "Best seating layouts for 60 guests?"
+    a: "Six rounds of ten or three long tables of twenty. Add a centered dance floor for balance."
+  - q: "Family‑style or buffet for 60?"
+    a: "Both work. Family‑style boosts connection and pace; buffet offers more variety."
+  - q: "What’s a typical budget for 60 guests?"
+    a: "Around $3,800–$5,200 depending on bar tier and menu selections."
+---
+
+import LayoutEditor from '@/components/layout-editor/LayoutEditor';
+import { calculateVenuePackagePrice, barPackages, cateringPackages } from '@/data/pricing.ts';
+
+# Wedding Venue for 60 Guests Denver — Right in the Middle, Right on Budget
+
+## Why 60 Guests Hits the Middle Sweet Spot
+
+More than a micro wedding, less than a large reception — it’s the perfect middle. You’ll get full energy, easy seating, and a budget that stays grounded.
+
+## A Space That Scales Gracefully to 60
+
+### Smart Layouts
+- Six round tables of ten
+- Or three long tables of twenty
+- Cocktail welcome, seated dinner
+
+### Included Essentials
+- Tables, chairs, linens
+- Setup & cleanup
+- Day‑of coordination
+- Sound system for toasts and music
+
+## Plan Your 60‑Guest Layout
+
+Use our interactive floor plan to visualize tables, dance floor, and flow. Export a PNG to share with family or vendors.
+
+<LayoutEditor client:load />
+
+## What’s included
+
+- 6–8 hour venue rental
+- Tables, chairs, linens
+- Setup & cleanup
+- Day‑of coordination
+- Menu: buffet, family‑style, or plated
+- Bar: beer & wine or full bar; signature cocktail optional
+
+## Venue pricing by day
+
+{(() => {
+  const fri4 = calculateVenuePackagePrice({ packageId: 'friday', durationHours: 4 });
+  const fri8 = calculateVenuePackagePrice({ packageId: 'friday', durationHours: 8 });
+  const sat4 = calculateVenuePackagePrice({ packageId: 'saturday', durationHours: 4 });
+  const sat8 = calculateVenuePackagePrice({ packageId: 'saturday', durationHours: 8 });
+  const sun4 = calculateVenuePackagePrice({ packageId: 'sunday', durationHours: 4 });
+  const sun8 = calculateVenuePackagePrice({ packageId: 'sunday', durationHours: 8 });
+  const mon4 = calculateVenuePackagePrice({ packageId: 'monThu', durationHours: 4 });
+  const mon8 = calculateVenuePackagePrice({ packageId: 'monThu', durationHours: 8 });
+  const fmt = (v) => v.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  return (
+    <div className="mt-2 text-sm">
+      <ul className="list-disc ml-5 space-y-1">
+        <li><strong>Friday:</strong> 4 hr {fmt(fri4)} · 8 hr {fmt(fri8)}</li>
+        <li><strong>Saturday:</strong> 4 hr {fmt(sat4)} · 8 hr {fmt(sat8)}</li>
+        <li><strong>Sunday:</strong> 4 hr {fmt(sun4)} · 8 hr {fmt(sun8)}</li>
+        <li><strong>Mon–Thu:</strong> 4 hr {fmt(mon4)} · 8 hr {fmt(mon8)}</li>
+      </ul>
+      <div className="opacity-70 mt-1">Off‑peak discounts and holiday surcharges may apply.</div>
+    </div>
+  );
+})()}
+
+## Budget Guide for 60 Guests
+
+- Venue: see pricing snapshot above (day and duration based)
+- Dinner: {cateringPackages.latinFusion.priceRange}
+- Bar (2‑hr open): ${barPackages[0].beerWine}/guest beer & wine, ${barPackages[0].fullBar}/guest full bar
+
+## Real 60‑Guest Stories
+
+"60 was perfect for our families — not too big, not too small. The room felt warm and the flow was easy." — Priya & Noah, Denver
+
+## Location & Ease
+
+- Central Westminster location
+- Free parking for all guests
+- Hotels within minutes
+- Quick in/out for vendors
+
+## FAQ: 60‑Guest Weddings in Denver
+
+### Is 60 guests enough for a reception?
+Yes—full energy without crowding.
+
+### What layouts work best for 60?
+Six rounds of ten or three long tables of twenty with a centered dance floor.
+
+### Family‑style or buffet for 60?
+Both work; family‑style leans conversational, buffet adds variety.
+
+### What’s a typical budget for 60 guests?
+Most couples land between $3,800–$5,200 depending on menu and bar.
+
+## Not 60? Compare Capacities
+
+- [50 person wedding venue](/venue/capacity/50-person-wedding-venue-denver)
+- [75 guest wedding venue](/venue/capacity/75-guest-wedding-venue-denver)
+- [100 person wedding venue](/venue/capacity/100-person-wedding-venue-denver)
+
+## Booking Tips
+
+- Weekdays: best availability
+- Fridays: save vs Saturday
+- Winter months: extra value
+
+

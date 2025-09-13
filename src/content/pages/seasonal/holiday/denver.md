@@ -79,7 +79,7 @@ About 9 miles from downtown Denver via I‑70/US‑36, our Spanish‑inspired ve
 - Quick access via I‑70/US‑36 (typically 15–20 minutes)
 - On‑site parking and smooth load‑in
 - Layouts for team mixers, dinners, and NYE countdowns
-- Browse our [catering options](/catering) and [bar packages](/bar)
+- Browse our [catering options](/catering) and [bar packages](/venue#pricing)
 
 ## Neighborhood‑Specific Convenience
 

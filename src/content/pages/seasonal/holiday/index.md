@@ -87,7 +87,7 @@ Just off US‑36 near Federal Blvd in Westminster, our Spanish-inspired venue cr
 
 - **True Spanish character** — arches, textures, and warm lighting that read beautifully in photos without feeling themed
 - **Intimate by design** — layouts tuned for 50–100 guests so conversations flow and no one gets lost
-- **Full‑service simplicity** — venue, [Latin‑inspired catering options](/catering), and [curated bar packages](/bar) under one roof
+- **Full‑service simplicity** — venue, [Latin‑inspired catering options](/catering), and [curated bar packages](/venue#pricing) under one roof
 
 ## Why Book Early
 
@@ -99,7 +99,7 @@ Just off US‑36 near Federal Blvd in Westminster, our Spanish-inspired venue cr
 
 - Intimate space for 50–100 guests
 - Layout guidance and seasonal decor suggestions
-- [Latin‑inspired catering options](/catering) and [curated bar service](/bar)
+- [Latin‑inspired catering options](/catering) and [curated bar service](/venue#pricing)
 - Smooth parking and guest arrival
 - View our [venue gallery](/gallery) and [pricing details](/pricing)
 

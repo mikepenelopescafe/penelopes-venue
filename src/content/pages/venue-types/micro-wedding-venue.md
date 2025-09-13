@@ -32,10 +32,31 @@ Keep it close. Keep it meaningful. Our Spanish-inspired venue is right-sized for
 - Personal coordination that knows your story
 - Modern menus and a full bar that fit your vibe
 
-## Plan Your Day
+## Pricing & Availability for Micro Weddings
 
-- Explore day-based venue pricing and availability
-- See sample layouts for micro weddings
+### Day‑Based Venue Pricing
+- Monday–Thursday: 4 hours from $1,440; 8 hours from $2,400
+- Friday: 4 hours from $1,920; 8 hours from $3,200
+- Saturday: 4 hours from $1,920; 8 hours from $3,200
+- Sunday: 4 hours from $1,440; 8 hours from $2,400
 
-[See the Space](/venue) · [Explore Catering](/catering)
+### Micro‑Friendly Menus & Bar
+- Menus: $18–33/guest (small‑plate forward; plated, buffet, or passed)
+- Open Bar (2 hours): Beer/Wine from $18; Full Bar from $28
+- Cash Bar: $300 minimum via sales
+
+Note: Off‑peak months and holiday periods may affect pricing. Request a date‑specific quote.
+
+## Micro Wedding FAQs
+
+**Is there a minimum guest count?**  
+No strict minimum. Micro weddings from 20–50 guests fit beautifully.
+
+**Can ceremony and reception be in one space?**  
+Yes. Seamless transition keeps the flow intimate and effortless.
+
+**What layouts work best for small groups?**  
+We’ll share sample layouts that make 20–50 guests feel full and connected.
+
+[See the Space](/venue) · [Explore Catering](/catering) · [View Gallery](/gallery) · [50‑Person Venue](/venue/capacity/50-person-wedding-venue-denver)
 

@@ -111,6 +111,15 @@
     "season": "holiday"
   },
   {
+    "id": "seasonal/fall-wedding-venue-denver",
+    "collection": "pages",
+    "url": "/seasonal/fall-wedding-venue-denver",
+    "primaryKeyword": "fall wedding venue denver",
+    "intent": "commercial",
+    "dimension": "season",
+    "season": "fall"
+  },
+  {
     "id": "seasonal/holiday/arvada",
     "collection": "pages",
     "url": "/seasonal/holiday/arvada",
@@ -178,43 +187,31 @@
     "season": "holiday"
   },
   {
-    "id": "venue/capacity/100-person-wedding-venue-denver",
+    "id": "seasonal/spring-wedding-venue-denver",
     "collection": "pages",
-    "url": "/venue/capacity/100-person-wedding-venue-denver",
-    "primaryKeyword": "100 person wedding venue denver",
+    "url": "/seasonal/spring-wedding-venue-denver",
+    "primaryKeyword": "spring wedding venue denver",
     "intent": "commercial",
-    "dimension": "capacity",
-    "citySlug": "denver",
-    "canonicalOf": "/venue/capacity/75-guest-wedding-venue-denver"
+    "dimension": "season",
+    "season": "spring"
   },
   {
-    "id": "venue/capacity/50-person-wedding-venue-denver",
+    "id": "seasonal/summer-wedding-venue-denver",
     "collection": "pages",
-    "url": "/venue/capacity/50-person-wedding-venue-denver",
-    "primaryKeyword": "50 person wedding venue denver",
+    "url": "/seasonal/summer-wedding-venue-denver",
+    "primaryKeyword": "summer wedding venue denver",
     "intent": "commercial",
-    "dimension": "capacity",
-    "citySlug": "denver",
-    "canonicalOf": "/venue/capacity/75-guest-wedding-venue-denver"
+    "dimension": "season",
+    "season": "summer"
   },
   {
-    "id": "venue/capacity/60-guests-wedding-venue-denver",
+    "id": "seasonal/winter-wedding-venue-denver",
     "collection": "pages",
-    "url": "/venue/capacity/60-guests-wedding-venue-denver",
-    "primaryKeyword": "wedding venue for 60 guests denver",
+    "url": "/seasonal/winter-wedding-venue-denver",
+    "primaryKeyword": "winter wedding venue denver",
     "intent": "commercial",
-    "dimension": "capacity",
-    "citySlug": "denver",
-    "canonicalOf": "/venue/capacity/75-guest-wedding-venue-denver"
-  },
-  {
-    "id": "venue/capacity/75-guest-wedding-venue-denver",
-    "collection": "pages",
-    "url": "/venue/capacity/75-guest-wedding-venue-denver",
-    "primaryKeyword": "75 guest wedding venue denver",
-    "intent": "commercial",
-    "dimension": "capacity",
-    "citySlug": "denver"
+    "dimension": "season",
+    "season": "winter"
   },
   {
     "id": "venue-types/hacienda-wedding-venue-denver",

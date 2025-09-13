@@ -42,7 +42,17 @@ Planning a small wedding in Denver comes with unique problems:
 Our garden spaces are designed for intimate celebrations. 20 guests feels perfect, not sparse. 50 guests feels full, not crowded. Every corner of the venue adds to your celebration.
 
 ### Intimate Pricing for Small Weddings  
-Micro wedding packages start at $3,500. You pay for what you need, not what big venues think you should buy. No minimum guest counts or inflated prices.
+Our rates are day‑based with flexible 4‑ and 8‑hour options:
+
+- Monday–Thursday: 4 hours from $1,440; 8 hours from $2,400  
+- Friday: 4 hours from $1,920; 8 hours from $3,200  
+- Saturday: 4 hours from $1,920; 8 hours from $3,200  
+- Sunday: 4 hours from $1,440; 8 hours from $2,400  
+
+Menus are $18–33/guest, with service styles including plated, buffet, and passed.  
+Bar options include Open Bar (2 hours) — Beer/Wine from $18; Full Bar from $28 — or a Cash Bar with a $300 minimum via sales.
+
+Note: Off‑peak months and holiday periods may affect pricing. Request a date‑specific quote.
 
 ### Personal Coordination Service
 Your coordinator knows your names, your story, and your vision. We plan intimate weddings differently because they ARE different. Personal touches matter more when every detail shows.
@@ -109,7 +119,7 @@ Moody celebration without the fuss of a first wedding. Polished spaces with char
 No minimum! We've hosted beautiful elopements with 2 people and celebrations up to 80 guests. Our spaces work for any intimate size.
 
 **Do small weddings cost less?**
-Yes! Intimate wedding packages start at $3,500. You pay for the space and services you actually need, not inflated big-venue pricing.
+Yes. Venue pricing is day‑based (see options above), menus run $18–33/guest, and bar choices include Open Bar (2 hrs) or Cash Bar. You only pay for what fits your celebration.
 
 **Can we have dancing at a small wedding?**
 Absolutely! Our covered pavilions include dance floors. Small weddings often have MORE dancing because guests know each other well.

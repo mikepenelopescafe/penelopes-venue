@@ -8,22 +8,90 @@ keywords: ["elopement reception venue denver","post elopement party denver","elo
 template: "keyword"
 ---
 
-# Elopement Reception Near Denver — Intimate Celebration After “I Do”
+# Denver Elopement Reception Venue — Intimate Celebration After “I Do”
 
-## Perfect for
-- Post-courthouse or destination elopements
-- Family dinner + small reception
+Celebrate your way—dinner, toasts, and a little dancing—in a Spanish‑inspired space that feels personal and warm. We’re in Westminster, close to Denver, with simple, short‑format packages and an in‑house team to keep it effortless.
 
-## Packages
-- 2.5–4 hour receptions with menu options
+## At a Glance
+- Best for 20–60 guests (micro to small receptions)
+- Formats: family‑style dinner, cocktail reception, hybrid
+- Timelines: 2.5–4 hours typical
+- Area served: Denver, Westminster, Arvada, Thornton
 
-## FAQs & CTA
-- Photography time? Yes, before/after.
-- Music options? Playlists or DJ welcome.
-- Dessert policy? Outside desserts welcome.
+## Packages & Pricing (examples)
+- Elopement Dinner (20–40): from $1,900 — plated or family‑style, staffed bar
+- Small Reception (40–60): from $2,400 — tapas‑style or plated, toasts, bar
 
-Tour and reserve your date.
+Pricing depends on menu, bar, and timeline. See our [catering](/catering) page for menu ideas.
 
-[Venue](/venue) · [Catering](/catering) · [Gallery](/gallery)
+## Why It Works
+- Intimate scale that keeps it meaningful
+- Photo‑ready arches, textures, and warm light
+- Curated cocktails, beer, and wine
 
+## What’s Included
+- Venue, tables/chairs/linens, glassware, serviceware
+- Staffed bar and in‑house catering team
+- Setup/cleanup and coordination
 
+## Logistics & Parking
+We’re in Westminster with on‑site, free parking and simple arrival. ADA‑friendly layout. Vendor‑friendly for photo/video and music.
+
+<iframe
+  src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
+  width="100%"
+  height="300"
+  style="border:0"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
+></iframe>
+
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=8050+Federal+Blvd+Westminster+CO+80031" target="_blank" rel="noopener">Get directions</a></p>
+
+## FAQs
+### Can we take photos before or after?
+Yes. We’ll plan time for portraits around your timeline.
+
+### Can we bring outside dessert?
+Yes. Dessert bars and small cakes are welcome.
+
+### Do you allow music or a small DJ setup?
+Yes. Playlists or a compact DJ setup works well for elopement‑scale events.
+
+### Can you host a brief ceremony?
+Yes. Ask about a micro‑ceremony add‑on before dinner.
+
+## Tour and Reserve Your Date
+See the space, review options, and lock in your celebration.
+
+[See the space](/venue) · [Catering](/catering) · [Gallery](/gallery) · [Denver area](/service-areas/denver)
+
+## Related Events
+- [Wedding Reception Hall Denver](/events/reception-hall-denver)
+- [Private Party Venue Denver](/events/private-party-venue-denver)
+- [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Can we take photos before or after?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll plan time for portraits around your timeline."}},
+    {"@type": "Question", "name": "Can we bring outside dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dessert bars and small cakes are welcome."}},
+    {"@type": "Question", "name": "Do you allow music or a small DJ setup?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Playlists or a compact DJ setup works well for elopement‑scale events."}},
+    {"@type": "Question", "name": "Can you host a brief ceremony?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Ask about a micro‑ceremony add‑on before dinner."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Elopement reception venue",
+  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "1900"}
+}
+</script>

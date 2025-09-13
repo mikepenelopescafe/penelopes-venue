@@ -15,35 +15,130 @@ hero:
 
 # Birthday Party Venue in Denver — Warm, Modern, Yours
 
-## Why It Works for Birthdays
-- Authentic Spanish architecture that feels stylish, not themed
-- Intimate scale: 50–100 guests
-- Full bar + Latin-inspired menus
-- Simple pricing, no surprises
+Celebrate in a Spanish-inspired space that feels stylish, not staged. We’re in Westminster—convenient to Denver, Arvada, and Thornton—with simple pricing, a full bar, and Latin-inspired menus that make hosting easy.
 
-## Popular Birthday Formats
-- Cocktail-style mixer with small plates
-- Seated dinner with toasts
-- Daytime family-friendly celebration
+## At a Glance
+- Capacity: 50–100 guests (cocktail or seated)
+- Formats: Cocktail mixer, seated dinner with toasts, daytime family-friendly
+- Typical timeline: 3–4 hours (setup and cleanup handled by our team)
+- Price examples: from $2,800 (50–70) · from $3,600 (70–90) · from $4,400 (90–100)
+- Area served: Denver, Westminster, Arvada, Thornton
+
+## Capacity & Layouts
+- Cocktail-style: roaming small plates, bar-forward flow, space for speeches and a dance area
+- Seated dinner: long tables or rounds, smooth transitions for toasts and cake
+- DJ/band layout guidance to balance energy and conversation
+- Photo-worthy backdrops: arches, textured walls, warm lighting
 
 ## Packages & Pricing (examples)
 - Classic Birthday (50–70): from $2,800
+  - Venue, tables/chairs/linens, staffed bar, setup/cleanup, coordination
 - Signature Birthday (70–90): from $3,600
+  - Adds expanded menu options and enhanced service cadence
 - Milestone Celebration (90–100): from $4,400
+  - Ideal for big birthdays; room for dance floor and speeches
 
-## Planning Details
-- Timeline suggestions (3–4 hours standard)
-- Music/DJ placement and dance area
-- Photo spots: arches, textures, warm lighting
+Exact pricing depends on menu, bar, and timeline. See menus on our [catering](/catering) page or ask for a tailored quote.
+
+## Menus & Bar
+Latin-inspired menus with modern presentation—tapas-style or plated dinners. Curated cocktails, beer, and wine with signature options for milestone birthdays. Dietary accommodations available.
+
+## What’s Included
+- Venue access for event window + staff-managed setup/cleanup
+- Tables, chairs, standard linens, glassware, and serviceware
+- Staffed bar and in-house catering team
+- On-site coordinator to keep the night moving effortlessly
+
+## Add‑Ons (optional)
+- Extended event time
+- Basic AV (mics, speakers, screen)
+- Decor enhancements (approved placements)
+
+## Logistics & Parking
+We’re in Westminster—easy to reach from Denver—with on-site, free parking and straightforward load-in. ADA-friendly layout. We’ll share a simple guest arrival plan and DJ/sound guidance.
+
+<iframe
+  src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
+  width="100%"
+  height="300"
+  style="border:0"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
+></iframe>
+
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=8050+Federal+Blvd+Westminster+CO+80031" target="_blank" rel="noopener">Get directions</a></p>
+
+## Testimonials
+“Warm atmosphere, amazing food, and the flow was effortless. Our guests loved it.”
 
 ## FAQs
-- Can we bring a DJ? Yes. We’ll guide sound layout.
-- Is outside dessert allowed? Yes (no cake cutting fees).
-- Parking? On-site, free.
+### Can we bring a DJ or live music?
+Yes. We’ll guide placement for sound balance and dance area.
+
+### Is outside dessert allowed?
+Yes. Bring your cake or dessert bar—no cutting fees.
+
+### How long is a typical birthday event?
+Three to four hours is standard. Ask about extensions.
+
+### Do you offer parking?
+Yes. On-site and free, with easy access for guests and vendors.
+
+### Can you accommodate dietary needs?
+Yes. Let us know your preferences—vegetarian, vegan, gluten-free, and more.
 
 ## Book Your Date
-Strong CTA to tour and hold dates.
+See the space, confirm availability, and get a tailored quote.
 
-[See the space](/venue) · [Explore catering](/catering) · [View gallery](/gallery) · [Denver area](/service-areas/denver)
+[See the space](/venue) · [Explore catering](/catering) · [View gallery](/gallery) · [Denver area](/service-areas/denver) · [75‑guest venue](/venue/capacity/75-guest-wedding-venue-denver) · [100‑person venue](/venue/capacity/100-person-wedding-venue-denver)
 
+## Related Events
+- [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
+- [Private Party Venue Denver](/events/private-party-venue-denver)
+- [Corporate Event Venue Denver](/events/corporate-event-venue-denver)
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can we bring a DJ or live music?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll guide placement for sound balance and a dance area."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is outside dessert allowed?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bring your cake or dessert bar—no cutting fees."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long is a typical birthday event?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Three to four hours is standard. Ask about extensions."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer parking?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. On-site and free, with easy access for guests and vendors."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can you accommodate dietary needs?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. We offer vegetarian, vegan, gluten-free, and other options."}
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Birthday party venue",
+  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2800"}
+}
+</script>

@@ -1,6 +1,6 @@
 ---
 title: "Spanish Style Wedding Venue Colorado | Authentic Charm"
-description: "Authentic Spanish style wedding venue in Colorado. Original 1920s architecture, warm interiors, intimate ambiance. Westminster location, packages from $3,500."
+description: "Authentic Spanish style wedding venue in Colorado. Original 1920s architecture, warm interiors, intimate ambiance in Westminster."
 keywords: ["spanish style wedding venue colorado", "spanish wedding venue denver", "authentic spanish architecture colorado", "westminster wedding venue", "latin-inspired catering"]
 primaryKeyword: "spanish style wedding venue colorado"
 intent: "commercial"
@@ -73,28 +73,22 @@ Our kitchen specializes in Latin-inspired cuisine that honors Spanish traditions
 - Colorado craft beer alongside Spanish wines
 - Signature sangrias and cocktails
 
-## Perfect for These Spanish-Style Celebrations
+## Pricing & Availability
 
-### Intimate Spanish Wedding
-**50 guests, elegant reception**
-- Welcome cocktails in main space
-- Family-style dinner
-- Spanish guitar during dinner
-- From $3,500 complete
+### Day‑Based Venue Pricing
+- Monday–Thursday: 4 hours from $1,440; 8 hours from $2,400
+- Friday: 4 hours from $1,920; 8 hours from $3,200
+- Saturday: 4 hours from $1,920; 8 hours from $3,200
+- Sunday: 4 hours from $1,440; 8 hours from $2,400
 
-### Classic Spanish Reception
-**75 guests, full celebration**
-- Tapas cocktail hour
-- Buffet with Spanish influences
-- Dancing under warm lights
-- From $4,500 complete
+### Menu & Bar Options
+- Catering: $18–33 per guest (Spanish‑inspired menus; plated, buffet, or passed)
+- Open Bar (2 hours): Beer/Wine from $18; Full Bar from $28
+- Cash Bar: $300 minimum via sales
 
-### Old World Elegance
-**100 guests, premium experience**
-- Multiple Spanish-inspired courses
-- Premium wine selection
-- Late-night tapas bar
-- From $5,500 complete
+Note: Off‑peak months and holiday periods may affect pricing. Request a date‑specific quote.
+
+[See the Space](/venue) · [Explore Catering](/catering) · [View Gallery](/gallery)
 
 ## Why Choose Spanish Style for Your Colorado Wedding
 
@@ -161,6 +155,20 @@ See how natural light plays through arched windows. Feel the warmth of textured 
 ## FAQs: Spanish Style Weddings in Colorado
 
 See FAQs above — we cover more in person with custom quotes and tours.
+
+## FAQs: Spanish Style in Colorado
+
+**Is the Spanish style authentic or themed?**  
+Authentic architecture from the 1920s with genuine materials and details.
+
+**How many guests fit best?**  
+Ideal for 50–100 guests with intimate flow and built‑in ambiance.
+
+**Do you offer catering and bar?**  
+Yes. Latin‑inspired menus are $18–33/guest. Open Bar (2 hrs) from $18–28; Cash Bar available with $300 minimum via sales.
+
+**How is pricing structured?**  
+Day‑based venue pricing with 4‑ and 8‑hour options. Off‑peak and holidays may adjust totals.
 
 *Experience authentic Spanish style without leaving Colorado. Tour Penelope's today.*
 

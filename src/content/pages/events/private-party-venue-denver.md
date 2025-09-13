@@ -8,28 +8,96 @@ keywords: ["private party venue denver","private event space denver","party hall
 template: "keyword"
 ---
 
-# Private Party Venue Near Denver — Make It Yours
+# Private Party Venue in Denver — Make It Yours
+
+An intimate Spanish-inspired space that works for milestones, reunions, showers, and everything in between. We’re in Westminster—close to Denver, Arvada, and Thornton—with simple packages and an in-house team to make hosting easy.
+
+## At a Glance
+- Capacity: 50–100 guests
+- Formats: Cocktail, seated dinner, or hybrid
+- Timelines: 3–5 hours typical
+- Price examples: from $2,800 (50–70) · from $3,600 (70–100)
+- Area served: Denver, Westminster, Arvada, Thornton
 
 ## Events We Host
-- Milestones, reunions, showers, and more
-- Cocktail, seated, or hybrid formats
+- Milestone birthdays, anniversaries, reunions, showers
+- Daytime or evening; family‑friendly options available
+- Photo‑ready backdrops: arches, textured walls, warm lighting
 
 ## What’s Included
-- Venue, tables/chairs/linens
-- Staffed bar, in-house catering
-- Setup/cleanup, coordination
+- Venue, tables/chairs/standard linens, glassware, serviceware
+- Staffed bar and Latin‑inspired in‑house catering
+- Event coordination, setup/cleanup, timeline guidance
 
-## Packages
-- From $2,800 (50–70)
-- From $3,600 (70–100)
+## Packages & Pricing (examples)
+- Private Cocktail Party (50–70): from $2,800 — stations or passed, staffed bar
+- Signature Seated Dinner (70–100): from $3,600 — multi‑course menu, toasts, bar
 
-## FAQs & CTA
-- Decor guidelines? Keep flames enclosed; no confetti.
-- Music? DJs/bands welcome within sound policy.
-- Parking? On-site and free.
+Exact pricing depends on menu, bar, and event timing. See options on our [catering](/catering) page.
 
-Ready to plan? Book a tour.
+## Add‑Ons (optional)
+- Extended event time
+- Basic AV (mics, speakers, screen)
+- Decor enhancements (approved placements)
 
-[Venue](/venue) · [Catering](/catering)
+## Logistics & Parking
+We’re in Westminster with on‑site, free parking and straightforward guest arrival. ADA‑friendly layout. Vendor‑friendly for florals, photo, and entertainment.
 
+<iframe
+  src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
+  width="100%"
+  height="300"
+  style="border:0"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
+></iframe>
 
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=8050+Federal+Blvd+Westminster+CO+80031" target="_blank" rel="noopener">Get directions</a></p>
+
+## FAQs
+### What decor is allowed?
+Keep flames enclosed; no confetti. We’ll share a simple decor guide.
+
+### Do you allow DJs or live music?
+Yes, within our sound policy. We’ll guide layout.
+
+### Can we bring our own dessert?
+Yes. Outside dessert is welcome.
+
+### Is parking available?
+Yes. On‑site and free.
+
+## Ready to plan?
+Book a tour and get a tailored quote.
+
+[See the space](/venue) · [Catering](/catering) · [View gallery](/gallery) · [Denver area](/service-areas/denver) · [75‑guest venue](/venue/capacity/75-guest-wedding-venue-denver) · [100‑person venue](/venue/capacity/100-person-wedding-venue-denver)
+
+## Related Events
+- [Birthday Party Venue Denver](/events/birthday-party-venue-denver)
+- [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
+- [Corporate Event Venue Denver](/events/corporate-event-venue-denver)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What decor is allowed?", "acceptedAnswer": {"@type": "Answer", "text": "Keep flames enclosed; no confetti. We’ll share a simple decor guide."}},
+    {"@type": "Question", "name": "Do you allow DJs or live music?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, within our sound policy. We’ll guide layout."}},
+    {"@type": "Question", "name": "Can we bring our own dessert?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Outside dessert is welcome."}},
+    {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and free."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Private party venue",
+  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+  "offers": {"@type": "Offer", "priceCurrency": "USD", "price": "2800"}
+}
+</script>

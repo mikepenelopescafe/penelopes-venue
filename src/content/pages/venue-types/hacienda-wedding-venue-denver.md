@@ -1,6 +1,6 @@
 ---
 title: "Hacienda Wedding Venue Denver | Spanish Estate Style"
-description: "Hacienda-style wedding venue in Denver with authentic Spanish architecture. Intimate gatherings, full catering. From $3,500."
+description: "Hacienda-style wedding venue in Denver with authentic Spanish architecture. Intimate gatherings with full catering and bar."
 keywords: ["hacienda wedding venue denver", "spanish estate wedding denver", "spanish style venue colorado", "westminster wedding venue", "latin-inspired catering"]
 primaryKeyword: "hacienda wedding venue denver"
 intent: "commercial"
@@ -54,33 +54,43 @@ Haciendas were built for bringing families together. Our Spanish architecture cr
 - Complete accessibility
 
 ## Hacienda Wedding Packages
+ 
+## Pricing & Availability
 
-### Intimate Hacienda Gathering (50 guests)
-**From $3,500**
-- Full venue access (6 hours)
-- Family-style Latin dinner
-- Beer and wine service
-- Hacienda-inspired decor included
+### Day‑Based Venue Pricing
+- Monday–Thursday: 4 hours from $1,440; 8 hours from $2,400
+- Friday: 4 hours from $1,920; 8 hours from $3,200
+- Saturday: 4 hours from $1,920; 8 hours from $3,200
+- Sunday: 4 hours from $1,440; 8 hours from $2,400
 
-### Classic Hacienda Celebration (75 guests)
-**From $4,500**
-- Extended venue time
-- Choice of service styles
-- Full bar with signature drinks
-- Spanish guitar option available
+### Menu & Bar Options
+- Catering: $18–33 per guest (Latin‑inspired menus; plated, buffet, or passed)
+- Open Bar (2 hours): Beer/Wine from $18; Full Bar from $28
+- Cash Bar: $300 minimum via sales
 
-### Grand Hacienda Reception (100 guests)
-**From $5,500**
-- Premium everything
-- Multiple food stations
-- Premium bar selections
-- Late-night tapas addition
+Note: Off‑peak months and holiday periods may affect pricing. Get a custom quote for your date.
+
+[See the Space](/venue) · [Explore Catering](/catering) · [View Gallery](/gallery)
 
 ## Why Denver Couples Choose Our Hacienda Style
 
 "The hacienda feel was exactly what we wanted — warm, welcoming, authentically Spanish. Our families felt at home immediately." — Carmen & Luis, Denver
 
 "We toured actual hacienda venues in Mexico. Penelope's captures the same spirit without the destination wedding complexity." — Rachel & Diego, Westminster
+
+## FAQs: Hacienda Weddings in Denver
+
+**Is the hacienda style authentic or themed?**  
+Authentic. Our Spanish colonial revival architecture provides genuine character without overdone décor.
+
+**What’s the ideal capacity?**  
+Best for 50–100 guests with seamless ceremony‑to‑reception flow.
+
+**Is everything indoors and comfortable year‑round?**  
+Yes. Climate‑controlled interiors with moody lighting and a professional sound system.
+
+**How does pricing work?**  
+Venue rates are day‑based with 4‑hour and 8‑hour options; catering is $18–33/guest and bar options include Open Bar (2 hrs) or Cash Bar. Request a date‑specific quote.
 
 ## Location Benefits
 

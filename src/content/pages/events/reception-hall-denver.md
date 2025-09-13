@@ -8,22 +8,88 @@ keywords: ["denver wedding reception hall","reception venue denver","reception s
 template: "keyword"
 ---
 
-# Wedding Reception Hall Near Denver — Reception-First Design
+# Denver Wedding Reception Hall — Reception‑First Design
 
-## Reception-Forward Layouts
-- Cocktail hour → dinner → dancing flow
-- Bar placement, dance floor, toast acoustics
+Spanish warmth with modern flow. We’re in Westminster—convenient to Denver, Arvada, and Thornton—with reception‑first layouts, curated bar service, and Latin‑inspired menus.
 
-## Packages
-- Reception-only pricing with menu tiers
+## At a Glance
+- Capacity: 50–100 guests
+- Flow: Cocktail hour → dinner → toasts → dancing
+- Price examples: reception‑only with menu tiers; quotes based on guest count and bar
+- Area served: Denver, Westminster, Arvada, Thornton
 
-## FAQs & CTA
-- Band/DJ logistics? We’ll guide placement.
-- End times? Standard 10:30pm, ask about extensions.
-- Parking? On-site, easy.
+## Reception‑Forward Layouts
+- Bar placement that supports mingling and dance energy
+- Dance floor sizing and DJ/band placement for acoustics
+- Clear transitions for toasts and dessert
 
-Book a reception walkthrough.
+## Packages & Pricing
+- Reception‑only packages with menu tiers and staffed bar
+- Add‑ons: extended time, basic AV (mics/speakers), decor enhancements
 
-[Venue](/venue) · [Catering](/catering) · [Denver](/service-areas/denver)
+See menu options on our [catering](/catering) page. We’ll craft a quote that matches your guest count and flow.
 
+## Menus & Bar
+Latin‑inspired menus with modern presentation, from small plates to plated dinners. Full bar with curated cocktails, beer, and wine. Dietary accommodations available.
 
+## Logistics & Parking
+On‑site, free parking and straightforward guest arrival. ADA‑friendly layout. Vendor‑friendly for DJ/band, photo, and florals.
+
+<iframe
+  src="https://www.google.com/maps?q=8050+Federal+Blvd+Westminster+CO+80031&output=embed"
+  width="100%"
+  height="300"
+  style="border:0"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  aria-label="Map to Penelope’s Venue, 8050 Federal Blvd, Westminster, CO 80031"
+></iframe>
+
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=8050+Federal+Blvd+Westminster+CO+80031" target="_blank" rel="noopener">Get directions</a></p>
+
+## FAQs
+### Can you help with DJ or band placement?
+Yes. We’ll guide layout for acoustics and dance floor.
+
+### What is the standard end time?
+10:30pm standard; ask about extensions.
+
+### Is parking available?
+Yes. On‑site and easy.
+
+### Do you offer ceremony space?
+We focus on reception‑first events. Ask about micro‑ceremony add‑ons.
+
+## Book a Reception Walkthrough
+See the flow in person and get a tailored quote.
+
+[Venue](/venue) · [Catering](/catering) · [Gallery](/gallery) · [Denver](/service-areas/denver) · [75‑guest venue](/venue/capacity/75-guest-wedding-venue-denver) · [100‑person venue](/venue/capacity/100-person-wedding-venue-denver)
+
+## Related Events
+- [Elopement Reception Venue Denver](/events/elopement-reception-denver)
+- [Private Party Venue Denver](/events/private-party-venue-denver)
+- [Anniversary Party Venue Denver](/events/anniversary-party-venue-denver)
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Can you help with DJ or band placement?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We’ll guide layout for acoustics and dance floor."}},
+    {"@type": "Question", "name": "What is the standard end time?", "acceptedAnswer": {"@type": "Answer", "text": "10:30pm standard; ask about extensions."}},
+    {"@type": "Question", "name": "Is parking available?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. On‑site and easy."}},
+    {"@type": "Question", "name": "Do you offer ceremony space?", "acceptedAnswer": {"@type": "Answer", "text": "We focus on reception‑first events. Ask about micro‑ceremony add‑ons."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Wedding reception hall",
+  "provider": {"@type": "LocalBusiness", "name": "Penelope’s Venue"},
+  "areaServed": ["Denver", "Westminster", "Arvada", "Thornton"],
+  "offers": {"@type": "Offer", "priceCurrency": "USD"}
+}
+</script>
