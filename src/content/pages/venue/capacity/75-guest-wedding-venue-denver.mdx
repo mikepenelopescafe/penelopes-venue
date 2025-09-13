@@ -24,6 +24,7 @@ faqs:
 ---
 
 import LayoutEditor from '@/components/layout-editor/LayoutEditor';
+import PricingAtAGlance from '@/components/PricingAtAGlance';
 import { calculateVenuePackagePrice, barPackages, cateringPackages } from '@/data/pricing.ts';
 
 # 75 Guest Wedding Venue Denver — The Sweet Spot
@@ -60,34 +61,13 @@ Use our interactive floor plan to visualize tables, dance floor, and flow. Expor
 - Menu: buffet, family‑style, or plated
 - Bar: beer & wine or full bar; signature cocktail optional
 
-## Venue pricing by day
+## Venue Pricing
 
-{(() => {
-  const fri4 = calculateVenuePackagePrice({ packageId: 'friday', durationHours: 4 });
-  const fri8 = calculateVenuePackagePrice({ packageId: 'friday', durationHours: 8 });
-  const sat4 = calculateVenuePackagePrice({ packageId: 'saturday', durationHours: 4 });
-  const sat8 = calculateVenuePackagePrice({ packageId: 'saturday', durationHours: 8 });
-  const sun4 = calculateVenuePackagePrice({ packageId: 'sunday', durationHours: 4 });
-  const sun8 = calculateVenuePackagePrice({ packageId: 'sunday', durationHours: 8 });
-  const mon4 = calculateVenuePackagePrice({ packageId: 'monThu', durationHours: 4 });
-  const mon8 = calculateVenuePackagePrice({ packageId: 'monThu', durationHours: 8 });
-  const fmt = (v) => v.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-  return (
-    <div className="mt-2 text-sm">
-      <ul className="list-disc ml-5 space-y-1">
-        <li><strong>Friday:</strong> 4 hr {fmt(fri4)} · 8 hr {fmt(fri8)}</li>
-        <li><strong>Saturday:</strong> 4 hr {fmt(sat4)} · 8 hr {fmt(sat8)}</li>
-        <li><strong>Sunday:</strong> 4 hr {fmt(sun4)} · 8 hr {fmt(sun8)}</li>
-        <li><strong>Mon–Thu:</strong> 4 hr {fmt(mon4)} · 8 hr {fmt(mon8)}</li>
-      </ul>
-      <div className="opacity-70 mt-1">Off‑peak discounts and holiday surcharges may apply.</div>
-    </div>
-  );
-})()}
+<PricingAtAGlance eventLabel="75-Guest Wedding" showFourHour={true} showEightHour={true} />
 
 ## Budget Guide for 75 Guests
 
-- Venue: see pricing snapshot above (day and duration based)
+- Venue: see pricing above (day and duration based)
 - Dinner: {cateringPackages.latinFusion.priceRange}
 - Bar (2‑hr open): ${barPackages[0].beerWine}/guest beer & wine, ${barPackages[0].fullBar}/guest full bar
 

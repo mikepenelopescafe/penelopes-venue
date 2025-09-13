@@ -17,6 +17,9 @@ relatedServices: ["micro-wedding", "elopement", "wedding"]
 relatedLocations: ["arvada"]
 featured: true
 citySlug: "denver"
+---
+
+import PricingAtAGlance from '@/components/PricingAtAGlance';
 faqs:
   - q: "Are affordable venues lower quality?"
     a: "No. Our Spanish-inspired space and professional coordination deliver quality. You save by skipping unnecessary extras and hidden fees."
@@ -76,17 +79,7 @@ Our affordable packages include everything: venue, tables, chairs, linens, coord
 
 Our venue packages are designed around realistic guest counts and transparent pricing:
 
-**Weekend Venue Packages (Friday/Saturday):**
-- 4-hour package: $1,920
-- 8-hour package: $3,200
-
-**Weekday Venue Packages (Monday–Thursday):**
-- 4-hour package: $1,440
-- 8-hour package: $2,400
-
-**Sunday Venue Packages:**
-- 4-hour package: $1,440
-- 8-hour package: $2,400
+<PricingAtAGlance eventLabel="Wedding" showFourHour={true} showEightHour={true} />
 
 *Off-peak months (Sep–Mar) receive additional 20–30% discounts on select packages.*
 
@@ -143,16 +136,16 @@ Spread payments over 12-18 months. Start planning now, pay as you go. No interes
 ### Sample Wedding Costs
 
 **50-Guest Weekday Wedding:**
-- Venue (8 hours, Mon–Thu): $2,400
+- Venue (8 hours, Mon–Thu): see pricing above
 - Catering (50 × $18): $900
 - Bar (50 × $18): $900
-- **Total: $4,200**
+- **Total: ~$4,200–$4,500**
 
 **75-Guest Weekend Wedding:**
-- Venue (8 hours, Fri/Sat): $3,200
+- Venue (8 hours, Fri/Sat): see pricing above
 - Catering (75 × $22): $1,650
 - Bar (75 × $22): $1,650
-- **Total: $6,500**
+- **Total: ~$6,500–$7,000**
 
 *Actual pricing varies based on menu selection, bar package, and seasonal discounts. All venue packages include tables, chairs, linens, coordination, setup, and cleanup.*
 
