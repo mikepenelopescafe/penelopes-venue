@@ -1,48 +1,11 @@
 [
   {
-    "id": "budget-focused/affordable-wedding-venue-denver",
-    "collection": "pages",
-    "url": "/budget-focused/affordable-wedding-venue-denver",
-    "primaryKeyword": "affordable wedding venue denver",
-    "intent": "commercial",
-    "dimension": "feature",
-    "citySlug": "denver"
-  },
-  {
-    "id": "budget-focused/cheap-wedding-venues-denver",
-    "collection": "pages",
-    "url": "/budget-focused/cheap-wedding-venues-denver",
-    "primaryKeyword": "cheap wedding venues denver",
-    "intent": "commercial",
-    "dimension": "feature",
-    "citySlug": "denver",
-    "canonicalOf": "/budget-focused/affordable-wedding-venue-denver"
-  },
-  {
-    "id": "budget-focused/colorado-wedding-venues-on-budget",
-    "collection": "pages",
-    "url": "/budget-focused/colorado-wedding-venues-on-budget",
-    "primaryKeyword": "colorado wedding venues on a budget",
-    "intent": "commercial",
-    "dimension": "feature"
-  },
-  {
     "id": "budget-focused/index",
     "collection": "pages",
     "url": "/budget-focused",
     "primaryKeyword": "budget wedding venues denver",
     "intent": "commercial",
     "dimension": "feature"
-  },
-  {
-    "id": "budget-focused/wedding-venue-under-5000-denver",
-    "collection": "pages",
-    "url": "/budget-focused/wedding-venue-under-5000-denver",
-    "primaryKeyword": "wedding venue under 5000 denver",
-    "intent": "commercial",
-    "dimension": "feature",
-    "citySlug": "denver",
-    "canonicalOf": "/budget-focused/affordable-wedding-venue-denver"
   },
   {
     "id": "events/anniversary-party-venue-denver",
@@ -223,23 +186,6 @@
     "citySlug": "denver"
   },
   {
-    "id": "venue-types/intimate-wedding-venue-denver",
-    "collection": "pages",
-    "url": "/venue-types/intimate-wedding-venue-denver",
-    "primaryKeyword": "intimate wedding venue denver",
-    "intent": "commercial",
-    "dimension": "capacity"
-  },
-  {
-    "id": "venue-types/micro-wedding-venue",
-    "collection": "pages",
-    "url": "/venue-types/micro-wedding-venue",
-    "primaryKeyword": "micro wedding venue denver",
-    "intent": "commercial",
-    "dimension": "occasion",
-    "citySlug": "denver"
-  },
-  {
     "id": "venue-types/spanish-style-wedding-venue-colorado",
     "collection": "pages",
     "url": "/venue-types/spanish-style-wedding-venue-colorado",
@@ -247,15 +193,6 @@
     "intent": "commercial",
     "dimension": "style",
     "canonicalOf": "/venue-types/spanish-wedding-venue"
-  },
-  {
-    "id": "venue-types/spanish-wedding-venue",
-    "collection": "pages",
-    "url": "/venue-types/spanish-wedding-venue",
-    "primaryKeyword": "spanish wedding venue denver",
-    "intent": "commercial",
-    "dimension": "style",
-    "citySlug": "westminster"
   },
   {
     "id": "arvada",
