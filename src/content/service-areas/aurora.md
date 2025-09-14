@@ -41,10 +41,10 @@ businessSchema:
     zipCode: "80031"
   phone: "(720) 639-2406"
   email: "info@penelopesvenue.com"
-  website: "https://www.penelopesboutiquevenue.com"
+  website: "https://penelopesboutiquevenue.com"
 priority: "secondary"
 featured: false
-canonical: "https://www.penelopesboutiquevenue.com/service-areas/aurora/"
+canonical: "https://penelopesboutiquevenue.com/service-areas/aurora/"
 ---
 
 # Boutique Events Near Aurora

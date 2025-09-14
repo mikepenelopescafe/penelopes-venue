@@ -8,7 +8,7 @@ dimension: season
 season: fall
 template: keyword
 lastmod: "2025-09-12"
-canonical: "https://www.penelopesboutiquevenue.com/seasonal/fall-wedding-venue-denver/"
+canonical: "https://penelopesboutiquevenue.com/seasonal/fall-wedding-venue-denver/"
 hero:
   headline: Fall Wedding Venue Near Denver
   subheadline: Rich textures. Moody light. Timeless energy.

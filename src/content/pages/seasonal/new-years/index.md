@@ -24,10 +24,10 @@ faqs:
     a: "Curated bar packages include sparkling options for midnight toasts."
 
 businessSchema:
-  "@id": "https://www.penelopesboutiquevenue.com/#venue"
+  "@id": "https://penelopesboutiquevenue.com/#venue"
   "@type": ["LocalBusiness","EventVenue"]
   name: "Penelope's Venue"
-  url: "https://www.penelopesboutiquevenue.com"
+  url: "https://penelopesboutiquevenue.com"
   telephone: "(720) 639-2406"
   address:
     "@type": "PostalAddress"
@@ -70,7 +70,7 @@ businessSchema:
     ratingValue: 4.9
     reviewCount: 87
 
-canonical: "https://www.penelopesboutiquevenue.com/seasonal/new-years/"
+canonical: "https://penelopesboutiquevenue.com/seasonal/new-years/"
 featured: true
 noIndex: false
 hero:

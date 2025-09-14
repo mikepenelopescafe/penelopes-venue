@@ -8,7 +8,7 @@ dimension: season
 season: summer
 template: keyword
 lastmod: "2025-09-12"
-canonical: "https://www.penelopesboutiquevenue.com/seasonal/summer-wedding-venue-denver/"
+canonical: "https://penelopesboutiquevenue.com/seasonal/summer-wedding-venue-denver/"
 hero:
   headline: Summer Wedding Venue Near Denver
   subheadline: Bright, modern, effortless.

@@ -41,10 +41,10 @@ businessSchema:
     zipCode: "80031"
   phone: "(720) 639-2406"
   email: "info@penelopesvenue.com"
-  website: "https://www.penelopesboutiquevenue.com"
+  website: "https://penelopesboutiquevenue.com"
 priority: "secondary"
 featured: false
-canonical: "https://www.penelopesboutiquevenue.com/service-areas/commerce-city/"
+canonical: "https://penelopesboutiquevenue.com/service-areas/commerce-city/"
 ---
 
 # Commerce City Events, Elevated

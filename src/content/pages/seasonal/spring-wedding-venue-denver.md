@@ -8,7 +8,7 @@ dimension: season
 season: spring
 template: keyword
 lastmod: "2025-09-12"
-canonical: "https://www.penelopesboutiquevenue.com/seasonal/spring-wedding-venue-denver/"
+canonical: "https://penelopesboutiquevenue.com/seasonal/spring-wedding-venue-denver/"
 hero:
   headline: Spring Wedding Venue Near Denver
   subheadline: Fresh energy. Modern styling. Intimate scale.
