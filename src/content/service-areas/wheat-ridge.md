@@ -44,6 +44,7 @@ businessSchema:
   website: "https://www.penelopesboutiquevenue.com"
 priority: "secondary"
 featured: false
+canonical: "https://www.penelopesboutiquevenue.com/service-areas/wheat-ridge/"
 ---
 
 # Boutique Events Near Wheat Ridge

@@ -6,7 +6,9 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
-  return pages.map(page => ({
+  // Filter out the 'index' slug to prevent duplicate homepage route
+  const filteredPages = pages.filter(page => page.slug !== 'index');
+  return filteredPages.map(page => ({
     params: { slug: page.slug },
     props: { page }
   }));

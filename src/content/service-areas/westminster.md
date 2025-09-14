@@ -31,6 +31,7 @@ businessSchema:
   website: "https://www.penelopesboutiquevenue.com"
 priority: "primary"
 featured: true
+canonical: "https://www.penelopesboutiquevenue.com/service-areas/westminster/"
 ---
 
 # Spanish-Inspired Venue in Westminster

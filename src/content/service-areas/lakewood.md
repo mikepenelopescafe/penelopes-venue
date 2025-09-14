@@ -44,6 +44,7 @@ businessSchema:
   website: "https://www.penelopesboutiquevenue.com"
 priority: "secondary"
 featured: false
+canonical: "https://www.penelopesboutiquevenue.com/service-areas/lakewood/"
 ---
 
 # Boutique Events Near Lakewood

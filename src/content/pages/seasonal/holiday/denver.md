@@ -60,7 +60,7 @@ businessSchema:
     ratingValue: 4.9
     reviewCount: 87
 
-canonical: "https://www.penelopesboutiquevenue.com/seasonal/holiday/denver/"
+canonical: "https://www.penelopesboutiquevenue.com/seasonal/holiday/"
 featured: true
 noIndex: false
 hero:

@@ -48,7 +48,7 @@ businessSchema:
     ratingValue: 4.9
     reviewCount: 87
 
-canonical: "https://www.penelopesboutiquevenue.com/seasonal/holiday/lakewood/"
+canonical: "https://www.penelopesboutiquevenue.com/seasonal/holiday/"
 featured: false
 noIndex: false
 hero:

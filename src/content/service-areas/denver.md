@@ -43,6 +43,7 @@ businessSchema:
   website: "https://www.penelopesboutiquevenue.com"
 priority: "secondary"
 featured: false
+canonical: "https://www.penelopesboutiquevenue.com/service-areas/denver/"
 ---
 
 # Boutique Events Near Denver

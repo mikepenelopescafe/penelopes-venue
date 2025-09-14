@@ -44,6 +44,7 @@ businessSchema:
   website: "https://www.penelopesboutiquevenue.com"
 priority: "secondary"
 featured: false
+canonical: "https://www.penelopesboutiquevenue.com/service-areas/aurora/"
 ---
 
 # Boutique Events Near Aurora
