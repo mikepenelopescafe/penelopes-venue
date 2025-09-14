@@ -347,27 +347,23 @@ const offersSchema = (['friday','saturday','sunday','monThu','memorialMonThu','n
     </div>
   </section>
 
-  <script type="application/ld+json">
-    {JSON.stringify({
+  <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": new URL('/', siteUrl).href },
         { "@type": "ListItem", "position": 2, "name": "Venue Pricing", "item": new URL('/venue', siteUrl).href }
       ]
-    })}
-  </script>
+    })}></script>
 
-  <script type="application/ld+json">
-    {JSON.stringify({
+  <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Service",
       name: "Venue Rental Packages",
       provider: { "@type": "LocalBusiness", name: "Penelope's Boutique Venue" },
       areaServed: ["Westminster", "Denver Metro"],
       offers: offersSchema
-    })}
-  </script>
+    })}></script>
 </Layout>
 
 

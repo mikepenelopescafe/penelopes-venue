@@ -38,6 +38,21 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 const isProduction = import.meta.env.PROD || import.meta.env.VERCEL_ENV === 'production';
 const googleAnalyticsId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-FJ5ECQE84Q';
 
+// Build breadcrumb items from path; include Home as the first item
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = pathSegments.length > 0
+  ? [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      ...pathSegments.map((segment, index, parts) => {
+        const name = segment
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, (c) => c.toUpperCase());
+        const item = new URL('/' + parts.slice(0, index + 1).join('/') + '/', siteUrl).href;
+        return { '@type': 'ListItem', position: index + 2, name, item };
+      })
+    ]
+  : [];
+
 // Compute AggregateRating and limited Review items from testimonials
 let testimonialsMarkdown = [] as Array<{ author: string; body?: string; rating: number }>;
 let testimonialsJson = [] as Array<{ author: string; body?: string; rating: number }>;
@@ -185,17 +200,13 @@ if (ratingValue && reviewCount) {
       })}></script>
     
     <!-- BreadcrumbList JSON-LD (global; path-based) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": Astro.url.pathname.split('/').filter(Boolean).map((segment, index, parts) => {
-          const name = segment
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, (c) => c.toUpperCase());
-          const item = new URL('/' + parts.slice(0, index + 1).join('/') + '/', siteUrl).href;
-          return { "@type": "ListItem", position: index + 1, name, item };
-        })
-      })}></script>
+    {breadcrumbItems.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": breadcrumbItems
+        })}></script>
+    )}
     
     <!-- Favicon -->
    
