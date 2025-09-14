@@ -34,7 +34,7 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => !page.includes('/admin/'),
-      changefreq: 'weekly',
+      changefreq: 'daily',
       priority: 0.7,
       lastmod: new Date(),
       i18n: {

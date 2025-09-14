@@ -180,8 +180,7 @@ const parallaxImages = [
   <LocationCTASection />
 
   <!-- LocalBusiness Schema for homepage specificity -->
-  <script type="application/ld+json">
-    {JSON.stringify({
+  <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "@id": new URL('#venue', siteUrl).href,
@@ -199,12 +198,10 @@ const parallaxImages = [
       },
       "priceRange": "$$-$$$",
       "areaServed": ["Westminster", "Denver Metro", "Arvada", "Thornton", "Northglenn"]
-    })}
-  </script>
+    })} />
 
   <!-- FAQ Schema -->
-  <script type="application/ld+json">
-    {JSON.stringify({
+  <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
@@ -234,6 +231,5 @@ const parallaxImages = [
           "acceptedAnswer": { "@type": "Answer", "text": "Yes—Bronze, Silver, and Gold packages. See our venue page for details." }
         }
       ]
-    })}
-  </script>
+    })} />
 </Layout>
