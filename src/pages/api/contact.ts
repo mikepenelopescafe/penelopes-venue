@@ -195,16 +195,61 @@ Please respond within 4 hours during business hours.
     }
 
     // Success response
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: 'Form submitted successfully'
-      }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
+
+		// Optional: Server-side GA4 Measurement Protocol fallback (disabled unless explicitly enabled)
+		try {
+			const mpEnabled = (process.env.GA_MP_FALLBACK_ENABLED === 'true') || (import.meta.env.GA_MP_FALLBACK_ENABLED === 'true');
+			const measurementId = process.env.GA4_MEASUREMENT_ID || import.meta.env.GA4_MEASUREMENT_ID || process.env.PUBLIC_GA_MEASUREMENT_ID || import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+			const apiSecret = process.env.GA4_API_SECRET || import.meta.env.GA4_API_SECRET;
+
+			if (mpEnabled && measurementId && apiSecret) {
+				const isBooking = formData.formType === 'booking';
+				const formParams = {
+					form_id: isBooking ? 'booking_form' : 'general_form',
+					form_name: isBooking ? 'Booking Inquiry' : 'General Inquiry',
+					form_destination: request.headers.get('referer') || undefined,
+				};
+
+				const clientId = (globalThis.crypto && typeof globalThis.crypto.randomUUID === 'function')
+					? globalThis.crypto.randomUUID()
+					: Math.random().toString(36).slice(2) + Date.now().toString(36);
+
+				const endpoint = `https://www.google-analytics.com/mp/collect?measurement_id=${encodeURIComponent(measurementId)}&api_secret=${encodeURIComponent(apiSecret)}`;
+				const body = {
+					client_id: clientId,
+					non_personalized_ads: true,
+					events: [
+						{ name: 'form_submit', params: { ...formParams, engagement_time_msec: 1 } },
+						{ name: 'generate_lead', params: { ...formParams, engagement_time_msec: 1 } },
+					],
+					user_properties: {
+						form_type: { value: isBooking ? 'booking' : 'general' },
+					},
+				};
+
+				await fetch(endpoint, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'User-Agent': request.headers.get('user-agent') || 'penelopes-venue-api',
+					},
+					body: JSON.stringify(body),
+				});
+			}
+		} catch (mpError) {
+			console.error('GA Measurement Protocol error:', mpError);
+		}
+
+		return new Response(
+			JSON.stringify({
+				success: true,
+				message: 'Form submitted successfully'
+			}),
+			{
+				status: 200,
+				headers: { 'Content-Type': 'application/json' }
+			}
+		);
 
   } catch (error) {
     console.error('Contact form error:', error);

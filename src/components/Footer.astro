@@ -57,7 +57,7 @@ const mapsQuery = encodeURIComponent(contactInfo.address);
 const mapsHref = `https://www.google.com/maps?q=${mapsQuery}`;
 ---
 
-<footer class="bg-background/90 backdrop-blur-sm border-t border-primary/20">
+<footer class="bg-background/90 backdrop-blur-sm border-t border-primary/20" data-ga-section="Footer">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
       <!-- Brand & Contact Info -->
@@ -106,7 +106,7 @@ const mapsHref = `https://www.google.com/maps?q=${mapsQuery}`;
             <ul class="space-y-2">
             {footerLinks.venue.map(link => (
               <li>
-                <a href={link.href} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
+                <a href={link.href} data-ga-cta={`footer-${link.label.toLowerCase().replace(/\s+/g,'-')}`} class="text-sm text-muted-foreground hover:text-foreground transition-all duration-300">
                   {link.label}
                 </a>
               </li>

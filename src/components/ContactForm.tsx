@@ -24,15 +24,7 @@ interface FormData {
   message?: string;
 }
 
-interface FormErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  eventType?: string;
-  guestCount?: string;
-  subject?: string;
-  message?: string;
-}
+type FormErrors = Partial<Record<keyof FormData, string>>;
 
 export default function ContactForm({ formType }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
@@ -54,6 +46,49 @@ export default function ContactForm({ formType }: ContactFormProps) {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Lightweight GA4 event helper; no-ops if GA isn't loaded (e.g., non-prod domains)
+  const trackEvent = (eventName: string, params?: Record<string, unknown>) => {
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      (window as any).gtag('event', eventName, params || {});
+    }
+  };
+
+  // Fire form_view on mount
+  React.useEffect(() => {
+    const isBooking = formType === 'booking';
+    trackEvent('form_view', {
+      form_id: isBooking ? 'booking_form' : 'general_form',
+      form_name: isBooking ? 'Booking Inquiry' : 'General Inquiry',
+      form_destination: typeof window !== 'undefined' ? window.location.href : undefined,
+    });
+  }, [formType]);
+
+  // Track first interaction as form_start and set up abandon timer
+  const [hasStarted, setHasStarted] = useState(false);
+  const abandonTimerRef = React.useRef<number | null>(null);
+
+  const markFormStart = React.useCallback(() => {
+    if (!hasStarted) {
+      setHasStarted(true);
+      const isBooking = formType === 'booking';
+      trackEvent('form_start', {
+        form_id: isBooking ? 'booking_form' : 'general_form',
+        form_name: isBooking ? 'Booking Inquiry' : 'General Inquiry',
+        form_destination: typeof window !== 'undefined' ? window.location.href : undefined,
+      });
+      // schedule abandon if not submitted within 60s
+      if (typeof window !== 'undefined') {
+        abandonTimerRef.current = window.setTimeout(() => {
+          trackEvent('form_abandon', {
+            form_id: isBooking ? 'booking_form' : 'general_form',
+            form_name: isBooking ? 'Booking Inquiry' : 'General Inquiry',
+            form_destination: window.location.href,
+          });
+        }, 60000);
+      }
+    }
+  }, [hasStarted, formType]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -93,6 +128,7 @@ export default function ContactForm({ formType }: ContactFormProps) {
   };
 
   const handleInputChange = (field: keyof FormData, value: string) => {
+    markFormStart();
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field]) {
@@ -104,6 +140,18 @@ export default function ContactForm({ formType }: ContactFormProps) {
     e.preventDefault();
 
     if (!validateForm()) {
+      // Emit form_error events for fields with errors
+      const isBooking = formType === 'booking';
+      Object.entries(errors).forEach(([field, message]) => {
+        if (message) {
+          trackEvent('form_error', {
+            form_id: isBooking ? 'booking_form' : 'general_form',
+            form_name: isBooking ? 'Booking Inquiry' : 'General Inquiry',
+            form_field: field,
+            error_message: message,
+          });
+        }
+      });
       return;
     }
 
@@ -123,6 +171,23 @@ export default function ContactForm({ formType }: ContactFormProps) {
       });
 
       if (response.ok) {
+        // Track successful form submission in GA4. Use both a standard enhanced-measurement name
+        // and the recommended GA4 event for lead forms.
+        const isBooking = formType === 'booking';
+        const formParams = {
+          form_id: isBooking ? 'booking_form' : 'general_form',
+          form_name: isBooking ? 'Booking Inquiry' : 'General Inquiry',
+          form_destination: typeof window !== 'undefined' ? window.location.href : undefined,
+        };
+        trackEvent('form_submit', formParams);
+        trackEvent('generate_lead', formParams);
+
+        // Clear abandon timer on success
+        if (typeof window !== 'undefined' && abandonTimerRef.current) {
+          window.clearTimeout(abandonTimerRef.current);
+          abandonTimerRef.current = null;
+        }
+
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -150,6 +215,8 @@ export default function ContactForm({ formType }: ContactFormProps) {
       setIsSubmitting(false);
     }
   };
+
+  // Fix: use real phone placeholder and unique budget option values
 
   return (
     <div className="space-y-6">
@@ -192,7 +259,7 @@ export default function ContactForm({ formType }: ContactFormProps) {
             value={formData.phone}
             onChange={(e) => handleInputChange('phone', e.target.value)}
             className={errors.phone ? 'border-destructive' : ''}
-            placeholder="(303) 555-0123"
+            placeholder="(720) 639-2406"
           />
           {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
         </div>
@@ -256,15 +323,15 @@ export default function ContactForm({ formType }: ContactFormProps) {
                   <SelectTrigger>
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
-                  <SelectContent>
-                  <SelectItem value="5000-7500">$300 - $1,000</SelectItem>
-                  <SelectItem value="5000-7500">$1,000 - $2,500</SelectItem>
-                  <SelectItem value="5000-7500">$2,500 - $5,000</SelectItem>
-                    <SelectItem value="5000-7500">$5,000 - $7,500</SelectItem>
-                    <SelectItem value="7500-10000">$7,500 - $10,000</SelectItem>
-                    <SelectItem value="10000-15000">$10,000+</SelectItem>
-                    <SelectItem value="discuss">Prefer to discuss</SelectItem>
-                  </SelectContent>
+                <SelectContent>
+                  <SelectItem value="300-1000">$300 - $1,000</SelectItem>
+                  <SelectItem value="1000-2500">$1,000 - $2,500</SelectItem>
+                  <SelectItem value="2500-5000">$2,500 - $5,000</SelectItem>
+                  <SelectItem value="5000-7500">$5,000 - $7,500</SelectItem>
+                  <SelectItem value="7500-10000">$7,500 - $10,000</SelectItem>
+                  <SelectItem value="10000-plus">$10,000+</SelectItem>
+                  <SelectItem value="discuss">Prefer to discuss</SelectItem>
+                </SelectContent>
                 </Select>
               </div>
             </div>

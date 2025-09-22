@@ -84,12 +84,14 @@ const parallaxImages = [
 
 <Layout title={seo.title} description={seo.description} keywords={seo.keywords} ogImage={exteriorImage.src}>
   <!-- Hero Section -->
+  <div data-ga-section="Hero">
   <Hero
     headline="Westminster's Boutique Wedding & Event Venue"
     subheadline="Spanish‑inspired. Intimate. Full kitchen + bar for 50–100 guests in Westminster."
     ctaPrimary={{ text: "See the space", href: "/contact#book" }}
     ctaSecondary={{ text: "View pricing", href: "/venue" }}
   />
+  </div>
 
   <!-- Primary H1 for SEO -->
   <section class="px-6 py-8">
@@ -102,13 +104,17 @@ const parallaxImages = [
   <!-- <ZoomParallax images={parallaxImages} client:load />
 
   <!-- Venue Overview Stats - Streamable Component -->
-  <VenueStatsSection venueStats={venueStats} />
+  <div data-ga-section="Venue Stats">
+    <VenueStatsSection venueStats={venueStats} />
+  </div>
 
   <!-- Services Section - Streamable Component -->
-  <ServicesSection services={services} />
+  <div data-ga-section="Services">
+    <ServicesSection services={services} />
+  </div>
 
   <!-- SEO Content Section -->
-  <section class="px-6 py-12">
+  <section class="px-6 py-12" data-ga-section="SEO Content">
     <div class="max-w-4xl mx-auto space-y-8 text-foreground/90">
       <div class="space-y-3">
         <h2 class="text-2xl font-display">Westminster Wedding Venue Capacity & Layout</h2>
@@ -138,7 +144,7 @@ const parallaxImages = [
   </section>
 
   <!-- Seasonal Links Section -->
-  <section class="px-6 py-12 bg-muted/30">
+  <section class="px-6 py-12 bg-muted/30" data-ga-section="Seasonal">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-display mb-6">Seasonal</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -171,13 +177,19 @@ const parallaxImages = [
   </section>
 
   <!-- About Preview - Streamable Component -->
-  <AboutPreviewSection />
+  <div data-ga-section="About Preview">
+    <AboutPreviewSection />
+  </div>
 
   <!-- Testimonials - Streamable Component -->
-  <TestimonialsSection testimonials={testimonials} />
+  <div data-ga-section="Testimonials">
+    <TestimonialsSection testimonials={testimonials} />
+  </div>
 
   <!-- Location & Contact CTA - Streamable Component -->
-  <LocationCTASection />
+  <div data-ga-section="Location CTA">
+    <LocationCTASection />
+  </div>
 
   <!-- LocalBusiness Schema for homepage specificity -->
   <script type="application/ld+json" set:html={JSON.stringify({

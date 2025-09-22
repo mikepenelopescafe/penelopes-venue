@@ -71,6 +71,7 @@ const {
         {ctaPrimary && (
           <a 
             href={ctaPrimary.href} 
+            data-ga-cta="hero-primary"
             class="bg-primary hover:bg-tan-hover text-primary-foreground px-8 py-4 rounded-md text-base font-medium transition-all duration-300 hover-scale inline-block"
           >
             {ctaPrimary.text}
@@ -79,6 +80,7 @@ const {
         {ctaSecondary && (
           <a 
             href={ctaSecondary.href} 
+            data-ga-cta="hero-secondary"
             class="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-md text-base font-medium transition-all duration-300 inline-block"
           >
             {ctaSecondary.text}

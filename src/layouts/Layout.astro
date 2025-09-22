@@ -375,7 +375,7 @@ if (ratingValue && reviewCount) {
             function gtag(){ window.dataLayer.push(arguments); }
             window.gtag = gtag;
             gtag('js', new Date());
-            gtag('config', googleAnalyticsId);
+            gtag('config', googleAnalyticsId, { send_page_view: false });
             
             console.log('📊 Google Analytics: ENABLED (Production Domain)', googleAnalyticsId);
           } else {
@@ -437,6 +437,166 @@ if (ratingValue && reviewCount) {
       
       // Initial restoration
       restoreTheme();
+    </script>
+
+    <!-- Global analytics: manual page_view, scroll depth, section view, CTA clicks -->
+    <script>
+      (function() {
+    
+        /**
+         * Forward any arguments to window.gtag if available
+         * @param {...any} args
+         */
+        /** @param {...any} args */
+        // @ts-ignore - inline script context, relax typing of rest param
+        function safeGtag(...args) {
+          try {
+            // @ts-ignore
+            if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+              // @ts-ignore
+              (window as any).gtag.apply(null, args);
+            }
+          } catch (_) {}
+        }
+
+        function trackPageView() {
+          try {
+            const page_location = window.location.href;
+            const page_title = document.title || '';
+            const page_path = window.location.pathname + window.location.search;
+            // Manual page_view to avoid double counting with SPA transitions
+            safeGtag('event', 'page_view', { page_location, page_title, page_path });
+          } catch (_) {}
+        }
+
+        function initScrollDepth() {
+          try {
+            // Per-page thresholds tracking
+            // @ts-ignore
+            window.__gaScrollDepth = window.__gaScrollDepth || {};
+            const key = window.location.pathname + window.location.search;
+            // @ts-ignore
+            if (!window.__gaScrollDepth[key]) {
+              // @ts-ignore
+              window.__gaScrollDepth[key] = new Set();
+            }
+            const thresholds = [25, 50, 75, 100];
+            let ticking = false;
+
+            function onScroll() {
+              if (ticking) return;
+              ticking = true;
+              requestAnimationFrame(function() {
+                try {
+                  const scrolled = window.scrollY + window.innerHeight;
+                  const total = document.documentElement.scrollHeight;
+                  if (!total) return;
+                  const pct = Math.min(100, Math.round((scrolled / total) * 100));
+                  thresholds.forEach(function(threshold) {
+                    // @ts-ignore
+                    if (pct >= threshold && !window.__gaScrollDepth[key].has(threshold)) {
+                      // @ts-ignore
+                      window.__gaScrollDepth[key].add(threshold);
+                      safeGtag('event', 'scroll_depth', {
+                        percent_scrolled: threshold,
+                        page_path: window.location.pathname + window.location.search
+                      });
+                    }
+                  });
+                } catch (_) {}
+                ticking = false;
+              });
+            }
+
+            window.removeEventListener('scroll', onScroll);
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+          } catch (_) {}
+        }
+
+        function initSectionObserver() {
+          try {
+            // Disconnect previous observer on route change
+            // @ts-ignore
+            if (window.__gaSectionObserver) {
+              // @ts-ignore
+              window.__gaSectionObserver.disconnect();
+            }
+            const seen = new Set();
+            const observer = new IntersectionObserver(function(entries) {
+              entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                  const el = entry.target;
+                  const name = el && el.getAttribute ? el.getAttribute('data-ga-section') || 'Unknown Section' : 'Unknown Section';
+                  if (!seen.has(name)) {
+                    seen.add(name);
+                    safeGtag('event', 'section_view', {
+                      section_name: name,
+                      page_path: window.location.pathname
+                    });
+                  }
+                }
+              });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('[data-ga-section]').forEach(function(el) { observer.observe(el); });
+            // @ts-ignore
+            window.__gaSectionObserver = observer;
+          } catch (_) {}
+        }
+
+        function initCtaClickTracking() {
+          /**
+           * @param {Event} e
+           */
+          // @ts-ignore - inline script context, relax event typing
+          function handler(e) {
+            // @ts-ignore
+            var el = e && e.target ? e.target : null;
+            // @ts-ignore - Traverse to an element that supports closest
+            while (el && !el.closest) { el = el.parentElement; }
+            // @ts-ignore - el may still be null
+            var target = el ? el.closest('[data-ga-cta], a[data-ga-cta]') : null;
+            if (!target) return;
+            try {
+              // @ts-ignore
+              var sectionEl = target.closest('[data-ga-section]');
+              // @ts-ignore
+              var section = sectionEl ? sectionEl.getAttribute('data-ga-section') || undefined : undefined;
+              // @ts-ignore
+              var link_url = target.getAttribute('href') || target.getAttribute('data-href') || undefined;
+              var link_text = (target.textContent || '').trim().slice(0, 100);
+              // @ts-ignore
+              var cta_id = target.getAttribute('data-ga-cta') || undefined;
+              safeGtag('event', 'select_content', {
+                content_type: 'cta',
+                item_id: cta_id,
+                link_url: link_url,
+                link_text: link_text,
+                section: section
+              });
+            } catch (_) {}
+          }
+          document.removeEventListener('click', handler, true);
+          document.addEventListener('click', handler, true);
+        }
+
+        function initAll() {
+          trackPageView();
+          initScrollDepth();
+          initSectionObserver();
+          initCtaClickTracking();
+        }
+
+        document.addEventListener('astro:page-load', initAll);
+        document.addEventListener('astro:after-swap', initAll);
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          initAll();
+        } else {
+          document.addEventListener('DOMContentLoaded', initAll);
+        }
+      })();
     </script>
   </body>
 </html>

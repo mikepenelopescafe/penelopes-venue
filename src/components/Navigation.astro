@@ -39,10 +39,11 @@ const currentPath = Astro.url.pathname;
       </a>
       
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden md:flex items-center space-x-8" data-ga-section="Top Nav">
         {navItems.map(item => (
           <a 
             href={item.href}
+            data-ga-cta={`nav-${item.label.toLowerCase()}`}
             class={`text-sm font-medium font-display transition-all duration-300 relative ${
               currentPath === item.href
                 ? 'text-primary'
@@ -58,6 +59,7 @@ const currentPath = Astro.url.pathname;
         <ThemeToggle />
         <a
           href="/contact#book"
+          data-ga-cta="nav-book-now"
           class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-md text-sm font-medium font-display transition-all duration-300 hover-scale"
         >
           Book Now
@@ -81,11 +83,12 @@ const currentPath = Astro.url.pathname;
     </div>
     
     <!-- Mobile Navigation Panel -->
-    <div id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-20 glass-mobile">
+    <div id="mobile-menu" class="md:hidden hidden fixed inset-x-0 top-20 glass-mobile" data-ga-section="Mobile Nav">
       <div class="px-4 pt-4 pb-6 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
         {navItems.map(item => (
           <a 
             href={item.href}
+            data-ga-cta={`mobile-nav-${item.label.toLowerCase()}`}
             class={`block px-4 py-3 rounded-md text-base font-medium font-display transition-all duration-300 ${
               currentPath === item.href
                 ? 'bg-primary/20 text-primary'
@@ -97,6 +100,7 @@ const currentPath = Astro.url.pathname;
         ))}
         <a
           href="/contact#book"
+          data-ga-cta="mobile-nav-book-now"
           class="block w-full text-center bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-3 rounded-md text-base font-medium font-display transition-all duration-300 mt-4"
         >
           Book Now
@@ -154,7 +158,7 @@ const currentPath = Astro.url.pathname;
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      const target = e.target;
+      const target = e.target as Node | null;
       // Check if click is outside menu and button
       if (!mobileMenu.contains(target) && !mobileMenuButton.contains(target)) {
         closeMenu();

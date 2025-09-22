@@ -15,7 +15,7 @@ export interface Props {
 const { venueStats } = Astro.props;
 ---
 
-<section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats" aria-labelledby="venue-stats-heading">
+<section class="relative py-24 px-6 overflow-hidden" transition:name="venue-stats" aria-labelledby="venue-stats-heading" data-ga-section="Venue Stats">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
        style={`background-image: url('${diningRoomImage.src}');`}>
@@ -69,7 +69,7 @@ const { venueStats } = Astro.props;
 
       <!-- Call to Action -->
       <div class="mt-16">
-        <a href="/contact#book" class="btn-primary-lg hero-text-shadow">
+        <a href="/contact#book" class="btn-primary-lg hero-text-shadow" data-ga-cta="venue-stats-see-the-space">
           See the space
         </a>
         <p class="text-white/70 text-sm mt-4">
