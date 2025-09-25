@@ -1,6 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-//import ScrollHint from './ScrollHint.astro';
+
+// Import venue images for the masonry gallery
+import crossBacksImage from '@/assets/images/penelopes-cross-backs.jpeg';
+import flowersImage from '@/assets/images/penelopes-flowers.jpeg';
+import cakeTableImage from '@/assets/images/penelopes-cake-table.jpeg';
+import mirrorsImage from '@/assets/images/penelopes-mirrors.jpeg';
+import drinksImage from '@/assets/images/penelopes-drinks.jpeg';
+import exteriorImage from '@/assets/images/8050 N Federal Blvd - Web Quality - 002 - 05 Exterior.jpg';
 
 export interface Props {
   headline?: string;
@@ -25,77 +32,142 @@ const {
   ctaSecondary = { text: "View pricing", href: "/venue" },
   showScrollHint = true
 } = Astro.props;
+
+// Masonry gallery images with alt text
+const galleryImages = [
+  { src: crossBacksImage, alt: "Elegant cross-back chairs in Penelope's Spanish-inspired dining space" },
+  { src: flowersImage, alt: "Fresh floral arrangements and moody table settings" },
+  { src: cakeTableImage, alt: "Stylish cake table setup with candles and decor" },
+  { src: mirrorsImage, alt: "Reflective mirror accents in the intimate event space" },
+  { src: drinksImage, alt: "Craft cocktails and wine service setup" },
+  { src: exteriorImage, alt: "Welcoming exterior entrance of Penelope's Café & Venue" }
+];
 ---
 
-<section class="hero min-h-screen flex items-center justify-center relative overflow-hidden pb-24" transition:name="hero">
-  <!-- Background with gradient and pattern -->
-  <div class="absolute inset-0 bg-gradient-dark"></div>
-  <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+<section class="hero relative isolate overflow-hidden bg-background" transition:name="hero">
+  <!-- Background Pattern -->
+  <svg aria-hidden="true" class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-border/20 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]">
+    <defs>
+      <pattern id="hero-pattern" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+        <path d="M.5 200V.5H200" fill="none" />
+      </pattern>
+    </defs>
+    <svg x="50%" y="-1" class="overflow-visible fill-muted/20">
+      <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0" />
+    </svg>
+    <rect width="100%" height="100%" fill="url(#hero-pattern)" stroke-width="0" />
+  </svg>
   
-  <!-- Content -->
-  <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
-    {showLogo && (
-      <div class="mb-8">
-        <!-- Logo for dark theme (logo.svg) -->
-        <Image
-          id="hero-logo-dark"
-          src="/logo.svg"
-          alt="Penelope's Venue Logo"
-          width={400}
-          height={400}
-          class="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto"
-        />
-        <!-- Logo for light theme (logo-lite.svg) -->
-        <Image
-          id="hero-logo-light"
-          src="/logo-lite.svg"
-          alt="Penelope's Venue Logo"
-          width={400}
-          height={400}
-          class="h-48 md:h-64 lg:h-80 xl:h-96 w-auto mx-auto hidden"
-        />
-      </div>
-    )}
-  
-    
-    {subheadline && (
-      <div class="mb-12">
-        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          {subheadline}
-        </p>
-      </div>
-    )}
-    
-    {(ctaPrimary || ctaSecondary) && (
-      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-        {ctaPrimary && (
-          <a 
-            href={ctaPrimary.href} 
-            data-ga-cta="hero-primary"
-            class="bg-primary hover:bg-tan-hover text-primary-foreground px-8 py-4 rounded-md text-base font-medium transition-all duration-300 hover-scale inline-block"
-          >
-            {ctaPrimary.text}
-          </a>
-        )}
-        {ctaSecondary && (
-          <a 
-            href={ctaSecondary.href} 
-            data-ga-cta="hero-secondary"
-            class="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-md text-base font-medium transition-all duration-300 inline-block"
-          >
-            {ctaSecondary.text}
-          </a>
-        )}
-      </div>
-    )}
+  <!-- Gradient Accent -->
+  <div aria-hidden="true" class="absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48">
+    <div style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)" class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-primary/30 to-accent/30 opacity-30"></div>
   </div>
   
-  <!-- Scroll hint 
-  {showScrollHint && (
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-      <ScrollHint />
+  <div class="overflow-hidden">
+    <div class="mx-auto max-w-7xl px-6 pt-36 pb-24 sm:pt-60 lg:px-8 lg:pt-24">
+      <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
+        <!-- Content Section -->
+        <div class="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
+         
+          
+          {headline && (
+            <h1 class="text-4xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-4xl xl:text4xl font-display">
+              {headline}
+            </h1>
+          )}
+          
+          {subheadline && (
+            <p class="mt-8 text-lg font-medium text-muted-foreground sm:max-w-md sm:text-xl/8 lg:max-w-none leading-relaxed">
+              {subheadline}
+            </p>
+          )}
+          
+          {(ctaPrimary || ctaSecondary) && (
+            <div class="mt-10 flex items-center gap-x-6">
+              {ctaPrimary && (
+                <a 
+                  href={ctaPrimary.href} 
+                  data-ga-cta="hero-primary"
+                  class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-md text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
+                >
+                  {ctaPrimary.text}
+                </a>
+              )}
+              {ctaSecondary && (
+                <a 
+                  href={ctaSecondary.href} 
+                  data-ga-cta="hero-secondary"
+                  class="text-sm font-semibold text-foreground hover:text-primary transition-colors duration-300"
+                >
+                  {ctaSecondary.text} <span aria-hidden="true">→</span>
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+        
+        <!-- Masonry Image Gallery -->
+        <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+          <!-- Column 1 -->
+          <div class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
+            <div class="relative">
+              <Image
+                src={galleryImages[0].src}
+                alt={galleryImages[0].alt}
+                class="aspect-[2/3] w-full rounded-xl bg-muted/20 object-cover shadow-lg ring-1 ring-border/10"
+                width={176}
+                height={264}
+              />
+            </div>
+          </div>
+          
+          <!-- Column 2 -->
+          <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
+            <div class="relative">
+              <Image
+                src={galleryImages[1].src}
+                alt={galleryImages[1].alt}
+                class="aspect-[2/3] w-full rounded-xl bg-muted/20 object-cover shadow-lg ring-1 ring-border/10"
+                width={176}
+                height={264}
+              />
+            </div>
+            <div class="relative">
+              <Image
+                src={galleryImages[2].src}
+                alt={galleryImages[2].alt}
+                class="aspect-[2/3] w-full rounded-xl bg-muted/20 object-cover shadow-lg ring-1 ring-border/10"
+                width={176}
+                height={264}
+              />
+            </div>
+          </div>
+          
+          <!-- Column 3 -->
+          <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+            <div class="relative">
+              <Image
+                src={galleryImages[3].src}
+                alt={galleryImages[3].alt}
+                class="aspect-[2/3] w-full rounded-xl bg-muted/20 object-cover shadow-lg ring-1 ring-border/10"
+                width={176}
+                height={264}
+              />
+            </div>
+            <div class="relative">
+              <Image
+                src={galleryImages[4].src}
+                alt={galleryImages[4].alt}
+                class="aspect-[2/3] w-full rounded-xl bg-muted/20 object-cover shadow-lg ring-1 ring-border/10"
+                width={176}
+                height={264}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  )}-->
+  </div>
 </section>
 
 <style>
@@ -112,5 +184,10 @@ const {
   
   .hero > div {
     animation: fadeInUp 1s ease-out;
+  }
+  
+  /* Ensure images load smoothly */
+  .hero img {
+    transition: opacity 0.3s ease-in-out;
   }
 </style>

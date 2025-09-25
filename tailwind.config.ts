@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['UDC Annata Round', 'Georgia', 'serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'Georgia', 'serif'],
         serif: ['Georgia', 'serif'],
         mono: ['SF Mono', 'Consolas', 'monospace'],
       },

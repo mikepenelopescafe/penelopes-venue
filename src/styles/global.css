@@ -136,22 +136,7 @@
   --sidebar-ring: oklch(0.68 0.08 85);
 }
 
-/* Custom Font Face Definitions */
-@font-face {
-  font-family: 'UDC Annata Round';
-  src: url('/fonts/UDC-Annata-Round.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Letterpress Sans';
-  src: url('/fonts/LetterpressSans-Thin.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
+/* Custom Font Face Definitions: using Google Font Montserrat via link in head */
 
 @layer base {
   * {
@@ -165,9 +150,9 @@
 /* Typography System */
 @layer base {
   :root {
-    /* Font families - Premium fonts with system fallbacks */
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-display: 'UDC Annata Round', Georgia, 'Times New Roman', serif;
+    /* Font families - using Montserrat for both display and sans */
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'Montserrat', Georgia, 'Times New Roman', serif;
     --font-serif: Georgia, 'Times New Roman', serif;
     --font-mono: 'SF Mono', Consolas, 'Liberation Mono', monospace;
     
